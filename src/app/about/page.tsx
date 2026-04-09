@@ -357,17 +357,34 @@ export default function AboutPage() {
                 </p>
 
                 <p>
-                  In 2020, William joined PRC Industries in Spruce Pine, North Carolina as a
-                  Senior Engineer, where he wrote remanufacturing procedures, reverse-engineered
-                  replacement parts, and collaborated with outside engineering teams on client
-                  projects. He returned to MSI-Viking in 2022 as Director of E-Commerce, where
-                  he turned what had been a side channel into a primary revenue driver for the
-                  company. Today he oversees multi-channel operations across msi-viking.com,
-                  Amazon, eBay, and Shopify, serves as the company&apos;s NetSuite administrator,
-                  manages a multimillion-dollar product inventory, and produces all product
-                  photography and video content in-house. Under his leadership, the team cut
-                  freight costs by over 40% while achieving consistent three-day delivery
-                  windows on in-stock inventory.
+                  In 2020, William joined{" "}
+                  <span className="text-heading">PRC Industries</span> in Spruce Pine,
+                  North Carolina as a Senior Engineer.{" "}
+                  <span className="text-heading">PRC Industries</span> is a large-scale
+                  product remanufacturing company that processes returns and restores
+                  defective products for major brands and retailers, most notably{" "}
+                  <span className="text-heading">Amazon</span>. The company&apos;s campus
+                  handles everything from refrigerators and vacuums to sporting goods,
+                  with a team of engineers diagnosing product flaws through total
+                  disassembly and reverse engineering. William wrote remanufacturing
+                  procedures, reverse-engineered replacement parts, and collaborated with
+                  outside engineering teams on client projects. The role sharpened his
+                  ability to diagnose unfamiliar hardware quickly, a skill that carries
+                  directly into the work WildTech does today.
+                </p>
+
+                <p>
+                  He returned to{" "}
+                  <span className="text-heading">MSI-Viking</span> in 2022 as Director
+                  of E-Commerce, where he turned what had been a side channel into a
+                  primary revenue driver for the company. Today he oversees multi-channel
+                  operations across msi-viking.com,{" "}
+                  <span className="text-heading">Amazon</span>, eBay, and Shopify, serves
+                  as the company&apos;s NetSuite administrator, manages a multimillion-dollar
+                  product inventory, and produces all product photography and video content
+                  in-house. Under his leadership, the team cut freight costs by over 40%
+                  while achieving consistent three-day delivery windows on in-stock
+                  inventory.
                 </p>
 
                 <p>
