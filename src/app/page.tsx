@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Testimonials from "@/components/Testimonials";
 import PhoneMockup from "@/components/PhoneMockup";
 
 const products = [
@@ -186,10 +185,57 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Testimonials */}
-      <div className="border-t border-border">
-        <Testimonials />
-      </div>
+      {/* Ecosystem */}
+      <section className="py-32 border-t border-border">
+        <div className="max-w-4xl mx-auto px-6 lg:px-8">
+          <p className="text-xs uppercase tracking-widest text-muted mb-2 font-[family-name:var(--font-sans)]">
+            One venture, four brands
+          </p>
+          <h2 className="text-3xl sm:text-4xl font-[family-name:var(--font-serif)] italic text-heading mb-16">
+            The Ecosystem
+          </h2>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-px bg-border">
+            {[
+              {
+                name: "WildTech Development",
+                description: "Software & hardware solutions",
+                href: "https://wildtechdev.com",
+              },
+              {
+                name: "WildTech CHS",
+                description: "Charleston's trusted technology service provider",
+                href: "https://wildtechchs.com",
+              },
+              {
+                name: "Churchd",
+                description: "Church community platform",
+                href: "https://churchd.com",
+              },
+              {
+                name: "VikingSense",
+                description: "Precision climate monitoring",
+                href: "https://vikingsense.com",
+              },
+            ].map((brand) => (
+              <a
+                key={brand.name}
+                href={brand.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group bg-black p-8 sm:p-10 flex flex-col justify-between min-h-[140px]"
+              >
+                <h3 className="text-xl sm:text-2xl font-[family-name:var(--font-serif)] italic text-heading group-hover:text-green transition-colors duration-300">
+                  {brand.name}
+                </h3>
+                <p className="text-sm text-muted mt-3 font-[family-name:var(--font-sans)]">
+                  {brand.description}
+                </p>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
     </>
   );
 }
