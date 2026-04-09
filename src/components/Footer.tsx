@@ -35,7 +35,7 @@ export default function Footer() {
               </span>
             </Link>
             <p className="text-sm text-muted mt-2 font-[family-name:var(--font-sans)]">
-              Software &amp; hardware solutions
+              Software, hardware, and services from Charleston, SC
             </p>
           </div>
 

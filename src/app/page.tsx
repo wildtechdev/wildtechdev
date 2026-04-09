@@ -6,7 +6,7 @@ const products = [
     name: "Spirits of Charleston",
     mockup: "spirits-charleston" as const,
     type: "APP",
-    description: "75+ narrated ghost stories tied to real Charleston locations.",
+    description: "75+ narrated ghost stories tied to real Charleston locations, from the Old City Jail to the islands.",
     price: "$4.99",
     rating: "5.0",
     link: "https://apps.apple.com/us/app/spirits-of-charleston/id6476931671",
@@ -17,7 +17,7 @@ const products = [
     name: "Spirits of Savannah",
     mockup: "spirits-savannah" as const,
     type: "APP",
-    description: "55+ haunted tales beneath Savannah\u2019s moss-draped oaks.",
+    description: "55+ haunted tales covering downtown Savannah to Ossabaw Island and Hardeeville, SC.",
     price: "$3.99",
     rating: "5.0",
     link: "https://apps.apple.com/us/app/spirits-of-savannah/id6740187114",
@@ -28,7 +28,7 @@ const products = [
     name: "EZ Fuse Tester",
     mockup: "ez-fuse" as const,
     type: "APP",
-    description: "Instant fuse continuity testing using your phone\u2019s touchscreen.",
+    description: "Test any glass fuse with your phone's touchscreen. No tools needed.",
     price: "Free",
     link: "https://apps.apple.com/us/app/ez-fuse-tester/id6737378228",
     linkLabel: "App Store",
@@ -38,7 +38,7 @@ const products = [
     name: "Churchd",
     mockup: "churchd" as const,
     type: "PLATFORM",
-    description: "A purpose-built community platform for churches.",
+    description: "A community platform built specifically for churches. Profiles, events, groups, and more.",
     link: "https://churchd.com",
     linkLabel: "churchd.com",
     hoverTint: "hover:bg-indigo-950/[0.03]",
@@ -47,7 +47,7 @@ const products = [
     name: "VikingSense",
     mockup: "vikingsense" as const,
     type: "HARDWARE",
-    description: "Precision climate monitoring for calibration labs and server rooms.",
+    description: "Precision climate monitoring for calibration labs, server rooms, and cleanrooms.",
     link: "https://vikingsense.com",
     linkLabel: "vikingsense.com",
     hoverTint: "hover:bg-red-950/[0.03]",
@@ -57,7 +57,7 @@ const products = [
 const services = [
   {
     title: "iOS Development",
-    description: "Native apps built with Swift and SwiftUI for performance and polish.",
+    description: "Native apps built with Swift and SwiftUI, from first sketch to App Store launch.",
     icon: (
       <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
         <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 1.5H8.25A2.25 2.25 0 006 3.75v16.5a2.25 2.25 0 002.25 2.25h7.5A2.25 2.25 0 0018 20.25V3.75a2.25 2.25 0 00-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3" />
@@ -66,7 +66,7 @@ const services = [
   },
   {
     title: "Windows Development",
-    description: "Desktop applications and tools for the Windows ecosystem.",
+    description: "Desktop tools and utilities for productivity, data processing, and business operations.",
     icon: (
       <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
         <path strokeLinecap="round" strokeLinejoin="round" d="M9 17.25v1.007a3 3 0 01-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0115 18.257V17.25m6-12V15a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 15V5.25A2.25 2.25 0 015.25 3h13.5A2.25 2.25 0 0121 5.25z" />
@@ -75,7 +75,7 @@ const services = [
   },
   {
     title: "Web Development",
-    description: "Modern, responsive web applications with cutting-edge frameworks.",
+    description: "Fast, responsive sites and web apps built with Next.js, React, and Tailwind.",
     icon: (
       <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
         <path strokeLinecap="round" strokeLinejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5a17.92 17.92 0 01-8.716-2.247m0 0A9.015 9.015 0 013 12c0-1.605.42-3.113 1.157-4.418" />
@@ -84,7 +84,7 @@ const services = [
   },
   {
     title: "App Store Optimization",
-    description: "Data-driven strategies to maximize visibility and downloads.",
+    description: "Keyword strategy, screenshot design, and review management to increase downloads.",
     icon: (
       <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
         <path strokeLinecap="round" strokeLinejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z" />
@@ -93,7 +93,7 @@ const services = [
   },
   {
     title: "Systems Integration",
-    description: "Bridging software, hardware, and third-party platforms.",
+    description: "Connecting software, hardware, and third-party platforms into one clean workflow.",
     icon: (
       <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
         <path strokeLinecap="round" strokeLinejoin="round" d="M14.25 6.087c0-.355.186-.676.401-.959.221-.29.349-.634.349-1.003 0-1.036-1.007-1.875-2.25-1.875s-2.25.84-2.25 1.875c0 .369.128.713.349 1.003.215.283.401.604.401.959v0a.64.64 0 01-.657.643 48.39 48.39 0 01-4.163-.3c.186 1.613.95 3.033 2.07 4.017v0a.64.64 0 01.142.79 7.48 7.48 0 01-1.17 1.622c1.768.96 3.83 1.016 5.635.134a.64.64 0 01.673.053 7.49 7.49 0 002.378 1.236.64.64 0 01.437.584v0c0 .385-.18.738-.434 1.004-.258.27-.566.596-.566 1.008 0 1.036 1.007 1.875 2.25 1.875s2.25-.84 2.25-1.875c0-.412-.308-.738-.566-1.008a1.407 1.407 0 01-.434-1.004v0a.64.64 0 01.437-.584 7.49 7.49 0 002.378-1.236.64.64 0 01.673-.053c1.805.882 3.867.826 5.635-.134a7.48 7.48 0 01-1.17-1.622.64.64 0 01.142-.79c1.12-.984 1.884-2.404 2.07-4.017a48.39 48.39 0 01-4.163.3.64.64 0 01-.657-.643v0c0-.355.186-.676.401-.959.221-.29.349-.634.349-1.003 0-1.036-1.007-1.875-2.25-1.875s-2.25.84-2.25 1.875c0 .369.128.713.349 1.003.215.283.401.604.401.959v0" />
@@ -102,7 +102,7 @@ const services = [
   },
   {
     title: "Hardware Solutions",
-    description: "Custom IoT and precision monitoring systems.",
+    description: "Sensor networks, embedded systems, and IoT monitoring backed by reliable software.",
     icon: (
       <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
         <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 3v1.5M4.5 8.25H3m18 0h-1.5M4.5 12H3m18 0h-1.5m-15 3.75H3m18 0h-1.5M8.25 19.5V21M12 3v1.5m0 15V21m3.75-18v1.5m0 15V21m-9-1.5h10.5a2.25 2.25 0 002.25-2.25V6.75a2.25 2.25 0 00-2.25-2.25H6.75A2.25 2.25 0 004.5 6.75v10.5a2.25 2.25 0 002.25 2.25zm.75-12h9v9h-9v-9z" />
@@ -179,7 +179,7 @@ export default function HomePage() {
             </span>
           </h1>
           <p className="mt-8 text-body text-base sm:text-lg max-w-lg mx-auto animate-fade-in-up delay-200">
-            Turning bold ideas into powerful software and hardware solutions
+            We build apps, platforms, and hardware that solve real problems.
           </p>
           <p className="mt-3 text-xs font-mono text-green tracking-widest animate-fade-in-up delay-300">
             Charleston, SC

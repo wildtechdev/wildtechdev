@@ -90,9 +90,10 @@ const orgJsonLd = {
 
 const quickFacts = [
   { label: "Location", value: "Charleston, SC" },
-  { label: "Background", value: "Engineering & Metrology" },
+  { label: "Background", value: "Engineering, Metrology, E-Commerce" },
   { label: "Role", value: "Director of E-Commerce, MSI-Viking Gage" },
   { label: "Founded", value: "WildTech Ventures, 2024" },
+  { label: "At MSI-Viking", value: "13+ years across 3 roles" },
 ];
 
 const ecosystem = [
@@ -157,6 +158,14 @@ const hobbies = [
     ),
   },
   {
+    label: "Pilot",
+    icon: (
+      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5" />
+      </svg>
+    ),
+  },
+  {
     label: "Cybersecurity",
     icon: (
       <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
@@ -215,26 +224,30 @@ export default function AboutPage() {
               {/* Company copy */}
               <div className="space-y-7 text-body leading-relaxed lg:w-1/2">
                 <p>
-                  WildTech Development is the software and hardware arm of{" "}
-                  <span className="text-heading">WildTech Ventures, LLC</span>, a
-                  Charleston-based technology company founded in 2024. We build products that
-                  solve real problems, from mobile apps that bring history to life to precision
-                  monitoring hardware trusted in calibration labs and server rooms.
+                  WildTech Development is the software and hardware division of{" "}
+                  <span className="text-heading">WildTech Ventures, LLC</span>. We are a
+                  small, founder-led technology company based in Charleston, South Carolina
+                  that builds products people actually use. Our work spans iOS apps on the
+                  App Store, web platforms, and precision IoT hardware.
                 </p>
 
                 <p>
-                  What started with a single iOS app on February 1, 2024 has grown into a
-                  portfolio of five products spanning mobile apps, web platforms, and IoT
-                  hardware. Every product in our lineup was conceived, designed, and shipped by a
-                  small team that values precision over speed and quality over quantity.
+                  The company launched on February 1, 2024, with the release of Spirits of
+                  Charleston, a ghost story app for the Lowcountry. Within the first year,
+                  the portfolio grew to include Spirits of Savannah, EZ Fuse Tester, and two
+                  larger ventures: Churchd, a community platform built for churches, and
+                  VikingSense, a precision climate monitoring system distributed exclusively
+                  through MSI-Viking Gage.
                 </p>
 
                 <p>
                   WildTech Development operates alongside{" "}
-                  <span className="text-heading">WildTech CHS</span>, our Charleston-area
-                  technology services division handling security, structured cabling, commercial
-                  A/V, and smart office installations. Together with Churchd and VikingSense,
-                  these brands form the WildTech Ventures ecosystem.
+                  <span className="text-heading">WildTech CHS</span>, our local technology
+                  services division. WildTech CHS handles security camera installations,
+                  structured cabling, commercial audio and video, and smart office setups
+                  across the Charleston area. Between the two divisions plus Churchd and
+                  VikingSense, WildTech Ventures covers software, hardware, services, and
+                  platforms under one roof.
                 </p>
               </div>
             </div>
@@ -325,34 +338,43 @@ export default function AboutPage() {
               <div className="space-y-7 text-body leading-relaxed lg:w-[65%]">
                 <p>
                   William McCants is the founder of{" "}
-                  <span className="text-heading">WildTech Ventures, LLC</span>, a
-                  Charleston-based technology company building software, hardware, and service
-                  solutions. With over a decade of hands-on experience in engineering, metrology,
-                  and quality control, William brings an uncommon precision to software
-                  development. That same attention to detail that defines his work in
-                  industrial measurement carries into every line of code.
+                  <span className="text-heading">WildTech Ventures, LLC</span>. He grew up
+                  in Charleston, South Carolina and has spent his career solving technical
+                  problems across industries ranging from aerospace manufacturing to
+                  industrial metrology to e-commerce.
                 </p>
 
                 <p>
-                  By day, William serves as Director of E-Commerce at{" "}
-                  <span className="text-heading">MSI-Viking Gage</span>, one of the country&apos;s
-                  leading suppliers of precision measuring technologies. MSI-Viking has been a
-                  trusted name in metrology since 1967, representing brands like ZEISS, Mitutoyo,
-                  Starrett, and Mahr. This role puts William at the intersection of industrial
-                  technology, e-commerce, and enterprise sales. That experience directly
-                  informs how WildTech approaches product development and go-to-market strategy.
+                  William&apos;s professional path started at{" "}
+                  <span className="text-heading">MSI-Viking Gage</span> in 2012, where he
+                  built the company&apos;s Equipment Recovery and Sales department from the ground
+                  up. What began as a one-person operation grew into a four-employee
+                  department with a national market presence, buying, refurbishing, and
+                  reselling industrial calibration and metrology equipment. He later moved
+                  into an Application Engineer role at MSI-Viking, specializing in ZEISS
+                  Optotechnik 3D scanning systems, scan-to-CAD reverse engineering, and
+                  custom fixturing using additive manufacturing.
                 </p>
 
                 <p>
-                  WildTech Ventures launched in 2024 with the release of{" "}
-                  <span className="text-heading">Spirits of Charleston</span>, an iOS app featuring
-                  over 75 narrated ghost stories tied to real locations across the Holy City. Within
-                  months, the portfolio expanded to include Spirits of Savannah, EZ Fuse Tester, and
-                  two ambitious new ventures: Churchd, a community platform built for churches, and
-                  VikingSense, a precision climate monitoring system distributed exclusively through
-                  MSI-Viking Gage. What started as a single app became a full ecosystem spanning
-                  mobile apps, web platforms, IoT hardware, and local technology services through
-                  WildTech CHS.
+                  In 2020, William joined PRC Industries in Spruce Pine, North Carolina as a
+                  Senior Engineer, where he wrote remanufacturing procedures, reverse-engineered
+                  replacement parts, and collaborated with outside engineering teams on client
+                  projects. He returned to MSI-Viking in 2022 as Director of E-Commerce, where
+                  he turned what had been a side channel into a primary revenue driver for the
+                  company. Today he oversees multi-channel operations across msi-viking.com,
+                  Amazon, eBay, and Shopify, serves as the company&apos;s NetSuite administrator,
+                  manages a multimillion-dollar product inventory, and produces all product
+                  photography and video content in-house. Under his leadership, the team cut
+                  freight costs by over 40% while achieving consistent three-day delivery
+                  windows on in-stock inventory.
+                </p>
+
+                <p>
+                  WildTech Ventures grew out of the same mindset that has defined William&apos;s
+                  entire career: see a problem, understand it deeply, and build something
+                  that fixes it. Every product in the WildTech portfolio started as a real
+                  problem that did not have a good enough solution.
                 </p>
               </div>
             </div>
@@ -366,9 +388,19 @@ export default function AboutPage() {
 
             <div className="space-y-7 text-body leading-relaxed">
               <p>
-                Known as <span className="text-heading">&ldquo;Gadget&rdquo;</span> by
-                his nieces and nephews for always tinkering and finding tech solutions to
-                everyday problems. That same inventive spirit drives every project.
+                His nieces and nephews call him{" "}
+                <span className="text-heading">&ldquo;Gadget&rdquo;</span> because
+                there is always a project on the workbench, a 3D printer running, or
+                some piece of technology being taken apart and put back together. That
+                same restless curiosity is what drives WildTech.
+              </p>
+
+              <p>
+                When he is not writing code or building hardware, William spends his
+                time behind a camera, playing guitar at his church&apos;s Sunday worship
+                service, or camping somewhere in the Lowcountry. He also volunteers
+                with his church&apos;s handicap ramp building team and holds a private
+                pilot certificate, though these days the flying is mostly for fun.
               </p>
 
               {/* Hobby icons */}
@@ -381,10 +413,6 @@ export default function AboutPage() {
                 ))}
               </div>
 
-              <p className="text-sm text-muted">
-                There&apos;s usually a Flipper Zero within arm&apos;s reach.
-              </p>
-
               <blockquote className="border-l-[3px] border-green pl-6 py-2">
                 <p className="text-lg font-[family-name:var(--font-serif)] italic text-heading leading-relaxed">
                   &ldquo;Whatever you do, work heartily, as for the Lord and not for men,
@@ -395,11 +423,6 @@ export default function AboutPage() {
                   Colossians 3:23-24
                 </cite>
               </blockquote>
-
-              <p className="text-muted">
-                A faith-driven entrepreneur building with purpose, integrity,
-                and excellence.
-              </p>
             </div>
           </div>
 

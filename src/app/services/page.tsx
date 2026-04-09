@@ -17,37 +17,37 @@ const services = [
   {
     title: "iOS Development",
     description:
-      "We build native iOS applications using Swift and SwiftUI that are fast, beautiful, and built to last. From concept to App Store launch, we handle the full lifecycle: design, development, testing, and submission.",
+      "We build native iOS applications using Swift and SwiftUI that are designed to last. From the first conversation about what the app should do through design, development, testing, and App Store submission, we handle the full lifecycle. Our own apps are live on the App Store, which means we deal with the same review process, the same guidelines, and the same real-world user feedback that your app will face. That experience shows up in every decision we make during development.",
     tags: ["Swift & SwiftUI", "App Store Submission", "In-App Purchases", "Push Notifications"],
   },
   {
     title: "Windows Development",
     description:
-      "Desktop applications and utilities for the Windows ecosystem. Productivity tools, data processing applications, and custom business solutions. Polished software for Windows.",
+      "Not everything belongs on a phone or in a browser. Some tools work best as desktop applications, and we build those too. Productivity tools, data processing utilities, and custom business solutions for the Windows ecosystem. Our Windows work has included privately distributed software for national clients where reliability and performance matter more than flashy design.",
     tags: [".NET & WPF", "Custom Utilities", "Data Processing", "Business Automation"],
   },
   {
     title: "Web Development",
     description:
-      "Modern, responsive web applications built with Next.js, React, and Tailwind CSS. Fast, accessible, SEO-optimized, and great on every device.",
+      "We build modern, responsive web applications using Next.js, React, and Tailwind CSS. Every site we ship is fast, accessible, SEO-optimized, and built to look sharp on any screen size. This site is a working example of our approach: server-rendered for speed, designed for clarity, and deployed on infrastructure that scales without babysitting.",
     tags: ["Next.js & React", "Responsive Design", "SEO Optimization", "Performance-First"],
   },
   {
     title: "App Store Optimization",
     description:
-      "Data-driven ASO strategies to maximize your app's visibility and downloads. We optimize metadata, keywords, screenshots, and review management.",
+      "Getting an app approved is only half the battle. The other half is making sure people can actually find it. We handle keyword optimization, screenshot design, review management, and analytics reporting to increase your app's visibility and downloads. Our own apps compete in crowded categories on the App Store, so the strategies we recommend are the same ones we use ourselves.",
     tags: ["Keyword Optimization", "Screenshot Design", "Review Management", "Analytics"],
   },
   {
     title: "Systems Integration",
     description:
-      "Connect your software, hardware, and third-party platforms into a unified system. We bridge disparate technologies to create seamless workflows and data pipelines.",
+      "Most businesses run on a patchwork of software, hardware, and third-party services that were never designed to talk to each other. We connect those pieces into unified systems with clean data pipelines and reliable automation. Whether it is linking an ERP system to an e-commerce storefront or bridging legacy equipment with modern dashboards, we build the connective tissue that makes everything work together.",
     tags: ["API Integration", "Data Pipelines", "Legacy Modernization", "Cloud Services"],
   },
   {
     title: "Hardware Solutions",
     description:
-      "Custom hardware design and IoT solutions for precision monitoring and control. Sensor networks, embedded systems, and reliable hardware backed by intuitive software.",
+      "Custom hardware design and IoT solutions for environments where off-the-shelf sensors and consumer-grade devices fall short. We build sensor networks, embedded monitoring systems, and precision instruments backed by software that makes the data useful. VikingSense is the flagship example: industrial-grade climate monitoring built from scratch and distributed through one of the largest metrology companies in the country.",
     tags: ["IoT Sensors", "Embedded Systems", "Real-Time Dashboards", "Industrial-Grade"],
   },
 ];
@@ -63,7 +63,7 @@ const whyUs = [
   },
   {
     title: "Charleston-based",
-    description: "Local expertise with a national reach. On-site when you need it, remote when you don\u2019t.",
+    description: "Local expertise with a national reach. On-site when you need it, remote when you don't.",
   },
 ];
 

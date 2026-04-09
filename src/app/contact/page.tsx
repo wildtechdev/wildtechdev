@@ -25,8 +25,9 @@ export default function ContactPage() {
             <span className="relative">Have an idea? Let&apos;s build it.</span>
           </h1>
           <p className="text-body text-lg leading-relaxed">
-            Whether you need an iOS app, a custom hardware solution, or a complete web
-            platform, every project starts with a conversation.
+            Whether you need an app on the App Store, a custom piece of hardware, or a
+            full web platform, it all starts with a conversation. Tell us what you are
+            trying to solve.
           </p>
         </div>
 

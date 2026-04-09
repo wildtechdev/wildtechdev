@@ -22,7 +22,7 @@ const products = [
     rating: "5.0",
     accentColor: "border-l-amber-700/30",
     description:
-      "Walk through the Holy City\u2019s most haunted streets with over 75 professionally narrated ghost stories. Every tale is tied to a real Charleston location, from the Old City Jail to the Unitarian Church graveyard. Audio narration, historical photographs, and GPS-tagged locations make this the most comprehensive ghost experience in the Lowcountry. Featured categories include colonial hauntings, Civil War spirits, pirate legends, and modern-day encounters.",
+      "Spirits of Charleston is the most comprehensive ghost story app in the Lowcountry. Over 75 professionally narrated tales walk you through the haunted side of Charleston, each one tied to a real location you can visit. From the Old City Jail and the Unitarian Church graveyard to the beaches, forts, and islands beyond the peninsula, every story comes with audio narration, historical photographs, and GPS-tagged locations so you can explore at your own pace. The app covers corners of Charleston that no other ghost tour has ever touched, including stories from Summerville and Moncks Corner. Whether you are a local who has walked these streets a thousand times or a visitor planning your first trip, this is the ghost tour that fits your schedule, not the other way around.",
     features: [
       "Professional audio narratives",
       "Historical photographs",
@@ -48,7 +48,7 @@ const products = [
     rating: "5.0",
     accentColor: "border-l-teal-600/30",
     description:
-      "The haunted side of Savannah comes alive through curated ghost stories and guided audio experiences. From the colonial cemeteries to the infamous squares, explore the dark history of one of America\u2019s most storied cities.",
+      "Spirits of Savannah brings over 55 narrated ghost stories to life across one of America's most haunted cities. The app covers far more than just the downtown squares. You will find yourself exploring tales from Ossabaw Island, Hardeeville, SC, colonial cemeteries, haunted mansions, and remote locations that most visitors never hear about. Each story includes audio narration and historic photos that pull you into the city's darker history. Families visiting Savannah have used the app to turn a packed itinerary into a flexible ghost tour they could spread across an entire weekend, hitting haunted stops between meals and shopping without ever going out of their way.",
     features: [
       "55+ ghost stories and growing",
       "Authentic audio narratives",
@@ -74,10 +74,10 @@ const products = [
     rating: null,
     accentColor: "border-l-green/30",
     description:
-      "Your smartphone becomes a precision fuse continuity tester. Place any standard glass cartridge fuse on the screen and get instant pass/fail feedback using your phone\u2019s built-in capacitive sensors. No multimeter needed. Works with automotive, home, and holiday light fuses.",
+      "EZ Fuse Tester turns your iPhone into a simple fuse continuity tester. Place a standard glass cartridge fuse across the screen and the app gives you instant pass or fail feedback using the phone's built-in capacitive touch sensors. There is nothing to buy, nothing to plug in, and nothing to charge. It works with the small glass fuses you find in cars, household electronics, and holiday string lights. One user was about to throw out a set of Halloween lights before testing the fuses with the app, replacing two of them, and getting the whole set working again.",
     features: [
       "Instant PASS/FAIL visual feedback",
-      "Uses phone\u2019s capacitive touchscreen sensors",
+      "Uses phone's capacitive touchscreen sensors",
       "Built-in demonstration image guide",
       "No extra hardware needed",
       "Works with small glass cartridge fuses",
@@ -100,7 +100,7 @@ const products = [
     rating: null,
     accentColor: "border-l-indigo-500/30",
     description:
-      "A purpose-built community platform for churches. Member profiles, event management, group communication, volunteer coordination, digital bulletins, and sermon archives, all in one place. Currently in active development with profile tabs, post feeds, and community features already designed and prototyped.",
+      "Churchd is a community platform designed from the ground up for churches. Member profiles, event management, group communication, volunteer coordination, digital bulletins, and sermon archives all live in one place. The platform is currently in active development with profile tabs, post feeds, and community features already designed and prototyped. The goal is to give congregations a single tool that handles everything they currently split across five or six different apps and spreadsheets.",
     features: [
       "Event management",
       "Group communication",
@@ -123,7 +123,7 @@ const products = [
     rating: null,
     accentColor: "border-l-red-600/30",
     description:
-      "Precision climate monitoring hardware paired with intelligent software. Real-time temperature, humidity, and environmental data with enterprise-grade reliability. Purpose-built for environments where accuracy matters: calibration labs, server rooms, warehouses, and cleanrooms. Exclusively distributed through MSI-Viking Gage.",
+      "VikingSense pairs precision climate monitoring hardware with intelligent software. The system tracks temperature, humidity, and environmental conditions in real time with the kind of accuracy that calibration labs, server rooms, warehouses, and cleanrooms demand. Every sensor is built for enterprise-grade reliability, and the software gives you dashboards, alerts, and historical data without the complexity of most industrial monitoring platforms. VikingSense is distributed exclusively through MSI-Viking Gage, one of the country's leading names in precision measurement.",
     features: [
       "Precision sensors",
       "Real-time monitoring",
