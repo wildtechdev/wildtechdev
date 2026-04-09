@@ -1,5 +1,6 @@
 import Link from "next/link";
 import PhoneMockup from "@/components/PhoneMockup";
+import ScrollReveal from "@/components/ScrollReveal";
 
 const products = [
   {
@@ -168,42 +169,42 @@ export default function HomePage() {
       {/* Hero */}
       <section className="relative min-h-screen flex items-center justify-center">
         <div className="relative z-10 max-w-5xl mx-auto px-6 lg:px-8 text-center">
-          <h1 className="relative animate-fade-in-up">
+          <h1 className="relative">
             {/* Glow behind WildTech */}
             <span className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] rounded-full bg-green pointer-events-none animate-glow-pulse" />
-            <span className="relative block text-[clamp(3.5rem,10vw,7rem)] font-[family-name:var(--font-serif)] italic text-heading leading-[0.95] tracking-tight">
+            <span className="relative block text-[clamp(3.5rem,10vw,7rem)] font-[family-name:var(--font-serif)] italic text-heading leading-[0.95] tracking-tight animate-hero-reveal">
               WildTech
             </span>
-            <span className="relative block text-lg sm:text-xl tracking-[0.3em] uppercase text-body mt-4 font-[family-name:var(--font-sans)] font-light">
+            <span className="relative block text-lg sm:text-xl tracking-[0.3em] uppercase text-body mt-4 font-[family-name:var(--font-sans)] font-light animate-hero-reveal delay-200">
               Development
             </span>
           </h1>
-          <p className="mt-8 text-body text-base sm:text-lg max-w-lg mx-auto animate-fade-in-up delay-200">
+          <p className="mt-8 text-body text-base sm:text-lg max-w-lg mx-auto animate-fade-in-up delay-400">
             We build apps, platforms, and hardware that solve real problems.
           </p>
-          <p className="mt-3 text-xs font-mono text-green tracking-widest animate-fade-in-up delay-300">
+          <p className="mt-3 text-xs font-mono text-green tracking-widest animate-fade-in-up delay-400">
             Charleston, SC
           </p>
-          <div className="mt-10 animate-fade-in-up delay-400">
-            <Link href="/products" className="btn-ghost">
+          <div className="mt-10 animate-fade-in-up delay-500">
+            <Link href="/products" className="btn-ghost w-full sm:w-auto justify-center">
               See what we&apos;ve built &rarr;
             </Link>
           </div>
 
           {/* Stats row */}
-          <div className="mt-14 flex items-center justify-center gap-0 font-mono text-sm animate-fade-in-up delay-500">
+          <div className="mt-14 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-0 font-mono text-sm animate-fade-in-up delay-600">
             <span className="flex items-center gap-2">
               <span className="w-1.5 h-1.5 bg-green rounded-full" />
               <span className="text-heading">3</span>
               <span className="text-muted">Apps Live</span>
             </span>
-            <span className="mx-5 w-px h-4 bg-border" />
+            <span className="hidden sm:block mx-5 w-px h-4 bg-border" />
             <span className="flex items-center gap-2">
               <span className="w-1.5 h-1.5 bg-green rounded-full" />
               <span className="text-heading">5</span>
               <span className="text-muted">Products</span>
             </span>
-            <span className="mx-5 w-px h-4 bg-border" />
+            <span className="hidden sm:block mx-5 w-px h-4 bg-border" />
             <span className="flex items-center gap-2">
               <span className="w-1.5 h-1.5 bg-green rounded-full" />
               <span className="text-heading">2024</span>
@@ -212,12 +213,12 @@ export default function HomePage() {
           </div>
 
           {/* Gradient rule */}
-          <div className="mt-12 flex justify-center animate-fade-in-up delay-500">
+          <div className="mt-12 flex justify-center animate-fade-in-up delay-600">
             <div className="w-[60%] h-px" style={{ background: "linear-gradient(to right, transparent, #222, transparent)" }} />
           </div>
 
-          {/* Scroll indicator */}
-          <div className="mt-10 animate-fade-in-up delay-600">
+          {/* Scroll indicator - hidden on mobile */}
+          <div className="mt-10 hidden sm:block animate-fade-in-up delay-600">
             <svg className="w-5 h-5 mx-auto text-[#333] animate-bob" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
             </svg>
@@ -243,96 +244,98 @@ export default function HomePage() {
           {/* Top row: 3 cards */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-border">
             {products.slice(0, 3).map((product, i) => (
-              <div
-                key={product.name}
-                className={`group relative bg-black p-7 sm:p-8 border border-transparent hover:border-green transition-all duration-300 ${product.hoverTint}`}
-              >
-                <span className="text-[48px] leading-none font-[family-name:var(--font-serif)] text-border group-hover:text-[#333] transition-colors duration-300 absolute top-5 left-7">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <span className="absolute top-7 right-7 text-[10px] font-mono tracking-[0.2em] text-green">
-                  {product.type}
-                </span>
-                <div className="flex justify-center mt-14 mb-6">
-                  <PhoneMockup product={product.mockup} size="small" />
-                </div>
-                <h3 className="text-xl font-[family-name:var(--font-serif)] italic text-heading mb-3">
-                  {product.name}
-                </h3>
-                <p className="text-body text-sm leading-relaxed mb-5">
-                  {product.description}
-                </p>
-                <div className="flex items-center gap-3 mb-4">
-                  {product.price && (
-                    <span className="text-heading text-sm font-[family-name:var(--font-sans)]">
-                      {product.price}
-                    </span>
+              <ScrollReveal key={product.name} delay={i * 100}>
+                <div
+                  className={`group relative bg-black p-7 sm:p-8 border border-transparent hover:border-green hover:-translate-y-1 transition-all duration-300 ${product.hoverTint}`}
+                >
+                  <span className="text-3xl sm:text-[48px] leading-none font-[family-name:var(--font-serif)] text-border group-hover:text-[#333] transition-colors duration-300 absolute top-5 left-7">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <span className="absolute top-7 right-7 text-[10px] font-mono tracking-[0.2em] text-green">
+                    {product.type}
+                  </span>
+                  <div className="flex justify-center mt-14 mb-6">
+                    <PhoneMockup product={product.mockup} size="small" />
+                  </div>
+                  <h3 className="text-xl font-[family-name:var(--font-serif)] italic text-heading mb-3">
+                    {product.name}
+                  </h3>
+                  <p className="text-body text-sm leading-relaxed mb-5">
+                    {product.description}
+                  </p>
+                  <div className="flex items-center gap-3 mb-4">
+                    {product.price && (
+                      <span className="text-heading text-sm font-[family-name:var(--font-sans)]">
+                        {product.price}
+                      </span>
+                    )}
+                    {product.rating && (
+                      <span className="text-[10px] text-muted font-mono">
+                        {product.rating} ★
+                      </span>
+                    )}
+                  </div>
+                  {product.link && (
+                    <a
+                      href={product.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-green text-sm link-underline font-[family-name:var(--font-sans)]"
+                    >
+                      {product.linkLabel} &rarr;
+                    </a>
                   )}
-                  {product.rating && (
-                    <span className="text-[10px] text-muted font-mono">
-                      {product.rating} ★
-                    </span>
-                  )}
                 </div>
-                {product.link && (
-                  <a
-                    href={product.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-green text-sm link-underline font-[family-name:var(--font-sans)]"
-                  >
-                    {product.linkLabel} &rarr;
-                  </a>
-                )}
-              </div>
+              </ScrollReveal>
             ))}
           </div>
 
-          {/* Bottom row: 2 cards, 50% each */}
+          {/* Bottom row: 2 cards - stack on mobile */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-px bg-border mt-px">
             {products.slice(3).map((product, i) => (
-              <div
-                key={product.name}
-                className={`group relative bg-black p-7 sm:p-8 border border-transparent hover:border-green transition-all duration-300 ${product.hoverTint}`}
-              >
-                <span className="text-[48px] leading-none font-[family-name:var(--font-serif)] text-border group-hover:text-[#333] transition-colors duration-300 absolute top-5 left-7">
-                  {String(i + 4).padStart(2, "0")}
-                </span>
-                <span className="absolute top-7 right-7 text-[10px] font-mono tracking-[0.2em] text-green">
-                  {product.type}
-                </span>
-                <div className="flex justify-center mt-14 mb-6">
-                  <PhoneMockup product={product.mockup} size="small" />
-                </div>
-                <h3 className="text-xl font-[family-name:var(--font-serif)] italic text-heading mb-3">
-                  {product.name}
-                </h3>
-                <p className="text-body text-sm leading-relaxed mb-5">
-                  {product.description}
-                </p>
-                <div className="flex items-center gap-3 mb-4">
-                  {product.price && (
-                    <span className="text-heading text-sm font-[family-name:var(--font-sans)]">
-                      {product.price}
-                    </span>
+              <ScrollReveal key={product.name} delay={i * 100}>
+                <div
+                  className={`group relative bg-black p-7 sm:p-8 border border-transparent hover:border-green hover:-translate-y-1 transition-all duration-300 ${product.hoverTint}`}
+                >
+                  <span className="text-3xl sm:text-[48px] leading-none font-[family-name:var(--font-serif)] text-border group-hover:text-[#333] transition-colors duration-300 absolute top-5 left-7">
+                    {String(i + 4).padStart(2, "0")}
+                  </span>
+                  <span className="absolute top-7 right-7 text-[10px] font-mono tracking-[0.2em] text-green">
+                    {product.type}
+                  </span>
+                  <div className="flex justify-center mt-14 mb-6">
+                    <PhoneMockup product={product.mockup} size="small" />
+                  </div>
+                  <h3 className="text-xl font-[family-name:var(--font-serif)] italic text-heading mb-3">
+                    {product.name}
+                  </h3>
+                  <p className="text-body text-sm leading-relaxed mb-5">
+                    {product.description}
+                  </p>
+                  <div className="flex items-center gap-3 mb-4">
+                    {product.price && (
+                      <span className="text-heading text-sm font-[family-name:var(--font-sans)]">
+                        {product.price}
+                      </span>
+                    )}
+                    {product.rating && (
+                      <span className="text-[10px] text-muted font-mono">
+                        {product.rating} ★
+                      </span>
+                    )}
+                  </div>
+                  {product.link && (
+                    <a
+                      href={product.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-green text-sm link-underline font-[family-name:var(--font-sans)]"
+                    >
+                      {product.linkLabel} &rarr;
+                    </a>
                   )}
-                  {product.rating && (
-                    <span className="text-[10px] text-muted font-mono">
-                      {product.rating} ★
-                    </span>
-                  )}
                 </div>
-                {product.link && (
-                  <a
-                    href={product.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-green text-sm link-underline font-[family-name:var(--font-sans)]"
-                  >
-                    {product.linkLabel} &rarr;
-                  </a>
-                )}
-              </div>
+              </ScrollReveal>
             ))}
           </div>
         </div>
@@ -353,42 +356,41 @@ export default function HomePage() {
           </h2>
 
           <div className="space-y-0">
-            {services.map((service) => (
-              <div
-                key={service.title}
-                className="group border-b border-border py-5 cursor-default"
-              >
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-4">
-                    <span className="text-[#333] group-hover:text-green transition-colors duration-300 shrink-0">
-                      {service.icon}
-                    </span>
-                    <h3 className="text-xl sm:text-2xl font-[family-name:var(--font-sans)] font-semibold text-heading transition-all duration-300 group-hover:translate-x-2 group-hover:text-green">
-                      {service.title}
-                    </h3>
+            {services.map((service, i) => (
+              <ScrollReveal key={service.title} delay={i * 80}>
+                <div className="group border-b border-border py-5 cursor-default">
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-4">
+                      <span className="text-[#333] group-hover:text-green group-hover:scale-110 transition-all duration-300 shrink-0 origin-center">
+                        {service.icon}
+                      </span>
+                      <h3 className="text-xl sm:text-2xl font-[family-name:var(--font-sans)] font-semibold text-heading transition-all duration-300 group-hover:translate-x-2 group-hover:text-green">
+                        {service.title}
+                      </h3>
+                    </div>
+                    {/* Arrow */}
+                    <svg
+                      className="w-4 h-4 text-muted transition-all duration-300 group-hover:rotate-45 group-hover:text-green shrink-0 ml-4"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4.5 19.5l15-15M19.5 4.5H8.25M19.5 4.5v11.25" />
+                    </svg>
                   </div>
-                  {/* Arrow */}
-                  <svg
-                    className="w-4 h-4 text-muted transition-all duration-300 group-hover:rotate-45 group-hover:text-green shrink-0 ml-4"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4.5 19.5l15-15M19.5 4.5H8.25M19.5 4.5v11.25" />
-                  </svg>
+                  <div className="flex items-baseline justify-between mt-2 pl-9">
+                    <p className="text-xs sm:text-sm text-muted group-hover:text-body transition-colors duration-300 font-[family-name:var(--font-sans)]">
+                      {service.description}
+                    </p>
+                    <Link
+                      href="/services"
+                      className="text-xs text-green link-underline font-[family-name:var(--font-sans)] shrink-0 ml-6 hidden lg:inline"
+                    >
+                      Learn more
+                    </Link>
+                  </div>
                 </div>
-                <div className="flex items-baseline justify-between mt-2 pl-9">
-                  <p className="text-sm text-muted group-hover:text-body transition-colors duration-300 font-[family-name:var(--font-sans)]">
-                    {service.description}
-                  </p>
-                  <Link
-                    href="/services"
-                    className="text-xs text-green link-underline font-[family-name:var(--font-sans)] shrink-0 ml-6 hidden sm:inline"
-                  >
-                    Learn more
-                  </Link>
-                </div>
-              </div>
+              </ScrollReveal>
             ))}
           </div>
         </div>
@@ -408,38 +410,42 @@ export default function HomePage() {
             The Ecosystem
           </h2>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-px bg-border">
-            {ecosystem.map((brand) => (
-              <a
-                key={brand.name}
-                href={brand.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group relative bg-[#050505] p-8 sm:p-10 flex flex-col justify-between min-h-[180px] overflow-hidden"
-                style={{ backgroundImage: `linear-gradient(to bottom, transparent 60%, ${brand.accentColor})` }}
-              >
-                {/* Icon top-right */}
-                <span className="absolute top-6 right-6 text-[#222] group-hover:text-green transition-colors duration-300">
-                  {brand.icon}
-                </span>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-px bg-border">
+            {ecosystem.map((brand, i) => (
+              <ScrollReveal key={brand.name} delay={i * 100}>
+                <a
+                  href={brand.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group relative bg-[#050505] p-8 sm:p-10 flex flex-col justify-between min-h-[180px] overflow-hidden"
+                  style={{ backgroundImage: `linear-gradient(to bottom, transparent 60%, ${brand.accentColor})` }}
+                >
+                  {/* Icon - inline on mobile, top-right on desktop */}
+                  <span className="hidden lg:block absolute top-6 right-6 text-[#222] group-hover:text-green transition-colors duration-300">
+                    {brand.icon}
+                  </span>
 
-                <div>
-                  <h3 className="text-2xl sm:text-3xl font-[family-name:var(--font-serif)] italic text-heading group-hover:text-green transition-colors duration-300">
-                    {brand.name}
-                  </h3>
-                  <p className="text-sm text-muted mt-3 font-[family-name:var(--font-sans)]">
-                    {brand.description}
-                  </p>
-                </div>
-                <div className="flex items-center justify-between mt-4">
-                  <p className="text-xs font-mono tracking-[0.15em] text-green">
-                    {brand.stat}
-                  </p>
-                  <svg className="w-4 h-4 text-transparent group-hover:text-green transition-all duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-                  </svg>
-                </div>
-              </a>
+                  <div>
+                    <h3 className="text-2xl sm:text-3xl font-[family-name:var(--font-serif)] italic text-heading group-hover:text-green transition-colors duration-300 flex items-center gap-3">
+                      {brand.name}
+                      <span className="lg:hidden text-[#222] group-hover:text-green transition-colors duration-300">
+                        {brand.icon}
+                      </span>
+                    </h3>
+                    <p className="text-sm text-muted mt-3 font-[family-name:var(--font-sans)]">
+                      {brand.description}
+                    </p>
+                  </div>
+                  <div className="flex items-center justify-between mt-4">
+                    <p className="text-xs font-mono tracking-[0.15em] text-green">
+                      {brand.stat}
+                    </p>
+                    <svg className="w-4 h-4 text-transparent group-hover:text-green transition-all duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                    </svg>
+                  </div>
+                </a>
+              </ScrollReveal>
             ))}
           </div>
         </div>

@@ -1,6 +1,7 @@
 import React from "react";
 import type { Metadata } from "next";
 import Link from "next/link";
+import ScrollReveal from "@/components/ScrollReveal";
 
 export const metadata: Metadata = {
   title: "Services",
@@ -87,32 +88,34 @@ export default function ServicesPage() {
             {i === 3 && (
               <div className="border-b border-dashed border-[#1a1a1a] my-0" />
             )}
-            <article
-              className={`border-b border-border py-12 first:pt-0 ${
-                i % 2 === 0 ? "bg-[#0a0a0a]" : "bg-[#080808]"
-              } -mx-4 px-4`}
-            >
-              <h2 className="text-2xl sm:text-3xl font-[family-name:var(--font-sans)] font-semibold text-heading mb-4">
-                <span className="text-green text-lg mr-3 font-normal">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <span className="text-muted mx-2 font-[family-name:var(--font-sans)] text-sm">/</span>
-                {service.title}
-              </h2>
-              <p className="text-body leading-relaxed mb-6 max-w-2xl pl-1">
-                {service.description}
-              </p>
-              <div className="flex flex-wrap gap-2 pl-1">
-                {service.tags.map((tag) => (
-                  <span
-                    key={tag}
-                    className="text-[10px] font-mono uppercase tracking-wider text-muted px-3 py-1.5 border border-border border-l-2 border-l-green bg-card"
-                  >
-                    {tag}
+            <ScrollReveal>
+              <article
+                className={`border-b border-border py-12 first:pt-0 ${
+                  i % 2 === 0 ? "bg-[#0a0a0a]" : "bg-[#080808]"
+                } -mx-4 px-4`}
+              >
+                <h2 className="text-2xl sm:text-3xl font-[family-name:var(--font-sans)] font-semibold text-heading mb-4">
+                  <span className="text-green text-lg mr-3 font-normal">
+                    {String(i + 1).padStart(2, "0")}
                   </span>
-                ))}
-              </div>
-            </article>
+                  <span className="text-muted mx-2 font-[family-name:var(--font-sans)] text-sm">/</span>
+                  {service.title}
+                </h2>
+                <p className="text-body leading-relaxed mb-6 max-w-2xl pl-1 break-words">
+                  {service.description}
+                </p>
+                <div className="flex flex-wrap gap-1.5 sm:gap-2 pl-1">
+                  {service.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="text-[10px] font-mono uppercase tracking-wider text-muted px-3 py-1.5 border border-border border-l-2 border-l-green bg-card"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </article>
+            </ScrollReveal>
             </React.Fragment>
           ))}
         </div>
@@ -128,33 +131,37 @@ export default function ServicesPage() {
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-10">
             {whyUs.map((item, i) => (
-              <div key={item.title}>
-                <span className="text-2xl font-[family-name:var(--font-sans)] text-green font-light mb-3 block">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <h3 className="text-lg font-[family-name:var(--font-sans)] font-semibold text-heading mb-2">
-                  {item.title}
-                </h3>
-                <p className="text-sm text-muted font-[family-name:var(--font-sans)] leading-relaxed">
-                  {item.description}
-                </p>
-              </div>
+              <ScrollReveal key={item.title} delay={i * 150}>
+                <div>
+                  <span className="text-2xl font-[family-name:var(--font-sans)] text-green font-light mb-3 block">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <h3 className="text-lg font-[family-name:var(--font-sans)] font-semibold text-heading mb-2">
+                    {item.title}
+                  </h3>
+                  <p className="text-sm text-muted font-[family-name:var(--font-sans)] leading-relaxed">
+                    {item.description}
+                  </p>
+                </div>
+              </ScrollReveal>
             ))}
           </div>
         </div>
 
         {/* CTA */}
-        <div className="mt-20 border-t border-green/20 pt-16">
-          <h2 className="text-2xl sm:text-3xl font-[family-name:var(--font-sans)] font-bold text-heading mb-4">
-            Ready to start?
-          </h2>
-          <p className="text-body mb-8 max-w-lg">
-            Let&apos;s talk about your project and find the right approach.
-          </p>
-          <Link href="/contact" className="btn-ghost">
-            Get in touch &rarr;
-          </Link>
-        </div>
+        <ScrollReveal>
+          <div className="mt-20 border-t border-green/20 pt-16">
+            <h2 className="text-2xl sm:text-3xl font-[family-name:var(--font-sans)] font-bold text-heading mb-4">
+              Ready to start?
+            </h2>
+            <p className="text-body mb-8 max-w-lg">
+              Let&apos;s talk about your project and find the right approach.
+            </p>
+            <Link href="/contact" className="btn-ghost">
+              Get in touch &rarr;
+            </Link>
+          </div>
+        </ScrollReveal>
       </div>
     </section>
   );

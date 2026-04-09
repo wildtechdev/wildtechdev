@@ -128,6 +128,49 @@ h1, h2, h3, h4, h5, h6 {
   margin-bottom: 16px;
 }
 
+/* Scroll-reveal animation */
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 700ms ease-out, transform 700ms ease-out;
+}
+.scroll-reveal.scroll-revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Respect reduced motion globally */
+@media (prefers-reduced-motion: reduce) {
+  .scroll-reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .animate-fade-in-up,
+  .animate-fade-in,
+  .animate-glow-pulse,
+  .animate-bob,
+  .animate-page-enter {
+    animation: none !important;
+    opacity: 1 !important;
+  }
+}
+
+/* Hero cascading reveal */
+@keyframes hero-reveal {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+.animate-hero-reveal {
+  animation: hero-reveal 0.8s ease-out both;
+}
+
 /* Ghost button: outlined green, fills on hover */
 .btn-ghost {
   display: inline-flex;
@@ -139,9 +182,10 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 14px;
   font-weight: 500;
   letter-spacing: 0.025em;
-  transition: all 0.25s ease;
+  transition: all 0.2s ease;
 }
 .btn-ghost:hover {
   background: #22c55e;
   color: #000000;
+  box-shadow: 0 0 20px rgba(34, 197, 94, 0.15);
 }

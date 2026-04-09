@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import ScrollReveal from "@/components/ScrollReveal";
 
 export const metadata: Metadata = {
   title: "About | WildTech Development",
@@ -204,7 +205,7 @@ export default function AboutPage() {
 
             <div className="flex flex-col lg:flex-row gap-10 lg:gap-14">
               {/* Industrial photo */}
-              <div className="lg:w-1/2 shrink-0">
+              <ScrollReveal className="lg:w-1/2 shrink-0">
                 <div className="overflow-hidden border border-border">
                   <Image
                     src="/william-industrial.jpg"
@@ -219,7 +220,7 @@ export default function AboutPage() {
                 <p className="text-[10px] font-mono text-muted tracking-widest mt-3">
                   William at SANY headquarters
                 </p>
-              </div>
+              </ScrollReveal>
 
               {/* Company copy */}
               <div className="space-y-7 text-body leading-relaxed lg:w-1/2">
@@ -266,23 +267,24 @@ export default function AboutPage() {
             </h2>
 
             <div className="space-y-0">
-              {ecosystem.map((brand) => {
+              {ecosystem.map((brand, i) => {
                 const props = brand.external
                   ? { href: brand.href, target: "_blank" as const, rel: "noopener noreferrer" }
                   : { href: brand.href };
                 return (
-                  <a
-                    key={brand.name}
-                    {...props}
-                    className="group flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-6 border-b border-border py-5"
-                  >
-                    <h3 className="text-xl font-[family-name:var(--font-serif)] italic text-heading transition-colors duration-300 group-hover:text-green">
-                      {brand.name}
-                    </h3>
-                    <p className="text-sm text-muted group-hover:text-body transition-colors duration-300 font-[family-name:var(--font-sans)]">
-                      {brand.role}
-                    </p>
-                  </a>
+                  <ScrollReveal key={brand.name} delay={i * 80}>
+                    <a
+                      {...props}
+                      className="group flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-6 border-b border-border py-5"
+                    >
+                      <h3 className="text-xl font-[family-name:var(--font-serif)] italic text-heading transition-colors duration-300 group-hover:text-green">
+                        {brand.name}
+                      </h3>
+                      <p className="text-sm text-muted group-hover:text-body transition-colors duration-300 font-[family-name:var(--font-sans)]">
+                        {brand.role}
+                      </p>
+                    </a>
+                  </ScrollReveal>
                 );
               })}
             </div>
@@ -304,23 +306,25 @@ export default function AboutPage() {
             {/* Two-column: headshot + facts left, bio right */}
             <div className="flex flex-col lg:flex-row items-start gap-12 lg:gap-14">
               {/* LEFT: headshot + quick facts */}
-              <div className="lg:w-[35%] shrink-0 lg:sticky lg:top-24">
-                <div className="max-w-[280px] overflow-hidden border border-border">
-                  <Image
-                    src="/headshot.png"
-                    alt="William McCants, founder of WildTech Development"
-                    width={1125}
-                    height={1687}
-                    className="w-full h-auto object-cover object-top"
-                    sizes="(max-width: 1024px) 100vw, 280px"
-                  />
-                </div>
+              <div className="lg:w-[35%] shrink-0 lg:sticky lg:top-24 flex flex-col items-center lg:items-start w-full">
+                <ScrollReveal>
+                  <div className="max-w-[200px] lg:max-w-[280px] overflow-hidden border border-border">
+                    <Image
+                      src="/headshot.png"
+                      alt="William McCants, founder of WildTech Development"
+                      width={1125}
+                      height={1687}
+                      className="w-full h-auto object-cover object-top"
+                      sizes="(max-width: 1024px) 200px, 280px"
+                    />
+                  </div>
+                </ScrollReveal>
                 <p className="text-xs font-mono text-green tracking-widest mt-4 mb-6">
                   Charleston, SC
                 </p>
 
                 {/* Quick facts */}
-                <div className="border-t border-border">
+                <div className="border-t border-border w-full">
                   {quickFacts.map((fact) => (
                     <div key={fact.label} className="flex items-baseline justify-between py-3 border-b border-dotted border-border gap-4">
                       <span className="text-[10px] uppercase tracking-[0.2em] text-muted font-mono whitespace-nowrap">
@@ -336,59 +340,69 @@ export default function AboutPage() {
 
               {/* RIGHT: bio paragraphs */}
               <div className="space-y-7 text-body leading-relaxed lg:w-[65%]">
-                <p>
-                  William McCants is the founder
-                  of <strong className="text-heading font-normal">WildTech Ventures, LLC</strong>. He
-                  grew up in Charleston, South Carolina and has spent his career solving
-                  technical problems across industries ranging from aerospace
-                  manufacturing to industrial metrology to e-commerce.
-                </p>
+                <ScrollReveal delay={0}>
+                  <p>
+                    William McCants is the founder
+                    of <strong className="text-heading font-normal">WildTech Ventures, LLC</strong>. He
+                    grew up in Charleston, South Carolina and has spent his career solving
+                    technical problems across industries ranging from aerospace
+                    manufacturing to industrial metrology to e-commerce.
+                  </p>
+                </ScrollReveal>
 
-                <p>
-                  William&apos;s professional path started at <strong className="text-heading font-normal">MSI-Viking Gage </strong>in 2012, where he built the company&apos;s Equipment Recovery and Sales department
-                  from the ground up. What began as a one-person operation grew into a
-                  four-employee department with a national market presence, buying,
-                  refurbishing, and reselling industrial calibration and metrology
-                  equipment. He later moved into an Application Engineer role at
-                  MSI-Viking, specializing in ZEISS Optotechnik 3D scanning systems,
-                  scan-to-CAD reverse engineering, and custom fixturing using additive
-                  manufacturing.
-                </p>
+                <ScrollReveal delay={100}>
+                  <p>
+                    William&apos;s professional path started at <strong className="text-heading font-normal">MSI-Viking Gage </strong>in 2012, where he built the company&apos;s Equipment Recovery and Sales department
+                    from the ground up. What began as a one-person operation grew into a
+                    four-employee department with a national market presence, buying,
+                    refurbishing, and reselling industrial calibration and metrology
+                    equipment. He later moved into an Application Engineer role at
+                    MSI-Viking, specializing in ZEISS Optotechnik 3D scanning systems,
+                    scan-to-CAD reverse engineering, and custom fixturing using additive
+                    manufacturing.
+                  </p>
+                </ScrollReveal>
 
-                <p>
-                  In 2020, William
-                  joined <strong className="text-heading font-normal">PRC Industries </strong>in Spruce
-                  Pine, North Carolina as a Senior Engineer. PRC Industries is a
-                  large-scale product remanufacturing company that processes returns and
-                  restores defective products for major brands and retailers, most
-                  notably <strong className="text-heading font-normal">Amazon</strong>. The
-                  company&apos;s campus handles everything from refrigerators and vacuums
-                  to sporting goods, with a team of engineers diagnosing product flaws
-                  through total disassembly and reverse engineering. William wrote
-                  remanufacturing procedures, reverse-engineered replacement parts, and
-                  collaborated with outside engineering teams on client projects. The
-                  role sharpened his ability to diagnose unfamiliar hardware quickly, a
-                  skill that carries directly into the work WildTech does today.
-                </p>
+                <ScrollReveal delay={200}>
+                  <p>
+                    In 2020, William
+                    joined <strong className="text-heading font-normal">PRC Industries </strong>in Spruce
+                    Pine, North Carolina as a Senior Engineer. PRC Industries is a
+                    large-scale product remanufacturing company that processes returns and
+                    restores defective products for major brands and retailers, most
+                    notably <strong className="text-heading font-normal">Amazon</strong>. The
+                    company&apos;s campus handles everything from refrigerators and vacuums
+                    to sporting goods, with a team of engineers diagnosing product flaws
+                    through total disassembly and reverse engineering. William wrote
+                    remanufacturing procedures, reverse-engineered replacement parts, and
+                    collaborated with outside engineering teams on client projects. The
+                    role sharpened his ability to diagnose unfamiliar hardware quickly, a
+                    skill that carries directly into the work WildTech does today.
+                  </p>
+                </ScrollReveal>
 
-                <p>
-                  He returned to MSI-Viking in 2022 as Director of E-Commerce, where he
-                  turned what had been a side channel into a primary revenue driver for
-                  the company. Today he oversees multi-channel operations across
-                  msi-viking.com, Amazon, eBay, and Shopify, serves as the
-                  company&apos;s NetSuite administrator, manages a multimillion-dollar
-                  product inventory, and produces all product photography and video
-                  content in-house. Under his leadership, the team cut freight costs by
-                  over 40% while achieving consistent three-day delivery windows on
-                  in-stock inventory.
-                </p>
+                <ScrollReveal delay={300}>
+                  <p>
+                    He returned to MSI-Viking in 2022 as Director of E-Commerce, where he
+                    turned what had been a side channel into a primary revenue driver for
+                    the company. Today he oversees multi-channel operations across
+                    msi-viking.com, Amazon, eBay, and Shopify, serves as the
+                    company&apos;s NetSuite administrator, manages a multimillion-dollar
+                    product inventory, and produces all product photography and video
+                    content in-house. Under his leadership, the team cut freight costs by
+                    over 40% while achieving consistent three-day delivery windows on
+                    in-stock inventory.
+                  </p>
+                </ScrollReveal>
 
-                <p>
-                  WildTech Ventures grew out of the same mindset that has defined
-                  William&apos;s entire career: see a problem, understand it deeply, and
-                  build something that fixes it. Every product in the WildTech portfolio
-                  started as a real problem that did not have a good enough solution.
-                </p>
+                <ScrollReveal delay={400}>
+                  <p>
+                    WildTech Ventures grew out of the same mindset that has defined
+                    William&apos;s entire career: see a problem, understand it deeply, and
+                    build something that fixes it. Every product in the WildTech portfolio
+                    started as a real problem that did not have a good enough solution.
+                  </p>
+                </ScrollReveal>
               </div>
             </div>
           </div>
@@ -417,12 +431,14 @@ export default function AboutPage() {
               </p>
 
               {/* Hobby icons */}
-              <div className="flex flex-wrap gap-8 py-4">
-                {hobbies.map((hobby) => (
-                  <div key={hobby.label} className="flex items-center gap-2.5">
-                    <span className="text-[#333]">{hobby.icon}</span>
-                    <span className="text-sm text-muted font-[family-name:var(--font-sans)]">{hobby.label}</span>
-                  </div>
+              <div className="grid grid-cols-3 gap-4 sm:flex sm:flex-wrap sm:gap-8 py-4">
+                {hobbies.map((hobby, i) => (
+                  <ScrollReveal key={hobby.label} delay={i * 60}>
+                    <div className="flex items-center gap-2.5">
+                      <span className="text-[#333]">{hobby.icon}</span>
+                      <span className="text-sm text-muted font-[family-name:var(--font-sans)]">{hobby.label}</span>
+                    </div>
+                  </ScrollReveal>
                 ))}
               </div>
 

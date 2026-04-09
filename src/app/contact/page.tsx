@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import ScrollReveal from "@/components/ScrollReveal";
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -32,93 +33,97 @@ export default function ContactPage() {
         </div>
 
         {/* Form */}
-        <form className="space-y-8 animate-fade-in-up delay-200 bg-[#0a0a0a] border border-border p-8 lg:p-12">
-          <div>
-            <label htmlFor="name" className="block text-xs uppercase tracking-widest text-muted mb-3 font-[family-name:var(--font-sans)]">
-              Name
-            </label>
-            <input
-              type="text"
-              id="name"
-              name="name"
-              required
-              className="w-full px-0 py-3 bg-[#0a0a0a] border-0 border-b border-border text-heading placeholder-muted focus:outline-none focus:border-green transition-colors text-sm"
-              placeholder="Your name"
-            />
-          </div>
-          <div>
-            <label htmlFor="email" className="block text-xs uppercase tracking-widest text-muted mb-3 font-[family-name:var(--font-sans)]">
-              Email
-            </label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              required
-              className="w-full px-0 py-3 bg-[#0a0a0a] border-0 border-b border-border text-heading placeholder-muted focus:outline-none focus:border-green transition-colors text-sm"
-              placeholder="you@example.com"
-            />
-          </div>
-          <div>
-            <label htmlFor="message" className="block text-xs uppercase tracking-widest text-muted mb-3 font-[family-name:var(--font-sans)]">
-              Message
-            </label>
-            <textarea
-              id="message"
-              name="message"
-              rows={5}
-              required
-              className="w-full px-0 py-3 bg-[#0a0a0a] border-0 border-b border-border text-heading placeholder-muted focus:outline-none focus:border-green transition-colors resize-none text-sm"
-              placeholder="Tell us about your project..."
-            />
-          </div>
-          <button type="submit" className="btn-ghost min-w-[200px] justify-center">
-            Send message &rarr;
-          </button>
-        </form>
+        <ScrollReveal>
+          <form className="space-y-8 bg-[#0a0a0a] border border-border p-5 sm:p-8 lg:p-12">
+            <div>
+              <label htmlFor="name" className="block text-xs uppercase tracking-widest text-muted mb-3 font-[family-name:var(--font-sans)]">
+                Name
+              </label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                required
+                className="w-full px-0 py-3 bg-[#0a0a0a] border-0 border-b border-border text-heading placeholder-muted focus:outline-none focus:border-green focus:-translate-y-px transition-all text-sm"
+                placeholder="Your name"
+              />
+            </div>
+            <div>
+              <label htmlFor="email" className="block text-xs uppercase tracking-widest text-muted mb-3 font-[family-name:var(--font-sans)]">
+                Email
+              </label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                required
+                className="w-full px-0 py-3 bg-[#0a0a0a] border-0 border-b border-border text-heading placeholder-muted focus:outline-none focus:border-green focus:-translate-y-px transition-all text-sm"
+                placeholder="you@example.com"
+              />
+            </div>
+            <div>
+              <label htmlFor="message" className="block text-xs uppercase tracking-widest text-muted mb-3 font-[family-name:var(--font-sans)]">
+                Message
+              </label>
+              <textarea
+                id="message"
+                name="message"
+                rows={5}
+                required
+                className="w-full px-0 py-3 bg-[#0a0a0a] border-0 border-b border-border text-heading placeholder-muted focus:outline-none focus:border-green focus:-translate-y-px transition-all resize-none text-sm"
+                placeholder="Tell us about your project..."
+              />
+            </div>
+            <button type="submit" className="btn-ghost w-full sm:w-auto min-w-[200px] justify-center">
+              Send message &rarr;
+            </button>
+          </form>
+        </ScrollReveal>
 
         {/* Prefer to talk */}
-        <div className="mt-20 border-t border-border pt-14">
-          <h2 className="text-xl font-[family-name:var(--font-sans)] font-bold text-heading mb-4">
-            Prefer to talk?
-          </h2>
-          <p className="text-sm text-body leading-relaxed mb-6">
-            For Charleston-area technology services including security, networking, A/V,
-            and structured cabling, visit{" "}
-            <a
-              href="https://wildtechchs.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-green link-underline"
-            >
-              wildtechchs.com
-            </a>
-            .
-          </p>
-
-          <div className="flex flex-col sm:flex-row gap-8 mt-10">
-            <div>
-              <p className="text-xs uppercase tracking-widest text-muted mb-3 font-[family-name:var(--font-sans)]">
-                Email
-              </p>
+        <ScrollReveal>
+          <div className="mt-20 border-t border-border pt-14">
+            <h2 className="text-xl font-[family-name:var(--font-sans)] font-bold text-heading mb-4">
+              Prefer to talk?
+            </h2>
+            <p className="text-sm text-body leading-relaxed mb-6">
+              For Charleston-area technology services including security, networking, A/V,
+              and structured cabling, visit{" "}
               <a
-                href="mailto:info@wildtechdev.com"
-                className="text-sm text-heading link-underline"
+                href="https://wildtechchs.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-green link-underline"
               >
-                info@wildtechdev.com
+                wildtechchs.com
               </a>
-            </div>
-            <div>
-              <p className="text-xs uppercase tracking-widest text-muted mb-3 font-[family-name:var(--font-sans)]">
-                Location
-              </p>
-              <p className="text-sm text-heading flex items-center gap-2">
-                <span className="w-2 h-2 bg-green rounded-full animate-pulse" />
-                Based in Charleston, SC
-              </p>
+              .
+            </p>
+
+            <div className="flex flex-col gap-8 mt-10">
+              <div>
+                <p className="text-xs uppercase tracking-widest text-muted mb-3 font-[family-name:var(--font-sans)]">
+                  Email
+                </p>
+                <a
+                  href="mailto:info@wildtechdev.com"
+                  className="text-sm text-heading link-underline"
+                >
+                  info@wildtechdev.com
+                </a>
+              </div>
+              <div>
+                <p className="text-xs uppercase tracking-widest text-muted mb-3 font-[family-name:var(--font-sans)]">
+                  Location
+                </p>
+                <p className="text-sm text-heading flex items-center gap-2">
+                  <span className="w-2 h-2 bg-green rounded-full animate-pulse" />
+                  Based in Charleston, SC
+                </p>
+              </div>
             </div>
           </div>
-        </div>
+        </ScrollReveal>
       </div>
     </section>
   );

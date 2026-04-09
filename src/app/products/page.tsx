@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import PhoneMockup from "@/components/PhoneMockup";
 import AppStoreBadge from "@/components/AppStoreBadge";
+import ScrollReveal from "@/components/ScrollReveal";
 
 export const metadata: Metadata = {
   title: "Products",
@@ -173,98 +174,99 @@ export default function ProductsPage() {
           {products.map((product, index) => {
             const isEven = index % 2 === 0;
             return (
-              <article
-                key={product.name}
-                id={product.name.toLowerCase().replace(/\s+/g, "-")}
-                className={`border-l-[4px] ${product.accentColor} py-14 pl-8`}
-              >
-                <div className={`flex flex-col lg:flex-row gap-10 lg:gap-16 ${isEven ? "lg:flex-row-reverse" : ""}`}>
-                  {/* Mockup */}
-                  <div className="flex justify-center lg:flex-shrink-0 lg:self-start">
-                    <PhoneMockup product={product.mockup} />
-                  </div>
+              <ScrollReveal key={product.name}>
+                <article
+                  id={product.name.toLowerCase().replace(/\s+/g, "-")}
+                  className={`border-l-[4px] ${product.accentColor} py-14 pl-8`}
+                >
+                  <div className={`flex flex-col lg:flex-row gap-10 lg:gap-16 ${isEven ? "lg:flex-row-reverse" : ""}`}>
+                    {/* Mockup */}
+                    <div className="flex justify-center lg:flex-shrink-0 lg:self-start">
+                      <PhoneMockup product={product.mockup} />
+                    </div>
 
-                  {/* Content */}
-                  <div className="flex-1 min-w-0">
-                    <div className="flex items-center gap-3 mb-5">
-                      <span className={`w-2 h-2 rounded-full shrink-0 ${
-                        product.status === "Live" ? "bg-green" : "bg-amber-500"
-                      }`} />
-                      <p className={`text-xs uppercase tracking-widest font-mono ${
-                        product.status === "Live" ? "text-green" : "text-amber-500"
-                      }`}>
-                        {product.status}
+                    {/* Content */}
+                    <div className="flex-1 min-w-0">
+                      <div className="flex items-center gap-3 mb-5">
+                        <span className={`w-2 h-2 rounded-full shrink-0 ${
+                          product.status === "Live" ? "bg-green" : "bg-amber-500"
+                        }`} />
+                        <p className={`text-xs uppercase tracking-widest font-mono ${
+                          product.status === "Live" ? "text-green" : "text-amber-500"
+                        }`}>
+                          {product.status}
+                        </p>
+                      </div>
+
+                      <h2 className="text-3xl sm:text-4xl font-[family-name:var(--font-serif)] italic text-heading mb-4">
+                        {product.name}
+                      </h2>
+
+                      {/* Price & rating */}
+                      <div className="flex items-center gap-4 mb-6">
+                        {product.price && (
+                          <span className="text-heading text-lg font-[family-name:var(--font-sans)]">
+                            {product.price}
+                          </span>
+                        )}
+                        {product.rating && <StarRating rating={product.rating} />}
+                      </div>
+
+                      <p className="text-body leading-relaxed mb-8 max-w-xl">
+                        {product.description}
                       </p>
-                    </div>
 
-                    <h2 className="text-3xl sm:text-4xl font-[family-name:var(--font-serif)] italic text-heading mb-4">
-                      {product.name}
-                    </h2>
-
-                    {/* Price & rating */}
-                    <div className="flex items-center gap-4 mb-6">
-                      {product.price && (
-                        <span className="text-heading text-lg font-[family-name:var(--font-sans)]">
-                          {product.price}
-                        </span>
-                      )}
-                      {product.rating && <StarRating rating={product.rating} />}
-                    </div>
-
-                    <p className="text-body leading-relaxed mb-8 max-w-xl">
-                      {product.description}
-                    </p>
-
-                    {/* Features */}
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-2 mb-8">
-                      {product.features.map((feature) => (
-                        <p key={feature} className="text-sm text-muted flex items-start gap-2 font-[family-name:var(--font-sans)]">
-                          <span className="w-1 h-1 bg-green rounded-full shrink-0 mt-1.5" />
-                          {feature}
-                        </p>
-                      ))}
-                    </div>
-
-                    {/* Review */}
-                    {product.review && (
-                      <div className="border-l border-border pl-5 mb-8">
-                        <p className="text-sm text-body/80 italic font-[family-name:var(--font-serif)] leading-relaxed">
-                          &ldquo;{product.review.quote}&rdquo;
-                        </p>
-                        <p className="text-[10px] uppercase tracking-[0.2em] text-muted font-mono mt-2">
-                          {product.review.author}
-                        </p>
+                      {/* Features */}
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-2 mb-8">
+                        {product.features.map((feature) => (
+                          <p key={feature} className="text-sm text-muted flex items-start gap-2 font-[family-name:var(--font-sans)]">
+                            <span className="w-1 h-1 bg-green rounded-full shrink-0 mt-1.5" />
+                            {feature}
+                          </p>
+                        ))}
                       </div>
-                    )}
 
-                    {/* Status note (for products without reviews) */}
-                    {!product.review && product.statusNote && (
-                      <div className="border-l border-border pl-5 mb-8">
-                        <p className="text-sm text-muted italic font-[family-name:var(--font-serif)] leading-relaxed">
-                          {product.statusNote}
-                        </p>
+                      {/* Review */}
+                      {product.review && (
+                        <div className="border-l border-border pl-5 mb-8">
+                          <p className="text-sm text-body/80 italic font-[family-name:var(--font-serif)] leading-relaxed">
+                            &ldquo;{product.review.quote}&rdquo;
+                          </p>
+                          <p className="text-[10px] uppercase tracking-[0.2em] text-muted font-mono mt-2">
+                            {product.review.author}
+                          </p>
+                        </div>
+                      )}
+
+                      {/* Status note (for products without reviews) */}
+                      {!product.review && product.statusNote && (
+                        <div className="border-l border-border pl-5 mb-8">
+                          <p className="text-sm text-muted italic font-[family-name:var(--font-serif)] leading-relaxed">
+                            {product.statusNote}
+                          </p>
+                        </div>
+                      )}
+
+                      {/* CTA */}
+                      <div className="flex flex-wrap items-center gap-4 py-1">
+                        {product.appStoreUrl && (
+                          <AppStoreBadge href={product.appStoreUrl} />
+                        )}
+                        {product.externalUrl && (
+                          <a
+                            href={product.externalUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="btn-ghost"
+                          >
+                            {product.externalLabel} &rarr;
+                          </a>
+                        )}
                       </div>
-                    )}
-
-                    {/* CTA */}
-                    <div className="flex flex-wrap items-center gap-4">
-                      {product.appStoreUrl && (
-                        <AppStoreBadge href={product.appStoreUrl} />
-                      )}
-                      {product.externalUrl && (
-                        <a
-                          href={product.externalUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="btn-ghost"
-                        >
-                          {product.externalLabel} &rarr;
-                        </a>
-                      )}
                     </div>
                   </div>
-                </div>
-              </article>
+                </article>
+              </ScrollReveal>
             );
           })}
         </div>

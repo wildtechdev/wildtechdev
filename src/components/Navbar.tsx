@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 
 const navLinks = [
@@ -12,6 +13,7 @@ const navLinks = [
 ];
 
 export default function Navbar() {
+  const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -25,7 +27,7 @@ export default function Navbar() {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-black/60 backdrop-blur-md border-b border-border"
+          ? "bg-black/80 backdrop-blur-md border-b border-border"
           : "bg-transparent"
       }`}
     >
@@ -38,15 +40,24 @@ export default function Navbar() {
           </Link>
 
           <div className="hidden md:flex items-center gap-8">
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className="text-sm text-body hover:text-heading transition-colors link-underline"
-              >
-                {link.label}
-              </Link>
-            ))}
+            {navLinks.map((link) => {
+              const isActive =
+                link.href === "/"
+                  ? pathname === "/"
+                  : pathname.startsWith(link.href);
+              return (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="relative text-sm text-body hover:text-heading transition-colors link-underline flex flex-col items-center"
+                >
+                  {link.label}
+                  {isActive && (
+                    <span className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-1 h-0.5 bg-green rounded-full" />
+                  )}
+                </Link>
+              );
+            })}
           </div>
 
           <button
@@ -68,16 +79,27 @@ export default function Navbar() {
       {mobileOpen && (
         <div className="md:hidden bg-black/90 backdrop-blur-md border-t border-border">
           <div className="px-6 py-6 space-y-4">
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className="block text-sm text-body hover:text-heading transition-colors"
-                onClick={() => setMobileOpen(false)}
-              >
-                {link.label}
-              </Link>
-            ))}
+            {navLinks.map((link) => {
+              const isActive =
+                link.href === "/"
+                  ? pathname === "/"
+                  : pathname.startsWith(link.href);
+              return (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className={`block text-sm transition-colors ${
+                    isActive ? "text-green" : "text-body hover:text-heading"
+                  }`}
+                  onClick={() => setMobileOpen(false)}
+                >
+                  {isActive && (
+                    <span className="inline-block w-1 h-1 bg-green rounded-full mr-2 align-middle" />
+                  )}
+                  {link.label}
+                </Link>
+              );
+            })}
           </div>
         </div>
       )}

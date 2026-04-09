@@ -39,8 +39,8 @@ export default function Footer() {
             </p>
           </div>
 
-          {/* Link columns */}
-          <div className="flex-1 grid grid-cols-2 sm:grid-cols-3 gap-10">
+          {/* Link columns - stack on mobile */}
+          <div className="flex-1 grid grid-cols-1 sm:grid-cols-3 gap-10">
             <div>
               <p className="text-xs uppercase tracking-widest text-muted mb-4 font-[family-name:var(--font-sans)]">
                 Navigation
@@ -50,7 +50,7 @@ export default function Footer() {
                   <li key={link.href}>
                     <Link
                       href={link.href}
-                      className="text-sm text-body hover:text-heading transition-colors link-underline"
+                      className="text-sm text-body hover:text-heading hover:translate-x-1 transition-all duration-200 link-underline inline-block"
                     >
                       {link.label}
                     </Link>
@@ -68,7 +68,7 @@ export default function Footer() {
                   <li key={link.href}>
                     <Link
                       href={link.href}
-                      className="text-sm text-body hover:text-heading transition-colors link-underline"
+                      className="text-sm text-body hover:text-heading hover:translate-x-1 transition-all duration-200 link-underline inline-block"
                     >
                       {link.label}
                     </Link>
@@ -88,7 +88,7 @@ export default function Footer() {
                       href={link.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-sm text-body hover:text-heading transition-colors link-underline"
+                      className="text-sm text-body hover:text-heading hover:translate-x-1 transition-all duration-200 link-underline inline-block"
                     >
                       {link.label}
                     </a>
@@ -99,7 +99,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-16 pt-8 border-t border-border flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+        <div className="mt-16 pt-8 border-t border-border flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
           <div>
             <p className="text-xs text-muted">
               &copy; {new Date().getFullYear()} WildTech Ventures, LLC
@@ -110,7 +110,7 @@ export default function Footer() {
           </div>
           <a
             href="#top"
-            className="text-xs text-muted hover:text-heading transition-colors link-underline shrink-0"
+            className="text-xs text-muted hover:text-heading transition-colors link-underline shrink-0 text-center sm:text-right w-full sm:w-auto"
           >
             Back to top &uarr;
           </a>

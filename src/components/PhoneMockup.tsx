@@ -208,7 +208,7 @@ export default function PhoneMockup({
   const isSmall = size === "small";
 
   return (
-    <div className={`relative ${isSmall ? "w-36 h-64" : "w-48 h-80 sm:w-56 sm:h-96"}`}>
+    <div className={`relative ${isSmall ? "w-36 h-[160px] sm:h-64" : "w-48 h-64 sm:h-80 sm:w-56 lg:h-96"}`}>
       {/* Phone frame */}
       <div className="absolute inset-0 rounded-[20px] border border-[#333] bg-[#0a0a0a] shadow-2xl shadow-black/50 overflow-hidden">
         {/* Notch */}
