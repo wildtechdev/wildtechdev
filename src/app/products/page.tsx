@@ -34,7 +34,10 @@ const products = [
     appStoreUrl: "https://apps.apple.com/us/app/spirits-of-charleston/id6476931671",
     externalUrl: null,
     externalLabel: null,
-    review: null,
+    review: {
+      quote: "Even my ghost-averse daughter stayed highly engaged as we used the app to fill gaps in our vacation itinerary. It is easy to navigate, cheaper than the in-person ghost tours, and certainly more convenient.",
+      author: "App Store Review",
+    },
   },
   {
     name: "Spirits of Savannah",

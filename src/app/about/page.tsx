@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 
 export const metadata: Metadata = {
-  title: "About | William McCants - Founder",
+  title: "About | WildTech Development",
   description:
-    "Meet William McCants, founder of WildTech Ventures, LLC and WildTech Development. Over a decade of engineering, metrology, and software development experience in Charleston, SC.",
+    "Learn about WildTech Development, a Charleston-based software and hardware company, and its founder William McCants. iOS apps, web platforms, IoT hardware, and technology services.",
   keywords: [
     "William McCants",
     "WildTech Development",
@@ -13,21 +14,21 @@ export const metadata: Metadata = {
     "MSI-Viking Gage",
   ],
   openGraph: {
-    title: "About William McCants | WildTech Development",
+    title: "About | WildTech Development",
     description:
-      "Founder of WildTech Ventures, LLC. Over a decade of engineering and software development experience in Charleston, SC.",
-    type: "profile",
+      "Learn about WildTech Development, a Charleston-based software and hardware company, and its founder William McCants.",
+    type: "website",
     url: "https://wildtechdev.com/about",
   },
   twitter: {
     card: "summary_large_image",
-    title: "About William McCants | WildTech Development",
+    title: "About | WildTech Development",
     description:
-      "Founder of WildTech Ventures, LLC. Over a decade of engineering and software development experience in Charleston, SC.",
+      "Learn about WildTech Development, a Charleston-based software and hardware company, and its founder William McCants.",
   },
 };
 
-const jsonLd = {
+const personJsonLd = {
   "@context": "https://schema.org",
   "@type": "Person",
   name: "William McCants",
@@ -60,6 +61,31 @@ const jsonLd = {
   ],
   url: "https://wildtechdev.com/about",
   sameAs: ["https://wildtechchs.com", "https://churchd.com", "https://vikingsense.com"],
+};
+
+const orgJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "WildTech Development",
+  url: "https://wildtechdev.com",
+  logo: "https://wildtechdev.com/icon.png",
+  description:
+    "Software and hardware development arm of WildTech Ventures, LLC. iOS apps, web platforms, IoT hardware, and technology services from Charleston, SC.",
+  foundingDate: "2024",
+  founder: {
+    "@type": "Person",
+    name: "William McCants",
+  },
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Charleston",
+    addressRegion: "SC",
+    addressCountry: "US",
+  },
+  parentOrganization: {
+    "@type": "Organization",
+    name: "WildTech Ventures, LLC",
+  },
 };
 
 const quickFacts = [
@@ -145,93 +171,76 @@ export default function AboutPage() {
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd) }}
       />
 
       <section className="py-16 sm:py-24">
-        <div className="max-w-3xl mx-auto px-6 lg:px-8">
-          {/* Header with avatar */}
-          <div className="mb-20 animate-fade-in-up">
-            <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-8">
-              <div>
-                <p className="text-xs font-mono text-green tracking-widest mb-8">
-                  Charleston, SC
-                </p>
-                <h1 className="text-5xl sm:text-6xl lg:text-7xl font-[family-name:var(--font-serif)] italic text-heading leading-[0.95] mb-3">
-                  William McCants
-                </h1>
-                <div className="w-[60px] h-[2px] bg-green mb-6" />
-                <p className="text-lg text-body">
-                  Founder &amp; Developer
-                </p>
-              </div>
+        <div className="max-w-4xl mx-auto px-6 lg:px-8">
 
-              {/* Headshot placeholder */}
-              <div className="flex flex-col items-center shrink-0 self-center sm:self-start">
-                <div className="w-[200px] h-[200px] border border-border bg-card flex items-center justify-center">
-                  <span className="text-5xl font-[family-name:var(--font-serif)] italic text-heading/20">
-                    WM
-                  </span>
+          {/* ─── SECTION 1: THE COMPANY ─── */}
+          <div className="mb-20 animate-fade-in-up">
+            <p className="section-label text-xs uppercase tracking-widest text-muted mb-2 font-[family-name:var(--font-sans)]">
+              About
+            </p>
+            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-[family-name:var(--font-serif)] italic text-heading leading-[0.95] mb-3">
+              WildTech Development
+            </h1>
+            <p className="text-lg text-muted mb-10">
+              A WildTech Ventures company
+            </p>
+
+            <div className="flex flex-col lg:flex-row gap-10 lg:gap-14">
+              {/* Industrial photo — left on desktop, top on mobile */}
+              <div className="lg:w-[40%] shrink-0">
+                <div className="overflow-hidden rounded-[2px] border border-border">
+                  <Image
+                    src="/william-industrial.jpg"
+                    alt="William McCants at SANY headquarters"
+                    width={3024}
+                    height={4032}
+                    className="w-full h-auto object-cover"
+                    sizes="(max-width: 1024px) 100vw, 40vw"
+                    priority
+                  />
                 </div>
                 <p className="text-[10px] font-mono text-muted tracking-widest mt-3">
-                  CHARLESTON, SC
+                  William at SANY headquarters
+                </p>
+              </div>
+
+              {/* Company copy — right on desktop */}
+              <div className="space-y-7 text-body leading-relaxed">
+                <p>
+                  WildTech Development is the software and hardware arm of{" "}
+                  <span className="text-heading">WildTech Ventures, LLC</span>, a
+                  Charleston-based technology company founded in 2024. We build products that
+                  solve real problems, from mobile apps that bring history to life, to precision
+                  monitoring hardware trusted in calibration labs and server rooms.
+                </p>
+
+                <p>
+                  What started with a single iOS app on February 1, 2024 has grown into a
+                  portfolio of five products spanning mobile apps, web platforms, and IoT
+                  hardware. Every product in our lineup was conceived, designed, and shipped by a
+                  small team that values precision over speed and quality over quantity.
+                </p>
+
+                <p>
+                  WildTech Development operates alongside{" "}
+                  <span className="text-heading">WildTech CHS</span>, our Charleston-area
+                  technology services division handling security, structured cabling, commercial
+                  A/V, and smart office installations. Together with Churchd and VikingSense,
+                  these brands form the WildTech Ventures ecosystem.
                 </p>
               </div>
             </div>
           </div>
 
-          {/* Quick facts */}
-          <div className="mb-16 animate-fade-in-up delay-100">
-            <div className="border-t border-border">
-              {quickFacts.map((fact) => (
-                <div key={fact.label} className="flex items-baseline justify-between py-3 border-b border-border">
-                  <span className="text-[10px] uppercase tracking-[0.2em] text-muted font-mono">
-                    {fact.label}
-                  </span>
-                  <span className="text-sm text-heading font-[family-name:var(--font-sans)]">
-                    {fact.value}
-                  </span>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Bio */}
-          <div className="space-y-7 text-body leading-relaxed mb-20 animate-fade-in-up delay-200">
-            <p>
-              William McCants is the founder of{" "}
-              <span className="text-heading">WildTech Ventures, LLC</span>, a
-              Charleston-based technology company building software, hardware, and service
-              solutions. With over a decade of hands-on experience in engineering, metrology,
-              and quality control, William brings an uncommon precision to software
-              development &mdash; the same attention to detail that defines his work in
-              industrial measurement.
-            </p>
-
-            <p>
-              By day, William serves as Director of E-Commerce at{" "}
-              <span className="text-heading">MSI-Viking Gage</span>, one of the country&apos;s
-              leading suppliers of precision measuring technologies. MSI-Viking has been a
-              trusted name in metrology since 1967, representing brands like ZEISS, Mitutoyo,
-              Starrett, and Mahr. This role puts William at the intersection of industrial
-              technology, e-commerce, and enterprise sales &mdash; experience that directly
-              informs how WildTech approaches product development and go-to-market strategy.
-            </p>
-
-            <p>
-              WildTech Ventures launched in 2024 with the release of{" "}
-              <span className="text-heading">Spirits of Charleston</span>, an iOS app featuring
-              over 75 narrated ghost stories tied to real locations across the Holy City. Within
-              months, the portfolio expanded to include Spirits of Savannah, EZ Fuse Tester, and
-              two ambitious new ventures: Churchd, a community platform built for churches, and
-              VikingSense, a precision climate monitoring system distributed exclusively through
-              MSI-Viking Gage. What started as a single app became a full ecosystem spanning
-              mobile apps, web platforms, IoT hardware, and local technology services through
-              WildTech CHS.
-            </p>
-          </div>
-
-          {/* Ecosystem */}
+          {/* ─── SECTION 2: THE ECOSYSTEM ─── */}
           <div className="mb-20">
             <p className="section-label text-xs uppercase tracking-widest text-muted mb-2 font-[family-name:var(--font-sans)]">
               The ecosystem
@@ -242,12 +251,11 @@ export default function AboutPage() {
 
             <div className="space-y-0">
               {ecosystem.map((brand) => {
-                const Tag = brand.external ? "a" : "a";
                 const props = brand.external
                   ? { href: brand.href, target: "_blank" as const, rel: "noopener noreferrer" }
                   : { href: brand.href };
                 return (
-                  <Tag
+                  <a
                     key={brand.name}
                     {...props}
                     className="group flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-6 border-b border-border py-5"
@@ -258,9 +266,92 @@ export default function AboutPage() {
                     <p className="text-sm text-muted group-hover:text-body transition-colors duration-300 font-[family-name:var(--font-sans)]">
                       {brand.role}
                     </p>
-                  </Tag>
+                  </a>
                 );
               })}
+            </div>
+          </div>
+
+          {/* ─── SECTION 3: THE FOUNDER ─── */}
+          <div className="border-t border-border pt-16 mb-20">
+            <p className="section-label text-xs uppercase tracking-widest text-muted mb-2 font-[family-name:var(--font-sans)]">
+              The founder
+            </p>
+            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-[family-name:var(--font-serif)] italic text-heading leading-[0.95] mb-3">
+              William McCants
+            </h2>
+            <p className="text-lg text-muted mb-2">
+              Founder &amp; Developer
+            </p>
+            <div className="w-[60px] h-[2px] bg-green mb-12" />
+
+            {/* Two-column: headshot + facts left, bio right */}
+            <div className="flex flex-col lg:flex-row gap-12 lg:gap-14">
+              {/* LEFT: headshot + quick facts */}
+              <div className="lg:w-[35%] shrink-0">
+                <div className="max-w-[300px] overflow-hidden rounded-[2px] border border-border">
+                  <Image
+                    src="/headshot.png"
+                    alt="William McCants, founder of WildTech Development"
+                    width={1125}
+                    height={1687}
+                    className="w-full h-auto object-cover"
+                    sizes="(max-width: 1024px) 100vw, 300px"
+                  />
+                </div>
+                <p className="text-xs font-mono text-green tracking-widest mt-4 mb-8">
+                  Charleston, SC
+                </p>
+
+                {/* Quick facts */}
+                <div className="border-t border-border">
+                  {quickFacts.map((fact) => (
+                    <div key={fact.label} className="flex items-baseline justify-between py-3 border-b border-border">
+                      <span className="text-[10px] uppercase tracking-[0.2em] text-muted font-mono">
+                        {fact.label}
+                      </span>
+                      <span className="text-sm text-heading font-[family-name:var(--font-sans)]">
+                        {fact.value}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* RIGHT: bio paragraphs */}
+              <div className="space-y-7 text-body leading-relaxed lg:w-[65%]">
+                <p>
+                  William McCants is the founder of{" "}
+                  <span className="text-heading">WildTech Ventures, LLC</span>, a
+                  Charleston-based technology company building software, hardware, and service
+                  solutions. With over a decade of hands-on experience in engineering, metrology,
+                  and quality control, William brings an uncommon precision to software
+                  development &mdash; the same attention to detail that defines his work in
+                  industrial measurement.
+                </p>
+
+                <p>
+                  By day, William serves as Director of E-Commerce at{" "}
+                  <span className="text-heading">MSI-Viking Gage</span>, one of the country&apos;s
+                  leading suppliers of precision measuring technologies. MSI-Viking has been a
+                  trusted name in metrology since 1967, representing brands like ZEISS, Mitutoyo,
+                  Starrett, and Mahr. This role puts William at the intersection of industrial
+                  technology, e-commerce, and enterprise sales &mdash; experience that directly
+                  informs how WildTech approaches product development and go-to-market strategy.
+                </p>
+
+                <p>
+                  WildTech Ventures launched in 2024 with the release of{" "}
+                  <span className="text-heading">Spirits of Charleston</span>, an iOS app featuring
+                  over 75 narrated ghost stories tied to real locations across the Holy City. Within
+                  months, the portfolio expanded to include Spirits of Savannah, EZ Fuse Tester, and
+                  two ambitious new ventures: Churchd, a community platform built for churches, and
+                  VikingSense, a precision climate monitoring system distributed exclusively through
+                  MSI-Viking Gage. What started as a single app became a full ecosystem spanning
+                  mobile apps, web platforms, IoT hardware, and local technology services through
+                  WildTech CHS.
+                </p>
+              </div>
             </div>
           </div>
 
@@ -321,24 +412,14 @@ export default function AboutPage() {
               Get in touch
             </h2>
 
-            <div className="flex flex-col sm:flex-row gap-6">
-              <a
-                href="https://linkedin.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-sm text-body hover:text-heading transition-colors link-underline font-[family-name:var(--font-sans)]"
-              >
-                Find William on LinkedIn &rarr;
-              </a>
-              <a
-                href="https://github.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-sm text-body hover:text-heading transition-colors link-underline font-[family-name:var(--font-sans)]"
-              >
-                See projects on GitHub &rarr;
-              </a>
-            </div>
+            <a
+              href="https://www.linkedin.com/in/willmccants/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm text-body hover:text-heading transition-colors link-underline font-[family-name:var(--font-sans)]"
+            >
+              Connect on LinkedIn &rarr;
+            </a>
           </div>
         </div>
       </section>
