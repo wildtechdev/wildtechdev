@@ -345,9 +345,7 @@ export default function AboutPage() {
                 </p>
 
                 <p>
-                  William&apos;s professional path started
-                  at <span className="text-heading">MSI-Viking Gage</span> in 2012,
-                  where he built the company&apos;s Equipment Recovery and Sales department
+                  William&apos;s professional path started at <span className="text-heading">MSI-Viking Gage</span> in 2012, where he built the company&apos;s Equipment Recovery and Sales department
                   from the ground up. What began as a one-person operation grew into a
                   four-employee department with a national market presence, buying,
                   refurbishing, and reselling industrial calibration and metrology
