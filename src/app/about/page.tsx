@@ -244,11 +244,11 @@ export default function AboutPage() {
           <div className="border-t border-border my-20" />
 
           {/* SECTION 2: THE ECOSYSTEM */}
-          <div className="mb-20">
+          <div className="mb-20 bg-[#050505] -mx-6 px-6 lg:-mx-8 lg:px-8 py-10 rounded-sm">
             <p className="section-label text-xs uppercase tracking-widest text-muted mb-2 font-[family-name:var(--font-sans)]">
               The ecosystem
             </p>
-            <h2 className="text-2xl sm:text-3xl font-[family-name:var(--font-serif)] italic text-heading mb-10">
+            <h2 className="text-2xl sm:text-3xl font-[family-name:var(--font-sans)] font-bold text-heading mb-10">
               Four brands, one venture
             </h2>
 
@@ -289,20 +289,20 @@ export default function AboutPage() {
             <div className="w-[60px] h-[2px] bg-green mb-12" />
 
             {/* Two-column: headshot + facts left, bio right */}
-            <div className="flex flex-col lg:flex-row gap-12 lg:gap-14">
+            <div className="flex flex-col lg:flex-row items-start gap-12 lg:gap-14">
               {/* LEFT: headshot + quick facts */}
-              <div className="lg:w-[35%] shrink-0">
-                <div className="max-w-[340px] overflow-hidden border border-border">
+              <div className="lg:w-[35%] shrink-0 lg:sticky lg:top-24">
+                <div className="max-w-[280px] overflow-hidden border border-border">
                   <Image
                     src="/headshot.png"
                     alt="William McCants, founder of WildTech Development"
                     width={1125}
                     height={1687}
                     className="w-full h-auto object-cover object-top"
-                    sizes="(max-width: 1024px) 100vw, 340px"
+                    sizes="(max-width: 1024px) 100vw, 280px"
                   />
                 </div>
-                <p className="text-xs font-mono text-green tracking-widest mt-4 mb-8">
+                <p className="text-xs font-mono text-green tracking-widest mt-4 mb-6">
                   Charleston, SC
                 </p>
 
@@ -359,8 +359,8 @@ export default function AboutPage() {
           </div>
 
           {/* Beyond the Code */}
-          <div className="border-t border-border pt-16 mb-20">
-            <h2 className="text-2xl sm:text-3xl font-[family-name:var(--font-serif)] italic text-heading mb-10">
+          <div className="border-t border-border pt-16 mb-20 bg-[#050505] -mx-6 px-6 lg:-mx-8 lg:px-8 pb-10 rounded-sm">
+            <h2 className="text-2xl sm:text-3xl font-[family-name:var(--font-sans)] font-bold text-heading mb-10">
               Beyond the code
             </h2>
 
@@ -408,7 +408,7 @@ export default function AboutPage() {
             <p className="section-label text-xs uppercase tracking-widest text-muted mb-2 font-[family-name:var(--font-sans)]">
               Connect
             </p>
-            <h2 className="text-2xl sm:text-3xl font-[family-name:var(--font-serif)] italic text-heading mb-8">
+            <h2 className="text-2xl sm:text-3xl font-[family-name:var(--font-sans)] font-bold text-heading mb-8">
               Get in touch
             </h2>
 

@@ -171,10 +171,11 @@ export default function ProductsPage() {
 
         <div className="divide-y divide-border">
           {products.map((product, index) => {
-            const isEven = index % 2 === 1;
+            const isEven = index % 2 === 0;
             return (
               <article
                 key={product.name}
+                id={product.name.toLowerCase().replace(/\s+/g, "-")}
                 className={`border-l-[4px] ${product.accentColor} py-14 pl-8`}
               >
                 <div className={`flex flex-col lg:flex-row gap-10 lg:gap-16 ${isEven ? "lg:flex-row-reverse" : ""}`}>

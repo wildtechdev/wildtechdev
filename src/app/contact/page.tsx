@@ -31,7 +31,7 @@ export default function ContactPage() {
         </div>
 
         {/* Form */}
-        <form className="space-y-8 animate-fade-in-up delay-200">
+        <form className="space-y-8 animate-fade-in-up delay-200 bg-[#0a0a0a] border border-border p-8 lg:p-12">
           <div>
             <label htmlFor="name" className="block text-xs uppercase tracking-widest text-muted mb-3 font-[family-name:var(--font-sans)]">
               Name
@@ -78,7 +78,7 @@ export default function ContactPage() {
 
         {/* Prefer to talk */}
         <div className="mt-20 border-t border-border pt-14">
-          <h2 className="text-xl font-[family-name:var(--font-serif)] italic text-heading mb-4">
+          <h2 className="text-xl font-[family-name:var(--font-sans)] font-bold text-heading mb-4">
             Prefer to talk?
           </h2>
           <p className="text-sm text-body leading-relaxed mb-6">

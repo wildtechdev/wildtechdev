@@ -1,3 +1,4 @@
+import React from "react";
 import type { Metadata } from "next";
 import Link from "next/link";
 
@@ -82,14 +83,17 @@ export default function ServicesPage() {
 
         <div className="space-y-0">
           {services.map((service, i) => (
+            <React.Fragment key={service.title}>
+            {i === 3 && (
+              <div className="border-b border-dashed border-[#1a1a1a] my-0" />
+            )}
             <article
-              key={service.title}
               className={`border-b border-border py-12 first:pt-0 ${
                 i % 2 === 0 ? "bg-[#0a0a0a]" : "bg-[#080808]"
               } -mx-4 px-4`}
             >
-              <h2 className="text-2xl sm:text-3xl font-[family-name:var(--font-serif)] italic text-heading mb-4">
-                <span className="text-green font-[family-name:var(--font-sans)] text-lg mr-3 not-italic">
+              <h2 className="text-2xl sm:text-3xl font-[family-name:var(--font-sans)] font-semibold text-heading mb-4">
+                <span className="text-green text-lg mr-3 font-normal">
                   {String(i + 1).padStart(2, "0")}
                 </span>
                 <span className="text-muted mx-2 font-[family-name:var(--font-sans)] text-sm">/</span>
@@ -109,15 +113,16 @@ export default function ServicesPage() {
                 ))}
               </div>
             </article>
+            </React.Fragment>
           ))}
         </div>
 
         {/* Why WildTech */}
-        <div className="mt-20 border-t border-border pt-16">
+        <div className="mt-20 border-t border-border pt-16 bg-[#050505] -mx-4 px-4 lg:-mx-8 lg:px-8 pb-10 rounded-sm">
           <p className="section-label text-xs uppercase tracking-widest text-muted mb-2 font-[family-name:var(--font-sans)]">
             Why us
           </p>
-          <h2 className="text-2xl sm:text-3xl font-[family-name:var(--font-serif)] italic text-heading mb-12">
+          <h2 className="text-2xl sm:text-3xl font-[family-name:var(--font-sans)] font-bold text-heading mb-12">
             Why WildTech?
           </h2>
 
@@ -127,7 +132,7 @@ export default function ServicesPage() {
                 <span className="text-2xl font-[family-name:var(--font-sans)] text-green font-light mb-3 block">
                   {String(i + 1).padStart(2, "0")}
                 </span>
-                <h3 className="text-lg font-[family-name:var(--font-serif)] italic text-heading mb-2">
+                <h3 className="text-lg font-[family-name:var(--font-sans)] font-semibold text-heading mb-2">
                   {item.title}
                 </h3>
                 <p className="text-sm text-muted font-[family-name:var(--font-sans)] leading-relaxed">
@@ -140,7 +145,7 @@ export default function ServicesPage() {
 
         {/* CTA */}
         <div className="mt-20 border-t border-green/20 pt-16">
-          <h2 className="text-2xl sm:text-3xl font-[family-name:var(--font-serif)] italic text-heading mb-4">
+          <h2 className="text-2xl sm:text-3xl font-[family-name:var(--font-sans)] font-bold text-heading mb-4">
             Ready to start?
           </h2>
           <p className="text-body mb-8 max-w-lg">

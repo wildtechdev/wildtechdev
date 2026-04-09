@@ -117,6 +117,7 @@ const ecosystem = [
     description: "Software & hardware solutions",
     href: "https://wildtechdev.com",
     stat: "5 products",
+    accentColor: "rgba(34,197,94,0.03)",
     icon: (
       <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
         <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5" />
@@ -128,6 +129,7 @@ const ecosystem = [
     description: "Charleston\u2019s trusted technology service provider",
     href: "https://wildtechchs.com",
     stat: "6 service areas",
+    accentColor: "rgba(59,130,246,0.03)",
     icon: (
       <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
         <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
@@ -139,6 +141,7 @@ const ecosystem = [
     description: "Church community platform",
     href: "https://churchd.com",
     stat: "In development",
+    accentColor: "rgba(99,102,241,0.03)",
     icon: (
       <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
         <path strokeLinecap="round" strokeLinejoin="round" d="M12 3v2.25m0 0V12m0-6.75h0M12 12h0m0 0v6.75M12 12h6.75M12 12H5.25M12 18.75h0" />
@@ -150,6 +153,7 @@ const ecosystem = [
     description: "Precision climate monitoring",
     href: "https://vikingsense.com",
     stat: "MSI-Viking exclusive",
+    accentColor: "rgba(239,68,68,0.03)",
     icon: (
       <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
         <path strokeLinecap="round" strokeLinejoin="round" d="M12 3v1.5M18.364 5.636l-1.06 1.06M21 12h-1.5M18.364 18.364l-1.06-1.06M12 19.5V21M7.696 7.696l-1.06-1.06M6 12H4.5M7.696 16.304l-1.06 1.06M12 9a3 3 0 100 6 3 3 0 000-6z" />
@@ -207,8 +211,13 @@ export default function HomePage() {
             </span>
           </div>
 
+          {/* Gradient rule */}
+          <div className="mt-12 flex justify-center animate-fade-in-up delay-500">
+            <div className="w-[60%] h-px" style={{ background: "linear-gradient(to right, transparent, #222, transparent)" }} />
+          </div>
+
           {/* Scroll indicator */}
-          <div className="mt-16 animate-fade-in-up delay-600">
+          <div className="mt-10 animate-fade-in-up delay-600">
             <svg className="w-5 h-5 mx-auto text-[#333] animate-bob" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
             </svg>
@@ -217,7 +226,7 @@ export default function HomePage() {
       </section>
 
       {/* Products */}
-      <section className="relative py-16 sm:py-24 border-t border-border">
+      <section className="relative py-16 sm:py-24 border-t border-border bg-[#050505]">
         {/* Section number */}
         <div className="absolute top-6 right-6 lg:right-12 text-[200px] leading-none font-[family-name:var(--font-serif)] text-heading pointer-events-none select-none opacity-[0.03]">
           01
@@ -279,12 +288,12 @@ export default function HomePage() {
             ))}
           </div>
 
-          {/* Bottom row: 2 cards, centered */}
-          <div className="flex justify-center gap-px bg-border mt-px">
+          {/* Bottom row: 2 cards, 50% each */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-px bg-border mt-px">
             {products.slice(3).map((product, i) => (
               <div
                 key={product.name}
-                className={`group relative bg-black p-7 sm:p-8 border border-transparent hover:border-green transition-all duration-300 w-full sm:w-1/2 lg:w-1/3 ${product.hoverTint}`}
+                className={`group relative bg-black p-7 sm:p-8 border border-transparent hover:border-green transition-all duration-300 ${product.hoverTint}`}
               >
                 <span className="text-[48px] leading-none font-[family-name:var(--font-serif)] text-border group-hover:text-[#333] transition-colors duration-300 absolute top-5 left-7">
                   {String(i + 4).padStart(2, "0")}
@@ -354,7 +363,7 @@ export default function HomePage() {
                     <span className="text-[#333] group-hover:text-green transition-colors duration-300 shrink-0">
                       {service.icon}
                     </span>
-                    <h3 className="text-xl sm:text-2xl font-[family-name:var(--font-serif)] italic text-heading transition-all duration-300 group-hover:translate-x-2 group-hover:text-green">
+                    <h3 className="text-xl sm:text-2xl font-[family-name:var(--font-sans)] font-semibold text-heading transition-all duration-300 group-hover:translate-x-2 group-hover:text-green">
                       {service.title}
                     </h3>
                   </div>
@@ -386,7 +395,7 @@ export default function HomePage() {
       </section>
 
       {/* Ecosystem */}
-      <section className="relative py-16 sm:py-24 border-t border-border">
+      <section className="relative py-16 sm:py-24 border-t border-border bg-[#050505]">
         <div className="absolute top-6 right-6 lg:right-12 text-[200px] leading-none font-[family-name:var(--font-serif)] text-heading pointer-events-none select-none opacity-[0.03]">
           03
         </div>
@@ -406,7 +415,8 @@ export default function HomePage() {
                 href={brand.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group relative bg-black p-8 sm:p-10 flex flex-col justify-between min-h-[160px]"
+                className="group relative bg-[#050505] p-8 sm:p-10 flex flex-col justify-between min-h-[180px] overflow-hidden"
+                style={{ backgroundImage: `linear-gradient(to bottom, transparent 60%, ${brand.accentColor})` }}
               >
                 {/* Icon top-right */}
                 <span className="absolute top-6 right-6 text-[#222] group-hover:text-green transition-colors duration-300">
@@ -414,16 +424,21 @@ export default function HomePage() {
                 </span>
 
                 <div>
-                  <h3 className="text-xl sm:text-2xl font-[family-name:var(--font-serif)] italic text-heading group-hover:text-green transition-colors duration-300">
+                  <h3 className="text-2xl sm:text-3xl font-[family-name:var(--font-serif)] italic text-heading group-hover:text-green transition-colors duration-300">
                     {brand.name}
                   </h3>
                   <p className="text-sm text-muted mt-3 font-[family-name:var(--font-sans)]">
                     {brand.description}
                   </p>
                 </div>
-                <p className="text-[10px] font-mono tracking-[0.2em] text-green mt-4">
-                  {brand.stat}
-                </p>
+                <div className="flex items-center justify-between mt-4">
+                  <p className="text-xs font-mono tracking-[0.15em] text-green">
+                    {brand.stat}
+                  </p>
+                  <svg className="w-4 h-4 text-transparent group-hover:text-green transition-all duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                  </svg>
+                </div>
               </a>
             ))}
           </div>
