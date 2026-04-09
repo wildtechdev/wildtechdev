@@ -224,30 +224,30 @@ export default function AboutPage() {
               {/* Company copy */}
               <div className="space-y-7 text-body leading-relaxed lg:w-1/2">
                 <p>
-                  WildTech Development is the software and hardware division of{" "}
-                  <span className="text-heading">WildTech Ventures, LLC</span>. We are a
-                  small, founder-led technology company based in Charleston, South Carolina
-                  that builds products people actually use. Our work spans iOS apps on the
-                  App Store, web platforms, and precision IoT hardware.
+                  WildTech Development is the software and hardware division
+                  of <span className="text-heading">WildTech Ventures, LLC</span>. We
+                  are a small, founder-led technology company based in Charleston, South
+                  Carolina that builds products people actually use. Our work spans iOS
+                  apps on the App Store, web platforms, and precision IoT hardware.
                 </p>
 
                 <p>
-                  The company launched on February 1, 2024, with the release of Spirits of
-                  Charleston, a ghost story app for the Lowcountry. Within the first year,
-                  the portfolio grew to include Spirits of Savannah, EZ Fuse Tester, and two
-                  larger ventures: Churchd, a community platform built for churches, and
-                  VikingSense, a precision climate monitoring system distributed exclusively
-                  through MSI-Viking Gage.
+                  The company launched on February 1, 2024, with the release of Spirits
+                  of Charleston, a ghost story app for the Lowcountry. Within the first
+                  year, the portfolio grew to include Spirits of Savannah, EZ Fuse
+                  Tester, and two larger ventures: Churchd, a community platform built
+                  for churches, and VikingSense, a precision climate monitoring system
+                  distributed exclusively through MSI-Viking Gage.
                 </p>
 
                 <p>
-                  WildTech Development operates alongside{" "}
-                  <span className="text-heading">WildTech CHS</span>, our local technology
-                  services division. WildTech CHS handles security camera installations,
-                  structured cabling, commercial audio and video, and smart office setups
-                  across the Charleston area. Between the two divisions plus Churchd and
-                  VikingSense, WildTech Ventures covers software, hardware, services, and
-                  platforms under one roof.
+                  WildTech Development operates
+                  alongside <span className="text-heading">WildTech CHS</span>, our
+                  local technology services division. WildTech CHS handles security
+                  camera installations, structured cabling, commercial audio and video,
+                  and smart office setups across the Charleston area. Between the two
+                  divisions plus Churchd and VikingSense, WildTech Ventures covers
+                  software, hardware, services, and platforms under one roof.
                 </p>
               </div>
             </div>
@@ -337,61 +337,59 @@ export default function AboutPage() {
               {/* RIGHT: bio paragraphs */}
               <div className="space-y-7 text-body leading-relaxed lg:w-[65%]">
                 <p>
-                  William McCants is the founder of{" "}
-                  <span className="text-heading">WildTech Ventures, LLC</span>. He grew up
-                  in Charleston, South Carolina and has spent his career solving technical
-                  problems across industries ranging from aerospace manufacturing to
-                  industrial metrology to e-commerce.
+                  William McCants is the founder
+                  of <span className="text-heading">WildTech Ventures, LLC</span>. He
+                  grew up in Charleston, South Carolina and has spent his career solving
+                  technical problems across industries ranging from aerospace
+                  manufacturing to industrial metrology to e-commerce.
                 </p>
 
                 <p>
-                  William&apos;s professional path started at{" "}
-                  <span className="text-heading">MSI-Viking Gage</span> in 2012, where he
-                  built the company&apos;s Equipment Recovery and Sales department from the ground
-                  up. What began as a one-person operation grew into a four-employee
-                  department with a national market presence, buying, refurbishing, and
-                  reselling industrial calibration and metrology equipment. He later moved
-                  into an Application Engineer role at MSI-Viking, specializing in ZEISS
-                  Optotechnik 3D scanning systems, scan-to-CAD reverse engineering, and
-                  custom fixturing using additive manufacturing.
+                  William&apos;s professional path started
+                  at <span className="text-heading">MSI-Viking Gage</span> in 2012,
+                  where he built the company&apos;s Equipment Recovery and Sales department
+                  from the ground up. What began as a one-person operation grew into a
+                  four-employee department with a national market presence, buying,
+                  refurbishing, and reselling industrial calibration and metrology
+                  equipment. He later moved into an Application Engineer role at
+                  MSI-Viking, specializing in ZEISS Optotechnik 3D scanning systems,
+                  scan-to-CAD reverse engineering, and custom fixturing using additive
+                  manufacturing.
                 </p>
 
                 <p>
-                  In 2020, William joined{" "}
-                  <span className="text-heading">PRC Industries</span> in Spruce Pine,
-                  North Carolina as a Senior Engineer.{" "}
-                  <span className="text-heading">PRC Industries</span> is a large-scale
-                  product remanufacturing company that processes returns and restores
-                  defective products for major brands and retailers, most notably{" "}
-                  <span className="text-heading">Amazon</span>. The company&apos;s campus
-                  handles everything from refrigerators and vacuums to sporting goods,
-                  with a team of engineers diagnosing product flaws through total
-                  disassembly and reverse engineering. William wrote remanufacturing
-                  procedures, reverse-engineered replacement parts, and collaborated with
-                  outside engineering teams on client projects. The role sharpened his
-                  ability to diagnose unfamiliar hardware quickly, a skill that carries
-                  directly into the work WildTech does today.
+                  In 2020, William
+                  joined <span className="text-heading">PRC Industries</span> in Spruce
+                  Pine, North Carolina as a Senior Engineer. PRC Industries is a
+                  large-scale product remanufacturing company that processes returns and
+                  restores defective products for major brands and retailers, most
+                  notably <span className="text-heading">Amazon</span>. The
+                  company&apos;s campus handles everything from refrigerators and vacuums
+                  to sporting goods, with a team of engineers diagnosing product flaws
+                  through total disassembly and reverse engineering. William wrote
+                  remanufacturing procedures, reverse-engineered replacement parts, and
+                  collaborated with outside engineering teams on client projects. The
+                  role sharpened his ability to diagnose unfamiliar hardware quickly, a
+                  skill that carries directly into the work WildTech does today.
                 </p>
 
                 <p>
-                  He returned to{" "}
-                  <span className="text-heading">MSI-Viking</span> in 2022 as Director
-                  of E-Commerce, where he turned what had been a side channel into a
-                  primary revenue driver for the company. Today he oversees multi-channel
-                  operations across msi-viking.com,{" "}
-                  <span className="text-heading">Amazon</span>, eBay, and Shopify, serves
-                  as the company&apos;s NetSuite administrator, manages a multimillion-dollar
-                  product inventory, and produces all product photography and video content
-                  in-house. Under his leadership, the team cut freight costs by over 40%
-                  while achieving consistent three-day delivery windows on in-stock
-                  inventory.
+                  He returned to MSI-Viking in 2022 as Director of E-Commerce, where he
+                  turned what had been a side channel into a primary revenue driver for
+                  the company. Today he oversees multi-channel operations across
+                  msi-viking.com, Amazon, eBay, and Shopify, serves as the
+                  company&apos;s NetSuite administrator, manages a multimillion-dollar
+                  product inventory, and produces all product photography and video
+                  content in-house. Under his leadership, the team cut freight costs by
+                  over 40% while achieving consistent three-day delivery windows on
+                  in-stock inventory.
                 </p>
 
                 <p>
-                  WildTech Ventures grew out of the same mindset that has defined William&apos;s
-                  entire career: see a problem, understand it deeply, and build something
-                  that fixes it. Every product in the WildTech portfolio started as a real
-                  problem that did not have a good enough solution.
+                  WildTech Ventures grew out of the same mindset that has defined
+                  William&apos;s entire career: see a problem, understand it deeply, and
+                  build something that fixes it. Every product in the WildTech portfolio
+                  started as a real problem that did not have a good enough solution.
                 </p>
               </div>
             </div>
