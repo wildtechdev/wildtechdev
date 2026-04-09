@@ -16,19 +16,19 @@ const services = [
   {
     title: "iOS Development",
     description:
-      "We build native iOS applications using Swift and SwiftUI that are fast, beautiful, and built to last. From concept to App Store launch, we handle the full lifecycle — design, development, testing, and submission.",
+      "We build native iOS applications using Swift and SwiftUI that are fast, beautiful, and built to last. From concept to App Store launch, we handle the full lifecycle: design, development, testing, and submission.",
     tags: ["Swift & SwiftUI", "App Store Submission", "In-App Purchases", "Push Notifications"],
   },
   {
     title: "Windows Development",
     description:
-      "Desktop applications and utilities for the Windows ecosystem. Productivity tools, data processing applications, and custom business solutions — polished software for Windows.",
+      "Desktop applications and utilities for the Windows ecosystem. Productivity tools, data processing applications, and custom business solutions. Polished software for Windows.",
     tags: [".NET & WPF", "Custom Utilities", "Data Processing", "Business Automation"],
   },
   {
     title: "Web Development",
     description:
-      "Modern, responsive web applications built with Next.js, React, and Tailwind CSS. Fast, accessible, and SEO-optimized — great on every device.",
+      "Modern, responsive web applications built with Next.js, React, and Tailwind CSS. Fast, accessible, SEO-optimized, and great on every device.",
     tags: ["Next.js & React", "Responsive Design", "SEO Optimization", "Performance-First"],
   },
   {

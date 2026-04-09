@@ -63,7 +63,7 @@ export default function Footer() {
             &copy; {new Date().getFullYear()} WildTech Ventures, LLC
           </p>
           <p className="text-xs text-muted/60 mt-3 italic">
-            &ldquo;Unless the Lord builds the house, those who build it labor in vain.&rdquo; &mdash;Ps 127:1
+            &ldquo;Unless the Lord builds the house, those who build it labor in vain.&rdquo; Psalm 127:1
           </p>
         </div>
       </div>

@@ -17,7 +17,7 @@ const products = [
   {
     name: "Spirits of Charleston",
     mockup: "spirits-charleston" as const,
-    status: "Live",
+    status: "Live" as const,
     price: "$4.99",
     rating: "5.0",
     accentColor: "border-l-amber-700/30",
@@ -38,11 +38,12 @@ const products = [
       quote: "Even my ghost-averse daughter stayed highly engaged as we used the app to fill gaps in our vacation itinerary. It is easy to navigate, cheaper than the in-person ghost tours, and certainly more convenient.",
       author: "App Store Review",
     },
+    statusNote: null,
   },
   {
     name: "Spirits of Savannah",
     mockup: "spirits-savannah" as const,
-    status: "Live",
+    status: "Live" as const,
     price: "$3.99",
     rating: "5.0",
     accentColor: "border-l-teal-600/30",
@@ -63,11 +64,12 @@ const products = [
       quote: "This app turned out to be the best tour we took on our girl\u2019s weekend to Savannah!",
       author: "Ghostnay",
     },
+    statusNote: null,
   },
   {
     name: "EZ Fuse Tester",
     mockup: "ez-fuse" as const,
-    status: "Live",
+    status: "Live" as const,
     price: "Free",
     rating: null,
     accentColor: "border-l-green/30",
@@ -88,11 +90,12 @@ const products = [
       quote: "This is great. I was getting ready to throw out a bunch of Halloween lights and I tested and replaced a couple of the fuses and now the lights work.",
       author: "App Store Review",
     },
+    statusNote: null,
   },
   {
     name: "Churchd",
     mockup: "churchd" as const,
-    status: "In Development",
+    status: "In Development" as const,
     price: null,
     rating: null,
     accentColor: "border-l-indigo-500/30",
@@ -110,11 +113,12 @@ const products = [
     externalUrl: "https://churchd.com",
     externalLabel: "Visit churchd.com",
     review: null,
+    statusNote: "Currently in active development. Profile tabs, post feeds, and community features already designed and prototyped.",
   },
   {
     name: "VikingSense",
     mockup: "vikingsense" as const,
-    status: "Live",
+    status: "Live" as const,
     price: null,
     rating: null,
     accentColor: "border-l-red-600/30",
@@ -132,6 +136,7 @@ const products = [
     externalUrl: "https://vikingsense.com",
     externalLabel: "Visit vikingsense.com",
     review: null,
+    statusNote: "Precision hardware with exclusive MSI-Viking Gage distribution. Production units shipping.",
   },
 ];
 
@@ -164,25 +169,28 @@ export default function ProductsPage() {
           Software and hardware built to solve real-world problems.
         </p>
 
-        <div className="space-y-0">
+        <div className="divide-y divide-border">
           {products.map((product, index) => {
             const isEven = index % 2 === 1;
             return (
               <article
                 key={product.name}
-                className={`border-b border-border border-l-[4px] ${product.accentColor} py-14 pl-8 first:pt-0`}
+                className={`border-l-[4px] ${product.accentColor} py-14 pl-8`}
               >
                 <div className={`flex flex-col lg:flex-row gap-10 lg:gap-16 ${isEven ? "lg:flex-row-reverse" : ""}`}>
                   {/* Mockup */}
-                  <div className={`flex justify-center lg:flex-shrink-0 lg:self-start ${isEven ? "lg:order-1" : "lg:order-2"}`}>
+                  <div className="flex justify-center lg:flex-shrink-0 lg:self-start">
                     <PhoneMockup product={product.mockup} />
                   </div>
 
                   {/* Content */}
-                  <div className={`flex-1 min-w-0 ${isEven ? "lg:order-2" : "lg:order-1"}`}>
-                    <div className="flex items-center gap-4 mb-5">
-                      <p className={`text-[10px] uppercase tracking-[0.25em] font-mono ${
-                        product.status === "Live" ? "text-green" : "text-body"
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-center gap-3 mb-5">
+                      <span className={`w-2 h-2 rounded-full shrink-0 ${
+                        product.status === "Live" ? "bg-green" : "bg-amber-500"
+                      }`} />
+                      <p className={`text-xs uppercase tracking-widest font-mono ${
+                        product.status === "Live" ? "text-green" : "text-amber-500"
                       }`}>
                         {product.status}
                       </p>
@@ -224,6 +232,15 @@ export default function ProductsPage() {
                         </p>
                         <p className="text-[10px] uppercase tracking-[0.2em] text-muted font-mono mt-2">
                           {product.review.author}
+                        </p>
+                      </div>
+                    )}
+
+                    {/* Status note (for products without reviews) */}
+                    {!product.review && product.statusNote && (
+                      <div className="border-l border-border pl-5 mb-8">
+                        <p className="text-sm text-muted italic font-[family-name:var(--font-serif)] leading-relaxed">
+                          {product.statusNote}
                         </p>
                       </div>
                     )}

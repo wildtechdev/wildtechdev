@@ -126,7 +126,7 @@ const hobbies = [
   {
     label: "Photography",
     icon: (
-      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
+      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
         <path strokeLinecap="round" strokeLinejoin="round" d="M6.827 6.175A2.31 2.31 0 015.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 00-1.134-.175 2.31 2.31 0 01-1.64-1.055l-.822-1.316a2.192 2.192 0 00-1.736-1.039 48.774 48.774 0 00-5.232 0 2.192 2.192 0 00-1.736 1.039l-.821 1.316z" />
         <path strokeLinecap="round" strokeLinejoin="round" d="M16.5 12.75a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0z" />
       </svg>
@@ -135,7 +135,7 @@ const hobbies = [
   {
     label: "Guitars",
     icon: (
-      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
+      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
         <path strokeLinecap="round" strokeLinejoin="round" d="M9 9l10.5-3m0 6.553v3.75a2.25 2.25 0 01-1.632 2.163l-1.32.377a1.803 1.803 0 11-.99-3.467l2.31-.66a2.25 2.25 0 001.632-2.163zm0 0V2.25L9 5.25v10.303m0 0v3.75a2.25 2.25 0 01-1.632 2.163l-1.32.377a1.803 1.803 0 01-.99-3.467l2.31-.66A2.25 2.25 0 009 15.553z" />
       </svg>
     ),
@@ -143,7 +143,7 @@ const hobbies = [
   {
     label: "3D Printing",
     icon: (
-      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
+      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
         <path strokeLinecap="round" strokeLinejoin="round" d="M21 7.5l-9-5.25L3 7.5m18 0l-9 5.25m9-5.25v9l-9 5.25M3 7.5l9 5.25M3 7.5v9l9 5.25m0-9v9" />
       </svg>
     ),
@@ -151,7 +151,7 @@ const hobbies = [
   {
     label: "Camping",
     icon: (
-      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
+      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
         <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75M6.75 21v-3.375c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21" />
       </svg>
     ),
@@ -159,7 +159,7 @@ const hobbies = [
   {
     label: "Cybersecurity",
     icon: (
-      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
+      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
         <path strokeLinecap="round" strokeLinejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" />
       </svg>
     ),
@@ -181,8 +181,8 @@ export default function AboutPage() {
       <section className="py-16 sm:py-24">
         <div className="max-w-4xl mx-auto px-6 lg:px-8">
 
-          {/* ─── SECTION 1: THE COMPANY ─── */}
-          <div className="mb-20 animate-fade-in-up">
+          {/* SECTION 1: THE COMPANY */}
+          <div className="mb-10 animate-fade-in-up">
             <p className="section-label text-xs uppercase tracking-widest text-muted mb-2 font-[family-name:var(--font-sans)]">
               About
             </p>
@@ -194,16 +194,16 @@ export default function AboutPage() {
             </p>
 
             <div className="flex flex-col lg:flex-row gap-10 lg:gap-14">
-              {/* Industrial photo — left on desktop, top on mobile */}
-              <div className="lg:w-[40%] shrink-0">
-                <div className="overflow-hidden rounded-[2px] border border-border">
+              {/* Industrial photo */}
+              <div className="lg:w-1/2 shrink-0">
+                <div className="overflow-hidden border border-border">
                   <Image
                     src="/william-industrial.jpg"
                     alt="William McCants at SANY headquarters"
                     width={3024}
                     height={4032}
-                    className="w-full h-auto object-cover"
-                    sizes="(max-width: 1024px) 100vw, 40vw"
+                    className="w-full h-auto object-cover brightness-110"
+                    sizes="(max-width: 1024px) 100vw, 50vw"
                     priority
                   />
                 </div>
@@ -212,13 +212,13 @@ export default function AboutPage() {
                 </p>
               </div>
 
-              {/* Company copy — right on desktop */}
-              <div className="space-y-7 text-body leading-relaxed">
+              {/* Company copy */}
+              <div className="space-y-7 text-body leading-relaxed lg:w-1/2">
                 <p>
                   WildTech Development is the software and hardware arm of{" "}
                   <span className="text-heading">WildTech Ventures, LLC</span>, a
                   Charleston-based technology company founded in 2024. We build products that
-                  solve real problems, from mobile apps that bring history to life, to precision
+                  solve real problems, from mobile apps that bring history to life to precision
                   monitoring hardware trusted in calibration labs and server rooms.
                 </p>
 
@@ -240,7 +240,10 @@ export default function AboutPage() {
             </div>
           </div>
 
-          {/* ─── SECTION 2: THE ECOSYSTEM ─── */}
+          {/* Separator */}
+          <div className="border-t border-border my-20" />
+
+          {/* SECTION 2: THE ECOSYSTEM */}
           <div className="mb-20">
             <p className="section-label text-xs uppercase tracking-widest text-muted mb-2 font-[family-name:var(--font-sans)]">
               The ecosystem
@@ -272,7 +275,7 @@ export default function AboutPage() {
             </div>
           </div>
 
-          {/* ─── SECTION 3: THE FOUNDER ─── */}
+          {/* SECTION 3: THE FOUNDER */}
           <div className="border-t border-border pt-16 mb-20">
             <p className="section-label text-xs uppercase tracking-widest text-muted mb-2 font-[family-name:var(--font-sans)]">
               The founder
@@ -289,14 +292,14 @@ export default function AboutPage() {
             <div className="flex flex-col lg:flex-row gap-12 lg:gap-14">
               {/* LEFT: headshot + quick facts */}
               <div className="lg:w-[35%] shrink-0">
-                <div className="max-w-[300px] overflow-hidden rounded-[2px] border border-border">
+                <div className="max-w-[340px] overflow-hidden border border-border">
                   <Image
                     src="/headshot.png"
                     alt="William McCants, founder of WildTech Development"
                     width={1125}
                     height={1687}
-                    className="w-full h-auto object-cover"
-                    sizes="(max-width: 1024px) 100vw, 300px"
+                    className="w-full h-auto object-cover object-top"
+                    sizes="(max-width: 1024px) 100vw, 340px"
                   />
                 </div>
                 <p className="text-xs font-mono text-green tracking-widest mt-4 mb-8">
@@ -306,11 +309,11 @@ export default function AboutPage() {
                 {/* Quick facts */}
                 <div className="border-t border-border">
                   {quickFacts.map((fact) => (
-                    <div key={fact.label} className="flex items-baseline justify-between py-3 border-b border-border">
-                      <span className="text-[10px] uppercase tracking-[0.2em] text-muted font-mono">
+                    <div key={fact.label} className="flex items-baseline justify-between py-3 border-b border-dotted border-border gap-4">
+                      <span className="text-[10px] uppercase tracking-[0.2em] text-muted font-mono whitespace-nowrap">
                         {fact.label}
                       </span>
-                      <span className="text-sm text-heading font-[family-name:var(--font-sans)]">
+                      <span className="text-sm text-heading font-[family-name:var(--font-sans)] text-right">
                         {fact.value}
                       </span>
                     </div>
@@ -326,8 +329,8 @@ export default function AboutPage() {
                   Charleston-based technology company building software, hardware, and service
                   solutions. With over a decade of hands-on experience in engineering, metrology,
                   and quality control, William brings an uncommon precision to software
-                  development &mdash; the same attention to detail that defines his work in
-                  industrial measurement.
+                  development. That same attention to detail that defines his work in
+                  industrial measurement carries into every line of code.
                 </p>
 
                 <p>
@@ -336,7 +339,7 @@ export default function AboutPage() {
                   leading suppliers of precision measuring technologies. MSI-Viking has been a
                   trusted name in metrology since 1967, representing brands like ZEISS, Mitutoyo,
                   Starrett, and Mahr. This role puts William at the intersection of industrial
-                  technology, e-commerce, and enterprise sales &mdash; experience that directly
+                  technology, e-commerce, and enterprise sales. That experience directly
                   informs how WildTech approaches product development and go-to-market strategy.
                 </p>
 
@@ -357,26 +360,23 @@ export default function AboutPage() {
 
           {/* Beyond the Code */}
           <div className="border-t border-border pt-16 mb-20">
-            <p className="section-label text-xs uppercase tracking-widest text-muted mb-2 font-[family-name:var(--font-sans)]">
-              Beyond the code
-            </p>
             <h2 className="text-2xl sm:text-3xl font-[family-name:var(--font-serif)] italic text-heading mb-10">
-              The person
+              Beyond the code
             </h2>
 
             <div className="space-y-7 text-body leading-relaxed">
               <p>
                 Known as <span className="text-heading">&ldquo;Gadget&rdquo;</span> by
                 his nieces and nephews for always tinkering and finding tech solutions to
-                everyday problems &mdash; that same inventive spirit drives every project.
+                everyday problems. That same inventive spirit drives every project.
               </p>
 
               {/* Hobby icons */}
-              <div className="flex flex-wrap gap-6 py-4">
+              <div className="flex flex-wrap gap-8 py-4">
                 {hobbies.map((hobby) => (
-                  <div key={hobby.label} className="flex items-center gap-2">
+                  <div key={hobby.label} className="flex items-center gap-2.5">
                     <span className="text-[#333]">{hobby.icon}</span>
-                    <span className="text-xs text-muted font-[family-name:var(--font-sans)]">{hobby.label}</span>
+                    <span className="text-sm text-muted font-[family-name:var(--font-sans)]">{hobby.label}</span>
                   </div>
                 ))}
               </div>
@@ -397,7 +397,7 @@ export default function AboutPage() {
               </blockquote>
 
               <p className="text-muted">
-                A faith-driven entrepreneur &mdash; building with purpose, integrity,
+                A faith-driven entrepreneur building with purpose, integrity,
                 and excellence.
               </p>
             </div>
@@ -416,9 +416,12 @@ export default function AboutPage() {
               href="https://www.linkedin.com/in/willmccants/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-sm text-body hover:text-heading transition-colors link-underline font-[family-name:var(--font-sans)]"
+              className="btn-ghost inline-flex items-center gap-3"
             >
-              Connect on LinkedIn &rarr;
+              <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+              </svg>
+              Connect on LinkedIn
             </a>
           </div>
         </div>

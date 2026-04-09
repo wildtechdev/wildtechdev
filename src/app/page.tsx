@@ -216,7 +216,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Products — grid */}
+      {/* Products */}
       <section className="relative py-16 sm:py-24 border-t border-border">
         {/* Section number */}
         <div className="absolute top-6 right-6 lg:right-12 text-[200px] leading-none font-[family-name:var(--font-serif)] text-heading pointer-events-none select-none opacity-[0.03]">
