@@ -225,7 +225,7 @@ export default function AboutPage() {
               <div className="space-y-7 text-body leading-relaxed lg:w-1/2">
                 <p>
                   WildTech Development is the software and hardware division
-                  of <span className="text-heading">WildTech Ventures, LLC</span>. We
+                  of <strong className="text-heading font-normal">WildTech Ventures, LLC</strong>. We
                   are a small, founder-led technology company based in Charleston, South
                   Carolina that builds products people actually use. Our work spans iOS
                   apps on the App Store, web platforms, and precision IoT hardware.
@@ -242,7 +242,7 @@ export default function AboutPage() {
 
                 <p>
                   WildTech Development operates
-                  alongside <span className="text-heading">WildTech CHS</span>, our
+                  alongside <strong className="text-heading font-normal">WildTech CHS</strong>, our
                   local technology services division. WildTech CHS handles security
                   camera installations, structured cabling, commercial audio and video,
                   and smart office setups across the Charleston area. Between the two
@@ -338,14 +338,14 @@ export default function AboutPage() {
               <div className="space-y-7 text-body leading-relaxed lg:w-[65%]">
                 <p>
                   William McCants is the founder
-                  of <span className="text-heading">WildTech Ventures, LLC</span>. He
+                  of <strong className="text-heading font-normal">WildTech Ventures, LLC</strong>. He
                   grew up in Charleston, South Carolina and has spent his career solving
                   technical problems across industries ranging from aerospace
                   manufacturing to industrial metrology to e-commerce.
                 </p>
 
                 <p>
-                  William&apos;s professional path started at <span className="text-heading">MSI-Viking Gage</span> in 2012, where he built the company&apos;s Equipment Recovery and Sales department
+                  William&apos;s professional path started at <strong className="text-heading font-normal">MSI-Viking Gage </strong>in 2012, where he built the company&apos;s Equipment Recovery and Sales department
                   from the ground up. What began as a one-person operation grew into a
                   four-employee department with a national market presence, buying,
                   refurbishing, and reselling industrial calibration and metrology
@@ -357,11 +357,11 @@ export default function AboutPage() {
 
                 <p>
                   In 2020, William
-                  joined <span className="text-heading">PRC Industries</span> in Spruce
+                  joined <strong className="text-heading font-normal">PRC Industries </strong>in Spruce
                   Pine, North Carolina as a Senior Engineer. PRC Industries is a
                   large-scale product remanufacturing company that processes returns and
                   restores defective products for major brands and retailers, most
-                  notably <span className="text-heading">Amazon</span>. The
+                  notably <strong className="text-heading font-normal">Amazon</strong>. The
                   company&apos;s campus handles everything from refrigerators and vacuums
                   to sporting goods, with a team of engineers diagnosing product flaws
                   through total disassembly and reverse engineering. William wrote
@@ -402,7 +402,7 @@ export default function AboutPage() {
             <div className="space-y-7 text-body leading-relaxed">
               <p>
                 His nieces and nephews call him{" "}
-                <span className="text-heading">&ldquo;Gadget&rdquo;</span> because
+                <strong className="text-heading font-normal">&ldquo;Gadget&rdquo;</strong> because
                 there is always a project on the workbench, a 3D printer running, or
                 some piece of technology being taken apart and put back together. That
                 same restless curiosity is what drives WildTech.
