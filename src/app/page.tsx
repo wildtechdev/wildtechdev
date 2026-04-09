@@ -1,45 +1,55 @@
 import Link from "next/link";
 import Testimonials from "@/components/Testimonials";
+import PhoneMockup from "@/components/PhoneMockup";
 
 const products = [
   {
     name: "Spirits of Charleston",
+    mockup: "spirits-charleston" as const,
     category: "Travel",
     description:
-      "75+ ghost stories with immersive audio narration. Walk through Charleston's most haunted streets and uncover the supernatural history of the Holy City.",
+      "75+ professionally narrated ghost stories tied to real Charleston locations. From the Old City Jail to the beaches, forts, and islands.",
     price: "$4.99",
+    rating: "5.0",
     link: "https://apps.apple.com/us/app/spirits-of-charleston/id6476931671",
     linkLabel: "App Store",
   },
   {
     name: "Spirits of Savannah",
+    mockup: "spirits-savannah" as const,
     category: "Travel",
     description:
-      "Curated ghost stories and guided audio experiences from Savannah, GA. Explore the haunted side of one of America's most storied cities.",
-    link: null,
-    linkLabel: null,
+      "55+ narrated tales beneath Savannah's moss-draped oaks. Coverage from downtown to Ossabaw Island and Hardeeville, SC.",
+    price: "$3.99",
+    rating: "5.0",
+    link: "https://apps.apple.com/us/app/spirits-of-savannah/id6740187114",
+    linkLabel: "App Store",
   },
   {
     name: "EZ Fuse Tester",
+    mockup: "ez-fuse" as const,
     category: "Utilities",
     description:
-      "Turn your smartphone into a precision fuse continuity tester. No extra hardware needed — fast, accurate, and always in your pocket.",
+      "Place a glass cartridge fuse on your phone screen for instant pass/fail continuity testing. No extra hardware needed.",
+    price: "Free",
     link: "https://apps.apple.com/us/app/ez-fuse-tester/id6737378228",
     linkLabel: "App Store",
   },
   {
     name: "Churchd",
+    mockup: "churchd" as const,
     category: "Community",
     description:
-      "A modern church community platform. Event management, group communication, volunteer coordination, and giving — built for congregations.",
+      "A modern church community platform. Events, groups, volunteers, and giving — built for congregations.",
     link: "https://churchd.com",
     linkLabel: "churchd.com",
   },
   {
     name: "VikingSense",
+    mockup: "vikingsense" as const,
     category: "Hardware",
     description:
-      "Precision climate monitoring hardware and software. Enterprise-grade reliability with exclusive distribution through MSI-Viking Gage.",
+      "Precision climate monitoring hardware and software. Exclusive distribution through MSI-Viking Gage.",
     link: "https://vikingsense.com",
     linkLabel: "vikingsense.com",
   },
@@ -59,7 +69,6 @@ export default function HomePage() {
     <>
       {/* Hero */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        {/* Grid background */}
         <div className="absolute inset-0 grid-bg" />
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black" />
 
@@ -106,20 +115,33 @@ export default function HomePage() {
                   i < products.length - 1 ? "border-r border-border" : ""
                 }`}
               >
+                <div className="flex justify-center mb-8">
+                  <PhoneMockup product={product.mockup} size="small" />
+                </div>
+
                 <p className="text-[10px] uppercase tracking-[0.25em] text-muted font-mono mb-4">
                   {product.category}
                 </p>
                 <h3 className="text-2xl sm:text-3xl font-[family-name:var(--font-serif)] italic text-heading mb-4">
                   {product.name}
                 </h3>
-                <p className="text-body text-sm leading-relaxed mb-6 max-w-sm">
+                <p className="text-body text-sm leading-relaxed mb-5 max-w-sm">
                   {product.description}
                 </p>
-                {product.price && (
-                  <p className="text-heading text-sm font-[family-name:var(--font-sans)] mb-4">
-                    {product.price}
-                  </p>
-                )}
+
+                <div className="flex items-center gap-3 mb-5">
+                  {product.price && (
+                    <span className="text-heading text-sm font-[family-name:var(--font-sans)]">
+                      {product.price}
+                    </span>
+                  )}
+                  {product.rating && (
+                    <span className="text-[10px] text-muted font-mono">
+                      {product.rating} &star;
+                    </span>
+                  )}
+                </div>
+
                 {product.link && (
                   <a
                     href={product.link}
