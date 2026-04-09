@@ -12,20 +12,24 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
   return (
-    <section className="py-32">
+    <section className="py-16 sm:py-24">
       <div className="max-w-2xl mx-auto px-6 lg:px-8">
-        <p className="text-xs uppercase tracking-widest text-muted mb-2 font-[family-name:var(--font-sans)] animate-fade-in-up">
-          Let&apos;s talk
-        </p>
-        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-[family-name:var(--font-serif)] italic text-heading mb-6 animate-fade-in-up delay-100">
-          Get in touch
-        </h1>
-        <p className="text-body text-lg mb-16 animate-fade-in-up delay-200">
-          Have a project in mind? We&apos;d love to hear about it.
-        </p>
+        {/* Intro */}
+        <div className="mb-16 animate-fade-in-up">
+          <p className="section-label text-xs uppercase tracking-widest text-muted mb-2 font-[family-name:var(--font-sans)]">
+            Let&apos;s talk
+          </p>
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-[family-name:var(--font-serif)] italic text-heading mb-6">
+            Have an idea? Let&apos;s build it.
+          </h1>
+          <p className="text-body text-lg leading-relaxed">
+            Whether you need an iOS app, a custom hardware solution, or a complete web
+            platform, every project starts with a conversation.
+          </p>
+        </div>
 
         {/* Form */}
-        <form className="space-y-8 animate-fade-in-up delay-300">
+        <form className="space-y-8 animate-fade-in-up delay-200">
           <div>
             <label htmlFor="name" className="block text-xs uppercase tracking-widest text-muted mb-3 font-[family-name:var(--font-sans)]">
               Name
@@ -65,17 +69,31 @@ export default function ContactPage() {
               placeholder="Tell us about your project..."
             />
           </div>
-          <button
-            type="submit"
-            className="inline-flex items-center px-6 py-3 bg-green text-black text-sm font-medium tracking-wide hover:bg-green-dark transition-colors"
-          >
+          <button type="submit" className="btn-ghost">
             Send message &rarr;
           </button>
         </form>
 
-        {/* Info */}
-        <div className="mt-24 border-t border-border pt-16">
-          <div className="flex flex-col sm:flex-row gap-12">
+        {/* Prefer to talk */}
+        <div className="mt-20 border-t border-border pt-14">
+          <h2 className="text-xl font-[family-name:var(--font-serif)] italic text-heading mb-4">
+            Prefer to talk?
+          </h2>
+          <p className="text-sm text-body leading-relaxed mb-6">
+            For Charleston-area technology services including security, networking, A/V,
+            and structured cabling, visit{" "}
+            <a
+              href="https://wildtechchs.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-green link-underline"
+            >
+              wildtechchs.com
+            </a>
+            .
+          </p>
+
+          <div className="flex flex-col sm:flex-row gap-8 mt-10">
             <div>
               <p className="text-xs uppercase tracking-widest text-muted mb-3 font-[family-name:var(--font-sans)]">
                 Email
@@ -89,21 +107,14 @@ export default function ContactPage() {
             </div>
             <div>
               <p className="text-xs uppercase tracking-widest text-muted mb-3 font-[family-name:var(--font-sans)]">
-                Service inquiries
+                Location
               </p>
-              <a
-                href="https://wildtechchs.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-sm text-heading link-underline"
-              >
-                wildtechchs.com &rarr;
-              </a>
+              <p className="text-sm text-heading flex items-center gap-2">
+                <span className="w-2 h-2 bg-green rounded-full animate-pulse" />
+                Based in Charleston, SC
+              </p>
             </div>
           </div>
-          <p className="text-xs text-muted mt-12">
-            Charleston, SC &middot; WildTech Ventures, LLC
-          </p>
         </div>
       </div>
     </section>

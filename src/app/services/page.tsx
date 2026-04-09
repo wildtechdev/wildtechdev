@@ -17,90 +17,134 @@ const services = [
     title: "iOS Development",
     description:
       "We build native iOS applications using Swift and SwiftUI that are fast, beautiful, and built to last. From concept to App Store launch, we handle the full lifecycle — design, development, testing, and submission.",
-    details: ["Swift & SwiftUI", "App Store submission", "In-app purchases", "Push notifications"],
+    tags: ["Swift & SwiftUI", "App Store Submission", "In-App Purchases", "Push Notifications"],
   },
   {
     title: "Windows Development",
     description:
       "Desktop applications and utilities for the Windows ecosystem. Productivity tools, data processing applications, and custom business solutions — polished software for Windows.",
-    details: [".NET & WPF", "Custom utilities", "Data processing", "Business automation"],
+    tags: [".NET & WPF", "Custom Utilities", "Data Processing", "Business Automation"],
   },
   {
     title: "Web Development",
     description:
       "Modern, responsive web applications built with Next.js, React, and Tailwind CSS. Fast, accessible, and SEO-optimized — great on every device.",
-    details: ["Next.js & React", "Responsive design", "SEO optimization", "Performance-first"],
+    tags: ["Next.js & React", "Responsive Design", "SEO Optimization", "Performance-First"],
   },
   {
     title: "App Store Optimization",
     description:
       "Data-driven ASO strategies to maximize your app's visibility and downloads. We optimize metadata, keywords, screenshots, and review management.",
-    details: ["Keyword optimization", "Screenshot design", "Review management", "Analytics & reporting"],
+    tags: ["Keyword Optimization", "Screenshot Design", "Review Management", "Analytics"],
   },
   {
     title: "Systems Integration",
     description:
       "Connect your software, hardware, and third-party platforms into a unified system. We bridge disparate technologies to create seamless workflows and data pipelines.",
-    details: ["API integration", "Data pipelines", "Legacy modernization", "Cloud services"],
+    tags: ["API Integration", "Data Pipelines", "Legacy Modernization", "Cloud Services"],
   },
   {
     title: "Hardware Solutions",
     description:
       "Custom hardware design and IoT solutions for precision monitoring and control. Sensor networks, embedded systems, and reliable hardware backed by intuitive software.",
-    details: ["IoT sensors", "Embedded systems", "Real-time dashboards", "Industrial-grade reliability"],
+    tags: ["IoT Sensors", "Embedded Systems", "Real-Time Dashboards", "Industrial-Grade"],
+  },
+];
+
+const whyUs = [
+  {
+    title: "Owner-operated",
+    description: "Every project is led by the founder. No account managers, no handoffs, no surprises.",
+  },
+  {
+    title: "Full lifecycle",
+    description: "From concept to launch to ongoing support. Design, build, ship, and iterate.",
+  },
+  {
+    title: "Charleston-based",
+    description: "Local expertise with a national reach. On-site when you need it, remote when you don\u2019t.",
   },
 ];
 
 export default function ServicesPage() {
   return (
-    <section className="py-32">
+    <section className="py-16 sm:py-24">
       <div className="max-w-4xl mx-auto px-6 lg:px-8">
-        <p className="text-xs uppercase tracking-widest text-muted mb-2 font-[family-name:var(--font-sans)] animate-fade-in-up">
+        <p className="section-label text-xs uppercase tracking-widest text-muted mb-2 font-[family-name:var(--font-sans)] animate-fade-in-up">
           What we do
         </p>
         <h1 className="text-4xl sm:text-5xl lg:text-6xl font-[family-name:var(--font-serif)] italic text-heading mb-6 animate-fade-in-up delay-100">
           Services
         </h1>
-        <p className="text-body text-lg mb-20 animate-fade-in-up delay-200">
+        <p className="text-body text-lg mb-16 animate-fade-in-up delay-200">
           End-to-end development and integration, tailored to your vision.
         </p>
 
         <div className="space-y-0">
-          {services.map((service) => (
+          {services.map((service, i) => (
             <article
               key={service.title}
-              className="border-b border-border py-14 first:pt-0"
+              className="border-b border-border py-12 first:pt-0"
             >
-              <h2 className="text-2xl sm:text-3xl font-[family-name:var(--font-serif)] italic text-heading mb-5">
+              <h2 className="text-2xl sm:text-3xl font-[family-name:var(--font-serif)] italic text-heading mb-4">
+                <span className="text-green font-[family-name:var(--font-sans)] text-lg mr-3 not-italic">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <span className="text-muted mx-2 font-[family-name:var(--font-sans)] text-sm">/</span>
                 {service.title}
               </h2>
-              <p className="text-body leading-relaxed mb-8 max-w-2xl">
+              <p className="text-body leading-relaxed mb-6 max-w-2xl pl-1">
                 {service.description}
               </p>
-              <div className="flex flex-wrap gap-x-6 gap-y-2">
-                {service.details.map((d) => (
-                  <p key={d} className="text-xs text-muted flex items-center gap-2 font-mono uppercase tracking-wider">
-                    <span className="w-1 h-1 bg-green rounded-full" />
-                    {d}
-                  </p>
+              <div className="flex flex-wrap gap-2 pl-1">
+                {service.tags.map((tag) => (
+                  <span
+                    key={tag}
+                    className="text-[10px] font-mono uppercase tracking-wider text-muted px-3 py-1.5 border border-border bg-card"
+                  >
+                    {tag}
+                  </span>
                 ))}
               </div>
             </article>
           ))}
         </div>
 
+        {/* Why WildTech */}
+        <div className="mt-20 border-t border-border pt-16">
+          <p className="section-label text-xs uppercase tracking-widest text-muted mb-2 font-[family-name:var(--font-sans)]">
+            Why us
+          </p>
+          <h2 className="text-2xl sm:text-3xl font-[family-name:var(--font-serif)] italic text-heading mb-12">
+            Why WildTech?
+          </h2>
+
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-10">
+            {whyUs.map((item, i) => (
+              <div key={item.title}>
+                <span className="text-2xl font-[family-name:var(--font-sans)] text-green font-light mb-3 block">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <h3 className="text-lg font-[family-name:var(--font-serif)] italic text-heading mb-2">
+                  {item.title}
+                </h3>
+                <p className="text-sm text-muted font-[family-name:var(--font-sans)] leading-relaxed">
+                  {item.description}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+
         {/* CTA */}
-        <div className="mt-24 border-t border-border pt-16">
+        <div className="mt-20 border-t border-green/20 pt-16">
           <h2 className="text-2xl sm:text-3xl font-[family-name:var(--font-serif)] italic text-heading mb-4">
             Ready to start?
           </h2>
           <p className="text-body mb-8 max-w-lg">
             Let&apos;s talk about your project and find the right approach.
           </p>
-          <Link
-            href="/contact"
-            className="inline-flex items-center px-6 py-3 bg-green text-black text-sm font-medium tracking-wide hover:bg-green-dark transition-colors"
-          >
+          <Link href="/contact" className="btn-ghost">
             Get in touch &rarr;
           </Link>
         </div>

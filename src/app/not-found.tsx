@@ -13,11 +13,8 @@ export default function NotFound() {
         <p className="text-sm text-muted mt-3 max-w-sm mx-auto">
           The page you&apos;re looking for doesn&apos;t exist or has been moved.
         </p>
-        <Link
-          href="/"
-          className="inline-flex items-center px-6 py-3 bg-green text-black text-sm font-medium tracking-wide hover:bg-green-dark transition-colors mt-10"
-        >
-          Back to home
+        <Link href="/" className="btn-ghost mt-10">
+          Back to home &rarr;
         </Link>
       </div>
     </section>
