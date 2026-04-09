@@ -96,6 +96,50 @@ const ecosystem = [
   },
 ];
 
+const hobbies = [
+  {
+    label: "Photography",
+    icon: (
+      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M6.827 6.175A2.31 2.31 0 015.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 00-1.134-.175 2.31 2.31 0 01-1.64-1.055l-.822-1.316a2.192 2.192 0 00-1.736-1.039 48.774 48.774 0 00-5.232 0 2.192 2.192 0 00-1.736 1.039l-.821 1.316z" />
+        <path strokeLinecap="round" strokeLinejoin="round" d="M16.5 12.75a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0z" />
+      </svg>
+    ),
+  },
+  {
+    label: "Guitars",
+    icon: (
+      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M9 9l10.5-3m0 6.553v3.75a2.25 2.25 0 01-1.632 2.163l-1.32.377a1.803 1.803 0 11-.99-3.467l2.31-.66a2.25 2.25 0 001.632-2.163zm0 0V2.25L9 5.25v10.303m0 0v3.75a2.25 2.25 0 01-1.632 2.163l-1.32.377a1.803 1.803 0 01-.99-3.467l2.31-.66A2.25 2.25 0 009 15.553z" />
+      </svg>
+    ),
+  },
+  {
+    label: "3D Printing",
+    icon: (
+      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M21 7.5l-9-5.25L3 7.5m18 0l-9 5.25m9-5.25v9l-9 5.25M3 7.5l9 5.25M3 7.5v9l9 5.25m0-9v9" />
+      </svg>
+    ),
+  },
+  {
+    label: "Camping",
+    icon: (
+      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75M6.75 21v-3.375c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21" />
+      </svg>
+    ),
+  },
+  {
+    label: "Cybersecurity",
+    icon: (
+      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" />
+      </svg>
+    ),
+  },
+];
+
 export default function AboutPage() {
   return (
     <>
@@ -106,18 +150,34 @@ export default function AboutPage() {
 
       <section className="py-16 sm:py-24">
         <div className="max-w-3xl mx-auto px-6 lg:px-8">
-          {/* Header */}
+          {/* Header with avatar */}
           <div className="mb-20 animate-fade-in-up">
-            <p className="text-xs font-mono text-green tracking-widest mb-8">
-              Charleston, SC
-            </p>
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-[family-name:var(--font-serif)] italic text-heading leading-[0.95] mb-3">
-              William McCants
-            </h1>
-            <div className="w-[60px] h-[2px] bg-green mb-6" />
-            <p className="text-lg text-body">
-              Founder &amp; Developer
-            </p>
+            <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-8">
+              <div>
+                <p className="text-xs font-mono text-green tracking-widest mb-8">
+                  Charleston, SC
+                </p>
+                <h1 className="text-5xl sm:text-6xl lg:text-7xl font-[family-name:var(--font-serif)] italic text-heading leading-[0.95] mb-3">
+                  William McCants
+                </h1>
+                <div className="w-[60px] h-[2px] bg-green mb-6" />
+                <p className="text-lg text-body">
+                  Founder &amp; Developer
+                </p>
+              </div>
+
+              {/* Headshot placeholder */}
+              <div className="flex flex-col items-center shrink-0 self-center sm:self-start">
+                <div className="w-[200px] h-[200px] border border-border bg-card flex items-center justify-center">
+                  <span className="text-5xl font-[family-name:var(--font-serif)] italic text-heading/20">
+                    WM
+                  </span>
+                </div>
+                <p className="text-[10px] font-mono text-muted tracking-widest mt-3">
+                  CHARLESTON, SC
+                </p>
+              </div>
+            </div>
           </div>
 
           {/* Quick facts */}
@@ -220,13 +280,21 @@ export default function AboutPage() {
                 everyday problems &mdash; that same inventive spirit drives every project.
               </p>
 
-              <p>
-                When not coding: photography, guitars, 3D printing, camping in the Lowcountry,
-                and exploring cybersecurity and hardware hacking tools. There&apos;s usually a
-                Flipper Zero within arm&apos;s reach.
+              {/* Hobby icons */}
+              <div className="flex flex-wrap gap-6 py-4">
+                {hobbies.map((hobby) => (
+                  <div key={hobby.label} className="flex items-center gap-2">
+                    <span className="text-[#333]">{hobby.icon}</span>
+                    <span className="text-xs text-muted font-[family-name:var(--font-sans)]">{hobby.label}</span>
+                  </div>
+                ))}
+              </div>
+
+              <p className="text-sm text-muted">
+                There&apos;s usually a Flipper Zero within arm&apos;s reach.
               </p>
 
-              <blockquote className="border-l-2 border-green pl-6 py-2">
+              <blockquote className="border-l-[3px] border-green pl-6 py-2">
                 <p className="text-lg font-[family-name:var(--font-serif)] italic text-heading leading-relaxed">
                   &ldquo;Whatever you do, work heartily, as for the Lord and not for men,
                   knowing that from the Lord you will receive the inheritance as your reward.

@@ -19,8 +19,10 @@ export default function ContactPage() {
           <p className="section-label text-xs uppercase tracking-widest text-muted mb-2 font-[family-name:var(--font-sans)]">
             Let&apos;s talk
           </p>
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-[family-name:var(--font-serif)] italic text-heading mb-6">
-            Have an idea? Let&apos;s build it.
+          <h1 className="relative text-4xl sm:text-5xl lg:text-6xl font-[family-name:var(--font-serif)] italic text-heading mb-6">
+            {/* Green glow behind heading */}
+            <span className="absolute top-1/2 left-1/3 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[200px] rounded-full bg-green opacity-[0.05] blur-3xl pointer-events-none" />
+            <span className="relative">Have an idea? Let&apos;s build it.</span>
           </h1>
           <p className="text-body text-lg leading-relaxed">
             Whether you need an iOS app, a custom hardware solution, or a complete web
@@ -39,7 +41,7 @@ export default function ContactPage() {
               id="name"
               name="name"
               required
-              className="w-full px-0 py-3 bg-transparent border-0 border-b border-border text-heading placeholder-muted focus:outline-none focus:border-green transition-colors text-sm"
+              className="w-full px-0 py-3 bg-[#0a0a0a] border-0 border-b border-border text-heading placeholder-muted focus:outline-none focus:border-green transition-colors text-sm"
               placeholder="Your name"
             />
           </div>
@@ -52,7 +54,7 @@ export default function ContactPage() {
               id="email"
               name="email"
               required
-              className="w-full px-0 py-3 bg-transparent border-0 border-b border-border text-heading placeholder-muted focus:outline-none focus:border-green transition-colors text-sm"
+              className="w-full px-0 py-3 bg-[#0a0a0a] border-0 border-b border-border text-heading placeholder-muted focus:outline-none focus:border-green transition-colors text-sm"
               placeholder="you@example.com"
             />
           </div>
@@ -65,11 +67,11 @@ export default function ContactPage() {
               name="message"
               rows={5}
               required
-              className="w-full px-0 py-3 bg-transparent border-0 border-b border-border text-heading placeholder-muted focus:outline-none focus:border-green transition-colors resize-none text-sm"
+              className="w-full px-0 py-3 bg-[#0a0a0a] border-0 border-b border-border text-heading placeholder-muted focus:outline-none focus:border-green transition-colors resize-none text-sm"
               placeholder="Tell us about your project..."
             />
           </div>
-          <button type="submit" className="btn-ghost">
+          <button type="submit" className="btn-ghost min-w-[200px] justify-center">
             Send message &rarr;
           </button>
         </form>

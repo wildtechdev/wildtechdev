@@ -84,7 +84,9 @@ export default function ServicesPage() {
           {services.map((service, i) => (
             <article
               key={service.title}
-              className="border-b border-border py-12 first:pt-0"
+              className={`border-b border-border py-12 first:pt-0 ${
+                i % 2 === 0 ? "bg-[#0a0a0a]" : "bg-[#080808]"
+              } -mx-4 px-4`}
             >
               <h2 className="text-2xl sm:text-3xl font-[family-name:var(--font-serif)] italic text-heading mb-4">
                 <span className="text-green font-[family-name:var(--font-sans)] text-lg mr-3 not-italic">
@@ -100,7 +102,7 @@ export default function ServicesPage() {
                 {service.tags.map((tag) => (
                   <span
                     key={tag}
-                    className="text-[10px] font-mono uppercase tracking-wider text-muted px-3 py-1.5 border border-border bg-card"
+                    className="text-[10px] font-mono uppercase tracking-wider text-muted px-3 py-1.5 border border-border border-l-2 border-l-green bg-card"
                   >
                     {tag}
                   </span>

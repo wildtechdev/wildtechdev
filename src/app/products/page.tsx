@@ -20,7 +20,7 @@ const products = [
     status: "Live",
     price: "$4.99",
     rating: "5.0",
-    accentColor: "border-l-amber-700/20",
+    accentColor: "border-l-amber-700/30",
     description:
       "Walk through the Holy City\u2019s most haunted streets with over 75 professionally narrated ghost stories. Every tale is tied to a real Charleston location, from the Old City Jail to the Unitarian Church graveyard. Audio narration, historical photographs, and GPS-tagged locations make this the most comprehensive ghost experience in the Lowcountry. Featured categories include colonial hauntings, Civil War spirits, pirate legends, and modern-day encounters.",
     features: [
@@ -42,7 +42,7 @@ const products = [
     status: "Live",
     price: "$3.99",
     rating: "5.0",
-    accentColor: "border-l-teal-600/20",
+    accentColor: "border-l-teal-600/30",
     description:
       "The haunted side of Savannah comes alive through curated ghost stories and guided audio experiences. From the colonial cemeteries to the infamous squares, explore the dark history of one of America\u2019s most storied cities.",
     features: [
@@ -67,7 +67,7 @@ const products = [
     status: "Live",
     price: "Free",
     rating: null,
-    accentColor: "border-l-green/20",
+    accentColor: "border-l-green/30",
     description:
       "Your smartphone becomes a precision fuse continuity tester. Place any standard glass cartridge fuse on the screen and get instant pass/fail feedback using your phone\u2019s built-in capacitive sensors. No multimeter needed. Works with automotive, home, and holiday light fuses.",
     features: [
@@ -92,7 +92,7 @@ const products = [
     status: "In Development",
     price: null,
     rating: null,
-    accentColor: "border-l-indigo-500/20",
+    accentColor: "border-l-indigo-500/30",
     description:
       "A purpose-built community platform for churches. Member profiles, event management, group communication, volunteer coordination, digital bulletins, and sermon archives, all in one place. Currently in active development with profile tabs, post feeds, and community features already designed and prototyped.",
     features: [
@@ -114,7 +114,7 @@ const products = [
     status: "Live",
     price: null,
     rating: null,
-    accentColor: "border-l-red-600/20",
+    accentColor: "border-l-red-600/30",
     description:
       "Precision climate monitoring hardware paired with intelligent software. Real-time temperature, humidity, and environmental data with enterprise-grade reliability. Purpose-built for environments where accuracy matters: calibration labs, server rooms, warehouses, and cleanrooms. Exclusively distributed through MSI-Viking Gage.",
     features: [
@@ -162,87 +162,90 @@ export default function ProductsPage() {
         </p>
 
         <div className="space-y-0">
-          {products.map((product) => (
-            <article
-              key={product.name}
-              className={`border-b border-border border-l-[3px] ${product.accentColor} py-14 pl-8 first:pt-0`}
-            >
-              <div className="flex flex-col lg:flex-row gap-10 lg:gap-16">
-                {/* Mockup */}
-                <div className="flex justify-center lg:order-2 lg:flex-shrink-0 lg:self-start">
-                  <PhoneMockup product={product.mockup} />
-                </div>
-
-                {/* Content */}
-                <div className="flex-1 lg:order-1 min-w-0">
-                  <div className="flex items-center gap-4 mb-5">
-                    <p className={`text-[10px] uppercase tracking-[0.25em] font-mono ${
-                      product.status === "Live" ? "text-green" : "text-body"
-                    }`}>
-                      {product.status}
-                    </p>
+          {products.map((product, index) => {
+            const isEven = index % 2 === 1;
+            return (
+              <article
+                key={product.name}
+                className={`border-b border-border border-l-[4px] ${product.accentColor} py-14 pl-8 first:pt-0`}
+              >
+                <div className={`flex flex-col lg:flex-row gap-10 lg:gap-16 ${isEven ? "lg:flex-row-reverse" : ""}`}>
+                  {/* Mockup */}
+                  <div className={`flex justify-center lg:flex-shrink-0 lg:self-start ${isEven ? "lg:order-1" : "lg:order-2"}`}>
+                    <PhoneMockup product={product.mockup} />
                   </div>
 
-                  <h2 className="text-3xl sm:text-4xl font-[family-name:var(--font-serif)] italic text-heading mb-4">
-                    {product.name}
-                  </h2>
-
-                  {/* Price & rating */}
-                  <div className="flex items-center gap-4 mb-6">
-                    {product.price && (
-                      <span className="text-heading text-lg font-[family-name:var(--font-sans)]">
-                        {product.price}
-                      </span>
-                    )}
-                    {product.rating && <StarRating rating={product.rating} />}
-                  </div>
-
-                  <p className="text-body leading-relaxed mb-8 max-w-xl">
-                    {product.description}
-                  </p>
-
-                  {/* Features */}
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-2 mb-8">
-                    {product.features.map((feature) => (
-                      <p key={feature} className="text-sm text-muted flex items-start gap-2 font-[family-name:var(--font-sans)]">
-                        <span className="w-1 h-1 bg-green rounded-full shrink-0 mt-1.5" />
-                        {feature}
-                      </p>
-                    ))}
-                  </div>
-
-                  {/* Review */}
-                  {product.review && (
-                    <div className="border-l border-border pl-5 mb-8">
-                      <p className="text-sm text-body/80 italic font-[family-name:var(--font-serif)] leading-relaxed">
-                        &ldquo;{product.review.quote}&rdquo;
-                      </p>
-                      <p className="text-[10px] uppercase tracking-[0.2em] text-muted font-mono mt-2">
-                        {product.review.author}
+                  {/* Content */}
+                  <div className={`flex-1 min-w-0 ${isEven ? "lg:order-2" : "lg:order-1"}`}>
+                    <div className="flex items-center gap-4 mb-5">
+                      <p className={`text-[10px] uppercase tracking-[0.25em] font-mono ${
+                        product.status === "Live" ? "text-green" : "text-body"
+                      }`}>
+                        {product.status}
                       </p>
                     </div>
-                  )}
 
-                  {/* CTA */}
-                  <div className="flex flex-wrap items-center gap-4">
-                    {product.appStoreUrl && (
-                      <AppStoreBadge href={product.appStoreUrl} />
+                    <h2 className="text-3xl sm:text-4xl font-[family-name:var(--font-serif)] italic text-heading mb-4">
+                      {product.name}
+                    </h2>
+
+                    {/* Price & rating */}
+                    <div className="flex items-center gap-4 mb-6">
+                      {product.price && (
+                        <span className="text-heading text-lg font-[family-name:var(--font-sans)]">
+                          {product.price}
+                        </span>
+                      )}
+                      {product.rating && <StarRating rating={product.rating} />}
+                    </div>
+
+                    <p className="text-body leading-relaxed mb-8 max-w-xl">
+                      {product.description}
+                    </p>
+
+                    {/* Features */}
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-2 mb-8">
+                      {product.features.map((feature) => (
+                        <p key={feature} className="text-sm text-muted flex items-start gap-2 font-[family-name:var(--font-sans)]">
+                          <span className="w-1 h-1 bg-green rounded-full shrink-0 mt-1.5" />
+                          {feature}
+                        </p>
+                      ))}
+                    </div>
+
+                    {/* Review */}
+                    {product.review && (
+                      <div className="border-l border-border pl-5 mb-8">
+                        <p className="text-sm text-body/80 italic font-[family-name:var(--font-serif)] leading-relaxed">
+                          &ldquo;{product.review.quote}&rdquo;
+                        </p>
+                        <p className="text-[10px] uppercase tracking-[0.2em] text-muted font-mono mt-2">
+                          {product.review.author}
+                        </p>
+                      </div>
                     )}
-                    {product.externalUrl && (
-                      <a
-                        href={product.externalUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="btn-ghost"
-                      >
-                        {product.externalLabel} &rarr;
-                      </a>
-                    )}
+
+                    {/* CTA */}
+                    <div className="flex flex-wrap items-center gap-4">
+                      {product.appStoreUrl && (
+                        <AppStoreBadge href={product.appStoreUrl} />
+                      )}
+                      {product.externalUrl && (
+                        <a
+                          href={product.externalUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="btn-ghost"
+                        >
+                          {product.externalLabel} &rarr;
+                        </a>
+                      )}
+                    </div>
                   </div>
                 </div>
-              </div>
-            </article>
-          ))}
+              </article>
+            );
+          })}
         </div>
       </div>
     </section>

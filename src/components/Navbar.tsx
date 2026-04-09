@@ -32,7 +32,7 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <Link href="/" className="group">
-            <span className="text-lg font-[family-name:var(--font-serif)] italic text-heading tracking-tight">
+            <span className="text-lg font-[family-name:var(--font-serif)] italic text-heading tracking-tight transition-all duration-300 group-hover:[text-shadow:0_0_20px_rgba(34,197,94,0.3)]">
               WildTech
             </span>
           </Link>
