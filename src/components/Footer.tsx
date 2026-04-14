@@ -16,11 +16,6 @@ const productLinks = [
   { href: "/products#vikingsense", label: "VikingSense" },
 ];
 
-const ecosystem = [
-  { href: "https://churchd.com", label: "Churchd" },
-  { href: "https://vikingsense.com", label: "VikingSense" },
-];
-
 export default function Footer() {
   return (
     <footer className="border-t border-border mt-auto">
@@ -39,7 +34,7 @@ export default function Footer() {
           </div>
 
           {/* Link columns - stack on mobile */}
-          <div className="flex-1 grid grid-cols-1 sm:grid-cols-3 gap-10">
+          <div className="flex-1 grid grid-cols-1 sm:grid-cols-2 gap-10">
             <div>
               <p className="text-xs uppercase tracking-widest text-muted mb-4 font-[family-name:var(--font-sans)]">
                 Navigation
@@ -71,26 +66,6 @@ export default function Footer() {
                     >
                       {link.label}
                     </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div>
-              <p className="text-xs uppercase tracking-widest text-muted mb-4 font-[family-name:var(--font-sans)]">
-                Ecosystem
-              </p>
-              <ul className="space-y-3">
-                {ecosystem.map((link) => (
-                  <li key={link.href}>
-                    <a
-                      href={link.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-sm text-body hover:text-heading hover:translate-x-1 transition-all duration-200 link-underline inline-block"
-                    >
-                      {link.label}
-                    </a>
                   </li>
                 ))}
               </ul>
