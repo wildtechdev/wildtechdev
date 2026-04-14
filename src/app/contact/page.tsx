@@ -83,24 +83,11 @@ export default function ContactPage() {
         {/* Prefer to talk */}
         <ScrollReveal>
           <div className="mt-20 border-t border-border pt-14">
-            <h2 className="text-xl font-[family-name:var(--font-sans)] font-bold text-heading mb-4">
-              Prefer to talk?
+            <h2 className="text-xl font-[family-name:var(--font-sans)] font-bold text-heading mb-8">
+              Other ways to reach us
             </h2>
-            <p className="text-sm text-body leading-relaxed mb-6">
-              For Charleston-area technology services including security, networking, A/V,
-              and structured cabling, visit{" "}
-              <a
-                href="https://wildtechchs.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-green link-underline"
-              >
-                wildtechchs.com
-              </a>
-              .
-            </p>
 
-            <div className="flex flex-col gap-8 mt-10">
+            <div className="flex flex-col gap-8">
               <div>
                 <p className="text-xs uppercase tracking-widest text-muted mb-3 font-[family-name:var(--font-sans)]">
                   Email

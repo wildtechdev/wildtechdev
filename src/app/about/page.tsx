@@ -61,7 +61,7 @@ const personJsonLd = {
     "Quality Control",
   ],
   url: "https://wildtechdev.com/about",
-  sameAs: ["https://wildtechchs.com", "https://churchd.com", "https://vikingsense.com"],
+  sameAs: ["https://churchd.com", "https://vikingsense.com"],
 };
 
 const orgJsonLd = {
@@ -104,13 +104,7 @@ const ecosystem = [
     href: "/",
     external: false,
   },
-  {
-    name: "WildTech CHS",
-    role: "Security, structured cabling, commercial A/V, smart offices, church tech, event venues",
-    href: "https://wildtechchs.com",
-    external: true,
-  },
-  {
+{
     name: "Churchd",
     role: "Church community platform",
     href: "https://churchd.com",
@@ -242,13 +236,10 @@ export default function AboutPage() {
                 </p>
 
                 <p>
-                  WildTech Development operates
-                  alongside <strong className="text-heading font-normal">WildTech CHS</strong>, our
-                  local technology services division. WildTech CHS handles security
-                  camera installations, structured cabling, commercial audio and video,
-                  and smart office setups across the Charleston area. Between the two
-                  divisions plus Churchd and VikingSense, WildTech Ventures covers
-                  software, hardware, services, and platforms under one roof.
+                  Beyond our own products, WildTech Development also builds custom
+                  software and hardware solutions for clients. Whether it is an iOS app,
+                  a web platform, or a connected hardware product, we bring the same
+                  precision and care to client work that we put into our own portfolio.
                 </p>
               </div>
             </div>
@@ -263,7 +254,7 @@ export default function AboutPage() {
               The ecosystem
             </p>
             <h2 className="text-2xl sm:text-3xl font-[family-name:var(--font-sans)] font-bold text-heading mb-10">
-              Four brands, one venture
+              Three brands, one venture
             </h2>
 
             <div className="space-y-0">

@@ -125,19 +125,7 @@ const ecosystem = [
       </svg>
     ),
   },
-  {
-    name: "WildTech CHS",
-    description: "Charleston\u2019s trusted technology service provider",
-    href: "https://wildtechchs.com",
-    stat: "6 service areas",
-    accentColor: "rgba(59,130,246,0.03)",
-    icon: (
-      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
-      </svg>
-    ),
-  },
-  {
+{
     name: "Churchd",
     description: "Church community platform",
     href: "https://churchd.com",
@@ -404,13 +392,13 @@ export default function HomePage() {
 
         <div className="max-w-4xl mx-auto px-6 lg:px-8">
           <p className="section-label text-xs uppercase tracking-widest text-muted mb-2 font-[family-name:var(--font-sans)]">
-            One venture, four brands
+            One venture, three brands
           </p>
           <h2 className="text-3xl sm:text-4xl font-[family-name:var(--font-serif)] italic text-heading mb-14">
             The Ecosystem
           </h2>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-px bg-border">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-px bg-border">
             {ecosystem.map((brand, i) => (
               <ScrollReveal key={brand.name} delay={i * 100}>
                 <a

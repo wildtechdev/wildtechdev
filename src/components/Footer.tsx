@@ -17,7 +17,6 @@ const productLinks = [
 ];
 
 const ecosystem = [
-  { href: "https://wildtechchs.com", label: "WildTech CHS" },
   { href: "https://churchd.com", label: "Churchd" },
   { href: "https://vikingsense.com", label: "VikingSense" },
 ];
