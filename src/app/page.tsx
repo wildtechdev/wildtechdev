@@ -112,44 +112,6 @@ const services = [
   },
 ];
 
-const ecosystem = [
-  {
-    name: "WildTech Development",
-    description: "Software & hardware solutions",
-    href: "https://wildtechdev.com",
-    stat: "5 products",
-    accentColor: "rgba(34,197,94,0.03)",
-    icon: (
-      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5" />
-      </svg>
-    ),
-  },
-{
-    name: "Churchd",
-    description: "Church community platform",
-    href: "https://churchd.com",
-    stat: "In development",
-    accentColor: "rgba(99,102,241,0.03)",
-    icon: (
-      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M12 3v2.25m0 0V12m0-6.75h0M12 12h0m0 0v6.75M12 12h6.75M12 12H5.25M12 18.75h0" />
-      </svg>
-    ),
-  },
-  {
-    name: "VikingSense",
-    description: "Precision climate monitoring",
-    href: "https://vikingsense.com",
-    stat: "MSI-Viking exclusive",
-    accentColor: "rgba(239,68,68,0.03)",
-    icon: (
-      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M12 3v1.5M18.364 5.636l-1.06 1.06M21 12h-1.5M18.364 18.364l-1.06-1.06M12 19.5V21M7.696 7.696l-1.06-1.06M6 12H4.5M7.696 16.304l-1.06 1.06M12 9a3 3 0 100 6 3 3 0 000-6z" />
-      </svg>
-    ),
-  },
-];
 
 export default function HomePage() {
   return (
@@ -378,61 +340,6 @@ export default function HomePage() {
                     </Link>
                   </div>
                 </div>
-              </ScrollReveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Ecosystem */}
-      <section className="relative py-16 sm:py-24 border-t border-border bg-[#050505]">
-        <div className="absolute top-6 right-6 lg:right-12 text-[200px] leading-none font-[family-name:var(--font-serif)] text-heading pointer-events-none select-none opacity-[0.03]">
-          03
-        </div>
-
-        <div className="max-w-4xl mx-auto px-6 lg:px-8">
-          <p className="section-label text-xs uppercase tracking-widest text-muted mb-2 font-[family-name:var(--font-sans)]">
-            One venture, three brands
-          </p>
-          <h2 className="text-3xl sm:text-4xl font-[family-name:var(--font-serif)] italic text-heading mb-14">
-            The Ecosystem
-          </h2>
-
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-px bg-border">
-            {ecosystem.map((brand, i) => (
-              <ScrollReveal key={brand.name} delay={i * 100}>
-                <a
-                  href={brand.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group relative bg-[#050505] p-8 sm:p-10 flex flex-col justify-between min-h-[180px] overflow-hidden"
-                  style={{ backgroundImage: `linear-gradient(to bottom, transparent 60%, ${brand.accentColor})` }}
-                >
-                  {/* Icon - inline on mobile, top-right on desktop */}
-                  <span className="hidden lg:block absolute top-6 right-6 text-[#222] group-hover:text-green transition-colors duration-300">
-                    {brand.icon}
-                  </span>
-
-                  <div>
-                    <h3 className="text-2xl sm:text-3xl font-[family-name:var(--font-serif)] italic text-heading group-hover:text-green transition-colors duration-300 flex items-center gap-3">
-                      {brand.name}
-                      <span className="lg:hidden text-[#222] group-hover:text-green transition-colors duration-300">
-                        {brand.icon}
-                      </span>
-                    </h3>
-                    <p className="text-sm text-muted mt-3 font-[family-name:var(--font-sans)]">
-                      {brand.description}
-                    </p>
-                  </div>
-                  <div className="flex items-center justify-between mt-4">
-                    <p className="text-xs font-mono tracking-[0.15em] text-green">
-                      {brand.stat}
-                    </p>
-                    <svg className="w-4 h-4 text-transparent group-hover:text-green transition-all duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-                    </svg>
-                  </div>
-                </a>
               </ScrollReveal>
             ))}
           </div>
