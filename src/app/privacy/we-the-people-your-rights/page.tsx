@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import ScrollReveal from "@/components/ScrollReveal";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy — We The People: Your Rights",
+  title: "Privacy Policy for We The People: Your Rights",
   description:
     "Privacy policy for the iOS app We The People: Your Rights, published by WildTech Ventures, LLC.",
   robots: {

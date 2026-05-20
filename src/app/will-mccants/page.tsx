@@ -275,7 +275,7 @@ export default function WillMcCantsPage() {
                     In 2020 Will relocated to the mountains of North Carolina
                     to take on the Senior Engineer role at PRC Industries, an
                     Amazon remanufacturing partner operating out of the former
-                    Henredon Furniture facility in Spruce Pine -- a one-million
+                    Henredon Furniture facility in Spruce Pine, a one-million
                     square-foot campus. He lived in a log cabin in Little
                     Switzerland, NC, where he developed a deep love for nature
                     and solitude that still shapes how he works and lives
