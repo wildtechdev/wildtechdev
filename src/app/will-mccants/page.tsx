@@ -4,26 +4,31 @@ import Link from "next/link";
 
 export const metadata: Metadata = {
   title: {
-    absolute: "Will McCants | Founder of WildTech Development",
+    absolute: "Will McCants | Founder of WildTech Ventures, LLC",
   },
   description:
-    "Will McCants (William McCants) is the founder of WildTech Ventures, LLC and WildTech Development. Based in Charleston, South Carolina, Will builds iOS apps, web platforms, and precision IoT hardware including Churchd and VikingSense.",
+    "Will McCants (William McCants) is the founder of WildTech Ventures, LLC. Mount Pleasant, SC native, Porter-Gaud alum, MSI-Viking Director of E-Commerce, and Charleston-based software, hardware, and IoT builder behind Churchd, Viking Sensors, and WildTech Development.",
   keywords: [
     "Will McCants",
     "William McCants",
     "Will McCants Charleston",
+    "Will McCants Mount Pleasant",
+    "Will McCants James Island",
     "Will McCants WildTech",
+    "Will McCants WildTech Ventures",
+    "Will McCants MSI-Viking",
+    "Will McCants Porter-Gaud",
     "Will McCants founder",
     "Will McCants developer",
-    "WildTech Development founder",
+    "WildTech Ventures founder",
     "Churchd founder",
-    "VikingSense founder",
+    "Viking Sensors co-founder",
   ],
   alternates: {
     canonical: "https://wildtechdev.com/will-mccants",
   },
   openGraph: {
-    title: "Will McCants | Founder of WildTech Development",
+    title: "Will McCants | Founder of WildTech Ventures, LLC",
     description:
       "Will McCants is the founder of WildTech Ventures, LLC. Charleston, SC based builder of iOS apps, web platforms, and IoT hardware.",
     type: "profile",
@@ -33,13 +38,13 @@ export const metadata: Metadata = {
         url: "/headshot.png",
         width: 1125,
         height: 1687,
-        alt: "Will McCants, founder of WildTech Development",
+        alt: "Will McCants, founder of WildTech Ventures, LLC",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Will McCants | Founder of WildTech Development",
+    title: "Will McCants | Founder of WildTech Ventures, LLC",
     description:
       "Will McCants is the founder of WildTech Ventures, LLC. Charleston, SC based builder of iOS apps, web platforms, and IoT hardware.",
     images: ["/headshot.png"],
@@ -54,11 +59,37 @@ const personJsonLd = {
   givenName: "William",
   additionalName: "Will",
   familyName: "McCants",
-  jobTitle: "Founder & Developer",
+  jobTitle: "Founder & Director of E-Commerce",
   description:
-    "Founder of WildTech Ventures, LLC. Charleston, SC based software and hardware developer behind Churchd, VikingSense, and WildTech Development.",
+    "Founder of WildTech Ventures, LLC. Mount Pleasant, SC native and Charleston-based software, hardware, and IoT developer behind Churchd, Viking Sensors, and WildTech Development. Also serves as Director of E-Commerce at MSI-Viking Gage.",
   image: "https://wildtechdev.com/headshot.png",
   url: "https://wildtechdev.com/will-mccants",
+  nationality: "American",
+  birthPlace: {
+    "@type": "Place",
+    name: "Mount Pleasant, South Carolina",
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Mount Pleasant",
+      addressRegion: "SC",
+      addressCountry: "US",
+    },
+  },
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "James Island, Charleston",
+    addressRegion: "SC",
+    addressCountry: "US",
+  },
+  alumniOf: [
+    { "@type": "EducationalOrganization", name: "Porter-Gaud School" },
+    { "@type": "EducationalOrganization", name: "First Baptist Church School" },
+    {
+      "@type": "EducationalOrganization",
+      name: "Trident Technical College",
+      description: "Aircraft Assembly Certificate via ReadySC program",
+    },
+  ],
   worksFor: [
     {
       "@type": "Organization",
@@ -70,11 +101,19 @@ const personJsonLd = {
       name: "MSI-Viking Gage",
     },
   ],
-  address: {
-    "@type": "PostalAddress",
-    addressLocality: "Charleston",
-    addressRegion: "SC",
-    addressCountry: "US",
+  spouse: {
+    "@type": "Person",
+    name: "Brittany McCants",
+  },
+  memberOf: {
+    "@type": "Organization",
+    name: "Harbor View Presbyterian Church",
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "James Island",
+      addressRegion: "SC",
+      addressCountry: "US",
+    },
   },
   knowsAbout: [
     "Software Development",
@@ -82,9 +121,17 @@ const personJsonLd = {
     "Web Development",
     "Hardware Engineering",
     "IoT",
+    "CAD Modeling",
     "Metrology",
+    "ZEISS Optotechnik 3D Scanning",
     "E-Commerce",
+    "Aircraft Assembly",
   ],
+  hasCredential: {
+    "@type": "EducationalOccupationalCredential",
+    name: "FAA Part 61 Private Pilot Certificate",
+    credentialCategory: "license",
+  },
   sameAs: [
     "https://www.linkedin.com/in/willmccants/",
     "https://churchd.com",
@@ -93,21 +140,31 @@ const personJsonLd = {
   ],
 };
 
+const quickFacts = [
+  { label: "Born", value: "Mount Pleasant, SC" },
+  { label: "Lives", value: "James Island, SC" },
+  { label: "Education", value: "Porter-Gaud, Trident Tech" },
+  { label: "Founded", value: "WildTech Ventures, 2024" },
+  { label: "Co-Founded", value: "Viking Sensors, 2026" },
+  { label: "Church", value: "Harbor View Presbyterian" },
+];
+
 const projects = [
+  {
+    name: "WildTech Development",
+    description: "Software and hardware studio founded by Will McCants in 2024",
+    href: "/",
+  },
   {
     name: "Churchd",
     description: "Church community platform built by Will McCants",
     href: "https://churchd.com",
   },
   {
-    name: "VikingSense",
-    description: "Precision climate monitoring system built by Will McCants",
+    name: "Viking Sensors",
+    description:
+      "Precision climate monitoring, co-founded with Steven Archibald in 2026",
     href: "https://vikingsense.com",
-  },
-  {
-    name: "WildTech Development",
-    description: "Software and hardware studio founded by Will McCants",
-    href: "/",
   },
 ];
 
@@ -135,13 +192,13 @@ export default function WillMcCantsPage() {
             <div className="w-[60px] h-[2px] bg-green" />
           </div>
 
-          {/* Photo + intro */}
+          {/* Photo + intro + quick facts */}
           <div className="flex flex-col lg:flex-row items-start gap-12 lg:gap-14 mb-20">
-            <div className="lg:w-[35%] shrink-0 flex flex-col items-center lg:items-start w-full">
+            <div className="lg:w-[35%] shrink-0 lg:sticky lg:top-24 flex flex-col items-center lg:items-start w-full">
               <div className="max-w-[200px] lg:max-w-[280px] overflow-hidden border border-border">
                 <Image
                   src="/headshot.png"
-                  alt="Will McCants, founder of WildTech Development"
+                  alt="Will McCants, founder of WildTech Ventures, LLC"
                   width={1125}
                   height={1687}
                   className="w-full h-auto object-cover object-top"
@@ -149,41 +206,148 @@ export default function WillMcCantsPage() {
                   priority
                 />
               </div>
-              <p className="text-xs font-mono text-green tracking-widest mt-4">
+              <p className="text-xs font-mono text-green tracking-widest mt-4 mb-6">
                 Charleston, SC
               </p>
+
+              <div className="border-t border-border w-full">
+                {quickFacts.map((fact) => (
+                  <div
+                    key={fact.label}
+                    className="flex items-baseline justify-between py-3 border-b border-dotted border-border gap-4"
+                  >
+                    <span className="text-[10px] uppercase tracking-[0.2em] text-muted font-mono whitespace-nowrap">
+                      {fact.label}
+                    </span>
+                    <span className="text-sm text-heading font-[family-name:var(--font-sans)] text-right">
+                      {fact.value}
+                    </span>
+                  </div>
+                ))}
+              </div>
             </div>
 
-            <div className="space-y-6 text-body leading-relaxed lg:w-[65%]">
-              <p>
+            <div className="space-y-10 text-body leading-relaxed lg:w-[65%]">
+              <p className="text-lg">
                 <strong className="text-heading font-normal">Will McCants</strong>{" "}
                 (William McCants) is the founder
-                of <strong className="text-heading font-normal">WildTech Ventures, LLC</strong> and
-                its software and hardware division, WildTech Development. Based
-                in Charleston, South Carolina, Will builds iOS apps, web
-                platforms, and precision IoT hardware.
+                of <strong className="text-heading font-normal">WildTech Ventures, LLC</strong>,
+                a Charleston, South Carolina based software and technology
+                company. Will builds iOS apps, web platforms, and precision IoT
+                hardware, and serves as Director of E-Commerce at MSI-Viking
+                Gage.
               </p>
 
-              <p>
-                The WildTech portfolio includes Churchd, a church community
-                platform; VikingSense, a precision climate monitoring system
-                distributed exclusively through MSI-Viking Gage; and a growing
-                lineup of native iOS apps on the App Store. Beyond his own
-                products, Will McCants also leads custom software and hardware
-                projects for clients.
-              </p>
+              {/* Roots */}
+              <div>
+                <h2 className="text-xs uppercase tracking-widest text-muted mb-3 font-[family-name:var(--font-sans)]">
+                  Roots
+                </h2>
+                <p>
+                  Will McCants was born and raised in old Mount Pleasant, South
+                  Carolina. He attended Porter-Gaud School and First Baptist
+                  Church School, then earned an aircraft assembly certificate
+                  from Trident Technical College through the ReadySC program.
+                  That hands-on technical training set the foundation for a
+                  career that would span industrial manufacturing, hardware
+                  engineering, and software development.
+                </p>
+              </div>
 
-              <p className="text-sm text-muted">
-                This page is a work in progress. A full biography of Will
-                McCants is available on the{" "}
-                <Link
-                  href="/about"
-                  className="text-green hover:underline"
-                >
-                  About page
-                </Link>
-                .
-              </p>
+              {/* Career */}
+              <div>
+                <h2 className="text-xs uppercase tracking-widest text-muted mb-3 font-[family-name:var(--font-sans)]">
+                  Career
+                </h2>
+                <div className="space-y-6">
+                  <p>
+                    Will began his professional career at MSI-Viking Gage in
+                    2012 as a shipping assistant. Within a few years he had
+                    taken over the company&apos;s used equipment purchasing and
+                    sales operation and built it into a national channel. In
+                    2018 he was promoted to Applications Engineer, specializing
+                    in ZEISS Optotechnik 3D scanning systems and metrology. In
+                    parallel, Will earned his FAA Part 61 Private Pilot
+                    Certificate and taught himself CAD modeling and computer
+                    programming, all while working full-time.
+                  </p>
+                  <p>
+                    In 2020 Will relocated to the mountains of North Carolina
+                    to take on the Senior Engineer role at PRC Industries, an
+                    Amazon remanufacturing partner operating out of the former
+                    Henredon Furniture facility in Spruce Pine -- a one-million
+                    square-foot campus. He lived in a log cabin in Little
+                    Switzerland, NC, where he developed a deep love for nature
+                    and solitude that still shapes how he works and lives
+                    today.
+                  </p>
+                  <p>
+                    In 2022, Will returned to MSI-Viking Gage as Director of
+                    E-Commerce. He turned what had been a side channel into a
+                    primary revenue driver across msi-viking.com, Amazon, eBay,
+                    and Shopify, and continues in that role today alongside his
+                    work building WildTech.
+                  </p>
+                </div>
+              </div>
+
+              {/* WildTech */}
+              <div>
+                <h2 className="text-xs uppercase tracking-widest text-muted mb-3 font-[family-name:var(--font-sans)]">
+                  WildTech Ventures
+                </h2>
+                <p>
+                  Will founded WildTech Ventures, LLC in 2024 as a private
+                  software and technology company. Through WildTech, he has
+                  launched iOS apps, web platforms, and IoT hardware, including
+                  Churchd, a community platform built for churches. In 2026,
+                  Will co-founded{" "}
+                  <a
+                    href="https://vikingsense.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-green hover:underline"
+                  >
+                    Viking Sensors
+                  </a>{" "}
+                  with Steven Archibald, a precision climate monitoring
+                  venture distributed through MSI-Viking Gage.
+                </p>
+              </div>
+
+              {/* Personal */}
+              <div>
+                <h2 className="text-xs uppercase tracking-widest text-muted mb-3 font-[family-name:var(--font-sans)]">
+                  Life on James Island
+                </h2>
+                <div className="space-y-6">
+                  <p>
+                    Will met Brittany in the summer of 2022. They bonded
+                    quickly over their shared love for nature and their faith
+                    in Jesus, and were married on the Hawaiian island of Maui
+                    in 2024. Will and Brittany currently reside on James
+                    Island, South Carolina, where they are active members of
+                    Harbor View Presbyterian Church.
+                  </p>
+                  <p>
+                    At Harbor View, Will volunteers on the handicap ramp
+                    building committee, hosts quarterly men&apos;s dinners, and
+                    plays guitar in the weekly worship service alongside
+                    Brittany, who sings in the choir.
+                  </p>
+                </div>
+              </div>
+
+              {/* Hobbies */}
+              <div>
+                <h2 className="text-xs uppercase tracking-widest text-muted mb-3 font-[family-name:var(--font-sans)]">
+                  Hobbies
+                </h2>
+                <p>
+                  When he is not building software, hardware, or businesses,
+                  Will enjoys playing guitar, hiking, and photography.
+                </p>
+              </div>
             </div>
           </div>
 
@@ -252,7 +416,10 @@ export default function WillMcCantsPage() {
                 </svg>
                 Will McCants on LinkedIn
               </a>
-              <Link href="/contact" className="btn-ghost inline-flex items-center gap-3">
+              <Link
+                href="/contact"
+                className="btn-ghost inline-flex items-center gap-3"
+              >
                 Contact form
               </Link>
             </div>

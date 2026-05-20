@@ -12,7 +12,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${baseUrl}/will-mccants`,
-      lastModified: new Date("2026-05-20T00:00:00-04:00"),
+      lastModified: new Date("2026-05-20T11:00:00-04:00"),
       changeFrequency: "monthly",
       priority: 0.9,
     },
