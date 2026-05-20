@@ -11,6 +11,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1.0,
     },
     {
+      url: `${baseUrl}/will-mccants`,
+      lastModified: new Date("2026-05-20T00:00:00-04:00"),
+      changeFrequency: "monthly",
+      priority: 0.9,
+    },
+    {
       url: `${baseUrl}/products`,
       lastModified: new Date("2026-04-09T17:34:56-04:00"),
       changeFrequency: "monthly",

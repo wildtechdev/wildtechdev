@@ -1,13 +1,17 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
 import ScrollReveal from "@/components/ScrollReveal";
 
 export const metadata: Metadata = {
   title: "About | WildTech Development",
   description:
-    "Learn about WildTech Development, a Charleston-based software and hardware company, and its founder William McCants. iOS apps, web platforms, IoT hardware, and technology services.",
+    "Learn about WildTech Development, a Charleston-based software and hardware company, and its founder Will McCants (William McCants). iOS apps, web platforms, IoT hardware, and technology services.",
   keywords: [
+    "Will McCants",
     "William McCants",
+    "Will McCants Charleston",
+    "Will McCants founder",
     "WildTech Development",
     "Charleston SC",
     "software developer",
@@ -33,7 +37,12 @@ const personJsonLd = {
   "@context": "https://schema.org",
   "@type": "Person",
   name: "William McCants",
+  alternateName: ["Will McCants", "William 'Will' McCants"],
+  givenName: "William",
+  additionalName: "Will",
+  familyName: "McCants",
   jobTitle: "Founder & Developer",
+  image: "https://wildtechdev.com/headshot.png",
   worksFor: [
     {
       "@type": "Organization",
@@ -61,7 +70,12 @@ const personJsonLd = {
     "Quality Control",
   ],
   url: "https://wildtechdev.com/about",
-  sameAs: ["https://churchd.com", "https://vikingsense.com"],
+  sameAs: [
+    "https://wildtechdev.com/will-mccants",
+    "https://www.linkedin.com/in/willmccants/",
+    "https://churchd.com",
+    "https://vikingsense.com",
+  ],
 };
 
 const orgJsonLd = {
@@ -392,6 +406,16 @@ export default function AboutPage() {
                     William&apos;s entire career: see a problem, understand it deeply, and
                     build something that fixes it. Every product in the WildTech portfolio
                     started as a real problem that did not have a good enough solution.
+                  </p>
+                </ScrollReveal>
+
+                <ScrollReveal delay={500}>
+                  <p className="text-sm text-muted">
+                    More on{" "}
+                    <Link href="/will-mccants" className="text-green hover:underline">
+                      Will McCants
+                    </Link>
+                    {" "}and the projects he leads.
                   </p>
                 </ScrollReveal>
               </div>
