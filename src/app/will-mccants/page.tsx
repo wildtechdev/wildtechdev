@@ -3,7 +3,9 @@ import Image from "next/image";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Will McCants | Founder of WildTech Development",
+  title: {
+    absolute: "Will McCants | Founder of WildTech Development",
+  },
   description:
     "Will McCants (William McCants) is the founder of WildTech Ventures, LLC and WildTech Development. Based in Charleston, South Carolina, Will builds iOS apps, web platforms, and precision IoT hardware including Churchd and VikingSense.",
   keywords: [

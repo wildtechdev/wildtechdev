@@ -4,7 +4,9 @@ import Link from "next/link";
 import ScrollReveal from "@/components/ScrollReveal";
 
 export const metadata: Metadata = {
-  title: "About | WildTech Development",
+  title: {
+    absolute: "About | WildTech Development",
+  },
   description:
     "Learn about WildTech Development, a Charleston-based software and hardware company, and its founder Will McCants (William McCants). iOS apps, web platforms, IoT hardware, and technology services.",
   keywords: [
