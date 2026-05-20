@@ -1,13 +1,14 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import ScrollReveal from "@/components/ScrollReveal";
 
 export const metadata: Metadata = {
   title: {
     absolute: "Will McCants | Founder of WildTech Ventures, LLC",
   },
   description:
-    "Will McCants (William McCants) is the founder of WildTech Ventures, LLC. Mount Pleasant, SC native, Porter-Gaud alum, MSI-Viking Director of E-Commerce, and Charleston-based software, hardware, and IoT builder behind Churchd, Viking Sensors, and WildTech Development.",
+    "Will McCants (William McCants) is the founder of WildTech Ventures, LLC. Mount Pleasant, SC native, Porter-Gaud alum, Director of E-Commerce at MSI-Viking Gage, and Charleston-based builder of Churchd, Viking Sensors, and WildTech Development.",
   keywords: [
     "Will McCants",
     "William McCants",
@@ -30,7 +31,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Will McCants | Founder of WildTech Ventures, LLC",
     description:
-      "Will McCants is the founder of WildTech Ventures, LLC. Charleston, SC based builder of iOS apps, web platforms, and IoT hardware.",
+      "Will McCants is the founder of WildTech Ventures, LLC. Charleston, SC based engineer, developer, and builder of iOS apps, web platforms, and IoT hardware.",
     type: "profile",
     url: "https://wildtechdev.com/will-mccants",
     images: [
@@ -46,7 +47,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Will McCants | Founder of WildTech Ventures, LLC",
     description:
-      "Will McCants is the founder of WildTech Ventures, LLC. Charleston, SC based builder of iOS apps, web platforms, and IoT hardware.",
+      "Will McCants is the founder of WildTech Ventures, LLC. Charleston, SC based engineer, developer, and builder of iOS apps, web platforms, and IoT hardware.",
     images: ["/headshot.png"],
   },
 };
@@ -61,7 +62,7 @@ const personJsonLd = {
   familyName: "McCants",
   jobTitle: "Founder & Director of E-Commerce",
   description:
-    "Founder of WildTech Ventures, LLC. Mount Pleasant, SC native and Charleston-based software, hardware, and IoT developer behind Churchd, Viking Sensors, and WildTech Development. Also serves as Director of E-Commerce at MSI-Viking Gage.",
+    "Founder of WildTech Ventures, LLC. Mount Pleasant, SC native and Charleston-based engineer, software developer, and hardware builder behind Churchd, Viking Sensors, and WildTech Development. Also serves as Director of E-Commerce at MSI-Viking Gage.",
   image: "https://wildtechdev.com/headshot.png",
   url: "https://wildtechdev.com/will-mccants",
   nationality: "American",
@@ -122,9 +123,12 @@ const personJsonLd = {
     "Hardware Engineering",
     "IoT",
     "CAD Modeling",
+    "Additive Manufacturing",
     "Metrology",
     "ZEISS Optotechnik 3D Scanning",
+    "Reverse Engineering",
     "E-Commerce",
+    "NetSuite Administration",
     "Aircraft Assembly",
   ],
   hasCredential: {
@@ -144,9 +148,62 @@ const quickFacts = [
   { label: "Born", value: "Mount Pleasant, SC" },
   { label: "Lives", value: "James Island, SC" },
   { label: "Education", value: "Porter-Gaud, Trident Tech" },
+  { label: "Role", value: "Director of E-Commerce, MSI-Viking" },
   { label: "Founded", value: "WildTech Ventures, 2024" },
   { label: "Co-Founded", value: "Viking Sensors, 2026" },
   { label: "Church", value: "Harbor View Presbyterian" },
+];
+
+const hobbies = [
+  {
+    label: "Photography",
+    icon: (
+      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M6.827 6.175A2.31 2.31 0 015.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 00-1.134-.175 2.31 2.31 0 01-1.64-1.055l-.822-1.316a2.192 2.192 0 00-1.736-1.039 48.774 48.774 0 00-5.232 0 2.192 2.192 0 00-1.736 1.039l-.821 1.316z" />
+        <path strokeLinecap="round" strokeLinejoin="round" d="M16.5 12.75a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0z" />
+      </svg>
+    ),
+  },
+  {
+    label: "Guitar",
+    icon: (
+      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M9 9l10.5-3m0 6.553v3.75a2.25 2.25 0 01-1.632 2.163l-1.32.377a1.803 1.803 0 11-.99-3.467l2.31-.66a2.25 2.25 0 001.632-2.163zm0 0V2.25L9 5.25v10.303m0 0v3.75a2.25 2.25 0 01-1.632 2.163l-1.32.377a1.803 1.803 0 01-.99-3.467l2.31-.66A2.25 2.25 0 009 15.553z" />
+      </svg>
+    ),
+  },
+  {
+    label: "Hiking",
+    icon: (
+      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5z" />
+      </svg>
+    ),
+  },
+  {
+    label: "Camping",
+    icon: (
+      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75M6.75 21v-3.375c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21" />
+      </svg>
+    ),
+  },
+  {
+    label: "3D Printing",
+    icon: (
+      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M21 7.5l-9-5.25L3 7.5m18 0l-9 5.25m9-5.25v9l-9 5.25M3 7.5l9 5.25M3 7.5v9l9 5.25m0-9v9" />
+      </svg>
+    ),
+  },
+  {
+    label: "Pilot",
+    icon: (
+      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5" />
+      </svg>
+    ),
+  },
 ];
 
 const projects = [
@@ -262,60 +319,156 @@ export default function WillMcCantsPage() {
                 <div className="space-y-6">
                   <p>
                     Will began his professional career at MSI-Viking Gage in
-                    2012 as a shipping assistant. Within a few years he had
-                    taken over the company&apos;s used equipment purchasing and
-                    sales operation and built it into a national channel. In
-                    2018 he was promoted to Applications Engineer, specializing
-                    in ZEISS Optotechnik 3D scanning systems and metrology. In
-                    parallel, Will earned his FAA Part 61 Private Pilot
-                    Certificate and taught himself CAD modeling and computer
-                    programming, all while working full-time.
+                    2012 as a shipping assistant. He quickly took over the
+                    company&apos;s used equipment operation and built it into a
+                    standalone Equipment Recovery and Sales department, growing
+                    a one-person desk into a four-employee team with national
+                    market presence. The group bought, refurbished, and resold
+                    industrial calibration and metrology equipment to customers
+                    across the country.
                   </p>
                   <p>
-                    In 2020 Will relocated to the mountains of North Carolina
+                    In 2018, Will was promoted to Applications Engineer,
+                    specializing in ZEISS Optotechnik 3D scanning systems,
+                    scan-to-CAD reverse engineering, and custom fixturing built
+                    with additive manufacturing. During this same period he
+                    earned his FAA Part 61 Private Pilot Certificate and taught
+                    himself CAD modeling and computer programming, all while
+                    working full-time.
+                  </p>
+                </div>
+              </div>
+
+              {/* Industrial photo break */}
+              <ScrollReveal>
+                <div className="overflow-hidden border border-border">
+                  <Image
+                    src="/william-industrial.jpg"
+                    alt="Will McCants at SANY headquarters"
+                    width={3024}
+                    height={4032}
+                    className="w-full h-auto object-cover brightness-110"
+                    sizes="(max-width: 1024px) 100vw, 65vw"
+                  />
+                </div>
+                <p className="text-[10px] font-mono text-muted tracking-widest mt-3">
+                  Will at SANY headquarters
+                </p>
+              </ScrollReveal>
+
+              {/* Mountain years */}
+              <div>
+                <h2 className="text-xs uppercase tracking-widest text-muted mb-3 font-[family-name:var(--font-sans)]">
+                  The mountain years
+                </h2>
+                <div className="space-y-6">
+                  <p>
+                    In 2020, Will relocated to the mountains of North Carolina
                     to take on the Senior Engineer role at PRC Industries, an
                     Amazon remanufacturing partner operating out of the former
                     Henredon Furniture facility in Spruce Pine, a one-million
-                    square-foot campus. He lived in a log cabin in Little
-                    Switzerland, NC, where he developed a deep love for nature
-                    and solitude that still shapes how he works and lives
-                    today.
+                    square-foot campus. PRC processes returns and restores
+                    defective products for major brands and retailers,
+                    everything from refrigerators and vacuums to sporting
+                    goods, with a team of engineers diagnosing product flaws
+                    through total disassembly and reverse engineering.
                   </p>
                   <p>
-                    In 2022, Will returned to MSI-Viking Gage as Director of
-                    E-Commerce. He turned what had been a side channel into a
-                    primary revenue driver across msi-viking.com, Amazon, eBay,
-                    and Shopify, and continues in that role today alongside his
-                    work building WildTech.
+                    At PRC, Will wrote remanufacturing procedures,
+                    reverse-engineered replacement parts, and collaborated with
+                    outside engineering teams on client projects. The role
+                    sharpened his ability to diagnose unfamiliar hardware
+                    quickly, a skill that carries directly into the work
+                    WildTech does today.
+                  </p>
+                  <p>
+                    He lived in a log cabin in Little Switzerland, North
+                    Carolina during this season, where he developed a deep love
+                    for nature and solitude that still shapes how he works and
+                    lives today.
                   </p>
                 </div>
+              </div>
+
+              {/* Return + e-commerce */}
+              <div>
+                <h2 className="text-xs uppercase tracking-widest text-muted mb-3 font-[family-name:var(--font-sans)]">
+                  Director of E-Commerce
+                </h2>
+                <p>
+                  Will returned to MSI-Viking Gage in 2022 as Director of
+                  E-Commerce, where he turned what had been a side channel into
+                  a primary revenue driver. Today he oversees multi-channel
+                  operations across msi-viking.com, Amazon, eBay, and Shopify,
+                  serves as the company&apos;s NetSuite administrator, manages
+                  a multimillion-dollar product inventory, and produces all
+                  product photography and video content in-house. Under his
+                  leadership, the team cut freight costs by over 40 percent
+                  while achieving consistent three-day delivery windows on
+                  in-stock inventory.
+                </p>
               </div>
 
               {/* WildTech */}
               <div>
                 <h2 className="text-xs uppercase tracking-widest text-muted mb-3 font-[family-name:var(--font-sans)]">
-                  WildTech Ventures
+                  Building WildTech
                 </h2>
-                <p>
-                  Will founded WildTech Ventures, LLC in 2024 as a private
-                  software and technology company. Through WildTech, he has
-                  launched iOS apps, web platforms, and IoT hardware, including
-                  Churchd, a community platform built for churches. In 2026,
-                  Will co-founded{" "}
-                  <a
-                    href="https://vikingsense.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-green hover:underline"
-                  >
-                    Viking Sensors
-                  </a>{" "}
-                  with Steven Archibald, a precision climate monitoring
-                  venture distributed through MSI-Viking Gage.
-                </p>
+                <div className="space-y-6">
+                  <p>
+                    Will founded <strong className="text-heading font-normal">WildTech Ventures, LLC</strong>{" "}
+                    in 2024 as a private software and technology company. The
+                    company launched on February 1, 2024 with the release of
+                    Spirits of Charleston, a ghost story iOS app for the
+                    Lowcountry. Within the first year, the portfolio grew to
+                    include Spirits of Savannah, EZ Fuse Tester, and two larger
+                    ventures: Churchd, a community platform built for churches,
+                    and a growing roster of native iOS applications on the App
+                    Store.
+                  </p>
+                  <p>
+                    In 2026, Will co-founded{" "}
+                    <a
+                      href="https://vikingsense.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-green hover:underline"
+                    >
+                      Viking Sensors
+                    </a>{" "}
+                    with Steven Archibald, a precision climate monitoring
+                    venture distributed through MSI-Viking Gage. Beyond his own
+                    products, Will and WildTech also build custom software and
+                    hardware solutions for clients.
+                  </p>
+                </div>
               </div>
 
-              {/* Personal */}
+              {/* Mindset */}
+              <div>
+                <h2 className="text-xs uppercase tracking-widest text-muted mb-3 font-[family-name:var(--font-sans)]">
+                  The Gadget mindset
+                </h2>
+                <div className="space-y-6">
+                  <p>
+                    His nieces and nephews call him{" "}
+                    <strong className="text-heading font-normal">&ldquo;Gadget&rdquo;</strong>,
+                    because there is always a project on the workbench, a 3D
+                    printer running, or some piece of technology being taken
+                    apart and put back together. That same restless curiosity
+                    is what drives WildTech.
+                  </p>
+                  <p>
+                    WildTech Ventures grew out of the same mindset that has
+                    defined Will&apos;s entire career: see a problem,
+                    understand it deeply, and build something that fixes it.
+                    Every product in the WildTech portfolio started as a real
+                    problem that did not have a good enough solution.
+                  </p>
+                </div>
+              </div>
+
+              {/* Life on James Island */}
               <div>
                 <h2 className="text-xs uppercase tracking-widest text-muted mb-3 font-[family-name:var(--font-sans)]">
                   Life on James Island
@@ -341,13 +494,43 @@ export default function WillMcCantsPage() {
               {/* Hobbies */}
               <div>
                 <h2 className="text-xs uppercase tracking-widest text-muted mb-3 font-[family-name:var(--font-sans)]">
-                  Hobbies
+                  Beyond the work
                 </h2>
-                <p>
-                  When he is not building software, hardware, or businesses,
-                  Will enjoys playing guitar, hiking, and photography.
-                </p>
+                <div className="space-y-6">
+                  <p>
+                    When he is not building software, hardware, or businesses,
+                    Will spends his time behind a camera, playing guitar,
+                    hiking, or camping somewhere in the Lowcountry. He still
+                    holds his private pilot certificate, though these days the
+                    flying is mostly for fun.
+                  </p>
+                  <div className="grid grid-cols-3 gap-4 sm:flex sm:flex-wrap sm:gap-8 py-2">
+                    {hobbies.map((hobby, i) => (
+                      <ScrollReveal key={hobby.label} delay={i * 60}>
+                        <div className="flex items-center gap-2.5">
+                          <span className="text-[#333]">{hobby.icon}</span>
+                          <span className="text-sm text-muted font-[family-name:var(--font-sans)]">
+                            {hobby.label}
+                          </span>
+                        </div>
+                      </ScrollReveal>
+                    ))}
+                  </div>
+                </div>
               </div>
+
+              {/* Faith quote */}
+              <blockquote className="border-l-[3px] border-green pl-6 py-2">
+                <p className="text-lg font-[family-name:var(--font-serif)] italic text-heading leading-relaxed">
+                  &ldquo;Whatever you do, work heartily, as for the Lord and
+                  not for men, knowing that from the Lord you will receive the
+                  inheritance as your reward. You are serving the Lord
+                  Christ.&rdquo;
+                </p>
+                <cite className="block mt-4 text-xs uppercase tracking-widest text-muted not-italic font-[family-name:var(--font-sans)]">
+                  Colossians 3:23, 24
+                </cite>
+              </blockquote>
             </div>
           </div>
 

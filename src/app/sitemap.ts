@@ -12,7 +12,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${baseUrl}/will-mccants`,
-      lastModified: new Date("2026-05-20T11:00:00-04:00"),
+      lastModified: new Date("2026-05-20T12:00:00-04:00"),
       changeFrequency: "monthly",
       priority: 0.9,
     },
@@ -30,7 +30,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${baseUrl}/about`,
-      lastModified: new Date("2026-04-14T14:41:01-04:00"),
+      lastModified: new Date("2026-05-20T12:00:00-04:00"),
       changeFrequency: "monthly",
       priority: 0.7,
     },
