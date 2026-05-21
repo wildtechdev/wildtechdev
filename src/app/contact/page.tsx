@@ -13,30 +13,46 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
   return (
-    <section className="py-16 sm:py-24">
-      <div className="max-w-2xl mx-auto px-6 lg:px-8">
+    <section className="relative py-20 sm:py-28 overflow-hidden">
+      {/* Top glow */}
+      <div
+        className="absolute -top-40 right-1/4 w-[600px] h-[400px] rounded-full pointer-events-none"
+        style={{
+          background:
+            "radial-gradient(ellipse at center, rgba(34,197,94,0.12) 0%, transparent 70%)",
+          filter: "blur(60px)",
+        }}
+        aria-hidden="true"
+      />
+
+      <div className="relative max-w-2xl mx-auto px-6 lg:px-8">
         {/* Intro */}
         <div className="mb-16 animate-fade-in-up">
-          <p className="section-label text-xs uppercase tracking-widest text-muted mb-2 font-[family-name:var(--font-sans)]">
+          <p className="section-label text-xs uppercase tracking-[0.18em] text-muted mb-3 font-[family-name:var(--font-sans)]">
             Let&apos;s talk
           </p>
-          <h1 className="relative text-4xl sm:text-5xl lg:text-6xl font-[family-name:var(--font-serif)] italic text-heading mb-6">
-            {/* Green glow behind heading */}
-            <span className="absolute top-1/2 left-1/3 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[200px] rounded-full bg-green opacity-[0.05] blur-3xl pointer-events-none" />
-            <span className="relative">Have an idea? Let&apos;s build it.</span>
+          <h1 className="relative text-5xl sm:text-6xl lg:text-7xl font-[family-name:var(--font-serif)] italic text-heading mb-6 leading-[0.92]">
+            Have an idea? Let&apos;s build it.
           </h1>
-          <p className="text-body text-lg leading-relaxed">
-            Whether you need an app on the App Store, a custom piece of hardware, or a
-            full web platform, it all starts with a conversation. Tell us what you are
-            trying to solve.
+          <p className="text-body text-lg leading-relaxed max-w-xl">
+            Whether you need an app on the App Store, a custom piece of hardware,
+            or a full web platform, it all starts with a conversation. Tell us
+            what you are trying to solve.
           </p>
         </div>
 
         {/* Form */}
         <ScrollReveal>
-          <form className="space-y-8 bg-[#0a0a0a] border border-border p-5 sm:p-8 lg:p-12">
+          <form className="relative space-y-8 bg-[#0a0c10] border border-border p-6 sm:p-10 lg:p-12">
+            {/* Corner accents */}
+            <span className="absolute -top-px -left-px w-8 h-8 border-t border-l border-green" aria-hidden="true" />
+            <span className="absolute -bottom-px -right-px w-8 h-8 border-b border-r border-green" aria-hidden="true" />
+
             <div>
-              <label htmlFor="name" className="block text-xs uppercase tracking-widest text-muted mb-3 font-[family-name:var(--font-sans)]">
+              <label
+                htmlFor="name"
+                className="block text-[10px] uppercase tracking-[0.22em] text-muted mb-3 font-mono"
+              >
                 Name
               </label>
               <input
@@ -44,12 +60,15 @@ export default function ContactPage() {
                 id="name"
                 name="name"
                 required
-                className="w-full px-0 py-3 bg-[#0a0a0a] border-0 border-b border-border text-heading placeholder-muted focus:outline-none focus:border-green focus:-translate-y-px transition-all text-sm"
+                className="input-line"
                 placeholder="Your name"
               />
             </div>
             <div>
-              <label htmlFor="email" className="block text-xs uppercase tracking-widest text-muted mb-3 font-[family-name:var(--font-sans)]">
+              <label
+                htmlFor="email"
+                className="block text-[10px] uppercase tracking-[0.22em] text-muted mb-3 font-mono"
+              >
                 Email
               </label>
               <input
@@ -57,12 +76,15 @@ export default function ContactPage() {
                 id="email"
                 name="email"
                 required
-                className="w-full px-0 py-3 bg-[#0a0a0a] border-0 border-b border-border text-heading placeholder-muted focus:outline-none focus:border-green focus:-translate-y-px transition-all text-sm"
+                className="input-line"
                 placeholder="you@example.com"
               />
             </div>
             <div>
-              <label htmlFor="message" className="block text-xs uppercase tracking-widest text-muted mb-3 font-[family-name:var(--font-sans)]">
+              <label
+                htmlFor="message"
+                className="block text-[10px] uppercase tracking-[0.22em] text-muted mb-3 font-mono"
+              >
                 Message
               </label>
               <textarea
@@ -70,12 +92,29 @@ export default function ContactPage() {
                 name="message"
                 rows={5}
                 required
-                className="w-full px-0 py-3 bg-[#0a0a0a] border-0 border-b border-border text-heading placeholder-muted focus:outline-none focus:border-green focus:-translate-y-px transition-all resize-none text-sm"
+                className="input-line resize-none"
                 placeholder="Tell us about your project..."
               />
             </div>
-            <button type="submit" className="btn-ghost w-full sm:w-auto min-w-[200px] justify-center">
-              Send message &rarr;
+            <button
+              type="submit"
+              className="btn-ghost w-full sm:w-auto min-w-[220px]"
+            >
+              Send message
+              <svg
+                className="w-3.5 h-3.5"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                strokeWidth={2}
+                aria-hidden="true"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
+                />
+              </svg>
             </button>
           </form>
         </ScrollReveal>
@@ -83,29 +122,35 @@ export default function ContactPage() {
         {/* Prefer to talk */}
         <ScrollReveal>
           <div className="mt-20 border-t border-border pt-14">
-            <h2 className="text-xl font-[family-name:var(--font-sans)] font-bold text-heading mb-8">
+            <p className="section-label text-xs uppercase tracking-[0.18em] text-muted mb-3 font-[family-name:var(--font-sans)]">
+              Direct
+            </p>
+            <h2 className="text-2xl sm:text-3xl font-[family-name:var(--font-serif)] italic text-heading mb-10">
               Other ways to reach us
             </h2>
 
-            <div className="flex flex-col gap-8">
-              <div>
-                <p className="text-xs uppercase tracking-widest text-muted mb-3 font-[family-name:var(--font-sans)]">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+              <div className="group">
+                <p className="text-[10px] uppercase tracking-[0.22em] text-muted mb-3 font-mono">
                   Email
                 </p>
                 <a
                   href="mailto:info@wildtechdev.com"
-                  className="text-sm text-heading link-underline"
+                  className="text-base text-heading link-underline inline-flex items-center gap-2 group-hover:text-green transition-colors"
                 >
                   info@wildtechdev.com
                 </a>
               </div>
               <div>
-                <p className="text-xs uppercase tracking-widest text-muted mb-3 font-[family-name:var(--font-sans)]">
+                <p className="text-[10px] uppercase tracking-[0.22em] text-muted mb-3 font-mono">
                   Location
                 </p>
-                <p className="text-sm text-heading flex items-center gap-2">
-                  <span className="w-2 h-2 bg-green rounded-full animate-pulse" />
-                  Based in Charleston, SC
+                <p className="text-base text-heading flex items-center gap-2">
+                  <span className="relative flex h-2 w-2">
+                    <span className="absolute inline-flex h-full w-full rounded-full bg-green opacity-60 animate-ping" />
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-green" />
+                  </span>
+                  Charleston, SC
                 </p>
               </div>
             </div>

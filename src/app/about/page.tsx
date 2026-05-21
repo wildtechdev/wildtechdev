@@ -71,18 +71,21 @@ const ecosystem = [
     role: "Software & hardware solutions",
     href: "/",
     external: false,
+    note: "Studio",
   },
   {
     name: "Churchd",
     role: "Church community platform",
     href: "https://churchd.com",
     external: true,
+    note: "Platform",
   },
   {
     name: "Viking Sensors",
     role: "Precision climate monitoring",
     href: "https://vikingsense.com",
     external: true,
+    note: "Hardware",
   },
 ];
 
@@ -94,25 +97,39 @@ export default function AboutPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd) }}
       />
 
-      <section className="py-16 sm:py-24">
-        <div className="max-w-4xl mx-auto px-6 lg:px-8">
+      <section className="relative py-20 sm:py-28 overflow-hidden">
+        {/* Top glow */}
+        <div
+          className="absolute -top-40 left-1/2 -translate-x-1/2 w-[700px] h-[400px] rounded-full pointer-events-none"
+          style={{
+            background:
+              "radial-gradient(ellipse at center, rgba(34,197,94,0.12) 0%, transparent 70%)",
+            filter: "blur(60px)",
+          }}
+          aria-hidden="true"
+        />
+
+        <div className="relative max-w-4xl mx-auto px-6 lg:px-8">
           {/* Company */}
-          <div className="mb-20 animate-fade-in-up">
-            <p className="section-label text-xs uppercase tracking-widest text-muted mb-2 font-[family-name:var(--font-sans)]">
+          <div className="mb-24 animate-fade-in-up">
+            <p className="section-label text-xs uppercase tracking-[0.18em] text-muted mb-3 font-[family-name:var(--font-sans)]">
               About
             </p>
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-[family-name:var(--font-serif)] italic text-heading leading-[0.95] mb-3">
+            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-[family-name:var(--font-serif)] italic text-heading leading-[0.92] mb-4">
               WildTech Development
             </h1>
-            <p className="text-lg text-muted mb-10">
+            <p className="text-base text-muted mb-12 tracking-wide">
               A WildTech Ventures company
             </p>
 
-            <div className="space-y-7 text-body leading-relaxed">
+            <div className="space-y-7 text-body leading-relaxed text-base sm:text-lg max-w-2xl">
               <p>
                 WildTech Development is the software and hardware division
-                of <strong className="text-heading font-normal">WildTech Ventures, LLC</strong>,
-                a small, founder-led technology company based in Charleston,
+                of{" "}
+                <strong className="text-heading font-normal">
+                  WildTech Ventures, LLC
+                </strong>
+                , a small, founder-led technology company based in Charleston,
                 South Carolina. We build iOS apps, web platforms, and precision
                 IoT hardware that people actually use.
               </p>
@@ -135,123 +152,148 @@ export default function AboutPage() {
           </div>
 
           {/* Ecosystem */}
-          <div className="mb-20 bg-[#050505] -mx-6 px-6 lg:-mx-8 lg:px-8 py-10 rounded-sm">
-            <p className="section-label text-xs uppercase tracking-widest text-muted mb-2 font-[family-name:var(--font-sans)]">
-              The ecosystem
-            </p>
-            <h2 className="text-2xl sm:text-3xl font-[family-name:var(--font-sans)] font-bold text-heading mb-10">
-              Three brands, one venture
-            </h2>
+          <ScrollReveal>
+            <div className="mb-24 relative bg-[#0a0c10] border border-border -mx-6 px-6 lg:-mx-10 lg:px-10 py-12 lg:py-14">
+              <div className="absolute top-0 left-0 w-12 h-px bg-green" />
+              <p className="section-label text-xs uppercase tracking-[0.18em] text-muted mb-3 font-[family-name:var(--font-sans)]">
+                The ecosystem
+              </p>
+              <h2 className="text-3xl sm:text-4xl font-[family-name:var(--font-serif)] italic text-heading mb-12">
+                Three brands, one venture
+              </h2>
 
-            <div className="space-y-0">
-              {ecosystem.map((brand, i) => {
-                const props = brand.external
-                  ? {
-                      href: brand.href,
-                      target: "_blank" as const,
-                      rel: "noopener noreferrer",
-                    }
-                  : { href: brand.href };
-                return (
-                  <ScrollReveal key={brand.name} delay={i * 80}>
-                    <a
-                      {...props}
-                      className="group flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-6 border-b border-border py-5"
-                    >
-                      <h3 className="text-xl font-[family-name:var(--font-serif)] italic text-heading transition-colors duration-300 group-hover:text-green">
-                        {brand.name}
-                      </h3>
-                      <p className="text-sm text-muted group-hover:text-body transition-colors duration-300 font-[family-name:var(--font-sans)]">
-                        {brand.role}
-                      </p>
-                    </a>
-                  </ScrollReveal>
-                );
-              })}
+              <div className="space-y-0 border-t border-border">
+                {ecosystem.map((brand, i) => {
+                  const props = brand.external
+                    ? {
+                        href: brand.href,
+                        target: "_blank" as const,
+                        rel: "noopener noreferrer",
+                      }
+                    : { href: brand.href };
+                  return (
+                    <ScrollReveal key={brand.name} delay={i * 80}>
+                      <a
+                        {...props}
+                        className="group relative flex flex-col sm:flex-row sm:items-baseline gap-2 sm:gap-6 border-b border-border py-6 overflow-hidden"
+                      >
+                        <span
+                          className="absolute inset-0 bg-gradient-to-r from-green/[0.04] to-transparent translate-x-[-100%] group-hover:translate-x-0 transition-transform duration-700 ease-out"
+                          aria-hidden="true"
+                        />
+                        <span className="relative text-[10px] font-mono uppercase tracking-[0.2em] text-faint group-hover:text-green transition-colors duration-500 shrink-0 w-20">
+                          {brand.note}
+                        </span>
+                        <h3 className="relative flex-1 text-xl sm:text-2xl font-[family-name:var(--font-serif)] italic text-heading transition-all duration-500 group-hover:text-green group-hover:translate-x-1">
+                          {brand.name}
+                        </h3>
+                        <p className="relative text-sm text-muted group-hover:text-body transition-colors duration-500 font-[family-name:var(--font-sans)]">
+                          {brand.role}
+                        </p>
+                        <svg
+                          className="relative w-3.5 h-3.5 text-faint shrink-0 transition-all duration-500 group-hover:text-green group-hover:rotate-45"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                          aria-hidden="true"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={1.5}
+                            d="M4.5 19.5l15-15M19.5 4.5H8.25M19.5 4.5v11.25"
+                          />
+                        </svg>
+                      </a>
+                    </ScrollReveal>
+                  );
+                })}
+              </div>
             </div>
-          </div>
+          </ScrollReveal>
 
           {/* Founder mention */}
-          <div className="border-t border-border pt-16 mb-20">
-            <p className="section-label text-xs uppercase tracking-widest text-muted mb-2 font-[family-name:var(--font-sans)]">
-              The founder
-            </p>
-            <h2 className="text-4xl sm:text-5xl font-[family-name:var(--font-serif)] italic text-heading leading-[0.95] mb-6">
-              Will McCants
-            </h2>
-            <div className="space-y-5 text-body leading-relaxed mb-8">
-              <p>
-                WildTech Ventures was founded by{" "}
-                <strong className="text-heading font-normal">
+          <ScrollReveal>
+            <div className="mb-20 relative">
+              <div className="border-t border-border pt-16">
+                <p className="section-label text-xs uppercase tracking-[0.18em] text-muted mb-3 font-[family-name:var(--font-sans)]">
+                  The founder
+                </p>
+                <h2 className="text-4xl sm:text-5xl lg:text-6xl font-[family-name:var(--font-serif)] italic text-heading leading-[0.95] mb-6">
                   Will McCants
-                </strong>{" "}
-                (William McCants), a Charleston, SC native who has spent his
-                career across industrial metrology, hardware engineering, and
-                e-commerce. Will also serves as Director of E-Commerce at
-                MSI-Viking Gage and co-founded Viking Sensors in 2026.
-              </p>
-              <p>
-                Read the full story of Will McCants, from Mount Pleasant and
-                Porter-Gaud through MSI-Viking, the North Carolina mountain
-                years, and the founding of WildTech.
-              </p>
+                </h2>
+                <div className="space-y-5 text-body leading-relaxed mb-10 max-w-2xl">
+                  <p>
+                    WildTech Ventures was founded by{" "}
+                    <strong className="text-heading font-normal">
+                      Will McCants
+                    </strong>{" "}
+                    (William McCants), a Charleston, SC native who has spent
+                    his career across industrial metrology, hardware
+                    engineering, and e-commerce. Will also serves as Director
+                    of E-Commerce at MSI-Viking Gage and co-founded Viking
+                    Sensors in 2026.
+                  </p>
+                  <p className="text-muted">
+                    Read the full story of Will McCants, from Mount Pleasant
+                    and Porter-Gaud through MSI-Viking, the North Carolina
+                    mountain years, and the founding of WildTech.
+                  </p>
+                </div>
+                <Link href="/will-mccants" className="btn-ghost">
+                  Read more about Will McCants
+                  <svg
+                    className="w-3.5 h-3.5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    strokeWidth={2}
+                    aria-hidden="true"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
+                    />
+                  </svg>
+                </Link>
+              </div>
             </div>
-            <Link
-              href="/will-mccants"
-              className="btn-ghost inline-flex items-center gap-3"
-            >
-              Read more about Will McCants
-              <svg
-                className="w-4 h-4"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                aria-hidden="true"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={1.5}
-                  d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
-                />
-              </svg>
-            </Link>
-          </div>
+          </ScrollReveal>
 
           {/* Connect */}
-          <div className="border-t border-border pt-16">
-            <p className="section-label text-xs uppercase tracking-widest text-muted mb-2 font-[family-name:var(--font-sans)]">
-              Connect
-            </p>
-            <h2 className="text-2xl sm:text-3xl font-[family-name:var(--font-sans)] font-bold text-heading mb-8">
-              Get in touch
-            </h2>
+          <ScrollReveal>
+            <div className="border-t border-border pt-16">
+              <p className="section-label text-xs uppercase tracking-[0.18em] text-muted mb-3 font-[family-name:var(--font-sans)]">
+                Connect
+              </p>
+              <h2 className="text-2xl sm:text-3xl font-[family-name:var(--font-sans)] font-bold text-heading mb-8">
+                Get in touch
+              </h2>
 
-            <div className="flex flex-wrap gap-3">
-              <a
-                href="https://www.linkedin.com/in/willmccants/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-ghost inline-flex items-center gap-3"
-              >
-                <svg
-                  className="w-4 h-4"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                  aria-hidden="true"
+              <div className="flex flex-wrap gap-3">
+                <a
+                  href="https://www.linkedin.com/in/willmccants/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-ghost"
                 >
-                  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-                </svg>
-                Connect on LinkedIn
-              </a>
-              <Link
-                href="/contact"
-                className="btn-ghost inline-flex items-center gap-3"
-              >
-                Contact form
-              </Link>
+                  <svg
+                    className="w-4 h-4"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                  >
+                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                  </svg>
+                  Connect on LinkedIn
+                </a>
+                <Link href="/contact" className="btn-ghost">
+                  Contact form
+                </Link>
+              </div>
             </div>
-          </div>
+          </ScrollReveal>
         </div>
       </section>
     </>

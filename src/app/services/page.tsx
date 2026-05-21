@@ -1,4 +1,3 @@
-import React from "react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import ScrollReveal from "@/components/ScrollReveal";
@@ -48,7 +47,7 @@ const services = [
   {
     title: "Hardware Solutions",
     description:
-      "Custom hardware design and IoT solutions for environments where off-the-shelf sensors and consumer-grade devices fall short. We build sensor networks, embedded monitoring systems, and precision instruments backed by software that makes the data useful. VikingSense is the flagship example: industrial-grade climate monitoring built from scratch and distributed through one of the largest metrology companies in the country.",
+      "Custom hardware design and IoT solutions for environments where off-the-shelf sensors and consumer-grade devices fall short. We build sensor networks, embedded monitoring systems, and precision instruments backed by software that makes the data useful. Viking Sensors is the flagship example: industrial-grade climate monitoring built from scratch and distributed through one of the largest metrology companies in the country.",
     tags: ["IoT Sensors", "Embedded Systems", "Real-Time Dashboards", "Industrial-Grade"],
   },
 ];
@@ -56,109 +55,165 @@ const services = [
 const whyUs = [
   {
     title: "Owner-operated",
-    description: "Every project is led by the founder. No account managers, no handoffs, no surprises.",
+    description:
+      "Every project is led by the founder. No account managers, no handoffs, no surprises.",
   },
   {
     title: "Full lifecycle",
-    description: "From concept to launch to ongoing support. Design, build, ship, and iterate.",
+    description:
+      "From concept to launch to ongoing support. Design, build, ship, and iterate.",
   },
   {
     title: "Charleston-based",
-    description: "Local expertise with a national reach. On-site when you need it, remote when you don't.",
+    description:
+      "Local expertise with a national reach. On-site when you need it, remote when you don't.",
   },
 ];
 
 export default function ServicesPage() {
   return (
-    <section className="py-16 sm:py-24">
-      <div className="max-w-4xl mx-auto px-6 lg:px-8">
-        <p className="section-label text-xs uppercase tracking-widest text-muted mb-2 font-[family-name:var(--font-sans)] animate-fade-in-up">
-          What we do
-        </p>
-        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-[family-name:var(--font-serif)] italic text-heading mb-6 animate-fade-in-up delay-100">
-          Services
-        </h1>
-        <p className="text-body text-lg mb-16 animate-fade-in-up delay-200">
-          End-to-end development and integration, tailored to your vision.
-        </p>
+    <section className="relative py-20 sm:py-28 overflow-hidden">
+      <div
+        className="absolute -top-40 left-0 w-[700px] h-[400px] rounded-full pointer-events-none"
+        style={{
+          background:
+            "radial-gradient(ellipse at center, rgba(34,197,94,0.08) 0%, transparent 70%)",
+          filter: "blur(60px)",
+        }}
+        aria-hidden="true"
+      />
 
-        <div className="space-y-0">
+      <div className="relative max-w-5xl mx-auto px-6 lg:px-8">
+        <div className="mb-20">
+          <p className="section-label text-xs uppercase tracking-[0.18em] text-muted mb-3 font-[family-name:var(--font-sans)] animate-fade-in-up">
+            What we do
+          </p>
+          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-[family-name:var(--font-serif)] italic text-heading mb-6 animate-fade-in-up delay-100 leading-[0.92]">
+            Services
+          </h1>
+          <p className="text-body text-base sm:text-lg max-w-xl animate-fade-in-up delay-200">
+            End-to-end development and integration, tailored to your vision.
+          </p>
+        </div>
+
+        <div className="space-y-px bg-border">
           {services.map((service, i) => (
-            <React.Fragment key={service.title}>
-            {i === 3 && (
-              <div className="border-b border-dashed border-[#1a1a1a] my-0" />
-            )}
-            <ScrollReveal>
-              <article
-                className={`border-b border-border py-12 first:pt-0 ${
-                  i % 2 === 0 ? "bg-[#0a0a0a]" : "bg-[#080808]"
-                } -mx-4 px-4`}
-              >
-                <h2 className="text-2xl sm:text-3xl font-[family-name:var(--font-sans)] font-semibold text-heading mb-4">
-                  <span className="text-green text-lg mr-3 font-normal">
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                  <span className="text-muted mx-2 font-[family-name:var(--font-sans)] text-sm">/</span>
-                  {service.title}
-                </h2>
-                <p className="text-body leading-relaxed mb-6 max-w-2xl pl-1 break-words">
-                  {service.description}
-                </p>
-                <div className="flex flex-wrap gap-1.5 sm:gap-2 pl-1">
-                  {service.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="text-[10px] font-mono uppercase tracking-wider text-muted px-3 py-1.5 border border-border border-l-2 border-l-green bg-card"
-                    >
-                      {tag}
-                    </span>
-                  ))}
+            <ScrollReveal key={service.title}>
+              <article className="group relative bg-[#06070a] hover:bg-[#0a0c10] transition-colors duration-500 py-12 lg:py-14 px-6 lg:px-10 overflow-hidden">
+                {/* Hover sweep */}
+                <div
+                  className="absolute inset-0 bg-gradient-to-r from-green/[0.03] via-transparent to-transparent translate-x-[-100%] group-hover:translate-x-0 transition-transform duration-1000 ease-out pointer-events-none"
+                  aria-hidden="true"
+                />
+
+                <div className="relative flex flex-col lg:flex-row lg:items-start gap-4 lg:gap-12">
+                  {/* Number + heading */}
+                  <div className="lg:w-[280px] shrink-0">
+                    <div className="flex items-baseline gap-3 mb-2">
+                      <span className="text-[11px] font-mono tracking-[0.2em] text-green">
+                        {String(i + 1).padStart(2, "0")}
+                      </span>
+                      <span className="w-6 h-px bg-faint group-hover:bg-green transition-colors duration-500" />
+                    </div>
+                    <h2 className="text-2xl sm:text-3xl font-[family-name:var(--font-sans)] font-semibold text-heading group-hover:text-green transition-colors duration-500">
+                      {service.title}
+                    </h2>
+                  </div>
+
+                  {/* Description + tags */}
+                  <div className="flex-1 min-w-0">
+                    <p className="text-body leading-relaxed mb-6">
+                      {service.description}
+                    </p>
+                    <div className="flex flex-wrap gap-2">
+                      {service.tags.map((tag) => (
+                        <span
+                          key={tag}
+                          className="inline-flex items-center gap-1.5 text-[10px] font-mono uppercase tracking-[0.16em] text-muted px-3 py-1.5 border border-border bg-[#0a0c10] transition-all duration-300 hover:border-green/40 hover:text-body"
+                        >
+                          <span className="w-0.5 h-0.5 rounded-full bg-green" />
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
                 </div>
               </article>
             </ScrollReveal>
-            </React.Fragment>
           ))}
         </div>
 
         {/* Why WildTech */}
-        <div className="mt-20 border-t border-border pt-16 bg-[#050505] -mx-4 px-4 lg:-mx-8 lg:px-8 pb-10 rounded-sm">
-          <p className="section-label text-xs uppercase tracking-widest text-muted mb-2 font-[family-name:var(--font-sans)]">
-            Why us
-          </p>
-          <h2 className="text-2xl sm:text-3xl font-[family-name:var(--font-sans)] font-bold text-heading mb-12">
-            Why WildTech?
-          </h2>
+        <ScrollReveal>
+          <div className="mt-24 relative bg-[#0a0c10] border border-border -mx-6 px-6 lg:-mx-10 lg:px-10 py-14 lg:py-16 overflow-hidden">
+            <div className="absolute top-0 left-0 w-12 h-px bg-green" />
+            <div
+              className="absolute -top-20 right-0 w-[400px] h-[300px] rounded-full pointer-events-none"
+              style={{
+                background:
+                  "radial-gradient(ellipse at center, rgba(34,197,94,0.08) 0%, transparent 70%)",
+                filter: "blur(40px)",
+              }}
+              aria-hidden="true"
+            />
+            <p className="relative section-label text-xs uppercase tracking-[0.18em] text-muted mb-3 font-[family-name:var(--font-sans)]">
+              Why us
+            </p>
+            <h2 className="relative text-3xl sm:text-4xl font-[family-name:var(--font-serif)] italic text-heading mb-14">
+              Why WildTech
+            </h2>
 
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-10">
-            {whyUs.map((item, i) => (
-              <ScrollReveal key={item.title} delay={i * 150}>
-                <div>
-                  <span className="text-2xl font-[family-name:var(--font-sans)] text-green font-light mb-3 block">
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                  <h3 className="text-lg font-[family-name:var(--font-sans)] font-semibold text-heading mb-2">
-                    {item.title}
-                  </h3>
-                  <p className="text-sm text-muted font-[family-name:var(--font-sans)] leading-relaxed">
-                    {item.description}
-                  </p>
-                </div>
-              </ScrollReveal>
-            ))}
+            <div className="relative grid grid-cols-1 sm:grid-cols-3 gap-10">
+              {whyUs.map((item, i) => (
+                <ScrollReveal key={item.title} delay={i * 120}>
+                  <div className="group">
+                    <div className="flex items-baseline gap-3 mb-4">
+                      <span className="text-2xl font-[family-name:var(--font-serif)] italic text-green/70 group-hover:text-green transition-colors duration-500">
+                        {String(i + 1).padStart(2, "0")}
+                      </span>
+                      <span className="flex-1 h-px bg-border group-hover:bg-green/40 transition-colors duration-500" />
+                    </div>
+                    <h3 className="text-lg font-[family-name:var(--font-sans)] font-semibold text-heading mb-2">
+                      {item.title}
+                    </h3>
+                    <p className="text-sm text-muted font-[family-name:var(--font-sans)] leading-relaxed">
+                      {item.description}
+                    </p>
+                  </div>
+                </ScrollReveal>
+              ))}
+            </div>
           </div>
-        </div>
+        </ScrollReveal>
 
         {/* CTA */}
         <ScrollReveal>
-          <div className="mt-20 border-t border-green/20 pt-16">
-            <h2 className="text-2xl sm:text-3xl font-[family-name:var(--font-sans)] font-bold text-heading mb-4">
+          <div className="mt-24 border-t border-border pt-16 text-center">
+            <p className="section-label text-xs uppercase tracking-[0.18em] text-muted mb-3 font-[family-name:var(--font-sans)] justify-center">
+              Get in touch
+            </p>
+            <h2 className="text-3xl sm:text-4xl font-[family-name:var(--font-serif)] italic text-heading mb-4">
               Ready to start?
             </h2>
-            <p className="text-body mb-8 max-w-lg">
+            <p className="text-body mb-10 max-w-lg mx-auto">
               Let&apos;s talk about your project and find the right approach.
             </p>
             <Link href="/contact" className="btn-ghost">
-              Get in touch &rarr;
+              Get in touch
+              <svg
+                className="w-3.5 h-3.5"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                strokeWidth={2}
+                aria-hidden="true"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
+                />
+              </svg>
             </Link>
           </div>
         </ScrollReveal>
