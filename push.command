@@ -2,7 +2,7 @@
 cd "$(dirname "$0")"
 rm -f .git/index.lock .git/HEAD.lock .git/ORIG_HEAD.lock
 git add -A
-git commit -m "feat(seo): consolidate full founder narrative on /will-mccants, slim About page to short company summary with founder link"
+git commit -m "feat(design): wave 1 polish: richer color palette, refined design system, navbar with sliding underline, animated footer, home page hero glow, product cards, services list, closing CTA"
 git push origin main
 echo ""
 echo "Done! Press any key to close."

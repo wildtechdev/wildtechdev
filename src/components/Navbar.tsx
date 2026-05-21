@@ -18,28 +18,54 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20);
+    const onScroll = () => setScrolled(window.scrollY > 16);
+    onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    if (mobileOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [mobileOpen]);
+
+  // Close mobile menu on route change
+  useEffect(() => {
+    setMobileOpen(false);
+  }, [pathname]);
+
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled
-          ? "bg-black/80 backdrop-blur-md border-b border-border"
-          : "bg-transparent"
+          ? "bg-[#06070a]/85 backdrop-blur-xl border-b border-border"
+          : "bg-transparent border-b border-transparent"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-6 lg:px-10">
         <div className="flex items-center justify-between h-16">
-          <Link href="/" className="group">
-            <span className="text-lg font-[family-name:var(--font-serif)] italic text-heading tracking-tight transition-all duration-300 group-hover:[text-shadow:0_0_20px_rgba(34,197,94,0.3)]">
+          <Link href="/" className="group relative flex items-center gap-2">
+            <span
+              className="absolute -left-1 -right-1 -top-1 -bottom-1 rounded-full bg-green/0 group-hover:bg-green/10 blur-md transition-all duration-500"
+              aria-hidden="true"
+            />
+            <span className="relative text-lg font-[family-name:var(--font-serif)] italic text-heading tracking-tight transition-all duration-500 group-hover:[text-shadow:0_0_20px_rgba(34,197,94,0.4)]">
               WildTech
             </span>
+            <span
+              className="relative w-1 h-1 rounded-full bg-green opacity-70 group-hover:opacity-100 transition-opacity"
+              aria-hidden="true"
+            />
           </Link>
 
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden md:flex items-center gap-1">
             {navLinks.map((link) => {
               const isActive =
                 link.href === "/"
@@ -49,60 +75,94 @@ export default function Navbar() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="relative text-sm text-body hover:text-heading transition-colors link-underline flex flex-col items-center"
+                  className={`group relative px-4 py-2 text-sm transition-colors duration-300 ${
+                    isActive
+                      ? "text-heading"
+                      : "text-body hover:text-heading"
+                  }`}
                 >
-                  {link.label}
-                  {isActive && (
-                    <span className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-1 h-0.5 bg-green rounded-full" />
-                  )}
+                  <span className="relative z-10">{link.label}</span>
+                  <span
+                    className={`absolute left-4 right-4 bottom-1 h-px transition-all duration-500 ${
+                      isActive
+                        ? "bg-green scale-x-100"
+                        : "bg-green scale-x-0 group-hover:scale-x-100"
+                    }`}
+                    style={{ transformOrigin: "left" }}
+                    aria-hidden="true"
+                  />
                 </Link>
               );
             })}
           </div>
 
           <button
-            className="md:hidden text-body hover:text-heading transition-colors"
+            className="md:hidden text-body hover:text-heading transition-colors p-2 -mr-2"
             onClick={() => setMobileOpen(!mobileOpen)}
-            aria-label="Toggle menu"
+            aria-label={mobileOpen ? "Close menu" : "Open menu"}
+            aria-expanded={mobileOpen}
           >
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              {mobileOpen ? (
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M6 18L18 6M6 6l12 12" />
-              ) : (
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 6h16M4 12h16M4 18h16" />
-              )}
-            </svg>
+            <div className="relative w-5 h-5">
+              <span
+                className={`absolute left-0 top-1.5 w-5 h-px bg-current transition-all duration-300 ${
+                  mobileOpen ? "rotate-45 translate-y-1" : ""
+                }`}
+              />
+              <span
+                className={`absolute left-0 top-1/2 -translate-y-1/2 w-5 h-px bg-current transition-all duration-300 ${
+                  mobileOpen ? "opacity-0" : ""
+                }`}
+              />
+              <span
+                className={`absolute left-0 bottom-1.5 w-5 h-px bg-current transition-all duration-300 ${
+                  mobileOpen ? "-rotate-45 -translate-y-1" : ""
+                }`}
+              />
+            </div>
           </button>
         </div>
       </div>
 
-      {mobileOpen && (
-        <div className="md:hidden bg-black/90 backdrop-blur-md border-t border-border">
-          <div className="px-6 py-6 space-y-4">
-            {navLinks.map((link) => {
-              const isActive =
-                link.href === "/"
-                  ? pathname === "/"
-                  : pathname.startsWith(link.href);
-              return (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className={`block text-sm transition-colors ${
-                    isActive ? "text-green" : "text-body hover:text-heading"
+      {/* Mobile menu */}
+      <div
+        className={`md:hidden overflow-hidden transition-[max-height,opacity] duration-500 ease-out ${
+          mobileOpen
+            ? "max-h-[80vh] opacity-100"
+            : "max-h-0 opacity-0"
+        }`}
+      >
+        <div className="bg-[#06070a]/95 backdrop-blur-xl border-t border-border px-6 py-8 space-y-1">
+          {navLinks.map((link, i) => {
+            const isActive =
+              link.href === "/"
+                ? pathname === "/"
+                : pathname.startsWith(link.href);
+            return (
+              <Link
+                key={link.href}
+                href={link.href}
+                className={`flex items-center gap-3 py-3 text-base transition-all duration-300 ${
+                  mobileOpen ? "translate-x-0 opacity-100" : "translate-x-3 opacity-0"
+                } ${
+                  isActive ? "text-heading" : "text-body hover:text-heading"
+                }`}
+                style={{
+                  transitionDelay: mobileOpen ? `${i * 60 + 80}ms` : "0ms",
+                }}
+                onClick={() => setMobileOpen(false)}
+              >
+                <span
+                  className={`w-1.5 h-1.5 rounded-full transition-all duration-300 ${
+                    isActive ? "bg-green" : "bg-faint"
                   }`}
-                  onClick={() => setMobileOpen(false)}
-                >
-                  {isActive && (
-                    <span className="inline-block w-1 h-1 bg-green rounded-full mr-2 align-middle" />
-                  )}
-                  {link.label}
-                </Link>
-              );
-            })}
-          </div>
+                  aria-hidden="true"
+                />
+                {link.label}
+              </Link>
+            );
+          })}
         </div>
-      )}
+      </div>
     </nav>
   );
 }
