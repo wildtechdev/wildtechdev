@@ -140,7 +140,7 @@ const products = [
     accentColor: "border-l-amber-700/40",
     glowColor: "rgba(217, 119, 6, 0.08)",
     description:
-      "On Halloween night 2023, Will and his then-fiancée had booked a special ghost walk downtown and dinner reservations to make a date of it. Hours before the tour, the guide called to cancel: they were the only couple signed up and it was not worth her time on a Tuesday. They opened the App Store at dinner and downloaded an existing Charleston ghost tour app instead. It had eleven stories, all of which Will, born and raised in Charleston, could have told himself. Knowing the city held hundreds more, he spent the next three months in public and private libraries assembling the most complete singular record of Charleston ghost stories ever published, then turned it into Spirits of Charleston. Over 75 professionally narrated tales, each tied to a real location you can visit, with audio narration and hundreds of historic photographs sourced from libraries and institutions across the state. The app covers corners of the Tri-County area that no other ghost tour has ever touched, from the Old City Jail and the Unitarian Church graveyard to the beaches, forts, islands, Summerville, and Moncks Corner. One-time purchase. No subscriptions. No ads.",
+      "Spirits of Charleston is the most comprehensive ghost story app in the Lowcountry. Over 75 professionally narrated tales walk you through the haunted side of Charleston, each one tied to a real location you can visit. From the Old City Jail and the Unitarian Church graveyard to the beaches, forts, and islands beyond the peninsula, every story comes with audio narration, historical photographs sourced from libraries across the state, and GPS-tagged locations so you can explore at your own pace. The app covers corners of the Tri-County area that no other ghost tour has touched, including stories from Summerville and Moncks Corner. Whether you are a local who has walked these streets a thousand times or a visitor planning your first trip, this is the ghost tour that fits your schedule, not the other way around. One-time purchase. No subscriptions. No ads.",
     features: [
       "Professional audio narratives",
       "Historical photographs",
@@ -169,7 +169,7 @@ const products = [
     accentColor: "border-l-teal-600/40",
     glowColor: "rgba(13, 148, 136, 0.08)",
     description:
-      "After Spirits of Charleston, the natural next step was to apply the same care and depth to Savannah, a city with even more haunted history per square mile than the Lowcountry. Spirits of Savannah brings 55+ narrated stories to life across one of America's most haunted cities, with the same coverage approach: not just the downtown squares, but Ossabaw Island, Hardeeville, SC, colonial cemeteries, haunted mansions, and remote locations that most visitors never hear about. Each story includes audio narration and historic photos. Families visiting Savannah have used the app to turn a packed itinerary into a flexible ghost tour they could spread across an entire weekend, hitting haunted stops between meals and shopping without ever going out of their way.",
+      "Spirits of Savannah brings over 55 narrated ghost stories to life across one of America's most haunted cities. The app covers far more than just the downtown squares. You will find yourself exploring tales from Ossabaw Island, Hardeeville, SC, colonial cemeteries, haunted mansions, and remote locations that most visitors never hear about. Each story includes audio narration and historic photos that pull you into the city's darker history. Families visiting Savannah have used the app to turn a packed itinerary into a flexible ghost tour they could spread across an entire weekend, hitting haunted stops between meals and shopping without ever going out of their way.",
     features: [
       "55+ ghost stories and growing",
       "Authentic audio narratives",
@@ -198,7 +198,7 @@ const products = [
     accentColor: "border-l-green/50",
     glowColor: "rgba(34, 197, 94, 0.08)",
     description:
-      "Late one night Will watched a viral video that hinted an iPhone's touchscreen could detect electrical continuity across a small object. Within a few days, EZ Fuse Tester was on the App Store. The app turns your iPhone into a fuse continuity tester: place a standard glass cartridge fuse across the screen and the app gives you instant pass or fail feedback using the phone's built-in capacitive sensors. Nothing to buy, nothing to plug in, nothing to charge. Works with the small glass fuses found in cars, household electronics, and holiday string lights. It quickly became Will's most-downloaded app, with dozens of new users per day. One reviewer was about to throw out a set of Halloween lights before testing the fuses with the app, replacing two of them, and getting the whole set working again.",
+      "EZ Fuse Tester turns your iPhone into a simple fuse continuity tester. Place a standard glass cartridge fuse across the screen and the app gives you instant pass or fail feedback using the phone's built-in capacitive sensors. There is nothing to buy, nothing to plug in, and nothing to charge. It works with the small glass fuses you find in cars, household electronics, and holiday string lights. One reviewer was about to throw out a set of Halloween lights before testing the fuses with the app, replacing two of them, and getting the whole set working again.",
     features: [
       "Instant PASS/FAIL visual feedback",
       "Uses phone's capacitive touchscreen sensors",
@@ -252,7 +252,7 @@ const products = [
     accentColor: "border-l-indigo-500/50",
     glowColor: "rgba(99, 102, 241, 0.12)",
     description:
-      "Churchd started on a yellow legal pad. Will and his wife were attending and volunteering at a large church that was, like most churches, drowning in the chaos of modern communication. Small groups were running over iMessage threads that had to be rebuilt every time a member joined or left. Volunteer teams were communicating in GroupMe with no permissions, where critical announcements scrolled away in hours. Church-wide updates required a Facebook or Instagram account, which meant guys avoiding social media for very real reasons (lust, comparison, time loss) were missing signups for things like men's hikes. In early 2024, Will hand-wrote five pages envisioning a platform built specifically for the church, designed to honor God and protect the people using it. He tucked the pages in a drawer after peers told him it would take a team of engineers and hundreds of thousands of dollars to build a functional beta. A year later, after a late-night conversation with his brother who said his only criticism was the hesitation, Will started building it himself. The working title was FindFellowship for the first ten months while he saved up for the domain name. At 12:15 AM on March 14, 2026, after a fourteen-hour day, WildTech Development bought churchd.com. Churchd has been Will's primary mission since then, and the platform has grown well past the original legal-pad vision into a real alternative to social media for the church.",
+      "Churchd is a community platform built specifically for churches and the people in them. It replaces the patchwork of iMessage threads, GroupMe chats, Facebook events, and spreadsheets that most congregations rely on with a single, purpose-built tool. Group and peer-to-peer messaging, personal and ministry calendars, automated attendance, event scheduling for small groups and church-wide gatherings, volunteer coordination, class management, a built-in Bible e-reader with smart search, group and self-guided studies, and member outreach all live in one place. Designed from the ground up to honor God and respect the people using it: no subscriptions, no advertising, no influencer partnerships, and no requirement to sign up for a social media account to stay connected with your church.",
     features: [
       "Group and peer-to-peer messaging",
       "Personal and ministry calendars",
@@ -272,7 +272,7 @@ const products = [
     externalLabel: "Visit churchd.com",
     review: null,
     statusNote:
-      "Currently in active development. Built and self-funded by Will. No subscriptions, no ads, no influencer partnerships, ever.",
+      "Currently in active development. Profile tabs, post feeds, and community features already designed and prototyped.",
   },
   {
     name: "Viking Sensors",
@@ -283,7 +283,7 @@ const products = [
     accentColor: "border-l-red-600/40",
     glowColor: "rgba(220, 38, 38, 0.08)",
     description:
-      "Shortly after Will bought the Churchd domain in March 2026, MSI-Viking approached him about a small hardware project: assembling temperature and humidity sensors with WiFi antennas to report readings back into an open-source monitoring stack. Will partnered with his colleague Steven Archibald, and the two co-founded Viking Sensors, LLC as the hardware company. In parallel, Will built the advanced monitoring software (vikingsense.com) under WildTech Ventures and licensed it back to Viking Sensors. The system tracks temperature, humidity, and environmental conditions in real time with the kind of accuracy that calibration labs, server rooms, warehouses, and cleanrooms demand. Every sensor is built for enterprise-grade reliability, and the software gives you dashboards, alerts, and historical data without the complexity of most industrial monitoring platforms. Viking Sensors is distributed exclusively through MSI-Viking Gage, one of the country's leading names in precision measurement.",
+      "Viking Sensors pairs precision climate monitoring hardware with intelligent software. The system tracks temperature, humidity, and environmental conditions in real time with the kind of accuracy that calibration labs, server rooms, warehouses, and cleanrooms demand. Every sensor is built for enterprise-grade reliability, and the software gives you dashboards, alerts, and historical data without the complexity of most industrial monitoring platforms. Viking Sensors is distributed exclusively through MSI-Viking Gage, one of the country's leading names in precision measurement.",
     features: [
       "Precision sensors",
       "Real-time monitoring",
