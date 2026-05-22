@@ -6,13 +6,10 @@ export default function Cursor() {
   const dotRef = useRef<HTMLDivElement>(null);
   const ringRef = useRef<HTMLDivElement>(null);
   const labelRef = useRef<HTMLSpanElement>(null);
-  const [mounted, setMounted] = useState(false);
-  const [enabled, setEnabled] = useState(false);
+  const [shouldRender, setShouldRender] = useState(false);
 
+  // First effect: decide whether to render at all
   useEffect(() => {
-    setMounted(true);
-
-    // Disable on touch devices, reduced motion, or small screens
     const isTouch =
       "ontouchstart" in window ||
       navigator.maxTouchPoints > 0 ||
@@ -22,24 +19,25 @@ export default function Cursor() {
     ).matches;
     const isSmall = window.matchMedia("(max-width: 768px)").matches;
     if (isTouch || prefersReduced || isSmall) return;
+    setShouldRender(true);
+  }, []);
 
-    setEnabled(true);
+  // Second effect: only runs when elements exist
+  useEffect(() => {
+    if (!shouldRender) return;
+    const dot = dotRef.current;
+    const ring = ringRef.current;
+    const label = labelRef.current;
+    if (!dot || !ring || !label) return;
+
     document.documentElement.classList.add("has-custom-cursor");
 
-    const dot = dotRef.current!;
-    const ring = ringRef.current!;
-    const label = labelRef.current!;
-
-    // Target (mouse) position
     let mx = window.innerWidth / 2;
     let my = window.innerHeight / 2;
-
-    // Smoothed positions
     let dx = mx,
       dy = my;
     let rx = mx,
       ry = my;
-
     let isPointer = false;
     let isHidden = true;
 
@@ -47,7 +45,6 @@ export default function Cursor() {
       mx = e.clientX;
       my = e.clientY;
       if (isHidden) {
-        // Snap on first move
         dx = mx;
         dy = my;
         rx = mx;
@@ -57,19 +54,18 @@ export default function Cursor() {
         isHidden = false;
       }
 
-      // Hover-state detection
       const el = e.target as HTMLElement;
       const isInteractive = !!el.closest(
         "a, button, [role='button'], input, textarea, select, label, [data-cursor='hover']"
       );
-      const customLabel = el.closest("[data-cursor-label]");
+      const customLabelEl = el.closest("[data-cursor-label]");
 
-      if (customLabel) {
-        label.textContent =
-          customLabel.getAttribute("data-cursor-label") || "";
+      if (customLabelEl) {
+        const text = customLabelEl.getAttribute("data-cursor-label") || "";
+        if (label.textContent !== text) label.textContent = text;
         ring.classList.add("cursor-labeled");
       } else {
-        label.textContent = "";
+        if (label.textContent !== "") label.textContent = "";
         ring.classList.remove("cursor-labeled");
       }
 
@@ -85,65 +81,66 @@ export default function Cursor() {
       }
     };
 
-    const onDown = () => {
-      ring.classList.add("cursor-down");
-    };
-    const onUp = () => {
-      ring.classList.remove("cursor-down");
-    };
+    const onDown = () => ring.classList.add("cursor-down");
+    const onUp = () => ring.classList.remove("cursor-down");
     const onLeave = () => {
       dot.style.opacity = "0";
       ring.style.opacity = "0";
       isHidden = true;
     };
+    const onEnter = () => {
+      // unhide on enter even before move
+      dot.style.opacity = "1";
+      ring.style.opacity = "1";
+    };
 
-    window.addEventListener("mousemove", onMove);
-    window.addEventListener("mousedown", onDown);
-    window.addEventListener("mouseup", onUp);
-    window.addEventListener("mouseleave", onLeave);
+    document.addEventListener("mousemove", onMove);
+    document.addEventListener("mousedown", onDown);
+    document.addEventListener("mouseup", onUp);
+    document.addEventListener("mouseleave", onLeave);
+    document.addEventListener("mouseenter", onEnter);
 
     let rafId = 0;
     const tick = () => {
-      // Dot follows quickly
       dx += (mx - dx) * 0.6;
       dy += (my - dy) * 0.6;
-      // Ring lags
       rx += (mx - rx) * 0.18;
       ry += (my - ry) * 0.18;
-
-      dot.style.transform = `translate3d(${dx}px, ${dy}px, 0) translate(-50%, -50%)`;
-      ring.style.transform = `translate3d(${rx}px, ${ry}px, 0) translate(-50%, -50%)`;
+      dot.style.transform = `translate3d(${dx - 4}px, ${dy - 4}px, 0)`;
+      ring.style.transform = `translate3d(${rx - 18}px, ${ry - 18}px, 0)`;
       rafId = requestAnimationFrame(tick);
     };
     rafId = requestAnimationFrame(tick);
 
     return () => {
       cancelAnimationFrame(rafId);
-      window.removeEventListener("mousemove", onMove);
-      window.removeEventListener("mousedown", onDown);
-      window.removeEventListener("mouseup", onUp);
-      window.removeEventListener("mouseleave", onLeave);
+      document.removeEventListener("mousemove", onMove);
+      document.removeEventListener("mousedown", onDown);
+      document.removeEventListener("mouseup", onUp);
+      document.removeEventListener("mouseleave", onLeave);
+      document.removeEventListener("mouseenter", onEnter);
       document.documentElement.classList.remove("has-custom-cursor");
     };
-  }, []);
+  }, [shouldRender]);
 
-  if (!mounted || !enabled) return null;
+  if (!shouldRender) return null;
 
   return (
     <>
       <div
         ref={dotRef}
-        className="cursor-dot pointer-events-none fixed top-0 left-0 z-[10000] w-1.5 h-1.5 rounded-full bg-green opacity-0 transition-[opacity,width,height,background-color] duration-200 ease-out mix-blend-difference"
+        className="cursor-dot pointer-events-none fixed top-0 left-0 z-[10000] w-2 h-2 rounded-full bg-green opacity-0 transition-[opacity] duration-200"
+        style={{ boxShadow: "0 0 12px rgba(34,197,94,0.7)" }}
         aria-hidden="true"
       />
       <div
         ref={ringRef}
-        className="cursor-ring pointer-events-none fixed top-0 left-0 z-[10000] w-9 h-9 rounded-full border border-green/70 opacity-0 transition-[opacity,width,height,border-color,background-color] duration-300 ease-out flex items-center justify-center"
+        className="cursor-ring pointer-events-none fixed top-0 left-0 z-[10000] w-9 h-9 rounded-full border border-green/70 opacity-0 transition-[opacity,width,height,border-color,background-color,border-radius,padding] duration-300 ease-out flex items-center justify-center"
         aria-hidden="true"
       >
         <span
           ref={labelRef}
-          className="text-[9px] font-mono uppercase tracking-[0.18em] text-green whitespace-nowrap"
+          className="text-[9px] font-mono uppercase tracking-[0.18em] whitespace-nowrap"
         />
       </div>
     </>
