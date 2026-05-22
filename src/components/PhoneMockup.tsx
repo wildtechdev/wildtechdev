@@ -106,7 +106,7 @@ function ChurchdScreen() {
   );
 }
 
-function VikingSenseScreen() {
+function VikingSensorsScreen() {
   return (
     <>
       {/* Temperature gauge icon - prominent */}
@@ -190,7 +190,7 @@ const configs: Record<Product, {
   },
   vikingsense: {
     gradient: "from-red-950/80 via-red-900/20 to-stone-950",
-    screenContent: <VikingSenseScreen />,
+    screenContent: <VikingSensorsScreen />,
     accentIcon: null,
     label: "Precision",
     labelStyle: "font-[family-name:var(--font-serif)] italic text-red-300/70",

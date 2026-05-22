@@ -6,10 +6,37 @@ export const metadata: Metadata = {
   title: "Services",
   description:
     "WildTech Development services: iOS development, Windows development, web development, App Store optimization, systems integration, and hardware solutions.",
+  alternates: {
+    canonical: "https://wildtechdev.com/services",
+  },
   openGraph: {
     title: "Services | WildTech Development",
     description:
       "End-to-end software and hardware development services from Charleston, SC.",
+  },
+};
+
+const servicesJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  serviceType: "Software and Hardware Development",
+  provider: {
+    "@type": "Organization",
+    name: "WildTech Development",
+    url: "https://wildtechdev.com",
+  },
+  areaServed: "US",
+  hasOfferCatalog: {
+    "@type": "OfferCatalog",
+    name: "WildTech Development Services",
+    itemListElement: [
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "iOS Development" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Windows Development" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Web Development" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "App Store Optimization" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Systems Integration" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Hardware Solutions" } },
+    ],
   },
 };
 
@@ -72,7 +99,12 @@ const whyUs = [
 
 export default function ServicesPage() {
   return (
-    <section className="relative py-20 sm:py-28 overflow-hidden">
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(servicesJsonLd) }}
+      />
+      <section className="relative py-20 sm:py-28 overflow-hidden">
       <div
         className="absolute -top-40 left-0 w-[700px] h-[400px] rounded-full pointer-events-none"
         style={{
@@ -160,7 +192,7 @@ export default function ServicesPage() {
               Why us
             </p>
             <h2 className="relative text-3xl sm:text-4xl font-[family-name:var(--font-serif)] italic text-heading mb-14">
-              Why WildTech
+              Why WildTech.
             </h2>
 
             <div className="relative grid grid-cols-1 sm:grid-cols-3 gap-10">
@@ -219,5 +251,6 @@ export default function ServicesPage() {
         </ScrollReveal>
       </div>
     </section>
+    </>
   );
 }

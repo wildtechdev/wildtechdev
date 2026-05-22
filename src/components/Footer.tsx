@@ -14,7 +14,7 @@ const productLinks = [
   { href: "/products#spirits-of-savannah", label: "Spirits of Savannah" },
   { href: "/products#ez-fuse-tester", label: "EZ Fuse Tester" },
   { href: "/products#churchd", label: "Churchd" },
-  { href: "/products#vikingsense", label: "Viking Sensors" },
+  { href: "/products#viking-sensors", label: "Viking Sensors" },
 ];
 
 export default function Footer() {
@@ -111,7 +111,7 @@ export default function Footer() {
               &copy; {new Date().getFullYear()} WildTech Ventures, LLC. All
               rights reserved.
             </p>
-            <p className="text-xs text-muted/70 mt-3 italic font-[family-name:var(--font-serif)]">
+            <p className="text-sm text-body mt-4 italic font-[family-name:var(--font-serif)]">
               &ldquo;Unless the Lord builds the house, those who build it labor
               in vain.&rdquo; Psalm 127:1
             </p>

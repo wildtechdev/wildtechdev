@@ -1,19 +1,60 @@
-"use client";
-
+import type { Metadata } from "next";
 import Link from "next/link";
-import { useEffect, useRef } from "react";
-import PhoneMockup from "@/components/PhoneMockup";
 import ScrollReveal from "@/components/ScrollReveal";
 import Magnetic from "@/components/Magnetic";
 import Counter from "@/components/Counter";
 import Spotlight from "@/components/Spotlight";
-import TiltCard from "@/components/TiltCard";
 import TechMarquee from "@/components/TechMarquee";
+import HeroSpotlight from "@/components/HeroSpotlight";
+import HomeProductCard, { type HomeProduct } from "@/components/HomeProductCard";
 
-const products = [
+export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://wildtechdev.com",
+  },
+};
+
+const orgJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "WildTech Development",
+  legalName: "WildTech Ventures, LLC",
+  url: "https://wildtechdev.com",
+  logo: "https://wildtechdev.com/android-chrome-512x512.png",
+  description:
+    "Software and hardware studio in Charleston, SC. iOS apps, web platforms, and precision IoT hardware.",
+  foundingDate: "2024",
+  founder: {
+    "@type": "Person",
+    name: "Will McCants",
+    alternateName: "William McCants",
+    url: "https://wildtechdev.com/will-mccants",
+  },
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Charleston",
+    addressRegion: "SC",
+    addressCountry: "US",
+  },
+  sameAs: [
+    "https://wildtechdev.com",
+    "https://churchd.com",
+    "https://vikingsense.com",
+    "https://www.linkedin.com/in/willmccants/",
+  ],
+  contactPoint: {
+    "@type": "ContactPoint",
+    contactType: "customer service",
+    email: "info@wildtechdev.com",
+    areaServed: "US",
+    availableLanguage: "English",
+  },
+};
+
+const products: HomeProduct[] = [
   {
     name: "Spirits of Charleston",
-    mockup: "spirits-charleston" as const,
+    mockup: "spirits-charleston",
     type: "iOS App",
     description:
       "75+ narrated ghost stories tied to real Charleston locations, from the Old City Jail to the islands.",
@@ -25,7 +66,7 @@ const products = [
   },
   {
     name: "Spirits of Savannah",
-    mockup: "spirits-savannah" as const,
+    mockup: "spirits-savannah",
     type: "iOS App",
     description:
       "55+ haunted tales covering downtown Savannah to Ossabaw Island and Hardeeville, SC.",
@@ -37,7 +78,7 @@ const products = [
   },
   {
     name: "EZ Fuse Tester",
-    mockup: "ez-fuse" as const,
+    mockup: "ez-fuse",
     type: "iOS App",
     description:
       "Test any glass fuse with your phone's touchscreen. No tools needed.",
@@ -48,7 +89,7 @@ const products = [
   },
   {
     name: "Churchd",
-    mockup: "churchd" as const,
+    mockup: "churchd",
     type: "Platform",
     description:
       "A community platform built specifically for churches. Profiles, events, groups, and more.",
@@ -58,7 +99,7 @@ const products = [
   },
   {
     name: "Viking Sensors",
-    mockup: "vikingsense" as const,
+    mockup: "vikingsense",
     type: "Hardware",
     description:
       "Precision climate monitoring for calibration labs, server rooms, and cleanrooms.",
@@ -67,14 +108,6 @@ const products = [
     accent: "red",
   },
 ];
-
-const accentTints: Record<string, string> = {
-  amber: "hover:bg-amber-950/20",
-  teal: "hover:bg-teal-950/20",
-  green: "hover:bg-green-950/20",
-  indigo: "hover:bg-indigo-950/20",
-  red: "hover:bg-red-950/20",
-};
 
 const services = [
   {
@@ -220,6 +253,15 @@ const testimonials = [
   },
 ];
 
+const industries = [
+  "Industrial metrology",
+  "Precision manufacturing",
+  "E-commerce",
+  "Tourism & hospitality",
+  "Faith communities",
+  "Consumer mobile",
+];
+
 const process = [
   {
     label: "01",
@@ -253,117 +295,14 @@ const process = [
   },
 ];
 
-function HeroSpotlight() {
-  const ref = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    const onMove = (e: MouseEvent) => {
-      const rect = el.getBoundingClientRect();
-      const x = ((e.clientX - rect.left) / rect.width) * 100;
-      const y = ((e.clientY - rect.top) / rect.height) * 100;
-      el.style.setProperty("--hx", `${x}%`);
-      el.style.setProperty("--hy", `${y}%`);
-    };
-    el.addEventListener("mousemove", onMove);
-    return () => el.removeEventListener("mousemove", onMove);
-  }, []);
-
-  return (
-    <div
-      ref={ref}
-      className="absolute inset-0 pointer-events-none transition-opacity duration-700"
-      style={{
-        background:
-          "radial-gradient(600px circle at var(--hx, 50%) var(--hy, 50%), rgba(34,197,94,0.12), transparent 50%)",
-      }}
-      aria-hidden="true"
-    />
-  );
-}
-
-function ProductCard({
-  product,
-  index,
-}: {
-  product: (typeof products)[number];
-  index: number;
-}) {
-  return (
-    <TiltCard
-      intensity={6}
-      className={`group relative bg-[#0a0c10] p-8 border border-transparent transition-colors duration-500 hover:border-green/40 ${
-        accentTints[product.accent]
-      }`}
-    >
-      <span className="absolute top-5 left-7 text-[44px] leading-none font-[family-name:var(--font-serif)] italic text-faint group-hover:text-green/40 transition-colors duration-500 z-[1]">
-        {String(index + 1).padStart(2, "0")}
-      </span>
-      <span className="absolute top-7 right-7 text-[10px] font-mono tracking-[0.2em] text-green/80 uppercase z-[1]">
-        {product.type}
-      </span>
-
-      <div
-        className="relative flex justify-center mt-14 mb-6 z-[1]"
-        style={{ transform: "translateZ(20px)" }}
-      >
-        <PhoneMockup product={product.mockup} size="small" />
-      </div>
-
-      <div className="relative z-[1]">
-        <h3 className="text-xl font-[family-name:var(--font-serif)] italic text-heading mb-3">
-          {product.name}
-        </h3>
-        <p className="text-body text-sm leading-relaxed mb-5">
-          {product.description}
-        </p>
-
-        <div className="flex items-center gap-3 mb-4">
-          {product.price && (
-            <span className="text-heading text-sm font-[family-name:var(--font-sans)]">
-              {product.price}
-            </span>
-          )}
-          {product.rating && (
-            <span className="text-[10px] text-muted font-mono flex items-center gap-1">
-              <span className="text-green">★</span>
-              {product.rating}
-            </span>
-          )}
-        </div>
-
-        {product.link && (
-          <a
-            href={product.link}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 text-green text-sm font-[family-name:var(--font-sans)] link-underline"
-          >
-            {product.linkLabel}
-            <svg
-              className="w-3 h-3 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              strokeWidth={2}
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
-              />
-            </svg>
-          </a>
-        )}
-      </div>
-    </TiltCard>
-  );
-}
-
 export default function HomePage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd) }}
+      />
+
       {/* Hero */}
       <section className="relative min-h-[92vh] flex items-center justify-center overflow-hidden">
         <HeroSpotlight />
@@ -396,8 +335,9 @@ export default function HomePage() {
             </span>
           </h1>
 
-          <p className="mt-10 text-body text-base sm:text-lg max-w-md mx-auto leading-relaxed animate-fade-in-up delay-400">
-            We build apps, platforms, and hardware that solve real problems.
+          <p className="mt-10 text-body text-base sm:text-lg max-w-xl mx-auto leading-relaxed animate-fade-in-up delay-400">
+            Custom iOS apps, web platforms, and precision IoT hardware. Built
+            in Charleston by the same people who ship them.
           </p>
 
           <div className="mt-4 flex items-center justify-center gap-2 animate-fade-in-up delay-400">
@@ -498,9 +438,30 @@ export default function HomePage() {
       {/* Tech marquee */}
       <TechMarquee />
 
+      {/* Industries */}
+      <section className="relative py-14 sm:py-16 border-b border-border bg-[#070a0f] overflow-hidden">
+        <div className="max-w-6xl mx-auto px-6 lg:px-8">
+          <div className="flex flex-col lg:flex-row lg:items-center gap-6 lg:gap-12">
+            <p className="text-[10px] uppercase tracking-[0.22em] text-muted font-mono shrink-0 lg:border-r lg:border-border lg:pr-12">
+              We have shipped for
+            </p>
+            <div className="flex flex-wrap gap-x-8 gap-y-3">
+              {industries.map((industry) => (
+                <span
+                  key={industry}
+                  className="text-sm text-body font-[family-name:var(--font-sans)]"
+                >
+                  {industry}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Products */}
       <section className="relative py-20 sm:py-28 border-t border-border bg-gradient-to-b from-[#06070a] via-[#080a0e] to-[#06070a] overflow-hidden">
-        <div className="absolute -top-8 right-6 lg:right-12 text-[260px] leading-none font-[family-name:var(--font-serif)] italic text-heading pointer-events-none select-none opacity-[0.04]">
+        <div className="absolute -top-8 right-6 lg:right-12 text-[260px] leading-none font-[family-name:var(--font-serif)] italic text-heading pointer-events-none select-none opacity-[0.07]">
           01
         </div>
 
@@ -539,7 +500,7 @@ export default function HomePage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-border">
             {products.slice(0, 3).map((product, i) => (
               <ScrollReveal key={product.name} delay={i * 100}>
-                <ProductCard product={product} index={i} />
+                <HomeProductCard product={product} index={i} />
               </ScrollReveal>
             ))}
           </div>
@@ -547,7 +508,7 @@ export default function HomePage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-px bg-border mt-px">
             {products.slice(3).map((product, i) => (
               <ScrollReveal key={product.name} delay={i * 100}>
-                <ProductCard product={product} index={i + 3} />
+                <HomeProductCard product={product} index={i + 3} />
               </ScrollReveal>
             ))}
           </div>
@@ -608,7 +569,7 @@ export default function HomePage() {
 
       {/* Services */}
       <section className="relative py-20 sm:py-28 border-t border-border overflow-hidden">
-        <div className="absolute -top-8 right-6 lg:right-12 text-[260px] leading-none font-[family-name:var(--font-serif)] italic text-heading pointer-events-none select-none opacity-[0.04]">
+        <div className="absolute -top-8 right-6 lg:right-12 text-[260px] leading-none font-[family-name:var(--font-serif)] italic text-heading pointer-events-none select-none opacity-[0.07]">
           02
         </div>
 
@@ -691,7 +652,7 @@ export default function HomePage() {
 
       {/* Process */}
       <section className="relative py-24 sm:py-32 border-t border-border overflow-hidden bg-gradient-to-b from-[#06070a] via-[#080a0e] to-[#06070a]">
-        <div className="absolute -top-8 right-6 lg:right-12 text-[260px] leading-none font-[family-name:var(--font-serif)] italic text-heading pointer-events-none select-none opacity-[0.04]">
+        <div className="absolute -top-8 right-6 lg:right-12 text-[260px] leading-none font-[family-name:var(--font-serif)] italic text-heading pointer-events-none select-none opacity-[0.07]">
           03
         </div>
 
@@ -705,9 +666,7 @@ export default function HomePage() {
             </h2>
           </div>
 
-          {/* Timeline */}
           <div className="relative">
-            {/* Vertical line */}
             <div
               className="absolute left-[18px] sm:left-1/2 sm:-translate-x-1/2 top-2 bottom-2 w-px bg-gradient-to-b from-transparent via-border to-transparent pointer-events-none"
               aria-hidden="true"
@@ -721,7 +680,6 @@ export default function HomePage() {
                       i % 2 === 1 ? "sm:flex-row-reverse sm:text-right" : ""
                     } sm:items-center`}
                   >
-                    {/* Dot */}
                     <div className="relative shrink-0 z-10 sm:absolute sm:left-1/2 sm:-translate-x-1/2">
                       <span className="relative flex h-9 w-9 items-center justify-center rounded-full bg-[#0a0c10] border border-green/40">
                         <span className="absolute inset-0 rounded-full bg-green/10 animate-glow-pulse" />
@@ -731,7 +689,6 @@ export default function HomePage() {
                       </span>
                     </div>
 
-                    {/* Content */}
                     <div className="flex-1 sm:max-w-[42%]">
                       <h3 className="text-2xl font-[family-name:var(--font-serif)] italic text-heading mb-2">
                         {step.title}

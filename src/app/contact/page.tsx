@@ -1,10 +1,14 @@
 import type { Metadata } from "next";
+import ContactForm from "@/components/ContactForm";
 import ScrollReveal from "@/components/ScrollReveal";
 
 export const metadata: Metadata = {
   title: "Contact",
   description:
     "Get in touch with WildTech Development for software, hardware, and integration solutions. Based in Charleston, SC.",
+  alternates: {
+    canonical: "https://wildtechdev.com/contact",
+  },
   openGraph: {
     title: "Contact | WildTech Development",
     description: "Reach out to WildTech Development for your next project.",
@@ -43,81 +47,7 @@ export default function ContactPage() {
 
         {/* Form */}
         <ScrollReveal>
-          <form className="relative space-y-8 bg-[#0a0c10] border border-border p-6 sm:p-10 lg:p-12">
-            {/* Corner accents */}
-            <span className="absolute -top-px -left-px w-8 h-8 border-t border-l border-green" aria-hidden="true" />
-            <span className="absolute -bottom-px -right-px w-8 h-8 border-b border-r border-green" aria-hidden="true" />
-
-            <div>
-              <label
-                htmlFor="name"
-                className="block text-[10px] uppercase tracking-[0.22em] text-muted mb-3 font-mono"
-              >
-                Name
-              </label>
-              <input
-                type="text"
-                id="name"
-                name="name"
-                required
-                className="input-line"
-                placeholder="Your name"
-              />
-            </div>
-            <div>
-              <label
-                htmlFor="email"
-                className="block text-[10px] uppercase tracking-[0.22em] text-muted mb-3 font-mono"
-              >
-                Email
-              </label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                required
-                className="input-line"
-                placeholder="you@example.com"
-              />
-            </div>
-            <div>
-              <label
-                htmlFor="message"
-                className="block text-[10px] uppercase tracking-[0.22em] text-muted mb-3 font-mono"
-              >
-                Message
-              </label>
-              <textarea
-                id="message"
-                name="message"
-                rows={5}
-                required
-                className="input-line resize-none"
-                placeholder="Tell us about your project..."
-              />
-            </div>
-            <button
-              type="submit"
-              className="btn-ghost w-full sm:w-auto min-w-[220px]"
-              data-cursor-label="Send"
-            >
-              Send message
-              <svg
-                className="w-3.5 h-3.5"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                strokeWidth={2}
-                aria-hidden="true"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
-                />
-              </svg>
-            </button>
-          </form>
+          <ContactForm />
         </ScrollReveal>
 
         {/* Prefer to talk */}

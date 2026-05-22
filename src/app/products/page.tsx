@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import PhoneMockup from "@/components/PhoneMockup";
 import AppStoreBadge from "@/components/AppStoreBadge";
 import ScrollReveal from "@/components/ScrollReveal";
@@ -7,11 +8,109 @@ export const metadata: Metadata = {
   title: "Products",
   description:
     "Explore WildTech Development products: Spirits of Charleston, Spirits of Savannah, EZ Fuse Tester, Churchd, and Viking Sensors.",
+  alternates: {
+    canonical: "https://wildtechdev.com/products",
+  },
   openGraph: {
     title: "Products | WildTech Development",
     description:
       "iOS apps, community platforms, and precision hardware from WildTech Development.",
   },
+};
+
+const productsJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  itemListElement: [
+    {
+      "@type": "SoftwareApplication",
+      position: 1,
+      name: "Spirits of Charleston",
+      applicationCategory: "TravelApplication",
+      operatingSystem: "iOS",
+      offers: {
+        "@type": "Offer",
+        price: "4.99",
+        priceCurrency: "USD",
+      },
+      aggregateRating: {
+        "@type": "AggregateRating",
+        ratingValue: "5.0",
+        ratingCount: "10",
+      },
+      url: "https://apps.apple.com/us/app/spirits-of-charleston/id6476931671",
+      publisher: {
+        "@type": "Organization",
+        name: "WildTech Ventures, LLC",
+      },
+    },
+    {
+      "@type": "SoftwareApplication",
+      position: 2,
+      name: "Spirits of Savannah",
+      applicationCategory: "TravelApplication",
+      operatingSystem: "iOS",
+      offers: {
+        "@type": "Offer",
+        price: "3.99",
+        priceCurrency: "USD",
+      },
+      aggregateRating: {
+        "@type": "AggregateRating",
+        ratingValue: "5.0",
+        ratingCount: "8",
+      },
+      url: "https://apps.apple.com/us/app/spirits-of-savannah/id6740187114",
+      publisher: {
+        "@type": "Organization",
+        name: "WildTech Ventures, LLC",
+      },
+    },
+    {
+      "@type": "SoftwareApplication",
+      position: 3,
+      name: "EZ Fuse Tester",
+      applicationCategory: "UtilitiesApplication",
+      operatingSystem: "iOS",
+      offers: {
+        "@type": "Offer",
+        price: "0",
+        priceCurrency: "USD",
+      },
+      url: "https://apps.apple.com/us/app/ez-fuse-tester/id6737378228",
+      publisher: {
+        "@type": "Organization",
+        name: "WildTech Ventures, LLC",
+      },
+    },
+    {
+      "@type": "WebApplication",
+      position: 4,
+      name: "Churchd",
+      applicationCategory: "BusinessApplication",
+      url: "https://churchd.com",
+      publisher: {
+        "@type": "Organization",
+        name: "WildTech Ventures, LLC",
+      },
+    },
+    {
+      "@type": "Product",
+      position: 5,
+      name: "Viking Sensors",
+      description:
+        "Precision climate monitoring hardware for calibration labs, server rooms, and cleanrooms.",
+      url: "https://vikingsense.com",
+      brand: {
+        "@type": "Brand",
+        name: "Viking Sensors",
+      },
+      manufacturer: {
+        "@type": "Organization",
+        name: "WildTech Ventures, LLC",
+      },
+    },
+  ],
 };
 
 const products = [
@@ -209,7 +308,12 @@ function StatusPill({ status }: { status: "Live" | "In Development" }) {
 
 export default function ProductsPage() {
   return (
-    <section className="relative py-20 sm:py-28 overflow-hidden">
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(productsJsonLd) }}
+      />
+      <section className="relative py-20 sm:py-28 overflow-hidden">
       {/* Top glow */}
       <div
         className="absolute -top-40 right-0 w-[700px] h-[400px] rounded-full pointer-events-none"
@@ -366,5 +470,59 @@ export default function ProductsPage() {
         </div>
       </div>
     </section>
+
+    {/* Closing CTA */}
+    <section className="relative py-24 sm:py-32 border-t border-border overflow-hidden">
+      <div
+        className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full pointer-events-none"
+        style={{
+          background:
+            "radial-gradient(circle, rgba(34,197,94,0.14) 0%, transparent 70%)",
+          filter: "blur(60px)",
+        }}
+        aria-hidden="true"
+      />
+      <div className="relative max-w-3xl mx-auto px-6 lg:px-8 text-center">
+        <ScrollReveal>
+          <p className="section-label text-xs uppercase tracking-[0.18em] text-muted mb-4 font-[family-name:var(--font-sans)] justify-center">
+            Build with us
+          </p>
+          <h2 className="text-3xl sm:text-5xl font-[family-name:var(--font-serif)] italic text-heading mb-6">
+            Want something like this for your business?
+          </h2>
+          <p className="text-body text-base sm:text-lg mb-10 max-w-xl mx-auto leading-relaxed">
+            We take on a small number of client projects each year. Apps,
+            platforms, and hardware that solve a specific problem. If that
+            sounds like what you need, get in touch.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-3 items-center justify-center">
+            <Link href="/contact" className="btn-ghost">
+              Start a conversation
+              <svg
+                className="w-3.5 h-3.5"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                strokeWidth={2}
+                aria-hidden="true"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
+                />
+              </svg>
+            </Link>
+            <Link
+              href="/services"
+              className="inline-flex items-center gap-2 text-sm text-body hover:text-heading transition-colors duration-300 link-underline py-2"
+            >
+              See our services
+            </Link>
+          </div>
+        </ScrollReveal>
+      </div>
+    </section>
+    </>
   );
 }

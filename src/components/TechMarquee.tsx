@@ -34,7 +34,7 @@ export default function TechMarquee() {
     <div className="relative py-10 border-y border-border bg-[#070a0f] overflow-hidden marquee-mask marquee-pause-on-hover">
       <div
         className="marquee-track gap-12"
-        style={{ ["--marquee-duration" as string]: "60s" }}
+        style={{ ["--marquee-duration" as string]: "40s" }}
       >
         {items.map((label, i) => (
           <div

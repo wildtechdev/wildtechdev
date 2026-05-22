@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     url: "https://wildtechdev.com/will-mccants",
     images: [
       {
-        url: "/headshot.png",
+        url: "/headshot.jpg",
         width: 1125,
         height: 1687,
         alt: "Will McCants, founder of WildTech Ventures, LLC",
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
     title: "Will McCants | Founder of WildTech Ventures, LLC",
     description:
       "Will McCants is the founder of WildTech Ventures, LLC. Charleston, SC based engineer, developer, and builder of iOS apps, web platforms, and IoT hardware.",
-    images: ["/headshot.png"],
+    images: ["/headshot.jpg"],
   },
 };
 
@@ -63,7 +63,7 @@ const personJsonLd = {
   jobTitle: "Founder & Director of E-Commerce",
   description:
     "Founder of WildTech Ventures, LLC. Mount Pleasant, SC native and Charleston-based engineer, software developer, and hardware builder behind Churchd, Viking Sensors, and WildTech Development. Also serves as Director of E-Commerce at MSI-Viking Gage.",
-  image: "https://wildtechdev.com/headshot.png",
+  image: "https://wildtechdev.com/headshot.jpg",
   url: "https://wildtechdev.com/will-mccants",
   nationality: "American",
   birthPlace: {
@@ -273,19 +273,40 @@ const hobbies = [
 const projects = [
   {
     name: "WildTech Development",
-    description: "Software and hardware studio founded by Will McCants in 2024",
+    description: "Software and hardware studio founded in 2024",
     href: "/",
-  },
-  {
-    name: "Churchd",
-    description: "Church community platform built by Will McCants",
-    href: "https://churchd.com",
+    meta: "Studio",
   },
   {
     name: "Viking Sensors",
     description:
       "Precision climate monitoring, co-founded with Steven Archibald in 2026",
     href: "https://vikingsense.com",
+    meta: "Hardware",
+  },
+  {
+    name: "Churchd",
+    description: "Church community platform",
+    href: "https://churchd.com",
+    meta: "Platform",
+  },
+  {
+    name: "Spirits of Charleston",
+    description: "75+ narrated ghost stories tied to real Charleston locations",
+    href: "https://apps.apple.com/us/app/spirits-of-charleston/id6476931671",
+    meta: "iOS App",
+  },
+  {
+    name: "Spirits of Savannah",
+    description: "55+ haunted tales across Savannah and the surrounding islands",
+    href: "https://apps.apple.com/us/app/spirits-of-savannah/id6740187114",
+    meta: "iOS App",
+  },
+  {
+    name: "EZ Fuse Tester",
+    description: "Test glass fuses with your iPhone's touchscreen",
+    href: "https://apps.apple.com/us/app/ez-fuse-tester/id6737378228",
+    meta: "iOS App",
   },
 ];
 
@@ -345,7 +366,7 @@ export default function WillMcCantsPage() {
                 />
                 <div className="relative overflow-hidden border border-border">
                   <Image
-                    src="/headshot.png"
+                    src="/headshot.jpg"
                     alt="Will McCants, founder of WildTech Ventures, LLC"
                     width={1125}
                     height={1687}
@@ -438,17 +459,17 @@ export default function WillMcCantsPage() {
 
               {/* Industrial photo break */}
               <ScrollReveal>
-                <figure className="relative group">
+                <figure className="relative group max-w-md mx-auto">
                   <span className="absolute -top-1 -left-1 w-3 h-3 border-t border-l border-green opacity-50" aria-hidden="true" />
                   <span className="absolute -bottom-1 -right-1 w-3 h-3 border-b border-r border-green opacity-50" aria-hidden="true" />
-                  <div className="overflow-hidden border border-border">
+                  <div className="overflow-hidden border border-border aspect-[3/4]">
                     <Image
                       src="/william-industrial.jpg"
                       alt="Will McCants at SANY headquarters"
                       width={3024}
                       height={4032}
-                      className="w-full h-auto object-cover brightness-110 transition-transform duration-1000 group-hover:scale-[1.03]"
-                      sizes="(max-width: 1024px) 100vw, 65vw"
+                      className="w-full h-full object-cover object-center brightness-110 transition-transform duration-1000 group-hover:scale-[1.03]"
+                      sizes="(max-width: 768px) 90vw, 28rem"
                     />
                   </div>
                   <figcaption className="mt-3 flex items-center gap-2 text-[10px] font-mono text-muted tracking-[0.2em] uppercase">
@@ -660,16 +681,19 @@ export default function WillMcCantsPage() {
                   const LinkEl = isExternal ? "a" : Link;
 
                   return (
-                    <ScrollReveal key={project.name} delay={i * 80}>
+                    <ScrollReveal key={project.name} delay={i * 60}>
                       <LinkEl
                         {...linkProps}
-                        className="group relative flex flex-col sm:flex-row sm:items-baseline gap-2 sm:gap-6 border-b border-border py-6 overflow-hidden"
+                        className="group relative flex flex-col sm:flex-row sm:items-baseline gap-2 sm:gap-6 border-b border-border py-5 overflow-hidden"
                       >
                         <span
                           className="absolute inset-0 bg-gradient-to-r from-green/[0.04] to-transparent translate-x-[-100%] group-hover:translate-x-0 transition-transform duration-700 ease-out"
                           aria-hidden="true"
                         />
-                        <h3 className="relative flex-1 text-xl sm:text-2xl font-[family-name:var(--font-serif)] italic text-heading transition-all duration-500 group-hover:text-green group-hover:translate-x-1">
+                        <span className="relative text-[10px] font-mono uppercase tracking-[0.2em] text-faint group-hover:text-green transition-colors duration-500 shrink-0 w-20">
+                          {project.meta}
+                        </span>
+                        <h3 className="relative flex-1 text-xl font-[family-name:var(--font-serif)] italic text-heading transition-all duration-500 group-hover:text-green group-hover:translate-x-1">
                           {project.name}
                         </h3>
                         <p className="relative text-sm text-muted group-hover:text-body transition-colors duration-500 font-[family-name:var(--font-sans)]">

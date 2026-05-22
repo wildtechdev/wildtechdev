@@ -42,7 +42,7 @@ const orgJsonLd = {
   "@type": "Organization",
   name: "WildTech Development",
   url: "https://wildtechdev.com",
-  logo: "https://wildtechdev.com/icon.png",
+  logo: "https://wildtechdev.com/android-chrome-512x512.png",
   description:
     "Software and hardware division of WildTech Ventures, LLC. iOS apps, web platforms, IoT hardware, and technology services from Charleston, SC.",
   foundingDate: "2024",
@@ -240,7 +240,7 @@ export default function AboutPage() {
                     mountain years, and the founding of WildTech.
                   </p>
                 </div>
-                <Link href="/will-mccants" className="btn-ghost">
+                <Link href="/will-mccants" className="btn-solid">
                   Read more about Will McCants
                   <svg
                     className="w-3.5 h-3.5"
