@@ -237,8 +237,8 @@ const products = [
     ],
     appStoreUrl:
       "https://apps.apple.com/us/app/we-the-people-your-rights/id6770393978",
-    externalUrl: "/privacy/we-the-people-your-rights",
-    externalLabel: "Privacy policy",
+    externalUrl: null,
+    externalLabel: null,
     review: null,
     statusNote:
       "Recently released on the App Store. Built to be the go-to civic literacy reference on your phone.",
