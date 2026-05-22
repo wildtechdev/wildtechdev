@@ -487,7 +487,7 @@ export default function WillMcCantsPage() {
                     and could not attend. Within days, Will and many of his
                     Charleston coworkers were sick too. He continued working
                     through the pandemic and finally retired from the road in
-                    the fall of 2021.
+                    November 2020.
                   </p>
                 </div>
               </div>
@@ -542,10 +542,10 @@ export default function WillMcCantsPage() {
                     and wildlife photography that still shapes how he works
                     and lives today. After about a year of the quiet mountain
                     life, Will was ready for the next chapter. During
-                    Christmas break of 2022 he ran into his old boss at MSI
+                    Christmas break of 2021 he ran into his old boss at MSI
                     while visiting his parents. The conversation turned into
                     an offer to come back to Charleston as Director of
-                    E-Commerce.
+                    E-Commerce, and he started back in January 2022.
                   </p>
                 </div>
               </div>
@@ -555,8 +555,9 @@ export default function WillMcCantsPage() {
                 <SectionHeading>Director of E-Commerce</SectionHeading>
                 <div className="space-y-5">
                   <p>
-                    Will returned to MSI-Viking Gage in 2022 as Director of
-                    E-Commerce. The company had recently moved to Oracle
+                    Will returned to MSI-Viking Gage in January 2022 as
+                    Director of E-Commerce. The company had recently moved to
+                    Oracle
                     NetSuite for ERP, which gave him an excuse to start
                     learning SuiteScript and JavaScript. Once he was inside
                     the rabbit hole, he kept going. Over the following year
