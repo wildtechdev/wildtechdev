@@ -427,39 +427,67 @@ export default function WillMcCantsPage() {
               {/* Roots */}
               <div>
                 <SectionHeading>Roots</SectionHeading>
-                <p>
-                  Will McCants was born and raised in old Mount Pleasant, South
-                  Carolina. He attended Porter-Gaud School and First Baptist
-                  Church School, then earned an aircraft assembly certificate
-                  from Trident Technical College through the ReadySC program.
-                  That hands-on technical training set the foundation for a
-                  career that would span industrial manufacturing, hardware
-                  engineering, and software development.
-                </p>
-              </div>
-
-              {/* Career */}
-              <div>
-                <SectionHeading>Career</SectionHeading>
                 <div className="space-y-5">
                   <p>
-                    Will began his professional career at MSI-Viking Gage in
-                    2012 as a shipping assistant. He quickly took over the
-                    company&apos;s used equipment operation and built it into a
-                    standalone Equipment Recovery and Sales department, growing
-                    a one-person desk into a four-employee team with national
-                    market presence. The group bought, refurbished, and resold
-                    industrial calibration and metrology equipment to customers
-                    across the country.
+                    Will McCants was born and raised in old Mount Pleasant,
+                    South Carolina. He attended Porter-Gaud School and First
+                    Baptist Church School. Growing up, he spent his summers at
+                    a string of computer science camps, including a week-long
+                    video game development program at the University of North
+                    Carolina that planted the seed for everything he would
+                    build later.
                   </p>
                   <p>
-                    In 2018, Will was promoted to Applications Engineer,
-                    specializing in ZEISS Optotechnik 3D scanning systems,
-                    scan-to-CAD reverse engineering, and custom fixturing built
-                    with additive manufacturing. During this same period he
-                    earned his FAA Part 61 Private Pilot Certificate and taught
-                    himself CAD modeling and computer programming, all while
-                    working full-time.
+                    After high school, Will felt unfit for the traditional
+                    four-year path. He enrolled at Trident Technical College
+                    instead and earned an aircraft assembly certificate
+                    through the ReadySC program, intending to start a career
+                    at the Boeing Charleston campus. He graduated on the
+                    Dean&apos;s List and was inducted into the Phi Theta Kappa
+                    honors society. While he waited on Boeing&apos;s notoriously
+                    slow hiring pipeline, he needed work to pay the bills.
+                  </p>
+                </div>
+              </div>
+
+              {/* MSI-Viking origin */}
+              <div>
+                <SectionHeading>MSI-Viking, take one</SectionHeading>
+                <div className="space-y-5">
+                  <p>
+                    Will joined MSI-Viking Gage in the fall of 2012 as an
+                    assistant in the shipping department of the Charleston
+                    laboratory. A month in, he was pulled aside to help list a
+                    few surplus items on eBay. That side task turned into a
+                    department: within a few years he was running auction
+                    bidding, sales management, large machinery repair, small
+                    electronics repair, and a four-person team that bought,
+                    refurbished, and resold industrial calibration and
+                    metrology equipment across the country.
+                  </p>
+                  <p>
+                    When the open-source 3D printing wave hit in 2016, most of
+                    his spare energy moved to learning CAD modeling. That
+                    self-taught foundation became the bridge from used
+                    equipment into engineering. He joined the Applications
+                    Engineering team and spent the next several months in
+                    classrooms across the eastern US (Raleigh, Charlotte,
+                    Nashville, Atlanta, and Detroit) learning advanced
+                    modeling and inspection software including Calypso,
+                    DesignX GeoMagic, PolyWorks, SolidWorks, and ZEISS
+                    Optotechnik 3D scanning systems. Within a year he
+                    transitioned from student to instructor, traveling to
+                    customer sites to perform demos, write proposals, and
+                    teach those same systems to engineers nationwide.
+                  </p>
+                  <p>
+                    In March of 2020, Will performed a reverse-engineering
+                    demo at a manufacturer whose engineering team had just
+                    returned from overseas. One engineer was under the weather
+                    and could not attend. Within days, Will and many of his
+                    Charleston coworkers were sick too. He continued working
+                    through the pandemic and finally retired from the road in
+                    the fall of 2021.
                   </p>
                 </div>
               </div>
@@ -491,29 +519,33 @@ export default function WillMcCantsPage() {
                 <SectionHeading>The mountain years</SectionHeading>
                 <div className="space-y-5">
                   <p>
-                    In 2020, Will relocated to the mountains of North Carolina
-                    to take on the Senior Engineer role at PRC Industries, an
-                    Amazon remanufacturing partner operating out of the former
+                    Will took a new opportunity in Mitchell County, North
+                    Carolina as Senior Engineer at PRC Industries, an Amazon
+                    remanufacturing partner operating out of the former
                     Henredon Furniture facility in Spruce Pine, a one-million
                     square-foot campus. PRC processes returns and restores
                     defective products for major brands and retailers,
                     everything from refrigerators and vacuums to sporting
                     goods, with a team of engineers diagnosing product flaws
-                    through total disassembly and reverse engineering.
+                    through total disassembly and reverse engineering. Will
+                    wrote remanufacturing procedures, reverse-engineered
+                    replacement parts, and collaborated with outside
+                    engineering teams on client projects. The role sharpened
+                    his ability to diagnose unfamiliar hardware quickly, a
+                    skill that carries directly into the work WildTech does
+                    today.
                   </p>
                   <p>
-                    At PRC, Will wrote remanufacturing procedures,
-                    reverse-engineered replacement parts, and collaborated with
-                    outside engineering teams on client projects. The role
-                    sharpened his ability to diagnose unfamiliar hardware
-                    quickly, a skill that carries directly into the work
-                    WildTech does today.
-                  </p>
-                  <p>
-                    He lived in a log cabin in Little Switzerland, North
-                    Carolina during this season, where he developed a deep love
-                    for nature and solitude that still shapes how he works and
-                    lives today.
+                    He lived in a log cabin in Little Switzerland and drove
+                    the Blue Ridge Parkway along the Altapass every morning
+                    and evening. That daily drive sparked a love for nature
+                    and wildlife photography that still shapes how he works
+                    and lives today. After about a year of the quiet mountain
+                    life, Will was ready for the next chapter. During
+                    Christmas break of 2022 he ran into his old boss at MSI
+                    while visiting his parents. The conversation turned into
+                    an offer to come back to Charleston as Director of
+                    E-Commerce.
                   </p>
                 </div>
               </div>
@@ -521,18 +553,28 @@ export default function WillMcCantsPage() {
               {/* Return + e-commerce */}
               <div>
                 <SectionHeading>Director of E-Commerce</SectionHeading>
-                <p>
-                  Will returned to MSI-Viking Gage in 2022 as Director of
-                  E-Commerce, where he turned what had been a side channel
-                  into a primary revenue driver. Today he oversees
-                  multi-channel operations across msi-viking.com, Amazon,
-                  eBay, and Shopify, serves as the company&apos;s NetSuite
-                  administrator, manages a multimillion-dollar product
-                  inventory, and produces all product photography and video
-                  content in-house. Under his leadership, the team cut freight
-                  costs by over 40 percent while achieving consistent
-                  three-day delivery windows on in-stock inventory.
-                </p>
+                <div className="space-y-5">
+                  <p>
+                    Will returned to MSI-Viking Gage in 2022 as Director of
+                    E-Commerce. The company had recently moved to Oracle
+                    NetSuite for ERP, which gave him an excuse to start
+                    learning SuiteScript and JavaScript. Once he was inside
+                    the rabbit hole, he kept going. Over the following year
+                    he wrote small Windows programs to automate manual
+                    repricing and other operational drudgery, which freed the
+                    team to focus on actual selling.
+                  </p>
+                  <p>
+                    Today he oversees multi-channel operations across
+                    msi-viking.com, Amazon, eBay, and Shopify, serves as the
+                    company&apos;s NetSuite administrator, manages a
+                    multimillion-dollar product inventory, and produces all
+                    product photography and video content in-house. Under his
+                    leadership, the team cut freight costs by over 40 percent
+                    while achieving consistent three-day delivery windows on
+                    in-stock inventory.
+                  </p>
+                </div>
               </div>
 
               {/* WildTech */}
