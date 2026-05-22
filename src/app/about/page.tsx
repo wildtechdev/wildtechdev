@@ -62,7 +62,7 @@ const orgJsonLd = {
     "@type": "Organization",
     name: "WildTech Ventures, LLC",
   },
-  sameAs: ["https://churchd.com", "https://vikingsense.com"],
+  sameAs: ["https://churchd.com", "https://vikingsensors.com"],
 };
 
 const ecosystem = [
@@ -83,7 +83,7 @@ const ecosystem = [
   {
     name: "Viking Sensors",
     role: "Precision climate monitoring",
-    href: "https://vikingsense.com",
+    href: "https://vikingsensors.com",
     external: true,
     note: "Hardware",
   },

@@ -139,7 +139,7 @@ const personJsonLd = {
   sameAs: [
     "https://www.linkedin.com/in/willmccants/",
     "https://churchd.com",
-    "https://vikingsense.com",
+    "https://vikingsensors.com",
     "https://wildtechdev.com/about",
   ],
 };
@@ -281,7 +281,7 @@ const projects = [
     name: "Viking Sensors",
     description:
       "Precision climate monitoring, co-founded with Steven Archibald in 2026",
-    href: "https://vikingsense.com",
+    href: "https://vikingsensors.com",
     meta: "Hardware",
   },
   {
@@ -348,7 +348,7 @@ export default function WillMcCantsPage() {
           aria-hidden="true"
         />
 
-        <div className="relative max-w-4xl mx-auto px-6 lg:px-8">
+        <div className="relative max-w-5xl mx-auto px-6 lg:px-8">
           {/* Header */}
           <div className="mb-16 animate-fade-in-up">
             <p className="section-label text-xs uppercase tracking-[0.18em] text-muted mb-3 font-[family-name:var(--font-sans)]">
@@ -362,9 +362,9 @@ export default function WillMcCantsPage() {
             </p>
           </div>
 
-          {/* Photo + intro + quick facts */}
-          <div className="flex flex-col lg:flex-row items-start gap-12 lg:gap-16 mb-20">
-            <div className="lg:w-[36%] shrink-0 lg:sticky lg:top-24 flex flex-col items-center lg:items-start w-full">
+          {/* Photo + intro + quick facts - float layout so text wraps + expands */}
+          <div className="mb-20">
+            <aside className="lg:float-left lg:w-[300px] lg:mr-12 lg:mb-6 mb-10 flex flex-col items-center lg:items-start w-full">
               <div className="relative max-w-[220px] lg:max-w-[300px] w-full group">
                 {/* Frame glow */}
                 <div
@@ -411,9 +411,9 @@ export default function WillMcCantsPage() {
                   </div>
                 ))}
               </div>
-            </div>
+            </aside>
 
-            <div className="space-y-12 text-body leading-relaxed lg:w-[64%]">
+            <div className="space-y-12 text-body leading-relaxed">
               <p className="text-lg sm:text-xl text-heading/95 leading-relaxed font-light">
                 <strong className="font-normal">Will McCants</strong>{" "}
                 (William McCants) is the founder of{" "}
@@ -701,7 +701,7 @@ export default function WillMcCantsPage() {
                   partnered with his colleague Steven Archibald and the two
                   co-founded{" "}
                   <a
-                    href="https://vikingsense.com"
+                    href="https://vikingsensors.com"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-green link-underline"
@@ -823,6 +823,7 @@ export default function WillMcCantsPage() {
                 </cite>
               </blockquote>
             </div>
+            <div className="clear-both" aria-hidden="true" />
           </div>
 
           {/* Projects */}

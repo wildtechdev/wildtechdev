@@ -117,7 +117,7 @@ const productsJsonLd = {
       name: "Viking Sensors",
       description:
         "Precision climate monitoring hardware for calibration labs, server rooms, and cleanrooms.",
-      url: "https://vikingsense.com",
+      url: "https://vikingsensors.com",
       brand: {
         "@type": "Brand",
         name: "Viking Sensors",
@@ -293,8 +293,8 @@ const products = [
       "Industrial-grade reliability",
     ],
     appStoreUrl: null,
-    externalUrl: "https://vikingsense.com",
-    externalLabel: "Visit vikingsense.com",
+    externalUrl: "https://vikingsensors.com",
+    externalLabel: "Visit vikingsensors.com",
     review: null,
     statusNote:
       "Precision hardware with exclusive MSI-Viking Gage distribution. Production units shipping.",

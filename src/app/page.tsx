@@ -39,7 +39,7 @@ const orgJsonLd = {
   sameAs: [
     "https://wildtechdev.com",
     "https://churchd.com",
-    "https://vikingsense.com",
+    "https://vikingsensors.com",
     "https://www.linkedin.com/in/willmccants/",
   ],
   contactPoint: {
@@ -114,8 +114,8 @@ const products: HomeProduct[] = [
     type: "Hardware",
     description:
       "Precision climate monitoring for calibration labs, server rooms, and cleanrooms.",
-    link: "https://vikingsense.com",
-    linkLabel: "vikingsense.com",
+    link: "https://vikingsensors.com",
+    linkLabel: "vikingsensors.com",
     accent: "red",
   },
 ];
