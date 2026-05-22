@@ -31,36 +31,49 @@ export default function Counter({
       return;
     }
 
+    const start = () => {
+      if (started.current) return;
+      started.current = true;
+      const startTime = performance.now();
+      const tick = (now: number) => {
+        const elapsed = now - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        // ease-out-cubic
+        const eased = 1 - Math.pow(1 - progress, 3);
+        setValue(to * eased);
+        if (progress < 1) {
+          requestAnimationFrame(tick);
+        } else {
+          setValue(to);
+        }
+      };
+      requestAnimationFrame(tick);
+    };
+
+    // If element is already in view at mount, kick off immediately
+    const rect = el.getBoundingClientRect();
+    const inView =
+      rect.top < window.innerHeight && rect.bottom > 0;
+    if (inView) {
+      start();
+      return;
+    }
+
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting && !started.current) {
-          started.current = true;
-          const start = performance.now();
-          const tick = (now: number) => {
-            const elapsed = now - start;
-            const progress = Math.min(elapsed / duration, 1);
-            // ease-out-cubic
-            const eased = 1 - Math.pow(1 - progress, 3);
-            setValue(to * eased);
-            if (progress < 1) {
-              requestAnimationFrame(tick);
-            } else {
-              setValue(to);
-            }
-          };
-          requestAnimationFrame(tick);
+        if (entry.isIntersecting) {
+          start();
           observer.unobserve(el);
         }
       },
-      { threshold: 0.3 }
+      { threshold: 0, rootMargin: "0px 0px -50px 0px" }
     );
 
     observer.observe(el);
     return () => observer.disconnect();
   }, [to, duration]);
 
-  const displayValue =
-    to >= 100 ? Math.round(value) : Number(value.toFixed(value < 10 ? 0 : 0));
+  const displayValue = Math.round(value);
 
   return (
     <span ref={ref} className={className}>

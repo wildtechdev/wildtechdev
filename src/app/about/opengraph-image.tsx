@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 
-export const alt = "WildTech Development - Software & Hardware Solutions";
+export const alt = "About WildTech Development";
 export const size = {
   width: 1200,
   height: 630,
@@ -19,7 +19,6 @@ export default function Image() {
           height: "100%",
           display: "flex",
           flexDirection: "column",
-          alignItems: "flex-start",
           justifyContent: "space-between",
           padding: "80px",
           fontFamily: "sans-serif",
@@ -30,10 +29,49 @@ export default function Image() {
             display: "flex",
             alignItems: "center",
             gap: 12,
-            fontSize: 18,
+            fontSize: 16,
             color: "#22c55e",
             letterSpacing: "0.25em",
             textTransform: "uppercase",
+          }}
+        >
+          <div style={{ width: 24, height: 1, background: "#22c55e" }} />
+          About
+        </div>
+
+        <div style={{ display: "flex", flexDirection: "column", gap: 24 }}>
+          <div
+            style={{
+              fontSize: 120,
+              fontStyle: "italic",
+              color: "#f5f6f8",
+              letterSpacing: "-0.03em",
+              lineHeight: 1,
+              fontWeight: 400,
+            }}
+          >
+            WildTech Development
+          </div>
+          <div
+            style={{
+              fontSize: 28,
+              color: "#a8acb7",
+              maxWidth: 900,
+              lineHeight: 1.4,
+            }}
+          >
+            A Charleston, SC technology company. iOS apps, web platforms, and
+            precision IoT hardware. Founded by Will McCants in 2024.
+          </div>
+        </div>
+
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            gap: 8,
+            fontSize: 20,
+            color: "#6b7180",
           }}
         >
           <div
@@ -44,55 +82,7 @@ export default function Image() {
               background: "#22c55e",
             }}
           />
-          Charleston, SC
-        </div>
-
-        <div style={{ display: "flex", flexDirection: "column", gap: 20 }}>
-          <div
-            style={{
-              fontSize: 132,
-              fontStyle: "italic",
-              color: "#f5f6f8",
-              letterSpacing: "-0.03em",
-              lineHeight: 1,
-              fontWeight: 400,
-            }}
-          >
-            WildTech
-          </div>
-          <div
-            style={{
-              fontSize: 28,
-              color: "#a8acb7",
-              letterSpacing: "0.3em",
-              textTransform: "uppercase",
-            }}
-          >
-            Development
-          </div>
-          <div
-            style={{
-              fontSize: 32,
-              color: "#f5f6f8",
-              marginTop: 40,
-              maxWidth: 900,
-              lineHeight: 1.3,
-            }}
-          >
-            Custom iOS apps, web platforms, and precision IoT hardware.
-          </div>
-        </div>
-
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            gap: 12,
-            fontSize: 22,
-            color: "#6b7180",
-          }}
-        >
-          wildtechdev.com
+          wildtechdev.com/about
         </div>
       </div>
     ),

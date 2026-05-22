@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 
-export const alt = "WildTech Development - Software & Hardware Solutions";
+export const alt = "Will McCants, founder of WildTech Ventures, LLC";
 export const size = {
   width: 1200,
   height: 630,
@@ -14,12 +14,11 @@ export default function Image() {
         style={{
           background: "#06070a",
           backgroundImage:
-            "radial-gradient(ellipse 60% 50% at 50% 30%, rgba(34,197,94,0.18), transparent 70%)",
+            "radial-gradient(ellipse 60% 50% at 30% 50%, rgba(34,197,94,0.18), transparent 70%)",
           width: "100%",
           height: "100%",
           display: "flex",
           flexDirection: "column",
-          alignItems: "flex-start",
           justifyContent: "space-between",
           padding: "80px",
           fontFamily: "sans-serif",
@@ -30,10 +29,58 @@ export default function Image() {
             display: "flex",
             alignItems: "center",
             gap: 12,
-            fontSize: 18,
+            fontSize: 16,
             color: "#22c55e",
             letterSpacing: "0.25em",
             textTransform: "uppercase",
+          }}
+        >
+          <div style={{ width: 24, height: 1, background: "#22c55e" }} />
+          Founder
+        </div>
+
+        <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
+          <div
+            style={{
+              fontSize: 144,
+              fontStyle: "italic",
+              color: "#f5f6f8",
+              letterSpacing: "-0.03em",
+              lineHeight: 1,
+              fontWeight: 400,
+            }}
+          >
+            Will McCants
+          </div>
+          <div
+            style={{
+              fontSize: 28,
+              color: "#a8acb7",
+            }}
+          >
+            Founder of WildTech Ventures, LLC
+          </div>
+          <div
+            style={{
+              fontSize: 22,
+              color: "#6b7180",
+              marginTop: 24,
+              maxWidth: 900,
+              lineHeight: 1.5,
+            }}
+          >
+            Charleston, SC native. Builder of Churchd, Viking Sensors, and
+            WildTech Development.
+          </div>
+        </div>
+
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            gap: 8,
+            fontSize: 20,
+            color: "#6b7180",
           }}
         >
           <div
@@ -44,55 +91,7 @@ export default function Image() {
               background: "#22c55e",
             }}
           />
-          Charleston, SC
-        </div>
-
-        <div style={{ display: "flex", flexDirection: "column", gap: 20 }}>
-          <div
-            style={{
-              fontSize: 132,
-              fontStyle: "italic",
-              color: "#f5f6f8",
-              letterSpacing: "-0.03em",
-              lineHeight: 1,
-              fontWeight: 400,
-            }}
-          >
-            WildTech
-          </div>
-          <div
-            style={{
-              fontSize: 28,
-              color: "#a8acb7",
-              letterSpacing: "0.3em",
-              textTransform: "uppercase",
-            }}
-          >
-            Development
-          </div>
-          <div
-            style={{
-              fontSize: 32,
-              color: "#f5f6f8",
-              marginTop: 40,
-              maxWidth: 900,
-              lineHeight: 1.3,
-            }}
-          >
-            Custom iOS apps, web platforms, and precision IoT hardware.
-          </div>
-        </div>
-
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            gap: 12,
-            fontSize: 22,
-            color: "#6b7180",
-          }}
-        >
-          wildtechdev.com
+          wildtechdev.com/will-mccants
         </div>
       </div>
     ),
