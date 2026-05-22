@@ -153,6 +153,111 @@ export default function AboutPage() {
             </div>
           </div>
 
+          {/* What we believe */}
+          <ScrollReveal>
+            <div className="mb-24 relative">
+              <div className="border-t border-border pt-16">
+                <p className="section-label text-xs uppercase tracking-[0.18em] text-muted mb-3 font-[family-name:var(--font-sans)]">
+                  What we believe
+                </p>
+                <h2 className="text-3xl sm:text-4xl font-[family-name:var(--font-serif)] italic text-heading mb-10">
+                  How we build
+                </h2>
+
+                <p className="text-body text-base sm:text-lg leading-relaxed max-w-2xl mb-12">
+                  WildTech exists because off-the-shelf software keeps missing
+                  what real people actually need. After a decade of running
+                  industrial sales, engineering field demos, e-commerce
+                  operations, and reverse-engineering hardware for major
+                  brands, our founder kept noticing the same gap: somewhere
+                  between the tool that does too much and the tool that does
+                  nothing, there is a tool that does the right thing well.
+                  WildTech is built to make those tools.
+                </p>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-12 gap-y-10">
+                  <div>
+                    <div className="flex items-baseline gap-3 mb-3">
+                      <span className="text-2xl font-[family-name:var(--font-serif)] italic text-green/80">
+                        01
+                      </span>
+                      <span className="flex-1 h-px bg-border" />
+                    </div>
+                    <h3 className="text-lg font-[family-name:var(--font-sans)] font-semibold text-heading mb-2">
+                      Real problems first
+                    </h3>
+                    <p className="text-sm text-muted leading-relaxed">
+                      Every product in the portfolio started as a real problem
+                      we ran into or watched someone close to us struggle
+                      with. A cancelled ghost tour. A viral video about
+                      capacitive screens. A church drowning in five
+                      communication apps. We do not chase trends. We chase
+                      the friction in our own lives.
+                    </p>
+                  </div>
+
+                  <div>
+                    <div className="flex items-baseline gap-3 mb-3">
+                      <span className="text-2xl font-[family-name:var(--font-serif)] italic text-green/80">
+                        02
+                      </span>
+                      <span className="flex-1 h-px bg-border" />
+                    </div>
+                    <h3 className="text-lg font-[family-name:var(--font-sans)] font-semibold text-heading mb-2">
+                      Owner-operated, end to end
+                    </h3>
+                    <p className="text-sm text-muted leading-relaxed">
+                      The same person doing the discovery is doing the
+                      design, the engineering, and the support. No account
+                      managers, no handoffs, no surprises six months in. When
+                      you talk to us, you are talking to the people who will
+                      actually build it.
+                    </p>
+                  </div>
+
+                  <div>
+                    <div className="flex items-baseline gap-3 mb-3">
+                      <span className="text-2xl font-[family-name:var(--font-serif)] italic text-green/80">
+                        03
+                      </span>
+                      <span className="flex-1 h-px bg-border" />
+                    </div>
+                    <h3 className="text-lg font-[family-name:var(--font-sans)] font-semibold text-heading mb-2">
+                      Self-funded so values stay aligned
+                    </h3>
+                    <p className="text-sm text-muted leading-relaxed">
+                      We have never raised outside capital. Our roadmap
+                      answers to users and clients, not to investors looking
+                      for a quick return. On our consumer products that means
+                      a firm commitment: no subscriptions where a one-time
+                      purchase will do, no advertising, no data harvesting,
+                      no influencer partnerships.
+                    </p>
+                  </div>
+
+                  <div>
+                    <div className="flex items-baseline gap-3 mb-3">
+                      <span className="text-2xl font-[family-name:var(--font-serif)] italic text-green/80">
+                        04
+                      </span>
+                      <span className="flex-1 h-px bg-border" />
+                    </div>
+                    <h3 className="text-lg font-[family-name:var(--font-sans)] font-semibold text-heading mb-2">
+                      Built to last, not built to flip
+                    </h3>
+                    <p className="text-sm text-muted leading-relaxed">
+                      WildTech is not an exit play. We support the products
+                      we ship, stay with the clients we serve, and call
+                      Charleston home. That long-term posture shapes every
+                      decision we make, from architecture to pricing to who
+                      we partner with.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </ScrollReveal>
+
           {/* Ecosystem */}
           <ScrollReveal>
             <div className="mb-24 relative bg-[#0a0c10] border border-border -mx-6 px-6 lg:-mx-10 lg:px-10 py-12 lg:py-14">

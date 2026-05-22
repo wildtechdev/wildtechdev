@@ -586,31 +586,148 @@ export default function WillMcCantsPage() {
                     <strong className="text-heading font-normal">
                       WildTech Ventures, LLC
                     </strong>{" "}
-                    in 2024 as a private software and technology company. The
-                    company launched on February 1, 2024 with the release of
-                    Spirits of Charleston, a ghost story iOS app for the
-                    Lowcountry. The portfolio has since grown to include
-                    Spirits of Savannah, EZ Fuse Tester, We The People: Your
-                    Rights (a plain-English Constitution and civil-liberties
-                    reference), and Churchd, a community platform built for
-                    churches.
-                  </p>
-                  <p>
-                    In 2026, Will co-founded{" "}
-                    <a
-                      href="https://vikingsense.com"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-green link-underline"
-                    >
-                      Viking Sensors
-                    </a>{" "}
-                    with Steven Archibald, a precision climate monitoring
-                    venture distributed through MSI-Viking Gage. Beyond his
-                    own products, Will and WildTech also build custom
-                    software and hardware solutions for clients.
+                    in 2024 as a private software and technology company. Every
+                    product since has started the same way: a real problem he
+                    or someone close to him ran into, and a feeling that the
+                    existing solutions were missing something obvious.
                   </p>
                 </div>
+              </div>
+
+              {/* The first app */}
+              <div>
+                <SectionHeading>The first app</SectionHeading>
+                <p>
+                  On Halloween night 2023, Will and his then-fiancée had
+                  booked a ghost walk downtown and dinner reservations to make
+                  a date of it. Hours before the tour, the guide called and
+                  canceled: they were the only couple signed up and it was not
+                  worth her time on a Tuesday. They opened the App Store at
+                  dinner and downloaded an existing Charleston ghost tour app
+                  instead. It had eleven stories, all of which Will, born and
+                  raised in Charleston, could have told himself. Knowing the
+                  city held hundreds more, he spent the next three months in
+                  public and private libraries assembling what he believed to
+                  be the most complete singular record of Charleston ghost
+                  stories ever published. On February 1, 2024, Spirits of
+                  Charleston launched on the App Store as WildTech&apos;s
+                  first product, and the company officially had a portfolio.
+                </p>
+              </div>
+
+              {/* Lowcountry expansion */}
+              <div>
+                <SectionHeading>Lowcountry to the coast</SectionHeading>
+                <p>
+                  Spirits of Savannah followed soon after, applying the same
+                  care and depth to a city with even more haunted history per
+                  square mile than the Lowcountry. Same coverage philosophy:
+                  not just the downtown squares, but Ossabaw Island,
+                  Hardeeville, colonial cemeteries, and remote locations most
+                  visitors never hear about.
+                </p>
+              </div>
+
+              {/* The viral spark */}
+              <div>
+                <SectionHeading>The viral spark</SectionHeading>
+                <p>
+                  Late one night Will watched a viral video that hinted an
+                  iPhone&apos;s capacitive touchscreen could detect electrical
+                  continuity across a small object. Within a few days, EZ Fuse
+                  Tester was on the App Store. Place a standard glass fuse
+                  across the screen and the app gives you instant pass or fail
+                  feedback. No extra hardware, no cables, no batteries. It
+                  quickly became Will&apos;s most-downloaded app, with dozens
+                  of new users per day where the ghost apps had been pulling
+                  one or two per week.
+                </p>
+              </div>
+
+              {/* The mission */}
+              <div>
+                <SectionHeading>The mission</SectionHeading>
+                <div className="space-y-5">
+                  <p>
+                    Around the same time, Will and his wife had started
+                    attending and volunteering at a large local church. The
+                    church was blessed with resources but, like most
+                    congregations, was drowning in the chaos of modern
+                    communication. Small groups ran over iMessage threads
+                    that had to be rebuilt every time a member joined or
+                    left. Volunteer teams lived in GroupMe with no
+                    permissions, where important announcements scrolled away
+                    within hours. Church-wide updates required a Facebook or
+                    Instagram account, which meant guys avoiding social media
+                    for very real reasons were missing signups for things
+                    like men&apos;s hikes.
+                  </p>
+                  <p>
+                    In early 2024, Will hand-wrote five pages on a yellow
+                    legal pad envisioning a platform built specifically for
+                    the church, designed to honor God and protect the people
+                    using it. He tucked the pages in a drawer after peers
+                    told him it would take a team of engineers and hundreds
+                    of thousands of dollars to build a functional beta. A
+                    year later, during a late-night conversation on a family
+                    vacation, his brother (his most honest critic) told him
+                    his only criticism was the hesitation. Will started
+                    building it himself the next morning.
+                  </p>
+                  <p>
+                    The project went by the working title FindFellowship for
+                    the first ten months while he saved up for the domain.
+                    By the time he first thought he had enough, the price
+                    had climbed past two thousand dollars and he still had
+                    more saving to do. At 12:15 AM on March 14, 2026, after
+                    a fourteen-hour day, WildTech Development bought
+                    churchd.com. Churchd has been Will&apos;s primary mission
+                    since then. Built and self-funded by him, hosted at his
+                    own cost, with a firm commitment: no subscriptions, no
+                    advertising, no influencer partnerships, ever.
+                  </p>
+                </div>
+              </div>
+
+              {/* The partnership */}
+              <div>
+                <SectionHeading>The partnership</SectionHeading>
+                <p>
+                  Shortly after the Churchd domain purchase, MSI-Viking
+                  approached Will about a small hardware project: assembling
+                  temperature and humidity sensors with WiFi antennas to
+                  report readings into an open-source monitoring stack. Will
+                  partnered with his colleague Steven Archibald and the two
+                  co-founded{" "}
+                  <a
+                    href="https://vikingsense.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-green link-underline"
+                  >
+                    Viking Sensors, LLC
+                  </a>{" "}
+                  as the hardware company. In parallel, Will built the
+                  advanced monitoring software at vikingsense.com under
+                  WildTech Ventures and licensed it back to Viking Sensors.
+                  The arrangement is intentional: revenue from Viking Sensors
+                  and the vikingsense.com licensing helps fund the time and
+                  hosting that Churchd will keep needing for years before it
+                  ever earns a dollar.
+                </p>
+              </div>
+
+              {/* WTP + civic literacy */}
+              <div>
+                <SectionHeading>Civic literacy</SectionHeading>
+                <p>
+                  The most recent app, We The People: Your Rights, is a
+                  plain-English reference to the Constitution, the Bill of
+                  Rights, and the founding documents that shape American
+                  civic life, designed to be useful to anyone regardless of
+                  political affiliation. Same approach as Churchd: free,
+                  ad-free, no tracking, no account required.
+                </p>
               </div>
 
               {/* Mindset */}
