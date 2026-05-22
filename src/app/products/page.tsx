@@ -387,7 +387,10 @@ export default function ProductsPage() {
             return (
               <ScrollReveal key={product.name}>
                 <article
-                  id={product.name.toLowerCase().replace(/\s+/g, "-")}
+                  id={product.name
+                    .toLowerCase()
+                    .replace(/[^a-z0-9]+/g, "-")
+                    .replace(/^-|-$/g, "")}
                   className={`group relative border-l-[3px] ${product.accentColor} py-14 lg:py-16 pl-8 pr-2 overflow-hidden transition-colors duration-700 hover:bg-[#0a0c10]/40`}
                 >
                   {/* Subtle accent glow on hover */}
