@@ -282,6 +282,7 @@ const products = [
     rating: null,
     accentColor: "border-l-red-600/40",
     glowColor: "rgba(220, 38, 38, 0.08)",
+    description:
       "Shortly after Will bought the Churchd domain in March 2026, MSI-Viking approached him about a small hardware project: assembling temperature and humidity sensors with WiFi antennas to report readings back into an open-source monitoring stack. Will partnered with his colleague Steven Archibald, and the two co-founded Viking Sensors, LLC as the hardware company. In parallel, Will built the advanced monitoring software (vikingsense.com) under WildTech Ventures and licensed it back to Viking Sensors. The system tracks temperature, humidity, and environmental conditions in real time with the kind of accuracy that calibration labs, server rooms, warehouses, and cleanrooms demand. Every sensor is built for enterprise-grade reliability, and the software gives you dashboards, alerts, and historical data without the complexity of most industrial monitoring platforms. Viking Sensors is distributed exclusively through MSI-Viking Gage, one of the country's leading names in precision measurement.",
     features: [
       "Precision sensors",
