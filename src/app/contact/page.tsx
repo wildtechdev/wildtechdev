@@ -99,6 +99,7 @@ export default function ContactPage() {
             <button
               type="submit"
               className="btn-ghost w-full sm:w-auto min-w-[220px]"
+              data-cursor-label="Send"
             >
               Send message
               <svg

@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Inter, Instrument_Serif } from "next/font/google";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import Cursor from "@/components/Cursor";
+import ScrollProgress from "@/components/ScrollProgress";
 import "./globals.css";
 
 const inter = Inter({
@@ -56,9 +58,7 @@ export const metadata: Metadata = {
     follow: true,
   },
   icons: {
-    icon: [
-      { url: "/favicon.svg", type: "image/svg+xml" },
-    ],
+    icon: [{ url: "/favicon.svg", type: "image/svg+xml" }],
   },
 };
 
@@ -74,6 +74,8 @@ export default function RootLayout({
       className={`${inter.variable} ${instrumentSerif.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
+        <ScrollProgress />
+        <Cursor />
         <Navbar />
         <main className="flex-1 pt-16 animate-page-enter">{children}</main>
         <Footer />

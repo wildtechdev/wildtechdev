@@ -1,6 +1,14 @@
+"use client";
+
 import Link from "next/link";
+import { useEffect, useRef } from "react";
 import PhoneMockup from "@/components/PhoneMockup";
 import ScrollReveal from "@/components/ScrollReveal";
+import Magnetic from "@/components/Magnetic";
+import Counter from "@/components/Counter";
+import Spotlight from "@/components/Spotlight";
+import TiltCard from "@/components/TiltCard";
+import TechMarquee from "@/components/TechMarquee";
 
 const products = [
   {
@@ -191,6 +199,90 @@ const services = [
   },
 ];
 
+const testimonials = [
+  {
+    quote:
+      "Even my ghost-averse daughter stayed highly engaged as we used the app to fill gaps in our vacation itinerary. It is easy to navigate, cheaper than the in-person ghost tours, and certainly more convenient.",
+    author: "App Store Review",
+    product: "Spirits of Charleston",
+  },
+  {
+    quote:
+      "This app turned out to be the best tour we took on our girl's weekend to Savannah!",
+    author: "Ghostnay",
+    product: "Spirits of Savannah",
+  },
+  {
+    quote:
+      "This is great. I was getting ready to throw out a bunch of Halloween lights and I tested and replaced a couple of the fuses and now the lights work.",
+    author: "App Store Review",
+    product: "EZ Fuse Tester",
+  },
+];
+
+const process = [
+  {
+    label: "01",
+    title: "Discover",
+    description:
+      "We start with a conversation about what you are trying to solve and who you are solving it for.",
+  },
+  {
+    label: "02",
+    title: "Design",
+    description:
+      "Architecture, user flows, and visual design that respect both your goals and your users.",
+  },
+  {
+    label: "03",
+    title: "Build",
+    description:
+      "Production code shipped in tight cycles, with regular check-ins so nothing surprises you at the end.",
+  },
+  {
+    label: "04",
+    title: "Ship",
+    description:
+      "Launch, deploy, and submit. We handle App Store, Play Store, Vercel, AWS, whatever the path requires.",
+  },
+  {
+    label: "05",
+    title: "Iterate",
+    description:
+      "Real users find things we missed. We stick around to fix, refine, and add what comes next.",
+  },
+];
+
+function HeroSpotlight() {
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const onMove = (e: MouseEvent) => {
+      const rect = el.getBoundingClientRect();
+      const x = ((e.clientX - rect.left) / rect.width) * 100;
+      const y = ((e.clientY - rect.top) / rect.height) * 100;
+      el.style.setProperty("--hx", `${x}%`);
+      el.style.setProperty("--hy", `${y}%`);
+    };
+    el.addEventListener("mousemove", onMove);
+    return () => el.removeEventListener("mousemove", onMove);
+  }, []);
+
+  return (
+    <div
+      ref={ref}
+      className="absolute inset-0 pointer-events-none transition-opacity duration-700"
+      style={{
+        background:
+          "radial-gradient(600px circle at var(--hx, 50%) var(--hy, 50%), rgba(34,197,94,0.12), transparent 50%)",
+      }}
+      aria-hidden="true"
+    />
+  );
+}
+
 function ProductCard({
   product,
   index,
@@ -199,68 +291,73 @@ function ProductCard({
   index: number;
 }) {
   return (
-    <div
-      className={`group relative bg-[#0a0c10] p-8 border border-transparent transition-all duration-500 hover:border-green/40 hover:-translate-y-1 ${
+    <TiltCard
+      intensity={6}
+      className={`group relative bg-[#0a0c10] p-8 border border-transparent transition-colors duration-500 hover:border-green/40 ${
         accentTints[product.accent]
       }`}
     >
-      {/* Index number */}
-      <span className="absolute top-5 left-7 text-[44px] leading-none font-[family-name:var(--font-serif)] italic text-faint group-hover:text-green/40 transition-colors duration-500">
+      <span className="absolute top-5 left-7 text-[44px] leading-none font-[family-name:var(--font-serif)] italic text-faint group-hover:text-green/40 transition-colors duration-500 z-[1]">
         {String(index + 1).padStart(2, "0")}
       </span>
-      <span className="absolute top-7 right-7 text-[10px] font-mono tracking-[0.2em] text-green/80 uppercase">
+      <span className="absolute top-7 right-7 text-[10px] font-mono tracking-[0.2em] text-green/80 uppercase z-[1]">
         {product.type}
       </span>
 
-      <div className="flex justify-center mt-14 mb-6 transition-transform duration-700 group-hover:-translate-y-1">
+      <div
+        className="relative flex justify-center mt-14 mb-6 z-[1]"
+        style={{ transform: "translateZ(20px)" }}
+      >
         <PhoneMockup product={product.mockup} size="small" />
       </div>
 
-      <h3 className="text-xl font-[family-name:var(--font-serif)] italic text-heading mb-3">
-        {product.name}
-      </h3>
-      <p className="text-body text-sm leading-relaxed mb-5">
-        {product.description}
-      </p>
+      <div className="relative z-[1]">
+        <h3 className="text-xl font-[family-name:var(--font-serif)] italic text-heading mb-3">
+          {product.name}
+        </h3>
+        <p className="text-body text-sm leading-relaxed mb-5">
+          {product.description}
+        </p>
 
-      <div className="flex items-center gap-3 mb-4">
-        {product.price && (
-          <span className="text-heading text-sm font-[family-name:var(--font-sans)]">
-            {product.price}
-          </span>
-        )}
-        {product.rating && (
-          <span className="text-[10px] text-muted font-mono flex items-center gap-1">
-            <span className="text-green">★</span>
-            {product.rating}
-          </span>
+        <div className="flex items-center gap-3 mb-4">
+          {product.price && (
+            <span className="text-heading text-sm font-[family-name:var(--font-sans)]">
+              {product.price}
+            </span>
+          )}
+          {product.rating && (
+            <span className="text-[10px] text-muted font-mono flex items-center gap-1">
+              <span className="text-green">★</span>
+              {product.rating}
+            </span>
+          )}
+        </div>
+
+        {product.link && (
+          <a
+            href={product.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1.5 text-green text-sm font-[family-name:var(--font-sans)] link-underline"
+          >
+            {product.linkLabel}
+            <svg
+              className="w-3 h-3 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              strokeWidth={2}
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
+              />
+            </svg>
+          </a>
         )}
       </div>
-
-      {product.link && (
-        <a
-          href={product.link}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center gap-1.5 text-green text-sm font-[family-name:var(--font-sans)] link-underline"
-        >
-          {product.linkLabel}
-          <svg
-            className="w-3 h-3 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            strokeWidth={2}
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
-            />
-          </svg>
-        </a>
-      )}
-    </div>
+    </TiltCard>
   );
 }
 
@@ -269,12 +366,12 @@ export default function HomePage() {
     <>
       {/* Hero */}
       <section className="relative min-h-[92vh] flex items-center justify-center overflow-hidden">
-        {/* Layered hero glow */}
+        <HeroSpotlight />
         <div
           className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full pointer-events-none animate-glow-pulse"
           style={{
             background:
-              "radial-gradient(circle, rgba(34,197,94,0.32) 0%, rgba(34,197,94,0.12) 35%, transparent 70%)",
+              "radial-gradient(circle, rgba(34,197,94,0.3) 0%, rgba(34,197,94,0.1) 35%, transparent 70%)",
             filter: "blur(60px)",
           }}
           aria-hidden="true"
@@ -314,23 +411,29 @@ export default function HomePage() {
           </div>
 
           <div className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-3 animate-fade-in-up delay-500">
-            <Link href="/products" className="btn-ghost w-full sm:w-auto">
-              See what we built
-              <svg
-                className="w-3.5 h-3.5"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                strokeWidth={2}
-                aria-hidden="true"
+            <Magnetic>
+              <Link
+                href="/products"
+                className="btn-ghost w-full sm:w-auto"
+                data-cursor-label="View"
               >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
-                />
-              </svg>
-            </Link>
+                See what we built
+                <svg
+                  className="w-3.5 h-3.5"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  strokeWidth={2}
+                  aria-hidden="true"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
+                  />
+                </svg>
+              </Link>
+            </Magnetic>
             <Link
               href="/contact"
               className="inline-flex items-center gap-2 text-sm text-body hover:text-heading transition-colors duration-300 link-underline w-full sm:w-auto justify-center py-2"
@@ -343,7 +446,7 @@ export default function HomePage() {
           <div className="mt-16 flex flex-col sm:flex-row items-center justify-center gap-5 sm:gap-0 font-mono text-sm animate-fade-in-up delay-600">
             <span className="flex items-center gap-2.5">
               <span className="w-1.5 h-1.5 bg-green rounded-full" />
-              <span className="text-heading text-base">3</span>
+              <Counter to={3} className="text-heading text-base" />
               <span className="text-muted text-xs uppercase tracking-widest">
                 Apps Live
               </span>
@@ -351,7 +454,7 @@ export default function HomePage() {
             <span className="hidden sm:block mx-6 w-px h-3 bg-border-strong" />
             <span className="flex items-center gap-2.5">
               <span className="w-1.5 h-1.5 bg-green rounded-full" />
-              <span className="text-heading text-base">5</span>
+              <Counter to={5} className="text-heading text-base" />
               <span className="text-muted text-xs uppercase tracking-widest">
                 Products
               </span>
@@ -366,12 +469,10 @@ export default function HomePage() {
             </span>
           </div>
 
-          {/* Gradient rule */}
           <div className="mt-14 flex justify-center animate-fade-in-up delay-700">
             <div className="divider-fade-short" />
           </div>
 
-          {/* Scroll indicator */}
           <div className="mt-8 hidden sm:flex flex-col items-center gap-2 animate-fade-in-up delay-700">
             <span className="text-[9px] font-mono tracking-[0.3em] text-faint uppercase">
               Scroll
@@ -394,9 +495,11 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Tech marquee */}
+      <TechMarquee />
+
       {/* Products */}
       <section className="relative py-20 sm:py-28 border-t border-border bg-gradient-to-b from-[#06070a] via-[#080a0e] to-[#06070a] overflow-hidden">
-        {/* Giant section number */}
         <div className="absolute -top-8 right-6 lg:right-12 text-[260px] leading-none font-[family-name:var(--font-serif)] italic text-heading pointer-events-none select-none opacity-[0.04]">
           01
         </div>
@@ -433,7 +536,6 @@ export default function HomePage() {
             </Link>
           </div>
 
-          {/* Top row: 3 cards */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-border">
             {products.slice(0, 3).map((product, i) => (
               <ScrollReveal key={product.name} delay={i * 100}>
@@ -442,11 +544,62 @@ export default function HomePage() {
             ))}
           </div>
 
-          {/* Bottom row: 2 cards */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-px bg-border mt-px">
             {products.slice(3).map((product, i) => (
               <ScrollReveal key={product.name} delay={i * 100}>
                 <ProductCard product={product} index={i + 3} />
+              </ScrollReveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials */}
+      <section className="relative py-24 sm:py-32 border-t border-border overflow-hidden">
+        <div
+          className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] rounded-full pointer-events-none"
+          style={{
+            background:
+              "radial-gradient(ellipse at center, rgba(34,197,94,0.08) 0%, transparent 70%)",
+            filter: "blur(60px)",
+          }}
+          aria-hidden="true"
+        />
+        <div className="relative max-w-6xl mx-auto px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <p className="section-label text-xs uppercase tracking-[0.18em] text-muted mb-3 font-[family-name:var(--font-sans)] justify-center">
+              From real users
+            </p>
+            <h2 className="text-4xl sm:text-5xl font-[family-name:var(--font-serif)] italic text-heading">
+              People are talking
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-border">
+            {testimonials.map((t, i) => (
+              <ScrollReveal key={i} delay={i * 100}>
+                <Spotlight className="bg-[#0a0c10] p-8 lg:p-10 h-full flex flex-col">
+                  <div className="relative">
+                    <span
+                      className="absolute -top-4 -left-2 text-7xl text-green/20 font-[family-name:var(--font-serif)] leading-none select-none"
+                      aria-hidden="true"
+                    >
+                      &ldquo;
+                    </span>
+                    <p className="relative text-body text-base leading-relaxed font-[family-name:var(--font-serif)] italic pl-4">
+                      {t.quote}
+                    </p>
+                  </div>
+
+                  <div className="mt-auto pt-8 flex items-baseline justify-between gap-4 border-t border-border mt-8">
+                    <p className="text-[10px] uppercase tracking-[0.22em] text-muted font-mono">
+                      {t.author}
+                    </p>
+                    <p className="text-xs text-green font-[family-name:var(--font-sans)]">
+                      {t.product}
+                    </p>
+                  </div>
+                </Spotlight>
               </ScrollReveal>
             ))}
           </div>
@@ -498,7 +651,6 @@ export default function HomePage() {
                   href="/services"
                   className="group flex items-center justify-between gap-6 border-b border-border py-6 relative overflow-hidden"
                 >
-                  {/* Hover bg sweep */}
                   <span
                     className="absolute inset-0 bg-gradient-to-r from-green/[0.04] to-transparent translate-x-[-100%] group-hover:translate-x-0 transition-transform duration-700 ease-out"
                     aria-hidden="true"
@@ -537,13 +689,72 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Process */}
+      <section className="relative py-24 sm:py-32 border-t border-border overflow-hidden bg-gradient-to-b from-[#06070a] via-[#080a0e] to-[#06070a]">
+        <div className="absolute -top-8 right-6 lg:right-12 text-[260px] leading-none font-[family-name:var(--font-serif)] italic text-heading pointer-events-none select-none opacity-[0.04]">
+          03
+        </div>
+
+        <div className="relative max-w-5xl mx-auto px-6 lg:px-8">
+          <div className="mb-16">
+            <p className="section-label text-xs uppercase tracking-[0.18em] text-muted mb-3 font-[family-name:var(--font-sans)]">
+              How we work
+            </p>
+            <h2 className="text-4xl sm:text-5xl font-[family-name:var(--font-serif)] italic text-heading">
+              Process
+            </h2>
+          </div>
+
+          {/* Timeline */}
+          <div className="relative">
+            {/* Vertical line */}
+            <div
+              className="absolute left-[18px] sm:left-1/2 sm:-translate-x-1/2 top-2 bottom-2 w-px bg-gradient-to-b from-transparent via-border to-transparent pointer-events-none"
+              aria-hidden="true"
+            />
+
+            <div className="space-y-12">
+              {process.map((step, i) => (
+                <ScrollReveal key={step.label} delay={i * 80}>
+                  <div
+                    className={`relative flex items-start gap-6 ${
+                      i % 2 === 1 ? "sm:flex-row-reverse sm:text-right" : ""
+                    } sm:items-center`}
+                  >
+                    {/* Dot */}
+                    <div className="relative shrink-0 z-10 sm:absolute sm:left-1/2 sm:-translate-x-1/2">
+                      <span className="relative flex h-9 w-9 items-center justify-center rounded-full bg-[#0a0c10] border border-green/40">
+                        <span className="absolute inset-0 rounded-full bg-green/10 animate-glow-pulse" />
+                        <span className="relative text-[10px] font-mono text-green tracking-wider">
+                          {step.label}
+                        </span>
+                      </span>
+                    </div>
+
+                    {/* Content */}
+                    <div className="flex-1 sm:max-w-[42%]">
+                      <h3 className="text-2xl font-[family-name:var(--font-serif)] italic text-heading mb-2">
+                        {step.title}
+                      </h3>
+                      <p className="text-body text-sm leading-relaxed">
+                        {step.description}
+                      </p>
+                    </div>
+                  </div>
+                </ScrollReveal>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Closing CTA */}
-      <section className="relative py-24 sm:py-32 border-t border-border overflow-hidden">
+      <section className="relative py-28 sm:py-36 border-t border-border overflow-hidden">
         <div
-          className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full pointer-events-none"
+          className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full pointer-events-none animate-glow-pulse"
           style={{
             background:
-              "radial-gradient(circle, rgba(34,197,94,0.15) 0%, transparent 70%)",
+              "radial-gradient(circle, rgba(34,197,94,0.18) 0%, transparent 70%)",
             filter: "blur(60px)",
           }}
           aria-hidden="true"
@@ -553,7 +764,7 @@ export default function HomePage() {
             <p className="section-label text-xs uppercase tracking-[0.18em] text-muted mb-4 font-[family-name:var(--font-sans)] justify-center">
               Get in touch
             </p>
-            <h2 className="text-3xl sm:text-5xl font-[family-name:var(--font-serif)] italic text-heading leading-tight mb-6">
+            <h2 className="text-4xl sm:text-6xl font-[family-name:var(--font-serif)] italic text-heading leading-tight mb-6">
               Have something to build?
             </h2>
             <p className="text-body text-base sm:text-lg leading-relaxed mb-10 max-w-xl mx-auto">
@@ -561,23 +772,29 @@ export default function HomePage() {
               we would love to hear what you are working on.
             </p>
             <div className="flex flex-col sm:flex-row gap-3 items-center justify-center">
-              <Link href="/contact" className="btn-ghost">
-                Start a conversation
-                <svg
-                  className="w-3.5 h-3.5"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                  strokeWidth={2}
-                  aria-hidden="true"
+              <Magnetic>
+                <Link
+                  href="/contact"
+                  className="btn-ghost"
+                  data-cursor-label="Hello"
                 >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
-                  />
-                </svg>
-              </Link>
+                  Start a conversation
+                  <svg
+                    className="w-3.5 h-3.5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    strokeWidth={2}
+                    aria-hidden="true"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
+                    />
+                  </svg>
+                </Link>
+              </Magnetic>
               <Link
                 href="/will-mccants"
                 className="inline-flex items-center gap-2 text-sm text-body hover:text-heading transition-colors duration-300 link-underline py-2"
