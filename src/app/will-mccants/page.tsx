@@ -291,6 +291,13 @@ const projects = [
     meta: "Platform",
   },
   {
+    name: "We The People: Your Rights",
+    description:
+      "Plain-English Constitution, Bill of Rights, and civil-liberties reference",
+    href: "https://apps.apple.com/us/app/we-the-people-your-rights/id6770393978",
+    meta: "iOS App",
+  },
+  {
     name: "Spirits of Charleston",
     description: "75+ narrated ghost stories tied to real Charleston locations",
     href: "https://apps.apple.com/us/app/spirits-of-charleston/id6476931671",
@@ -540,11 +547,11 @@ export default function WillMcCantsPage() {
                     in 2024 as a private software and technology company. The
                     company launched on February 1, 2024 with the release of
                     Spirits of Charleston, a ghost story iOS app for the
-                    Lowcountry. Within the first year, the portfolio grew to
-                    include Spirits of Savannah, EZ Fuse Tester, and two
-                    larger ventures: Churchd, a community platform built for
-                    churches, and a growing roster of native iOS applications
-                    on the App Store.
+                    Lowcountry. The portfolio has since grown to include
+                    Spirits of Savannah, EZ Fuse Tester, We The People: Your
+                    Rights (a plain-English Constitution and civil-liberties
+                    reference), and Churchd, a community platform built for
+                    churches.
                   </p>
                   <p>
                     In 2026, Will co-founded{" "}

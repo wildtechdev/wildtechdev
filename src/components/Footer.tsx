@@ -13,6 +13,7 @@ const productLinks = [
   { href: "/products#spirits-of-charleston", label: "Spirits of Charleston" },
   { href: "/products#spirits-of-savannah", label: "Spirits of Savannah" },
   { href: "/products#ez-fuse-tester", label: "EZ Fuse Tester" },
+  { href: "/products#we-the-people-your-rights", label: "We The People: Your Rights" },
   { href: "/products#churchd", label: "Churchd" },
   { href: "/products#viking-sensors", label: "Viking Sensors" },
 ];

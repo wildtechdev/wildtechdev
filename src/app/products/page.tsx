@@ -84,8 +84,25 @@ const productsJsonLd = {
       },
     },
     {
-      "@type": "WebApplication",
+      "@type": "SoftwareApplication",
       position: 4,
+      name: "We The People: Your Rights",
+      applicationCategory: "ReferenceApplication",
+      operatingSystem: "iOS",
+      offers: {
+        "@type": "Offer",
+        price: "0",
+        priceCurrency: "USD",
+      },
+      url: "https://apps.apple.com/us/app/we-the-people-your-rights/id6770393978",
+      publisher: {
+        "@type": "Organization",
+        name: "WildTech Ventures, LLC",
+      },
+    },
+    {
+      "@type": "WebApplication",
+      position: 5,
       name: "Churchd",
       applicationCategory: "BusinessApplication",
       url: "https://churchd.com",
@@ -96,7 +113,7 @@ const productsJsonLd = {
     },
     {
       "@type": "Product",
-      position: 5,
+      position: 6,
       name: "Viking Sensors",
       description:
         "Precision climate monitoring hardware for calibration labs, server rooms, and cleanrooms.",
@@ -199,6 +216,32 @@ const products = [
       author: "App Store Review",
     },
     statusNote: null,
+  },
+  {
+    name: "We The People: Your Rights",
+    mockup: "we-the-people" as const,
+    status: "Live" as const,
+    price: "Free",
+    rating: null,
+    accentColor: "border-l-blue-600/40",
+    glowColor: "rgba(37, 99, 235, 0.1)",
+    description:
+      "We The People: Your Rights is a plain-English reference to the Constitution, Bill of Rights, and the founding documents that shape American civic life. Read the original text alongside accessible explanations, and learn what your rights actually look like in real-life situations: traffic stops, searches, free speech, due process, and more. Built to be useful to anyone, regardless of political affiliation. No accounts, no tracking, no ads, no in-app purchases. The whole app works offline once installed. Free forever.",
+    features: [
+      "Constitution and Bill of Rights, fully searchable",
+      "Plain-English explanations alongside the original text",
+      "Real-life rights scenarios",
+      "Nonpartisan and ad-free",
+      "Works offline, no account required",
+      "Collects zero user data",
+    ],
+    appStoreUrl:
+      "https://apps.apple.com/us/app/we-the-people-your-rights/id6770393978",
+    externalUrl: "/privacy/we-the-people-your-rights",
+    externalLabel: "Privacy policy",
+    review: null,
+    statusNote:
+      "Recently released on the App Store. Built to be the go-to civic literacy reference on your phone.",
   },
   {
     name: "Churchd",

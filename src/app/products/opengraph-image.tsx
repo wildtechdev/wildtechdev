@@ -54,14 +54,14 @@ export default function Image() {
           </div>
           <div
             style={{
-              fontSize: 30,
+              fontSize: 28,
               color: "#a8acb7",
               maxWidth: 900,
               lineHeight: 1.4,
             }}
           >
-            Spirits of Charleston. Spirits of Savannah. EZ Fuse Tester.
-            Churchd. Viking Sensors.
+            Spirits of Charleston. Spirits of Savannah. EZ Fuse Tester. We The
+            People: Your Rights. Churchd. Viking Sensors.
           </div>
         </div>
 

@@ -137,9 +137,11 @@ export default function AboutPage() {
                 The company launched on February 1, 2024 with the release of
                 Spirits of Charleston, a ghost story app for the Lowcountry.
                 Today the portfolio spans Spirits of Charleston, Spirits of
-                Savannah, EZ Fuse Tester, Churchd (a community platform for
-                churches), and Viking Sensors (precision climate monitoring
-                distributed exclusively through MSI-Viking Gage).
+                Savannah, EZ Fuse Tester, We The People: Your Rights (a
+                plain-English Constitution and civil-rights reference), Churchd
+                (a community platform for churches), and Viking Sensors
+                (precision climate monitoring distributed exclusively through
+                MSI-Viking Gage).
               </p>
               <p>
                 Beyond our own products, WildTech Development also builds

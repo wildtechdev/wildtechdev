@@ -8,7 +8,8 @@ type Mockup =
   | "spirits-savannah"
   | "ez-fuse"
   | "churchd"
-  | "vikingsense";
+  | "vikingsense"
+  | "we-the-people";
 
 export type HomeProduct = {
   name: string;
@@ -28,6 +29,7 @@ const accentTints: Record<string, string> = {
   green: "hover:bg-green-950/20",
   indigo: "hover:bg-indigo-950/20",
   red: "hover:bg-red-950/20",
+  blue: "hover:bg-blue-950/30",
 };
 
 export default function HomeProductCard({

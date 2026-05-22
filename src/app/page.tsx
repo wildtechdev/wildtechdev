@@ -88,6 +88,17 @@ const products: HomeProduct[] = [
     accent: "green",
   },
   {
+    name: "We The People: Your Rights",
+    mockup: "we-the-people",
+    type: "iOS App",
+    description:
+      "Learn the Constitution, Bill of Rights, and your rights in real-life situations. Plain English. Nonpartisan. No ads.",
+    price: "Free",
+    link: "https://apps.apple.com/us/app/we-the-people-your-rights/id6770393978",
+    linkLabel: "App Store",
+    accent: "blue",
+  },
+  {
     name: "Churchd",
     mockup: "churchd",
     type: "Platform",
@@ -386,7 +397,7 @@ export default function HomePage() {
           <div className="mt-16 flex flex-col sm:flex-row items-center justify-center gap-5 sm:gap-0 font-mono text-sm animate-fade-in-up delay-600">
             <span className="flex items-center gap-2.5">
               <span className="w-1.5 h-1.5 bg-green rounded-full" />
-              <Counter to={3} className="text-heading text-base" />
+              <Counter to={4} className="text-heading text-base" />
               <span className="text-muted text-xs uppercase tracking-widest">
                 Apps Live
               </span>
@@ -394,7 +405,7 @@ export default function HomePage() {
             <span className="hidden sm:block mx-6 w-px h-3 bg-border-strong" />
             <span className="flex items-center gap-2.5">
               <span className="w-1.5 h-1.5 bg-green rounded-full" />
-              <Counter to={5} className="text-heading text-base" />
+              <Counter to={6} className="text-heading text-base" />
               <span className="text-muted text-xs uppercase tracking-widest">
                 Products
               </span>
@@ -498,17 +509,9 @@ export default function HomePage() {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-border">
-            {products.slice(0, 3).map((product, i) => (
-              <ScrollReveal key={product.name} delay={i * 100}>
+            {products.map((product, i) => (
+              <ScrollReveal key={product.name} delay={i * 80}>
                 <HomeProductCard product={product} index={i} />
-              </ScrollReveal>
-            ))}
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-px bg-border mt-px">
-            {products.slice(3).map((product, i) => (
-              <ScrollReveal key={product.name} delay={i * 100}>
-                <HomeProductCard product={product} index={i + 3} />
               </ScrollReveal>
             ))}
           </div>

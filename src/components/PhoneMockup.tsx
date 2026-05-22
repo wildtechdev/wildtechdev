@@ -1,4 +1,10 @@
-type Product = "spirits-charleston" | "spirits-savannah" | "ez-fuse" | "churchd" | "vikingsense";
+type Product =
+  | "spirits-charleston"
+  | "spirits-savannah"
+  | "ez-fuse"
+  | "churchd"
+  | "vikingsense"
+  | "we-the-people";
 
 function CharlestonScreen() {
   return (
@@ -106,6 +112,55 @@ function ChurchdScreen() {
   );
 }
 
+function WeThePeopleScreen() {
+  return (
+    <>
+      {/* Top bar with stars */}
+      <g fill="currentColor" opacity="0.18">
+        <polygon points="20,14 21,17 24,17 21.5,19 22.5,22 20,20 17.5,22 18.5,19 16,17 19,17" />
+        <polygon points="30,14 31,17 34,17 31.5,19 32.5,22 30,20 27.5,22 28.5,19 26,17 29,17" />
+        <polygon points="40,14 41,17 44,17 41.5,19 42.5,22 40,20 37.5,22 38.5,19 36,17 39,17" />
+        <polygon points="50,14 51,17 54,17 51.5,19 52.5,22 50,20 47.5,22 48.5,19 46,17 49,17" />
+        <polygon points="60,14 61,17 64,17 61.5,19 62.5,22 60,20 57.5,22 58.5,19 56,17 59,17" />
+        <polygon points="70,14 71,17 74,17 71.5,19 72.5,22 70,20 67.5,22 68.5,19 66,17 69,17" />
+        <polygon points="80,14 81,17 84,17 81.5,19 82.5,22 80,20 77.5,22 78.5,19 76,17 79,17" />
+      </g>
+
+      {/* Scroll/document body */}
+      <g fill="currentColor">
+        <path
+          d="M22 30 Q22 27 25 27 L75 27 Q78 27 78 30 L78 78 Q78 81 75 81 L25 81 Q22 81 22 78 Z"
+          opacity="0.08"
+        />
+        {/* Document text lines */}
+        <rect x="28" y="33" width="44" height="2" rx="1" opacity="0.16" />
+        <rect x="28" y="38" width="36" height="1.4" rx="0.7" opacity="0.1" />
+        <rect x="28" y="42" width="44" height="1.4" rx="0.7" opacity="0.1" />
+        <rect x="28" y="46" width="40" height="1.4" rx="0.7" opacity="0.1" />
+        <rect x="28" y="52" width="44" height="2" rx="1" opacity="0.16" />
+        <rect x="28" y="57" width="38" height="1.4" rx="0.7" opacity="0.1" />
+        <rect x="28" y="61" width="44" height="1.4" rx="0.7" opacity="0.1" />
+        <rect x="28" y="65" width="34" height="1.4" rx="0.7" opacity="0.1" />
+        {/* Seal at bottom */}
+        <circle cx="50" cy="74" r="4" opacity="0.18" />
+        <circle cx="50" cy="74" r="2.5" opacity="0.08" />
+      </g>
+
+      {/* Stripe accent at bottom */}
+      <rect x="14" y="88" width="72" height="0.8" fill="currentColor" opacity="0.12" />
+      <rect x="14" y="91" width="72" height="0.8" fill="currentColor" opacity="0.08" />
+    </>
+  );
+}
+
+function ScaleIcon({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" className={className}>
+      <path d="M12 3v2.5l-7 1.4V9l7-1.4v11.4H8v2h8v-2h-4V7.6L19 9V6.9l-7-1.4V3h0z" />
+    </svg>
+  );
+}
+
 function VikingSensorsScreen() {
   return (
     <>
@@ -194,6 +249,14 @@ const configs: Record<Product, {
     accentIcon: null,
     label: "Precision",
     labelStyle: "font-[family-name:var(--font-serif)] italic text-red-300/70",
+  },
+  "we-the-people": {
+    gradient: "from-blue-950/85 via-indigo-950/40 to-slate-950",
+    screenContent: <WeThePeopleScreen />,
+    accentIcon: <ScaleIcon className="w-4 h-4 text-blue-300/60" />,
+    label: "Know your rights",
+    labelStyle:
+      "font-[family-name:var(--font-serif)] italic text-blue-200/80",
   },
 };
 
