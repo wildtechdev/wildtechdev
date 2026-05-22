@@ -736,16 +736,18 @@ export default function WillMcCantsPage() {
                   <p>
                     The App Store turned out to be a crocodile pit of
                     subscription paywalls and ad-cluttered interfaces. He
-                    considered it his American duty to do better, and built{" "}
+                    considered it his American duty to do better. The
+                    result is{" "}
                     <strong className="text-heading font-normal">
                       We The People: Your Rights
                     </strong>
-                    : the original text, plain-English interpretations,
-                    side-by-side reading, and legal and court references
-                    with case summaries. Available to anyone, citizen or
-                    visitor, with no subscriptions, no advertising, no
-                    tracking, and no account required. Free, forever. His
-                    pride and privilege as an American to share.
+                    , an app that pairs the original text with
+                    plain-English interpretations, side-by-side reading,
+                    and legal and court references with case summaries.
+                    Available to anyone, citizen or visitor, with no
+                    subscriptions, no advertising, no tracking, and no
+                    account required. Free, forever. His pride and
+                    privilege as an American to share.
                   </p>
                 </div>
               </div>
