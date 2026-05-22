@@ -721,14 +721,33 @@ export default function WillMcCantsPage() {
               {/* WTP + civic literacy */}
               <div>
                 <SectionHeading>Civic literacy</SectionHeading>
-                <p>
-                  The most recent app, We The People: Your Rights, is a
-                  plain-English reference to the Constitution, the Bill of
-                  Rights, and the founding documents that shape American
-                  civic life, designed to be useful to anyone regardless of
-                  political affiliation. Same approach as Churchd: free,
-                  ad-free, no tracking, no account required.
-                </p>
+                <div className="space-y-5">
+                  <p>
+                    In May of 2026, during his introduction into a local
+                    men&apos;s society, Will was handed a worn-out pocket
+                    copy of the US Constitution by a dear friend and mentor.
+                    The book mattered enough to the man that he had chosen
+                    to include it in his Presidential portrait, which would
+                    hang in the Hall alongside the likenesses of past
+                    society presidents reaching back to the turn of the 19th
+                    century. Will left that night wanting to carry a copy
+                    himself.
+                  </p>
+                  <p>
+                    The App Store turned out to be a crocodile pit of
+                    subscription paywalls and ad-cluttered interfaces. He
+                    considered it his American duty to do better, and built{" "}
+                    <strong className="text-heading font-normal">
+                      We The People: Your Rights
+                    </strong>
+                    : the original text, plain-English interpretations,
+                    side-by-side reading, and legal and court references
+                    with case summaries. Available to anyone, citizen or
+                    visitor, with no subscriptions, no advertising, no
+                    tracking, and no account required. Free, forever. His
+                    pride and privilege as an American to share.
+                  </p>
+                </div>
               </div>
 
               {/* Mindset */}
