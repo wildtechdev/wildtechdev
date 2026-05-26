@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
@@ -164,17 +165,37 @@ export default async function PostPage({
           </div>
 
           <div className="mt-16 pt-10 border-t border-border">
-            <div className="flex items-center gap-4">
-              <div className="w-12 h-12 rounded-full bg-[#11141a] border border-border flex items-center justify-center text-heading font-[family-name:var(--font-serif)] italic text-xl">
-                W
-              </div>
-              <div>
-                <p className="text-sm text-heading font-medium">Will McCants</p>
-                <p className="text-xs text-muted">
+            <Link
+              href="/will-mccants"
+              className="group inline-flex items-center gap-4 -mx-2 px-2 py-2 rounded transition-colors duration-300 hover:bg-[#0a0c10]"
+              aria-label="About Will McCants, founder of WildTech Development"
+            >
+              <span className="relative block w-12 h-12 rounded-full overflow-hidden border border-border transition-all duration-500 group-hover:border-green/60 group-hover:shadow-[0_0_18px_rgba(34,197,94,0.25)]">
+                <Image
+                  src="/headshot.jpg"
+                  alt="Will McCants, founder of WildTech Development"
+                  width={1125}
+                  height={1687}
+                  className="absolute inset-0 w-full h-full object-cover"
+                  style={{ objectPosition: "50% 22%" }}
+                  sizes="48px"
+                />
+              </span>
+              <span className="block">
+                <span className="block text-sm text-heading font-medium group-hover:text-green transition-colors duration-300">
+                  Will McCants
+                </span>
+                <span className="block text-xs text-muted">
                   Founder, WildTech Development
-                </p>
-              </div>
-            </div>
+                </span>
+              </span>
+              <span
+                className="ml-2 text-[10px] uppercase tracking-[0.22em] text-faint font-mono opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300"
+                aria-hidden="true"
+              >
+                Read more &rarr;
+              </span>
+            </Link>
           </div>
 
           {related.length > 0 && (

@@ -2,7 +2,7 @@
 cd "$(dirname "$0")"
 rm -f .git/index.lock .git/HEAD.lock .git/ORIG_HEAD.lock
 git add -A
-git commit -m "fix(posts): remove stray array closing bracket that broke the build - posts.ts had a duplicate ]; that caused parse error preventing previous deploy from going live"
+git commit -m "feat(journal): journal post byline now shows cropped circular headshot and links the whole row (photo + name + title) to /will-mccants founder page, with hover glow and 'Read more' affordance"
 git push origin main
 echo ""
 echo "Done! Press any key to close."
