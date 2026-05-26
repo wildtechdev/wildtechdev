@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   description:
     "Get in touch with WildTech Development for software, hardware, and integration solutions. Based in Charleston, SC.",
   alternates: {
-    canonical: "https://wildtechdev.com/contact",
+    canonical: "https://www.wildtechdev.com/contact",
   },
   openGraph: {
     title: "Contact | WildTech Development",

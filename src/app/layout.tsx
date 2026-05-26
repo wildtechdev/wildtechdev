@@ -21,7 +21,7 @@ const instrumentSerif = Instrument_Serif({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://wildtechdev.com"),
+  metadataBase: new URL("https://www.wildtechdev.com"),
   title: {
     default: "WildTech Development | Software & Hardware Solutions",
     template: "%s | WildTech Development",
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://wildtechdev.com",
+    url: "https://www.wildtechdev.com",
     siteName: "WildTech Development",
     title: "WildTech Development | Software & Hardware Solutions",
     description:

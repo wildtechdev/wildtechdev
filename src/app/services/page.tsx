@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   description:
     "WildTech Development services: iOS development, Windows development, web development, App Store optimization, systems integration, and hardware solutions.",
   alternates: {
-    canonical: "https://wildtechdev.com/services",
+    canonical: "https://www.wildtechdev.com/services",
   },
   openGraph: {
     title: "Services | WildTech Development",
@@ -23,7 +23,7 @@ const servicesJsonLd = {
   provider: {
     "@type": "Organization",
     name: "WildTech Development",
-    url: "https://wildtechdev.com",
+    url: "https://www.wildtechdev.com",
   },
   areaServed: "US",
   hasOfferCatalog: {

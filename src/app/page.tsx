@@ -10,7 +10,7 @@ import HomeProductCard, { type HomeProduct } from "@/components/HomeProductCard"
 
 export const metadata: Metadata = {
   alternates: {
-    canonical: "https://wildtechdev.com",
+    canonical: "https://www.wildtechdev.com",
   },
 };
 
@@ -19,8 +19,8 @@ const orgJsonLd = {
   "@type": "Organization",
   name: "WildTech Development",
   legalName: "WildTech Ventures, LLC",
-  url: "https://wildtechdev.com",
-  logo: "https://wildtechdev.com/android-chrome-512x512.png",
+  url: "https://www.wildtechdev.com",
+  logo: "https://www.wildtechdev.com/android-chrome-512x512.png",
   description:
     "Software and hardware studio in Charleston, SC. iOS apps, web platforms, and precision IoT hardware.",
   foundingDate: "2024",
@@ -28,7 +28,7 @@ const orgJsonLd = {
     "@type": "Person",
     name: "Will McCants",
     alternateName: "William McCants",
-    url: "https://wildtechdev.com/will-mccants",
+    url: "https://www.wildtechdev.com/will-mccants",
   },
   address: {
     "@type": "PostalAddress",
@@ -37,7 +37,7 @@ const orgJsonLd = {
     addressCountry: "US",
   },
   sameAs: [
-    "https://wildtechdev.com",
+    "https://www.wildtechdev.com",
     "https://churchd.com",
     "https://vikingsensors.com",
     "https://www.linkedin.com/in/willmccants/",

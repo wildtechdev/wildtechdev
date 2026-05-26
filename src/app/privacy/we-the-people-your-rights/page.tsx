@@ -7,7 +7,7 @@ export const metadata: Metadata = {
     "Privacy policy for the iOS app We The People: Your Rights, published by WildTech Ventures, LLC.",
   alternates: {
     canonical:
-      "https://wildtechdev.com/privacy/we-the-people-your-rights",
+      "https://www.wildtechdev.com/privacy/we-the-people-your-rights",
   },
   robots: {
     index: false,

@@ -20,14 +20,14 @@ export const metadata: Metadata = {
     "William McCants WildTech",
   ],
   alternates: {
-    canonical: "https://wildtechdev.com/about",
+    canonical: "https://www.wildtechdev.com/about",
   },
   openGraph: {
     title: "About WildTech Development",
     description:
       "Charleston, SC software and hardware company founded by Will McCants. iOS apps, web platforms, and precision IoT hardware.",
     type: "website",
-    url: "https://wildtechdev.com/about",
+    url: "https://www.wildtechdev.com/about",
   },
   twitter: {
     card: "summary_large_image",
@@ -41,8 +41,8 @@ const orgJsonLd = {
   "@context": "https://schema.org",
   "@type": "Organization",
   name: "WildTech Development",
-  url: "https://wildtechdev.com",
-  logo: "https://wildtechdev.com/android-chrome-512x512.png",
+  url: "https://www.wildtechdev.com",
+  logo: "https://www.wildtechdev.com/android-chrome-512x512.png",
   description:
     "Software and hardware division of WildTech Ventures, LLC. iOS apps, web platforms, IoT hardware, and technology services from Charleston, SC.",
   foundingDate: "2024",
@@ -50,7 +50,7 @@ const orgJsonLd = {
     "@type": "Person",
     name: "Will McCants",
     alternateName: "William McCants",
-    url: "https://wildtechdev.com/will-mccants",
+    url: "https://www.wildtechdev.com/will-mccants",
   },
   address: {
     "@type": "PostalAddress",

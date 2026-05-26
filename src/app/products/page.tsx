@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   description:
     "Explore WildTech Development products: Spirits of Charleston, Spirits of Savannah, EZ Fuse Tester, Churchd, and Viking Sensors.",
   alternates: {
-    canonical: "https://wildtechdev.com/products",
+    canonical: "https://www.wildtechdev.com/products",
   },
   openGraph: {
     title: "Products | WildTech Development",

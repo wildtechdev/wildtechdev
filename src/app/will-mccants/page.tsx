@@ -26,14 +26,14 @@ export const metadata: Metadata = {
     "Viking Sensors co-founder",
   ],
   alternates: {
-    canonical: "https://wildtechdev.com/will-mccants",
+    canonical: "https://www.wildtechdev.com/will-mccants",
   },
   openGraph: {
     title: "Will McCants | Founder of WildTech Ventures, LLC",
     description:
       "Will McCants is the founder of WildTech Ventures, LLC. Charleston, SC based engineer, developer, and builder of iOS apps, web platforms, and IoT hardware.",
     type: "profile",
-    url: "https://wildtechdev.com/will-mccants",
+    url: "https://www.wildtechdev.com/will-mccants",
     images: [
       {
         url: "/headshot.jpg",
@@ -63,8 +63,8 @@ const personJsonLd = {
   jobTitle: "Founder & Director of E-Commerce",
   description:
     "Founder of WildTech Ventures, LLC. Mount Pleasant, SC native and Charleston-based engineer, software developer, and hardware builder behind Churchd, Viking Sensors, and WildTech Development. Also serves as Director of E-Commerce at MSI-Viking Gage.",
-  image: "https://wildtechdev.com/headshot.jpg",
-  url: "https://wildtechdev.com/will-mccants",
+  image: "https://www.wildtechdev.com/headshot.jpg",
+  url: "https://www.wildtechdev.com/will-mccants",
   nationality: "American",
   birthPlace: {
     "@type": "Place",
@@ -95,7 +95,7 @@ const personJsonLd = {
     {
       "@type": "Organization",
       name: "WildTech Ventures, LLC",
-      url: "https://wildtechdev.com",
+      url: "https://www.wildtechdev.com",
     },
     {
       "@type": "Organization",
@@ -140,7 +140,7 @@ const personJsonLd = {
     "https://www.linkedin.com/in/willmccants/",
     "https://churchd.com",
     "https://vikingsensors.com",
-    "https://wildtechdev.com/about",
+    "https://www.wildtechdev.com/about",
   ],
 };
 
