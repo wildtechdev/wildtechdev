@@ -213,8 +213,6 @@ The whole project took about a weekend of focused work plus a couple of evenings
 
 There is a lesson buried in that for any developer or small studio: the projects that pay off are not always the ones you build to make money. Sometimes the right thing to build is the tool you wish existed at the moment you needed it, and then to ship it the way you wish it had been shipped. Free, fast, no nonsense. That is what EZ Fuse Tester is, and it is one of the things we are most proud of having put into the world.`,
   },
-];
-
   {
     slug: "what-we-build-and-why",
     title: "What we build and why",
