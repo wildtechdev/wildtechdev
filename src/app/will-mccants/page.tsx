@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
 import ScrollReveal from "@/components/ScrollReveal";
 
 export const metadata: Metadata = {
@@ -334,6 +335,16 @@ export default function WillMcCantsPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+      />
+      <BreadcrumbJsonLd
+        items={[
+          { name: "Home", url: "https://www.wildtechdev.com" },
+          { name: "About", url: "https://www.wildtechdev.com/about" },
+          {
+            name: "Will McCants",
+            url: "https://www.wildtechdev.com/will-mccants",
+          },
+        ]}
       />
 
       <section className="relative py-20 sm:py-28 overflow-hidden">

@@ -2,7 +2,7 @@
 cd "$(dirname "$0")"
 rm -f .git/index.lock .git/HEAD.lock .git/ORIG_HEAD.lock
 git add -A
-git commit -m "fix(seo): switch all canonical URLs, sitemap baseUrl, robots sitemap, JSON-LD URLs, and OG URLs from wildtechdev.com to www.wildtechdev.com (matches Vercel serving setup, eliminates Search Console redirect/duplicate issues). Add /home, /founder, /william-mccants redirects in next.config so old links and the 404 in Search Console resolve"
+git commit -m "feat(seo): add BreadcrumbList JSON-LD to About, Products, Services, Founder, and Contact pages (qualifies pages for breadcrumb rich snippets in Google SERPs)"
 git push origin main
 echo ""
 echo "Done! Press any key to close."

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
 import ContactForm from "@/components/ContactForm";
 import ScrollReveal from "@/components/ScrollReveal";
 
@@ -17,6 +18,13 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
   return (
+    <>
+      <BreadcrumbJsonLd
+        items={[
+          { name: "Home", url: "https://www.wildtechdev.com" },
+          { name: "Contact", url: "https://www.wildtechdev.com/contact" },
+        ]}
+      />
     <section className="relative py-20 sm:py-28 overflow-hidden">
       {/* Top glow */}
       <div
@@ -89,5 +97,6 @@ export default function ContactPage() {
         </ScrollReveal>
       </div>
     </section>
+    </>
   );
 }

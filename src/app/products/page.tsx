@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
 import PhoneMockup from "@/components/PhoneMockup";
 import AppStoreBadge from "@/components/AppStoreBadge";
 import ScrollReveal from "@/components/ScrollReveal";
@@ -361,6 +362,12 @@ export default function ProductsPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(productsJsonLd) }}
+      />
+      <BreadcrumbJsonLd
+        items={[
+          { name: "Home", url: "https://www.wildtechdev.com" },
+          { name: "Products", url: "https://www.wildtechdev.com/products" },
+        ]}
       />
       <section className="relative py-20 sm:py-28 overflow-hidden">
       {/* Top glow */}
