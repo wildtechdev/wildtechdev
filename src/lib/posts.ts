@@ -20,6 +20,379 @@ export type Post = {
 
 export const posts: Post[] = [
   {
+    slug: "what-is-a-naked-domain",
+    title:
+      "What is a 'naked domain'? (the terminology fix for a confusing problem)",
+    summary:
+      "Plain-English explainer for the term you didn't know you needed when your website only works with www but not without. What a naked domain is, why your hosting provider can't fix it, and what your real options are.",
+    date: "2026-05-26",
+    readMinutes: 5,
+    tags: ["DNS", "Web", "Tutorial"],
+    content: `If you have ever spent an hour Googling things like "why doesn't my website work without www" or "how do I make example.com load without typing www first," you have run into a problem that is easy to fix once you know the term for it but almost impossible to find a solution to if you don't. The term is **naked domain**.
+
+This is a short, plain-English explainer of what a naked domain is, why so many web hosting providers cannot make it work out of the box, and what your real options are.
+
+## What a naked domain actually is
+
+A naked domain is your domain name without any subdomain in front of it. So:
+
+- \`example.com\` is a naked domain
+- \`www.example.com\` is NOT a naked domain (the "www" part is a subdomain)
+- \`blog.example.com\` is NOT a naked domain
+- \`mail.example.com\` is NOT a naked domain
+
+The technical name for the same thing is **apex domain** or **root domain**. Different writers use different terms. They all mean the same thing: your domain with nothing in front of it.
+
+You might also see it called the bare domain, the zone apex, or just "the root." The term you will see most often in DNS documentation is "apex." The term you will see most often in web hosting documentation is "naked." Same concept.
+
+## Why this is a problem
+
+Most modern web hosting platforms (Google Sites, Wix, Webflow, Notion, Carrd, Squarespace, Vercel, Netlify, and dozens of others) ask you to set up your custom domain using a DNS record type called a **CNAME**. A CNAME basically says "this subdomain is an alias for that other server."
+
+The catch: CNAME records are not allowed on the apex (naked) domain by the DNS specification itself. This is not a Google Sites limitation or a Wix limitation. It is a fundamental rule of how DNS works. You can put a CNAME on \`www.example.com\` all day long, but you cannot put a CNAME on \`example.com\`.
+
+The reason for this rule is technical. The apex has to have certain other records (like SOA and NS) that would conflict with how CNAMEs work. The DNS standard was written this way decades ago and has not changed.
+
+So when your hosting provider tells you "set up a CNAME pointing to our server," they actually mean "set up a CNAME for your www subdomain pointing to our server." If you only set up the www subdomain, then typing \`example.com\` (without the www) will not work because there is no DNS record telling browsers where to send that traffic.
+
+This is why so many DIY website builders only work with \`www.example.com\` and not \`example.com\`.
+
+## What the fix looks like
+
+The fix is to set up an HTTP redirect from the naked domain to the www subdomain. When someone types \`example.com\`, they get redirected to \`https://www.example.com\` automatically and invisibly. The user sees your site. The address bar updates to show the www version. Nobody notices.
+
+There are three common ways to set this up:
+
+1. **Use a redirect service**. Cloudflare and redirect.pizza both do this for free. Cloudflare requires you to move your DNS to them. redirect.pizza just needs you to change one DNS record. We wrote a step-by-step guide for Google Sites users that walks through both, and the same steps work for any other CNAME-only platform by changing the CNAME target.
+
+2. **Use a hosting provider that natively supports apex domains**. Some providers (Vercel, Netlify, and a few others) have technical workarounds called ALIAS or ANAME records that simulate a CNAME on the apex. If your hosting provider supports this, just use the feature they built for it.
+
+3. **Run your own server with an A record on the apex**. This is the old way. It works but it costs more and requires more maintenance than the redirect approach.
+
+For 95% of small business websites and DIY site owners on Google Sites, Wix, Webflow, Squarespace, Notion, Carrd, Substack, Beehiiv, or any other CNAME-only platform, option 1 (the free redirect service) is the right answer.
+
+## A few common misconceptions
+
+**"My web hosting must be broken."** No. The CNAME limitation is in the DNS standard, not in your hosting provider's code. The hosting provider cannot change DNS.
+
+**"I should just buy a different domain."** Doesn't help. The same limitation applies to every domain. The fix is the redirect, regardless of where you bought the domain.
+
+**"Maybe I need to upgrade to a paid plan."** Almost never. The redirect fix is free with Cloudflare or redirect.pizza. Paid hosting plans rarely solve this directly.
+
+**"Can I just tell users to type www?"** You can, but they won't. People type the domain name they remember, which is almost always the naked version. You will lose visitors who tried example.com, got an error, and gave up.
+
+## Why this term is so hard to find
+
+The reason most people get stuck on this problem is that the user-facing language ("my domain doesn't work") and the technical language ("apex CNAME limitation") do not share any words. Search engines cannot bridge that gap on their own. You have to learn the term first to find the answer.
+
+That is the entire reason this post exists. If you got here from a search and now know the term, you have what you need to find the rest of the fix. Search for "naked domain redirect" or "apex domain redirect to www" and you will find dozens of step-by-step guides, including the one on this site.`,
+  },
+  {
+    slug: "free-email-forwarding-custom-domain",
+    title:
+      "How to set up free email forwarding on your custom domain (3 services compared)",
+    summary:
+      "Three good free email forwarding services compared: ImprovMX, Cloudflare Email Routing, and Namecheap Private Email forwarding. What each is good for, the trade-offs, and how to set each one up.",
+    date: "2026-05-26",
+    readMinutes: 9,
+    tags: ["Email", "DNS", "Tutorial", "Small Business"],
+    content: `If you have a custom domain and you want emails to addresses like \`hello@yourdomain.com\` to forward to your regular Gmail or iCloud inbox, you have three good free options and a few mediocre ones. This post compares the three good ones and explains how to set each one up.
+
+Most people who buy a domain assume that email forwarding is included automatically. It usually is not. The domain registrar gives you the domain. Email forwarding is a separate service. You can set it up for free using any of the options below, but you have to choose one and configure it.
+
+## The three free options worth using
+
+**ImprovMX** is a dedicated email forwarding service. The free plan covers one domain with unlimited aliases. Setup is two DNS records (MX and TXT) and a 30-second account creation. ImprovMX has been around since 2016 and has a strong track record for reliability.
+
+**Cloudflare Email Routing** is Cloudflare's free email forwarding feature, available to anyone running their domain's DNS through Cloudflare. Unlimited aliases, no domain limit, but you have to be using Cloudflare for DNS. Released in 2021 and matured significantly since.
+
+**Namecheap Private Email forwarding** is the free email forwarding bundled with any Namecheap-registered domain. Up to 100 email aliases per domain. Works through Namecheap's own DNS or any DNS provider where you can set the right MX records. Not to be confused with Namecheap's paid Private Email mailbox product (which is also good but costs money).
+
+## Quick comparison
+
+If you run your DNS through Cloudflare already, **use Cloudflare Email Routing**. Zero setup beyond the Cloudflare dashboard. Easy to add aliases. Works well.
+
+If your domain is registered through Namecheap and you want the simplest possible path, **use Namecheap's free forwarding**. It is right there in your Namecheap dashboard. No third-party account needed.
+
+If neither of those apply, or you want a dedicated forwarding service that does one thing well, **use ImprovMX**. The 30-second setup is genuinely 30 seconds and they have a free webhook for received messages if you ever want to build something on top.
+
+All three are reliable. All three are free for normal small-business use. The choice mostly depends on what you are already using.
+
+## Option 1: ImprovMX
+
+### Step 1: Sign up
+
+Go to improvmx.com and create a free account. You will sign in with the email address you want forwarding to go to.
+
+### Step 2: Add your domain
+
+In the dashboard, click "Add a domain." Enter your domain. ImprovMX will show you the two DNS records you need to add.
+
+### Step 3: Add the DNS records
+
+Go to your DNS provider (Cloudflare, Namecheap, GoDaddy, Squarespace, etc.) and add:
+
+- **MX record**: Host \`@\` (or your apex domain), priority 10, value \`mx1.improvmx.com\`
+- **MX record**: Host \`@\`, priority 20, value \`mx2.improvmx.com\`
+- **TXT record**: Host \`@\`, value \`v=spf1 include:spf.improvmx.com ~all\` (SPF for deliverability)
+
+If you already have an SPF TXT record, merge ImprovMX's include into it instead of adding a second TXT record.
+
+### Step 4: Create aliases
+
+Back in the ImprovMX dashboard, add aliases. For example: \`hello@yourdomain.com\` → \`yourname@gmail.com\`. You can have unlimited aliases on the free plan.
+
+### Step 5: Test
+
+Wait a few minutes for DNS to propagate, then send a test email from another account to your new alias. It should land in your Gmail or wherever you set up forwarding to.
+
+## Option 2: Cloudflare Email Routing
+
+This requires your domain's DNS to be managed by Cloudflare. If it is not, you would need to change your nameservers at your registrar to point at Cloudflare first (which is a 10-minute one-time task and unlocks a lot of other free features).
+
+### Step 1: Open Cloudflare Email Routing
+
+In the Cloudflare dashboard, select your domain. In the left sidebar, click "Email" then "Email Routing."
+
+### Step 2: Enable Email Routing
+
+Click "Get started" or "Enable Email Routing." Cloudflare will offer to add the required DNS records (MX and TXT for SPF) for you. Accept the offer.
+
+### Step 3: Verify your destination address
+
+Cloudflare will email the address you want forwarding to go to. Click the verification link in that email.
+
+### Step 4: Add routing rules
+
+Add a custom address rule. Example: \`hello\` → \`yourname@gmail.com\` (this catches \`hello@yourdomain.com\` and forwards it). Add as many as you need.
+
+Optionally, set up a catch-all rule so any address at your domain (\`whatever@yourdomain.com\`) routes to your inbox. Useful for branded sign-ups (\`netflix@yourdomain.com\`, \`linkedin@yourdomain.com\`) without creating each alias individually.
+
+### Step 5: Test
+
+Send a test email from another account. It should arrive in your destination inbox within seconds.
+
+## Option 3: Namecheap Private Email forwarding (free tier)
+
+This is built into any Namecheap-registered domain. You do not need to buy a separate product.
+
+### Step 1: Make sure Mail Settings is set to "Email Forwarding"
+
+In the Namecheap dashboard, go to your domain's Advanced DNS page. Find the **Mail Settings** section. Set it to "Email Forwarding" (not "Custom MX" or "Private Email").
+
+Namecheap will automatically populate the MX records required for their email forwarding service.
+
+### Step 2: Add forwarding addresses
+
+Scroll down to the "Redirect Email" section. Enter the alias (left side) and the destination address (right side). For example: \`hello\` → \`yourname@gmail.com\`. Save.
+
+You can add up to 100 of these per domain on the free plan.
+
+### Step 3: Test
+
+Send a test email. Should arrive within a minute.
+
+## What about sending FROM the custom address?
+
+All three of these services handle the receiving side of email forwarding. None of them handle the SENDING side. If you reply to a forwarded email from Gmail, the reply will go out from your Gmail address, not from \`hello@yourdomain.com\`.
+
+If you want replies to look like they came from your custom address, you need to also configure Gmail (or your mail client) to send AS that address. The setup involves SMTP credentials, which the three forwarding services above do not provide for free. For sending-as, you would need:
+
+- A paid Google Workspace plan (the easiest)
+- An SMTP relay service like Resend, Postmark, SendGrid, or Mailgun (free tiers available but require some setup)
+- A paid email mailbox service like Namecheap Private Email or Fastmail
+
+For a small business that just wants to receive at a professional-looking address and reply from their normal inbox, free forwarding alone is fine. Most people will not notice that your replies are coming from a different address than the one they wrote to.
+
+## Common mistakes to avoid
+
+**Setting up two services at once.** Each of these services needs its own MX records. If you have ImprovMX MX records AND Cloudflare Email Routing MX records on the same domain at the same time, you will get duplicate emails, lost emails, or both. Pick one.
+
+**Forgetting the SPF record.** SPF (the TXT record) is what tells receiving mail servers that the forwarding service is allowed to send on behalf of your domain. Without it, forwarded emails often land in spam. All three setups above include an SPF record. Use it.
+
+**Trying to forward at the apex AND a subdomain.** Email forwarding configured on \`yourdomain.com\` does not automatically apply to \`mail.yourdomain.com\` or \`hello.yourdomain.com\`. Each domain or subdomain needs its own setup.
+
+**Using forwarding for high-volume mail.** If you are running a newsletter or sending hundreds of emails per day, forwarding is not the right tool. You need a real mail service. Forwarding is for personal and small-business incoming mail.
+
+## Summary
+
+For most small-business and personal use cases, free email forwarding is enough. Pick the service that matches your existing setup: Cloudflare if your DNS is there, Namecheap if your domain is registered there, ImprovMX if neither of those is true or if you want a dedicated tool. All three are free, all three are reliable, and all three take less than 10 minutes to configure.`,
+  },
+  {
+    slug: "why-business-email-goes-to-spam",
+    title:
+      "Why your business email keeps going to spam (a diagnostic checklist)",
+    summary:
+      "If emails from your custom domain keep landing in customers' spam folders, the cause is almost always one of six things. Here is the diagnostic checklist we use to find and fix it.",
+    date: "2026-05-26",
+    readMinutes: 10,
+    tags: ["Email", "DNS", "Deliverability", "Small Business"],
+    content: `If you have a custom domain and emails from your business address keep landing in customers' spam folders, the cause is almost always one of six things. None of them are random and all of them are fixable. This is the diagnostic checklist we use when clients ask us why their email isn't getting through.
+
+This post is written for small business owners and solo founders who are sending real email (sales follow-ups, customer support, contact form auto-replies) and finding it in spam more often than they should. It is not for people running mass marketing campaigns to cold lists, which is a different problem with different solutions.
+
+## The six things to check, in priority order
+
+1. SPF record
+2. DKIM record
+3. DMARC record
+4. Sender domain age and reputation
+5. Subject line and body content
+6. List-Unsubscribe headers
+
+Most deliverability problems are one of the first three. The last three matter but are usually fine for legitimate small-business senders.
+
+## 1. SPF record
+
+SPF (Sender Policy Framework) is a DNS TXT record on your domain that tells receiving mail servers which services are allowed to send email from your domain. If your SPF record is missing, broken, or doesn't include the service you actually send through, your mail will land in spam.
+
+### How to check
+
+Use any free SPF lookup tool. Search "SPF record check" and you will find several. Enter your domain. The tool will show you what SPF record exists.
+
+You are looking for:
+
+- A single TXT record at the apex of your domain (\`yourdomain.com\`, host \`@\`)
+- The record starts with \`v=spf1\`
+- It includes every service that sends mail on your behalf
+- It ends with \`~all\` (soft fail) or \`-all\` (hard fail)
+
+### What it should look like
+
+If you send through Google Workspace AND a transactional service like Resend, your record should look like:
+
+\`v=spf1 include:_spf.google.com include:send.resend.com ~all\`
+
+If you send through Namecheap Private Email AND Resend:
+
+\`v=spf1 include:privateemail.com include:send.resend.com ~all\`
+
+The key is that EVERY service sending mail under your name has to be in this record. If you have multiple, combine them into one record. You cannot have two SPF records on the same domain. Some DNS providers will let you add two, but receiving mail servers will reject one or both.
+
+### Common mistakes
+
+- Two separate SPF records. Combine them.
+- Forgetting to include a new service after switching providers.
+- Including \`-all\` (hard fail) before your setup is stable. Use \`~all\` first, switch to \`-all\` after a month of clean sending.
+
+## 2. DKIM record
+
+DKIM (DomainKeys Identified Mail) is a cryptographic signature that proves an email actually came from your domain and was not modified in transit. Without DKIM, modern mail servers (Gmail, Outlook, Yahoo) significantly downgrade your deliverability.
+
+### How to check
+
+Send yourself a test email. Open it in Gmail. Click the three-dot menu, then "Show original." Look for a section that includes \`DKIM:\` followed by either \`PASS\` (good) or \`FAIL\` (broken) or nothing (missing).
+
+### How to fix
+
+Your email sending service (Google Workspace, Resend, Namecheap Private Email, SendGrid, etc.) provides a DKIM TXT record for you to add to your DNS. It looks something like:
+
+\`p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQ...\` (a long base64 string)
+
+The host name depends on the service. Common patterns:
+
+- Google Workspace: \`google._domainkey\`
+- Resend: \`resend._domainkey\`
+- Namecheap Private Email: \`default._domainkey\`
+- SendGrid: \`s1._domainkey\` and \`s2._domainkey\`
+
+Add the record exactly as the service tells you. After DNS propagates (a few minutes), DKIM should start passing on new emails.
+
+### Common mistakes
+
+- Copying the DKIM value with extra whitespace or line breaks. Most DNS providers handle this gracefully, but not all.
+- Setting up DKIM for one service when you also send through another. Each service needs its own DKIM record at its own subdomain name.
+
+## 3. DMARC record
+
+DMARC (Domain-based Message Authentication, Reporting & Conformance) ties SPF and DKIM together and tells receiving mail servers what to do when one or both fail. Modern Gmail and Yahoo policy (as of 2024) effectively require a DMARC record for bulk senders.
+
+### How to check
+
+Look up \`_dmarc.yourdomain.com\` as a TXT record. If nothing comes back, you have no DMARC. If something comes back, look at its policy (\`p=none\`, \`p=quarantine\`, or \`p=reject\`).
+
+### What it should look like
+
+A reasonable starting DMARC record:
+
+\`v=DMARC1; p=none; rua=mailto:dmarc-reports@yourdomain.com\`
+
+The \`p=none\` policy means "monitor only, don't actually quarantine or reject mail." This is the right starting point because it lets you collect data on who is sending mail as your domain before you tighten policy.
+
+After a few weeks of monitoring, if the SPF and DKIM are passing cleanly, tighten to:
+
+\`v=DMARC1; p=quarantine; rua=mailto:dmarc-reports@yourdomain.com; pct=100\`
+
+\`p=quarantine\` means "if SPF or DKIM fails, send to spam." This signals to receiving mail servers that you take email security seriously, which in practice improves inbox placement for your legitimate mail.
+
+Eventually you can tighten further to \`p=reject\`, which means "if SPF or DKIM fails, throw it away entirely."
+
+### Why this matters more than people think
+
+A DMARC record set to \`p=quarantine\` or stricter sends a strong positive signal to receiving mail servers about your domain's deliverability seriousness. Domains with no DMARC or with \`p=none\` are treated as less trustworthy by default. Setting up DMARC at quarantine level is one of the highest-leverage things you can do for deliverability.
+
+## 4. Sender domain age and reputation
+
+If your domain is brand new (less than a few months old) or you have just started sending email from it, expect higher spam folder rates for the first 2-4 weeks regardless of how perfect your DNS is. Receiving mail servers track domain age and sending history. New domains are treated with suspicion because spammers churn through new domains constantly.
+
+There is no magic fix for this. It improves on its own as you send more legitimate mail and recipients mark your messages as Not Spam.
+
+What you can do:
+
+- Send less volume early on. Don't blast a 5000-person newsletter from a one-week-old domain. Start small.
+- Personally ask early recipients to mark your emails as Not Spam if they land there.
+- Keep sending consistently. Patterns of intermittent sending look more suspicious than steady volume.
+
+## 5. Subject line and body content
+
+Once your authentication is correct and your domain has some age, content matters less than people think. But it still matters. A few things to avoid:
+
+- ALL CAPS SUBJECT LINES
+- Excessive exclamation points
+- Subject lines that read like ads ("Save 50% TODAY!!!")
+- Lots of images with very little text
+- Single image emails with no text at all
+- Shortened links (bit.ly, etc.)
+- Phrases that show up in spam datasets: "FREE", "Act now", "Click here," "Limited time"
+
+For a small business sending real correspondence to real people, this is rarely a problem. You write like a person. Your subject lines are normal. You are fine.
+
+If you are sending transactional email (order confirmations, password resets, contact form replies), make the subject line specifically descriptive: "Your order from Acme Corp" not "Important: please read."
+
+## 6. List-Unsubscribe headers
+
+If you send any kind of bulk mail (newsletter, marketing, even high-volume transactional), the \`List-Unsubscribe\` header is now effectively required by Gmail and Yahoo's 2024 bulk sender rules. Even one-click unsubscribe is part of the requirement.
+
+If your email service is modern (Resend, Postmark, Mailgun, SendGrid), it handles this automatically. If you are rolling your own SMTP, you need to add these headers manually:
+
+\`List-Unsubscribe: <mailto:unsubscribe@yourdomain.com>, <https://yourdomain.com/unsubscribe?id=xyz>\`
+
+\`List-Unsubscribe-Post: List-Unsubscribe=One-Click\`
+
+For pure personal or small-business correspondence (one-to-one emails, support replies), these headers are not required. They are for bulk mail.
+
+## The diagnostic order
+
+If your email is landing in spam:
+
+1. Look up your SPF record. Fix it if missing or broken.
+2. Send a test, look at the headers. Confirm DKIM is passing.
+3. Look up your DMARC record. Add one at \`p=none\` if missing.
+4. Wait a week and observe. If still landing in spam after fixing 1-3, look at content.
+5. If your domain is new, give it time. 2-4 weeks of clean sending usually fixes it.
+6. If you send bulk, confirm List-Unsubscribe headers are present.
+
+In our experience working on email setups for clients, fixing SPF + DKIM + DMARC solves around 80% of deliverability issues immediately. Most of the rest is time and reputation, not configuration.
+
+## When to call for help
+
+If you have fixed all six things on this checklist and your mail is still landing in spam consistently, your domain may have been previously used by a spammer, your IP block (if you run your own server) may have a bad reputation, or your specific recipients may have aggressive personal spam filters.
+
+Tools like mail-tester.com will give you a 0-10 score for any test email you send to them. If you score above 9/10 and your mail still lands in spam at specific recipients, the problem is on their end, not yours.
+
+If you want a second set of eyes on your setup, we are happy to take a look. Contact us at the form on this site.`,
+  },
+  {
     slug: "google-sites-naked-domain-redirect",
     title:
       "Make your Google Sites work without www (the naked domain fix, free)",
