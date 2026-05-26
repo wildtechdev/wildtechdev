@@ -173,7 +173,7 @@ If you want a realistic estimate for your specific project, the fastest path is 
 
 The iPhone was sitting on the counter, screen up. The screen on a modern iPhone is essentially a giant capacitive sensor. The thought arrived as one of those middle-of-the-task questions: could you tell whether a fuse is good by laying it across the screen and seeing if the touch sensor registers the resistance change?
 
-The answer, after a weekend of prototyping, was yes. EZ Fuse Tester shipped to the App Store free, without ads, and without collecting any data from its users, a few weeks later.
+The answer, after a weekend of prototyping, was yes. EZ Fuse Tester shipped to the App Store free, without ads, and without collecting any data from its users, in mid 2024 after a stretch of refinement on the original prototype.
 
 ## How it actually works
 

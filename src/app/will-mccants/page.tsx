@@ -289,7 +289,7 @@ const personJsonLd = {
     hasCredential: [
       {
         "@type": "EducationalOccupationalCredential",
-        name: "FAA Part 61 Private Pilot Certificate, Visual Flight Rules, Single Engine Land",
+        name: "FAA Private Pilot Certificate",
         credentialCategory: "license",
         dateCreated: "2012-09-19",
         recognizedBy: {
@@ -895,13 +895,14 @@ export default function WillMcCantsPage() {
                 <p>
                   Late one night Will watched a viral video that hinted an
                   iPhone&apos;s capacitive touchscreen could detect electrical
-                  continuity across a small object. Within a few days, EZ Fuse
-                  Tester was on the App Store. Place a standard glass fuse
-                  across the screen and the app gives you instant pass or fail
-                  feedback. No extra hardware, no cables, no batteries. It
-                  quickly became Will&apos;s most-downloaded app, with dozens
-                  of new users per day where the ghost apps had been pulling
-                  one or two per week.
+                  continuity across a small object. The weekend prototype
+                  worked. After a stretch of refinement, EZ Fuse Tester
+                  shipped to the App Store in mid 2024. Place a standard
+                  glass fuse across the screen and the app gives you instant
+                  pass or fail feedback. No extra hardware, no cables, no
+                  batteries. It quickly became Will&apos;s most-downloaded
+                  app, with dozens of new users per day where the ghost apps
+                  had been pulling one or two per week.
                 </p>
               </div>
 
@@ -1065,12 +1066,11 @@ export default function WillMcCantsPage() {
                     When he is not building software, hardware, or businesses,
                     Will spends his time behind a camera, playing guitar,
                     hiking, or camping somewhere in the Lowcountry. He earned
-                    his FAA Visual Flight Rules Single Engine Land private
-                    pilot certificate on September 19, 2012, after a stretch
-                    of training that had him seriously considering aviation as
-                    a full-time career. He chose instead to keep building his
-                    career at MSI-Viking Gage, and these days the flying is
-                    mostly for fun.
+                    his FAA Private Pilot Certificate on September 19, 2012,
+                    after a stretch of training that had him seriously
+                    considering aviation as a full-time career. He chose
+                    instead to keep building his career at MSI-Viking Gage,
+                    and these days the flying is mostly for fun.
                   </p>
                   <div className="grid grid-cols-3 sm:grid-cols-6 gap-4 sm:gap-6 py-2">
                     {hobbies.map((hobby, i) => (

@@ -287,7 +287,7 @@ If you have a content product that you think could work across multiple cities, 
       "A weekend project born from a frustrating evening with broken Halloween lights. Free, no ads, no data collection, and one of the most useful pieces of software we have ever shipped.",
     client: "WildTech Ventures, LLC",
     role: "Concept, design, iOS development, App Store launch",
-    year: "2023",
+    year: "2024",
     stack: ["Swift", "SwiftUI", "UIKit multitouch APIs"],
     metrics: [
       { label: "Cost", value: "Free" },
@@ -320,7 +320,7 @@ The implementation is a few hundred lines of Swift. There is no networking code.
 
 ## The launch
 
-EZ Fuse Tester shipped to the App Store about three weeks after the original idea. App Review approved it on the first submission. We chose to release it free, with no ads and no data collection, because the app's value is in being available at the exact moment someone needs it. Friction at install or use would defeat the point.
+EZ Fuse Tester shipped to the App Store in mid 2024, after a stretch of refinement on a prototype that started as a kitchen-table experiment on Halloween night 2023. App Review approved it on the first submission. We chose to release it free, with no ads and no data collection, because the app's value is in being available at the exact moment someone needs it. Friction at install or use would defeat the point.
 
 The privacy policy is one sentence long. The marketing site is the App Store listing.
 
