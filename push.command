@@ -2,7 +2,7 @@
 cd "$(dirname "$0")"
 rm -f .git/index.lock .git/HEAD.lock .git/ORIG_HEAD.lock
 git add -A
-git commit -m "feat(journal): 3 new long-form posts that target high-frequency search queries while establishing technical authority: 'What is a naked domain' (terminology explainer + companion to Google Sites post), 'How to set up free email forwarding on your custom domain (3 services compared)' (ImprovMX/Cloudflare/Namecheap walkthrough), 'Why your business email keeps going to spam (a diagnostic checklist)' (SPF/DKIM/DMARC priority-ordered diagnostic)."
+git commit -m "fix(newsletter): /api/subscribe now actually does something - sends a branded welcome email to the subscriber and a notification to info@ for each new signup, with best-effort Resend Audience add if RESEND_AUDIENCE_ID is configured. Previous version silently logged and returned ok which is why subscribers got no email and nothing showed up in Resend."
 git push origin main
 echo ""
 echo "Done! Press any key to close."
