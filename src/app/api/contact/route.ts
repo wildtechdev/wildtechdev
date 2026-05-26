@@ -80,7 +80,7 @@ export async function POST(request: Request) {
 
       // 2) Confirmation back to the submitter
       const firstName = name.split(/\s+/)[0] || name;
-      const confirmationSubject = "We got your message, WildTech Development";
+      const confirmationSubject = `Thanks ${firstName}, we got your message`;
       const confirmationText =
         `Hi ${firstName},\n\n` +
         `Thanks for reaching out to WildTech Development. Your message landed in our inbox and we will get back to you within one business day.\n\n` +
@@ -120,6 +120,13 @@ export async function POST(request: Request) {
           subject: confirmationSubject,
           text: confirmationText,
           html: confirmationHtml,
+          // Headers that improve inbox placement under the 2024
+          // Gmail/Yahoo bulk sender rules and reduce spam folder hits.
+          headers: {
+            "List-Unsubscribe":
+              "<mailto:info@wildtechdev.com?subject=unsubscribe>",
+            "List-Unsubscribe-Post": "List-Unsubscribe=One-Click",
+          },
         }),
       });
 

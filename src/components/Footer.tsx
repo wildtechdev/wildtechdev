@@ -1,27 +1,29 @@
 import Link from "next/link";
+import NewsletterSignup from "@/components/NewsletterSignup";
 
-const navLinks = [
-  { href: "/", label: "Home" },
+const workLinks = [
+  { href: "/work", label: "All case studies" },
   { href: "/products", label: "Products" },
   { href: "/services", label: "Services" },
-  { href: "/about", label: "About" },
-  { href: "/will-mccants", label: "Founder" },
-  { href: "/contact", label: "Contact" },
+  { href: "/process", label: "Process" },
 ];
 
-const productLinks = [
-  { href: "/products#spirits-of-charleston", label: "Spirits of Charleston" },
-  { href: "/products#spirits-of-savannah", label: "Spirits of Savannah" },
-  { href: "/products#ez-fuse-tester", label: "EZ Fuse Tester" },
-  { href: "/products#we-the-people-your-rights", label: "We The People: Your Rights" },
-  { href: "/products#churchd", label: "Churchd" },
-  { href: "/products#viking-sensors", label: "Viking Sensors" },
+const companyLinks = [
+  { href: "/about", label: "About" },
+  { href: "/will-mccants", label: "Founder" },
+  { href: "/now", label: "Now" },
+  { href: "/uses", label: "Uses" },
+];
+
+const resourceLinks = [
+  { href: "/journal", label: "Journal" },
+  { href: "/faq", label: "FAQ" },
+  { href: "/contact", label: "Contact" },
 ];
 
 export default function Footer() {
   return (
     <footer className="relative border-t border-border mt-auto overflow-hidden">
-      {/* Subtle bottom glow */}
       <div
         className="absolute -bottom-32 left-1/2 -translate-x-1/2 w-[600px] h-[200px] rounded-full pointer-events-none"
         style={{
@@ -33,7 +35,7 @@ export default function Footer() {
 
       <div className="relative max-w-7xl mx-auto px-6 lg:px-10 py-20">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
-          {/* Wordmark + tagline */}
+          {/* Wordmark + tagline + newsletter */}
           <div className="lg:col-span-5">
             <Link href="/" className="inline-flex items-baseline gap-1.5 group">
               <span className="text-[34px] font-[family-name:var(--font-serif)] italic text-heading tracking-tight transition-all duration-500 group-hover:[text-shadow:0_0_24px_rgba(34,197,94,0.4)]">
@@ -45,23 +47,28 @@ export default function Footer() {
               Software, hardware, and services from Charleston, SC. Built with
               care by Will McCants and the WildTech team.
             </p>
-            <div className="mt-6 flex items-center gap-2 text-xs font-mono tracking-widest text-muted">
+            <div className="mt-6 flex items-center gap-2 text-xs font-mono tracking-widest text-muted mb-10">
               <span className="relative flex h-2 w-2">
                 <span className="absolute inline-flex h-full w-full rounded-full bg-green opacity-60 animate-ping" />
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-green" />
               </span>
               CHARLESTON, SC
             </div>
+            <NewsletterSignup
+              compact
+              title="Stay in the loop"
+              description="A short note when something new ships."
+            />
           </div>
 
           {/* Link columns */}
-          <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-10">
+          <div className="lg:col-span-7 grid grid-cols-2 sm:grid-cols-3 gap-10">
             <div>
               <p className="text-xs uppercase tracking-[0.18em] text-muted mb-5 font-[family-name:var(--font-sans)]">
-                Navigation
+                Work
               </p>
               <ul className="space-y-3">
-                {navLinks.map((link) => (
+                {workLinks.map((link) => (
                   <li key={link.href}>
                     <Link
                       href={link.href}
@@ -82,10 +89,34 @@ export default function Footer() {
 
             <div>
               <p className="text-xs uppercase tracking-[0.18em] text-muted mb-5 font-[family-name:var(--font-sans)]">
-                Products
+                Company
               </p>
               <ul className="space-y-3">
-                {productLinks.map((link) => (
+                {companyLinks.map((link) => (
+                  <li key={link.href}>
+                    <Link
+                      href={link.href}
+                      className="group inline-flex items-center gap-2 text-sm text-body hover:text-heading transition-colors duration-300"
+                    >
+                      <span
+                        className="w-0 h-px bg-green transition-all duration-300 group-hover:w-3"
+                        aria-hidden="true"
+                      />
+                      <span className="transition-transform duration-300 group-hover:translate-x-1">
+                        {link.label}
+                      </span>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div>
+              <p className="text-xs uppercase tracking-[0.18em] text-muted mb-5 font-[family-name:var(--font-sans)]">
+                Resources
+              </p>
+              <ul className="space-y-3">
+                {resourceLinks.map((link) => (
                   <li key={link.href}>
                     <Link
                       href={link.href}
@@ -117,22 +148,32 @@ export default function Footer() {
               in vain.&rdquo; Psalm 127:1
             </p>
           </div>
-          <a
-            href="#top"
-            className="group inline-flex items-center gap-2 text-xs uppercase tracking-[0.15em] text-muted hover:text-green transition-colors duration-300 shrink-0"
-          >
-            <span>Back to top</span>
-            <svg
-              className="w-3 h-3 transition-transform duration-300 group-hover:-translate-y-1"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              strokeWidth={1.5}
-              aria-hidden="true"
+          <div className="flex flex-col items-start sm:items-end gap-2">
+            <p className="text-[10px] uppercase tracking-[0.18em] text-muted font-mono">
+              Press <kbd className="text-heading">&#8984;K</kbd> or{" "}
+              <kbd className="text-heading">/</kbd> anywhere
+            </p>
+            <a
+              href="#top"
+              className="group inline-flex items-center gap-2 text-xs uppercase tracking-[0.15em] text-muted hover:text-green transition-colors duration-300"
             >
-              <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5" />
-            </svg>
-          </a>
+              <span>Back to top</span>
+              <svg
+                className="w-3 h-3 transition-transform duration-300 group-hover:-translate-y-1"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                strokeWidth={1.5}
+                aria-hidden="true"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M4.5 15.75l7.5-7.5 7.5 7.5"
+                />
+              </svg>
+            </a>
+          </div>
         </div>
       </div>
     </footer>

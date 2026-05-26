@@ -519,6 +519,15 @@ export default function ProductsPage() {
                             </svg>
                           </a>
                         )}
+                        <Link
+                          href={`/work/${product.name
+                            .toLowerCase()
+                            .replace(/[^a-z0-9]+/g, "-")
+                            .replace(/^-|-$/g, "")}`}
+                          className="inline-flex items-center gap-2 text-sm text-body hover:text-heading transition-colors duration-300 link-underline py-2"
+                        >
+                          Read the case study
+                        </Link>
                       </div>
                     </div>
                   </div>

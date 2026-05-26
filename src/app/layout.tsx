@@ -4,6 +4,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Cursor from "@/components/Cursor";
 import ScrollProgress from "@/components/ScrollProgress";
+import CommandPalette from "@/components/CommandPalette";
 import "./globals.css";
 
 const inter = Inter({
@@ -46,12 +47,23 @@ export const metadata: Metadata = {
     title: "WildTech Development | Software & Hardware Solutions",
     description:
       "Turning bold ideas into powerful software and hardware solutions.",
+    images: [
+      {
+        url: "/api/og?title=Custom%20software%2C%20hardware%2C%20and%20integration%20from%20Charleston%2C%20SC&kind=WildTech%20Development",
+        width: 1200,
+        height: 630,
+        alt: "WildTech Development",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "WildTech Development | Software & Hardware Solutions",
     description:
       "Turning bold ideas into powerful software and hardware solutions.",
+    images: [
+      "/api/og?title=Custom%20software%2C%20hardware%2C%20and%20integration%20from%20Charleston%2C%20SC&kind=WildTech%20Development",
+    ],
   },
   robots: {
     index: true,
@@ -82,6 +94,7 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col">
         <ScrollProgress />
         <Cursor />
+        <CommandPalette />
         <Navbar />
         <main className="flex-1 pt-16 animate-page-enter">{children}</main>
         <Footer />

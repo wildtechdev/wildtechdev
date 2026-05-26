@@ -1,0 +1,218 @@
+import type { Metadata } from "next";
+import Link from "next/link";
+import { notFound } from "next/navigation";
+import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
+import Prose from "@/components/Prose";
+import ScrollReveal from "@/components/ScrollReveal";
+import {
+  caseStudies,
+  getAllCaseStudySlugs,
+  getCaseStudyBySlug,
+} from "@/lib/work";
+
+type Params = { slug: string };
+
+export async function generateStaticParams() {
+  return getAllCaseStudySlugs().map((slug) => ({ slug }));
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<Params>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const cs = getCaseStudyBySlug(slug);
+  if (!cs) return { title: "Case study not found" };
+  return {
+    title: `${cs.product} case study`,
+    description: cs.summary,
+    alternates: {
+      canonical: `https://www.wildtechdev.com/work/${cs.slug}`,
+    },
+    openGraph: {
+      title: `${cs.product} | WildTech Case Study`,
+      description: cs.summary,
+      type: "article",
+    },
+  };
+}
+
+export default async function CaseStudyPage({
+  params,
+}: {
+  params: Promise<Params>;
+}) {
+  const { slug } = await params;
+  const cs = getCaseStudyBySlug(slug);
+  if (!cs) notFound();
+
+  const nextIndex =
+    (caseStudies.findIndex((c) => c.slug === cs.slug) + 1) %
+    caseStudies.length;
+  const next = caseStudies[nextIndex];
+
+  return (
+    <>
+      <BreadcrumbJsonLd
+        items={[
+          { name: "Home", url: "https://www.wildtechdev.com" },
+          { name: "Work", url: "https://www.wildtechdev.com/work" },
+          {
+            name: cs.product,
+            url: `https://www.wildtechdev.com/work/${cs.slug}`,
+          },
+        ]}
+      />
+      <article className="relative py-20 sm:py-28 overflow-hidden">
+        <div
+          className="absolute -top-40 left-0 w-[700px] h-[400px] rounded-full pointer-events-none"
+          style={{
+            background:
+              "radial-gradient(ellipse at center, rgba(34,197,94,0.07) 0%, transparent 70%)",
+            filter: "blur(60px)",
+          }}
+          aria-hidden="true"
+        />
+        <div className="relative max-w-3xl mx-auto px-6 lg:px-8">
+          <Link
+            href="/work"
+            className="inline-flex items-center gap-1.5 text-[10px] font-mono uppercase tracking-[0.22em] text-muted hover:text-green transition-colors mb-10"
+          >
+            <svg
+              className="w-3 h-3"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              strokeWidth={2}
+              aria-hidden="true"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18"
+              />
+            </svg>
+            All work
+          </Link>
+
+          <header className="mb-14">
+            <p className="text-xs font-mono tracking-[0.2em] text-green mb-3">
+              {cs.year}
+            </p>
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-[family-name:var(--font-serif)] italic text-heading mb-4 leading-[1.05]">
+              {cs.product}
+            </h1>
+            <p className="text-body text-lg leading-relaxed mb-10 max-w-2xl">
+              {cs.title}
+            </p>
+
+            <dl className="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-8 border-t border-border">
+              <div>
+                <dt className="text-[10px] uppercase tracking-[0.22em] text-muted font-mono mb-2">
+                  Client
+                </dt>
+                <dd className="text-sm text-heading">{cs.client}</dd>
+              </div>
+              <div>
+                <dt className="text-[10px] uppercase tracking-[0.22em] text-muted font-mono mb-2">
+                  Role
+                </dt>
+                <dd className="text-sm text-heading">{cs.role}</dd>
+              </div>
+              <div>
+                <dt className="text-[10px] uppercase tracking-[0.22em] text-muted font-mono mb-2">
+                  Stack
+                </dt>
+                <dd className="flex flex-wrap gap-1.5">
+                  {cs.stack.map((s) => (
+                    <span
+                      key={s}
+                      className="inline-flex items-center text-[10px] font-mono uppercase tracking-[0.16em] text-muted px-2 py-1 border border-border bg-[#0a0c10]"
+                    >
+                      {s}
+                    </span>
+                  ))}
+                </dd>
+              </div>
+            </dl>
+
+            {cs.metrics && cs.metrics.length > 0 && (
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-px bg-border mt-10">
+                {cs.metrics.map((m) => (
+                  <div key={m.label} className="bg-[#0a0c10] p-6">
+                    <p className="text-[10px] uppercase tracking-[0.22em] text-muted font-mono mb-2">
+                      {m.label}
+                    </p>
+                    <p className="text-lg sm:text-xl text-heading font-[family-name:var(--font-serif)] italic">
+                      {m.value}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            )}
+          </header>
+
+          <div className="border-t border-border pt-10">
+            <Prose content={cs.content} />
+          </div>
+
+          <ScrollReveal>
+            <div className="mt-16 pt-10 border-t border-border flex flex-col sm:flex-row gap-4 items-start sm:items-center justify-between">
+              <div className="flex flex-wrap gap-3">
+                {cs.appStoreUrl && (
+                  <a
+                    href={cs.appStoreUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn-ghost"
+                  >
+                    View on App Store
+                  </a>
+                )}
+                {cs.externalUrl && (
+                  <a
+                    href={cs.externalUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn-ghost"
+                  >
+                    Visit site
+                  </a>
+                )}
+                <Link
+                  href={`/products#${cs.productAnchor}`}
+                  className="inline-flex items-center gap-2 text-sm text-body hover:text-heading transition-colors duration-300 link-underline py-2"
+                >
+                  See on products page
+                </Link>
+              </div>
+              <Link
+                href="/contact"
+                className="text-sm text-body hover:text-heading transition-colors duration-300 link-underline"
+              >
+                Have a project like this?
+              </Link>
+            </div>
+          </ScrollReveal>
+
+          <ScrollReveal>
+            <div className="mt-16 pt-10 border-t border-border">
+              <p className="section-label text-xs uppercase tracking-[0.18em] text-muted mb-6 font-[family-name:var(--font-sans)]">
+                Up next
+              </p>
+              <Link href={`/work/${next.slug}`} className="block group">
+                <h3 className="text-2xl font-[family-name:var(--font-serif)] italic text-heading group-hover:text-green transition-colors mb-2">
+                  {next.product}
+                </h3>
+                <p className="text-sm text-body leading-relaxed">
+                  {next.summary}
+                </p>
+              </Link>
+            </div>
+          </ScrollReveal>
+        </div>
+      </article>
+    </>
+  );
+}
