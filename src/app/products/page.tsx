@@ -33,6 +33,8 @@ const productsJsonLd = {
         "@type": "Offer",
         price: "4.99",
         priceCurrency: "USD",
+        availability: "https://schema.org/InStock",
+        url: "https://apps.apple.com/us/app/spirits-of-charleston/id6476931671",
       },
       aggregateRating: {
         "@type": "AggregateRating",
@@ -55,6 +57,8 @@ const productsJsonLd = {
         "@type": "Offer",
         price: "3.99",
         priceCurrency: "USD",
+        availability: "https://schema.org/InStock",
+        url: "https://apps.apple.com/us/app/spirits-of-savannah/id6740187114",
       },
       aggregateRating: {
         "@type": "AggregateRating",
@@ -77,6 +81,8 @@ const productsJsonLd = {
         "@type": "Offer",
         price: "0",
         priceCurrency: "USD",
+        availability: "https://schema.org/InStock",
+        url: "https://apps.apple.com/us/app/ez-fuse-tester/id6737378228",
       },
       url: "https://apps.apple.com/us/app/ez-fuse-tester/id6737378228",
       publisher: {
@@ -94,6 +100,8 @@ const productsJsonLd = {
         "@type": "Offer",
         price: "0",
         priceCurrency: "USD",
+        availability: "https://schema.org/InStock",
+        url: "https://apps.apple.com/us/app/we-the-people-your-rights/id6770393978",
       },
       url: "https://apps.apple.com/us/app/we-the-people-your-rights/id6770393978",
       publisher: {
@@ -102,11 +110,19 @@ const productsJsonLd = {
       },
     },
     {
-      "@type": "WebApplication",
+      "@type": "SoftwareApplication",
       position: 5,
       name: "Churchd",
       applicationCategory: "BusinessApplication",
+      operatingSystem: "Web, iOS",
       url: "https://churchd.com",
+      offers: {
+        "@type": "Offer",
+        price: "0",
+        priceCurrency: "USD",
+        availability: "https://schema.org/PreOrder",
+        url: "https://churchd.com",
+      },
       publisher: {
         "@type": "Organization",
         name: "WildTech Ventures, LLC",
@@ -126,6 +142,20 @@ const productsJsonLd = {
       manufacturer: {
         "@type": "Organization",
         name: "WildTech Ventures, LLC",
+      },
+      offers: {
+        "@type": "Offer",
+        price: "0",
+        priceCurrency: "USD",
+        availability: "https://schema.org/InStock",
+        url: "https://vikingsensors.com",
+        seller: {
+          "@type": "Organization",
+          name: "MSI-Viking Gage",
+          url: "https://msi-viking.com",
+        },
+        description:
+          "Contact MSI-Viking Gage for pricing and deployment quotes.",
       },
     },
   ],
