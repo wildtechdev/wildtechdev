@@ -20,6 +20,12 @@ const nextConfig: NextConfig = {
       { source: "/media", destination: "/press", permanent: true },
       { source: "/media-kit", destination: "/press", permanent: true },
       { source: "/about-will", destination: "/will-mccants", permanent: true },
+      // Journal post slug change to remove name from URL
+      {
+        source: "/journal/what-i-build-and-why",
+        destination: "/journal/what-we-build-and-why",
+        permanent: true,
+      },
     ];
   },
 };

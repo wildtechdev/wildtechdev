@@ -20,86 +20,6 @@ export type Post = {
 
 export const posts: Post[] = [
   {
-    slug: "building-software-in-charleston-sc",
-    title:
-      "Building software from Charleston, SC: a Will McCants field report",
-    summary:
-      "Notes from running a one-person software and hardware studio out of Charleston, South Carolina, by Will McCants. What the Lowcountry gets right, where it has to import talent, and why Charleston turns out to be a quietly excellent place to ship a product.",
-    date: "2026-05-26",
-    readMinutes: 7,
-    tags: ["Charleston", "Founders", "Will McCants"],
-    content: `Most of the writing about software in the American Southeast still treats Charleston, South Carolina as a vacation backdrop instead of a place where people actually build things. That framing is a few years out of date. Charleston has quietly grown a working software economy, and from the seat I occupy at WildTech Development on James Island, it is the right place to build a small studio.
-
-This is a field report. Not a rah-rah piece. Just notes from running a one-person software and hardware shop out of Charleston for the last several years, what shows up in the work because of the city, and what I would tell another developer thinking about doing the same thing.
-
-## What Charleston actually has
-
-Will McCants is not the first developer to set up shop in Charleston, SC. The city has an underrated bench of full-stack engineers, iOS developers, embedded folks, designers, and product people. Some of them came in through Boeing and stayed after their first contract. Some grew up here and went to Porter-Gaud or Bishop England or Wando, left for a tech hub like Atlanta or San Francisco, and rotated back when the prospect of raising kids in a real neighborhood started to outweigh the salary delta. A growing number never left at all.
-
-What you have in Charleston is a moderate but high-quality talent pool spread across a small geographic footprint. The downtown peninsula, Mount Pleasant, James Island, West Ashley, Daniel Island, North Charleston, and Summerville are all within a reasonable drive. That density is the city's competitive advantage. You can have coffee with three different working developers between Tuesday morning and Friday afternoon, and they will all show up because nobody is fighting traffic for two hours to do it.
-
-The customer base for owner-operated software work is also better than people assume. There are real businesses here: the metrology and precision measurement industry, the maritime supply chain, the hospitality industry, healthcare networks, churches, and a quietly large set of small manufacturers in the Lowcountry industrial corridor. A studio like WildTech Development can serve all of those without ever leaving the metro area, and that is exactly the work I find most rewarding.
-
-## What it does not have
-
-The trade-off is that Charleston is not a venture capital town. If your business model requires raising a Series A in the next eighteen months, you are flying to Atlanta or Charlotte to find lead investors. There are angel investors here, especially in the maritime and hospitality verticals, but the institutional VC scene is thin compared to other Southeast tech hubs.
-
-The other gap is depth in highly specialized roles. Charleston has plenty of competent iOS developers and competent web developers. It has fewer experts in narrow specialties like compiler engineering, low-level systems work, or large-scale ML infrastructure. For most client work that does not matter. For some, you end up bringing in remote specialists, which is fine because remote work is now table stakes everywhere.
-
-## Why this is good for a small studio
-
-The combination of moderate talent depth, real customers, low overhead, and easy access to actual life is exactly what a small studio wants. WildTech Development is a one-person operation by design. I am not trying to grow a forty-person agency. I am trying to take on a handful of projects each year, do them well, and live a life outside of work in a city I actually want to be in. Charleston makes both halves of that possible at the same time.
-
-Concretely: I can walk to Folly Beach in twenty minutes from my desk. The cost of a serviceable office is a fraction of what it would be in Atlanta or Nashville. My clients are real people with real budgets, not VC-funded growth experiments. The Charleston technical community is small enough that referrals between developers happen naturally, and large enough that the next project is rarely more than a quarter away.
-
-## What this means for clients
-
-If you are considering hiring a Charleston-based developer for a custom software or hardware project, you have more options than you probably realize. WildTech Development is one of them. There are several others. I would not pretend Charleston is the only good place to find this kind of work. I would pretend the opposite: it is a perfectly good place, and proximity matters more than tech hubs like to admit.
-
-If you are in the Charleston metropolitan area and have a software or hardware project you would rather hand to someone local than ship across the country, the WildTech contact form is one click away from this paragraph. The intro call is free, and we are likely already in the same area code.
-
-Built from Charleston, SC. By Will McCants.`,
-  },
-  {
-    slug: "what-i-build-and-why",
-    title:
-      "What I build and why: a short note from Will McCants",
-    summary:
-      "A personal letter from Will McCants on what WildTech Development exists to do, the kind of work I want to take on, and the type of client I serve best.",
-    date: "2026-05-26",
-    readMinutes: 4,
-    tags: ["Founders", "Will McCants", "WildTech"],
-    content: `Most software studio websites read like marketing brochures. This is meant to be something different. A short personal letter from Will McCants, the founder and only full-time member of WildTech Development, about what this studio exists to do, who I serve best, and what to expect if you decide to work with me.
-
-## What this is
-
-WildTech Development is a one-person software and hardware studio in Charleston, South Carolina. I built it because I wanted to do the work I think is worth doing on the terms I think it should be done on. Owner-operated. End to end. Honest scoping. Real engineering, not theater. No subscription traps. No surveillance. No deliverables that exist to justify the next phase of an engagement.
-
-I take on a small number of client projects each year. Apps for the App Store, web platforms, integrations, and occasional custom hardware. I also build proprietary products under the WildTech umbrella: Spirits of Charleston, Spirits of Savannah, EZ Fuse Tester, We The People: Your Rights, the church platform Churchd, and the precision climate monitoring product Viking Sensors. Some of those make money. Some are free and exist because I thought they should exist. That is by design.
-
-## Who I serve best
-
-The clients who get the most out of WildTech tend to share three things. They have a real problem they want to solve, not just a desire to "do something with AI" or "build an app." They want to work directly with the person doing the work, not through three layers of agency project management. And they value the discipline of small, honest, well-built things over the bigger-faster-louder approach.
-
-Concretely: a metrology firm that needs a custom monitoring stack. A small congregation that wants a community platform that does not surveil its members. A trade business that needs an iOS app for a specific operational job and does not want to pay a SaaS company a subscription forever. A solo founder with an app idea who wants it built right and shipped to the App Store. A hardware project that needs both the device and the software around it. These are the engagements where I do my best work, and they are also the engagements that pay the bills.
-
-## What working with me actually looks like
-
-The first call is free and lasts about thirty minutes. We talk about what you are trying to build and whether I am the right person to build it. If we both agree it is a fit, we move into a paid discovery phase where I produce a written scope and a fixed price or a clearly bounded estimate. The discovery phase usually takes a week. After that, build, ship, and ongoing support, in that order.
-
-There are no account managers. There is no portal you have to log into. There is no team that turns over halfway through. You text me. I answer. That is the contract.
-
-## Why I am writing this
-
-A lot of my prospective clients come to wildtechdev.com after a Google search for "Will McCants Charleston" or some variation of that. They want to know who they are about to email before they hit send. This note is for them. The longer biographical story is on the founder page. The structured FAQ is on the FAQ page. The case studies are on the work page. But this is the short personal version, so you can decide whether to keep reading.
-
-If you have a project you have been turning over and you want to talk it through with someone who is going to be honest about whether it is worth building, the contact form is the right next step. If you would rather email directly, info@wildtechdev.com goes straight to me.
-
-Will McCants
-Founder, WildTech Development
-Charleston, SC`,
-  },
-  {
     slug: "resend-namecheap-private-email-setup",
     title:
       "Set up Resend transactional email on a Namecheap domain that already uses Private Email",
@@ -292,6 +212,76 @@ We probably would not change anything about the business model. Free, no ads, no
 The whole project took about a weekend of focused work plus a couple of evenings of polish before submission. The total cost was the time. It earns no money. It runs entirely on the phone. It generates no support tickets because there is nothing to support. And it has produced more inbound interest in WildTech than any of our paid marketing experiments combined.
 
 There is a lesson buried in that for any developer or small studio: the projects that pay off are not always the ones you build to make money. Sometimes the right thing to build is the tool you wish existed at the moment you needed it, and then to ship it the way you wish it had been shipped. Free, fast, no nonsense. That is what EZ Fuse Tester is, and it is one of the things we are most proud of having put into the world.`,
+  },
+];
+
+  {
+    slug: "what-we-build-and-why",
+    title: "What we build and why",
+    summary:
+      "A short note on what WildTech Development exists to do, who we serve best, and what to expect if you reach out.",
+    date: "2026-04-08",
+    readMinutes: 4,
+    tags: ["Founders", "WildTech"],
+    content: `Most software studio websites read like marketing brochures. This is meant to be a short personal version. What WildTech Development exists to do, who we serve best, and what to expect if you decide to work with us.
+
+## What this is
+
+WildTech Development is an owner-operated software and hardware studio in Charleston, South Carolina. We built it because we wanted to do the work we think is worth doing on the terms we think it should be done on. End to end. Honest scoping. Real engineering, not theater. No subscription traps. No surveillance. No deliverables that exist to justify the next phase of an engagement.
+
+We take on a small number of client projects each year. Apps for the App Store, web platforms, integrations, and occasional custom hardware. We also build proprietary products under the WildTech umbrella: Spirits of Charleston, Spirits of Savannah, EZ Fuse Tester, We The People: Your Rights, the church platform Churchd, and the precision climate monitoring product Viking Sensors. Some of those make money. Some are free and exist because we thought they should exist. That is by design.
+
+## Who we serve best
+
+The clients who get the most out of WildTech tend to share three things. They have a real problem they want to solve, not just a desire to "do something with AI" or "build an app." They want to work directly with the person doing the work, not through three layers of agency project management. And they value the discipline of small, honest, well-built things over the bigger-faster-louder approach.
+
+Concretely: a metrology firm that needs a custom monitoring stack. A small congregation that wants a community platform that does not surveil its members. A trade business that needs an iOS app for a specific operational job and does not want to pay a SaaS company a subscription forever. A solo founder with an app idea who wants it built right and shipped to the App Store. A hardware project that needs both the device and the software around it. These are the engagements where we do our best work.
+
+## What working with us looks like
+
+The first call is free and lasts about thirty minutes. We talk about what you are trying to build and whether we are the right fit. If we both agree it is a fit, we move into a paid discovery phase that produces a written scope and a fixed price or a clearly bounded estimate. After that, build, ship, and ongoing support, in that order.
+
+There are no account managers. No portal you have to log into. No team that turns over halfway through. Direct contact, direct answers.
+
+## How to start
+
+If you have a project you have been turning over and want to talk it through with someone who is going to be honest about whether it is worth building, the contact form is the right next step. If you would rather email directly, info@wildtechdev.com works too.`,
+  },
+  {
+    slug: "building-software-in-charleston-sc",
+    title: "Building software from Charleston, SC: a field report",
+    summary:
+      "Notes from running a small software and hardware studio out of Charleston, South Carolina. What the Lowcountry gets right, where it has to import talent, and why Charleston turns out to be a quietly excellent place to ship a product.",
+    date: "2026-04-01",
+    readMinutes: 7,
+    tags: ["Charleston", "Founders"],
+    content: `Most of the writing about software in the American Southeast still treats Charleston, South Carolina as a vacation backdrop instead of a place where people actually build things. That framing is a few years out of date. Charleston has quietly grown a working software economy, and from the seat we occupy on James Island, it is the right place to build a small studio.
+
+This is a field report. Not a rah-rah piece. Just notes from running a one-person software and hardware shop out of Charleston, what shows up in the work because of the city, and what we would tell another developer thinking about doing the same thing.
+
+## What Charleston actually has
+
+The city has an underrated bench of full-stack engineers, iOS developers, embedded folks, designers, and product people. Some of them came in through Boeing and stayed after their first contract. Some grew up here and went to Porter-Gaud or Bishop England or Wando, left for a tech hub like Atlanta or San Francisco, and rotated back when the prospect of raising kids in a real neighborhood started to outweigh the salary delta. A growing number never left at all.
+
+What you have in Charleston is a moderate but high-quality talent pool spread across a small geographic footprint. The downtown peninsula, Mount Pleasant, James Island, West Ashley, Daniel Island, North Charleston, and Summerville are all within a reasonable drive. That density is the city's competitive advantage. You can have coffee with three different working developers between Tuesday morning and Friday afternoon, and they will all show up because nobody is fighting traffic for two hours to do it.
+
+The customer base for owner-operated software work is also better than people assume. There are real businesses here: the metrology and precision measurement industry, the maritime supply chain, the hospitality industry, healthcare networks, churches, and a quietly large set of small manufacturers in the Lowcountry industrial corridor. A studio like ours can serve all of those without ever leaving the metro area, and that is exactly the work we find most rewarding.
+
+## What it does not have
+
+The trade-off is that Charleston is not a venture capital town. If your business model requires raising a Series A in the next eighteen months, you are flying to Atlanta or Charlotte to find lead investors. There are angel investors here, especially in the maritime and hospitality verticals, but the institutional VC scene is thin compared to other Southeast tech hubs.
+
+The other gap is depth in highly specialized roles. Charleston has plenty of competent iOS developers and competent web developers. It has fewer experts in narrow specialties like compiler engineering, low-level systems work, or large-scale ML infrastructure. For most client work that does not matter. For some, you end up bringing in remote specialists, which is fine because remote work is now table stakes everywhere.
+
+## Why this is good for a small studio
+
+The combination of moderate talent depth, real customers, low overhead, and easy access to actual life is exactly what a small studio wants. We can walk to Folly Beach in twenty minutes from the desk. The cost of a serviceable office is a fraction of what it would be in Atlanta or Nashville. Our clients are real people with real budgets, not VC-funded growth experiments. The Charleston technical community is small enough that referrals between developers happen naturally, and large enough that the next project is rarely more than a quarter away.
+
+## What this means for clients
+
+If you are considering hiring a Charleston-based developer for a custom software or hardware project, you have more options than you probably realize. We are one of them. There are several others. We would not pretend Charleston is the only good place to find this kind of work. We would pretend the opposite: it is a perfectly good place, and proximity matters more than tech hubs like to admit.
+
+If you are in the Charleston metropolitan area and have a software or hardware project you would rather hand to someone local than ship across the country, the contact form is one click away. The intro call is free, and we are likely already in the same area code.`,
   },
 ];
 

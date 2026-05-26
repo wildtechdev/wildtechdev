@@ -9,7 +9,6 @@ const navLinks = [
   { href: "/work", label: "Work" },
   { href: "/services", label: "Services" },
   { href: "/journal", label: "Journal" },
-  { href: "/will-mccants", label: "Founder" },
   { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
 ];
