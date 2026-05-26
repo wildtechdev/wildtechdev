@@ -27,7 +27,7 @@ export const caseStudies: CaseStudy[] = [
       "From sketch on a legal pad to enterprise-grade hardware in calibration labs and server rooms, sold exclusively through MSI-Viking Gage.",
     client: "Viking Sensors, LLC (operating brand of WildTech Ventures)",
     role: "Product design, hardware design, firmware, web dashboard, distributor relationship",
-    year: "2023 to present",
+    year: "2026 to present",
     stack: [
       "Custom hardware",
       "Embedded firmware",
@@ -246,7 +246,7 @@ If you have a guidebook, an audio tour, a reference work, or any other content-d
     productAnchor: "spirits-of-savannah",
     content: `Spirits of Savannah is the second app in the Spirits series and the first product where we proved the model could repeat. The Charleston version had been live for several months, had earned a 5.0 rating, and had attracted enough positive feedback that the obvious question was whether the same approach would work in another haunted Southern city. Savannah was the answer.
 
-The app launched a year after the Charleston version, with over 55 narrated stories, the same offline-first technical architecture, and the same business model. One-time purchase, no ads, no subscription.
+The app launched later that same year with over 55 narrated stories, the same offline-first technical architecture, and the same business model. One-time purchase, no ads, no subscription.
 
 ## The problem
 
@@ -345,7 +345,7 @@ If you have a small focused utility idea that should exist, let's talk about how
       "An in-development platform designed to handle everything a congregation needs in one place: messaging, calendars, attendance, classes, volunteers, and a built-in Bible reader. No subscriptions, no ads, no social media required.",
     client: "WildTech Ventures, LLC",
     role: "Product, design, full stack engineering",
-    year: "2026 to present",
+    year: "2024 to present",
     stack: [
       "iOS",
       "Web",

@@ -93,13 +93,17 @@ const facts = [
 ];
 
 const milestones = [
+  { date: "2012", text: "Will earns his FAA Private Pilot Certificate (VFR SEL), Sept 19" },
+  { date: "2012", text: "Will joins MSI-Viking Gage in the Charleston shipping department" },
+  { date: "2022", text: "Returns to MSI-Viking as Director of E-Commerce, January" },
   { date: "2023", text: "Halloween night fuse-tester idea sparks EZ Fuse Tester" },
   { date: "2024", text: "WildTech Ventures, LLC founded in Charleston, SC" },
-  { date: "2024", text: "Spirits of Charleston ships on the App Store" },
-  { date: "2024", text: "Spirits of Savannah ships on the App Store" },
-  { date: "2026", text: "Viking Sensors launches under MSI-Viking Gage distribution" },
+  { date: "2024", text: "Spirits of Charleston ships on the App Store, Feb 1" },
+  { date: "2024", text: "Spirits of Savannah follows on the App Store" },
+  { date: "2024", text: "Churchd sketched on a yellow legal pad" },
+  { date: "2026", text: "Churchd domain purchased, active development begins, Mar 14" },
+  { date: "2026", text: "Viking Sensors co-founded with Steven Archibald, launches under MSI-Viking Gage distribution" },
   { date: "2026", text: "We The People: Your Rights ships on the App Store" },
-  { date: "2026", text: "Churchd enters active development" },
 ];
 
 const assets = [

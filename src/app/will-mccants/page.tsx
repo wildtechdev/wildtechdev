@@ -289,8 +289,13 @@ const personJsonLd = {
     hasCredential: [
       {
         "@type": "EducationalOccupationalCredential",
-        name: "FAA Part 61 Private Pilot Certificate",
+        name: "FAA Part 61 Private Pilot Certificate, Visual Flight Rules, Single Engine Land",
         credentialCategory: "license",
+        dateCreated: "2012-09-19",
+        recognizedBy: {
+          "@type": "Organization",
+          name: "Federal Aviation Administration",
+        },
       },
       {
         "@type": "EducationalOccupationalCredential",
@@ -1059,9 +1064,13 @@ export default function WillMcCantsPage() {
                   <p>
                     When he is not building software, hardware, or businesses,
                     Will spends his time behind a camera, playing guitar,
-                    hiking, or camping somewhere in the Lowcountry. He still
-                    holds his private pilot certificate, though these days the
-                    flying is mostly for fun.
+                    hiking, or camping somewhere in the Lowcountry. He earned
+                    his FAA Visual Flight Rules Single Engine Land private
+                    pilot certificate on September 19, 2012, after a stretch
+                    of training that had him seriously considering aviation as
+                    a full-time career. He chose instead to keep building his
+                    career at MSI-Viking Gage, and these days the flying is
+                    mostly for fun.
                   </p>
                   <div className="grid grid-cols-3 sm:grid-cols-6 gap-4 sm:gap-6 py-2">
                     {hobbies.map((hobby, i) => (
