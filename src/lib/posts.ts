@@ -20,6 +20,121 @@ export type Post = {
 
 export const posts: Post[] = [
   {
+    slug: "google-sites-naked-domain-redirect",
+    title:
+      "Make your Google Sites work without www (the naked domain fix, free)",
+    summary:
+      "If your Google Sites custom domain works at www.example.com but not example.com, the term you need to know is 'naked domain.' Here are two free, step-by-step fixes using Cloudflare and redirect.pizza.",
+    date: "2026-05-26",
+    readMinutes: 8,
+    tags: ["Google Sites", "DNS", "Cloudflare", "Tutorial"],
+    content: `If you set up a custom domain on Google Sites and your site only loads when people type the full www.example.com, while example.com on its own throws an error or a "this site can't be reached" message, you have just run into one of the most common and least-well-explained problems in DIY web hosting. There is a term for it that almost nobody tells you when you Google "google sites no www," "google sites root domain not loading," or "how do I make google sites work without www," which is part of why it's so hard to find a solution.
+
+The term is **naked domain**. It is also called the **apex domain** or the **root domain**. Once you know the term, the rest of this is fixable in about fifteen minutes for free.
+
+This is a quick guide for Google Sites owners who are stuck on this exact problem, written in the words people actually type into Google rather than the jargon DNS administrators use to discuss it with each other.
+
+## Why example.com does not work but www.example.com does
+
+Google Sites supports custom domains, but only through what is called a **CNAME record**, which is a kind of DNS entry that says "this subdomain is an alias for some other server." Google asks you to point your CNAME at \`ghs.googlehosted.com\`.
+
+The catch is that CNAME records are not allowed on the apex domain by the DNS specification itself. Almost every domain registrar and DNS provider will refuse to put a CNAME on \`example.com\` because doing so would conflict with other required records that have to live at the apex. They can put a CNAME on \`www.example.com\` (the www subdomain) all day long, but not on the bare domain.
+
+This is the actual technical reason your Google Sites address only works with www. It is not a bug, not a permissions problem, and not something you did wrong. It is a fundamental limitation of how Google Sites does custom domains combined with how the DNS standard handles records at the apex.
+
+The fix is not to make a CNAME work on the apex. The fix is to set up an HTTP redirect, so that when someone types example.com, they get bounced to www.example.com instantly and invisibly. The address bar updates to show www but the page they see is the same Google Sites page.
+
+## The two free options
+
+There are several paid services that do this redirect for you, but two of them are completely free and easy enough that you do not need to be technical to set them up.
+
+The first is **Cloudflare**, the popular free DNS and CDN provider. Cloudflare handles the redirect with something called a Page Rule or Redirect Rule, both of which are available on the free plan.
+
+The second is **redirect.pizza**, a small purpose-built service whose only job is to handle exactly this kind of apex-to-www redirect. Their free tier covers a single domain, which is exactly what you need.
+
+Both work fine. The decision mostly depends on whether you want to move your DNS to a new provider. If you are open to running your DNS through Cloudflare for everything, Cloudflare is the better long-term answer because you get a lot of other features for free along with the redirect. If you just want to fix this one specific problem and you do not want to change your DNS host, redirect.pizza is faster.
+
+## Option 1: Cloudflare (free)
+
+The big shift here is that you change your domain's **nameservers** at your registrar (GoDaddy, Namecheap, Squarespace, Google Workspace registrar, etc.) to point at Cloudflare's nameservers. Cloudflare then becomes your DNS host. You re-add your existing records on the Cloudflare side, and you set up the apex redirect there.
+
+Here is the full sequence.
+
+### Step 1: Sign up for Cloudflare
+
+Go to cloudflare.com, click Sign Up, create a free account. No credit card required.
+
+### Step 2: Add your domain
+
+Click "Add a Site" and enter your domain name (just \`example.com\`, without https or www). Cloudflare will scan your existing DNS records. Pick the Free plan when prompted.
+
+### Step 3: Verify your existing records came over
+
+Cloudflare shows you the records it imported from your current DNS. You should see a CNAME for \`www\` pointing to \`ghs.googlehosted.com\` (or whatever Google asked you to use). If it's missing, add it now: type CNAME, name www, target \`ghs.googlehosted.com\`, proxy status DNS only (gray cloud icon, not orange).
+
+### Step 4: Add an A record for the apex
+
+You need an A record on the apex (\`@\` or \`example.com\`) so Cloudflare can intercept traffic and redirect it. Cloudflare's own documentation suggests pointing this A record at a dummy IP like \`192.0.2.1\`. Traffic never actually reaches that IP because the redirect happens at Cloudflare's edge before anything gets forwarded.
+
+Add an A record: type A, name \`@\`, content \`192.0.2.1\`, proxy status **Proxied** (orange cloud icon). This part is critical. The proxy must be ON for Cloudflare to be able to intercept and redirect.
+
+### Step 5: Change your nameservers at your registrar
+
+Cloudflare gives you two nameservers that look like \`alice.ns.cloudflare.com\` and \`bob.ns.cloudflare.com\`. Go to your registrar (the company where you bought the domain) and change the nameservers from whatever they are now to these two Cloudflare values.
+
+This change can take anywhere from a few minutes to 24 hours to propagate. Cloudflare will email you when activation completes.
+
+### Step 6: Set up the redirect rule
+
+Once Cloudflare is active, go to your domain's dashboard. In the left sidebar, click **Rules**, then **Redirect Rules** (or **Page Rules** on older accounts, both work the same). Create a new rule:
+
+- **When incoming requests match**: URL contains \`example.com/\`
+- **Then take action**: Static URL redirect
+- **Type**: 301 (permanent)
+- **URL**: \`https://www.example.com/$1\`
+- **Preserve query string**: yes
+
+Save. Open a new private browser window and type \`example.com\` (without www). It should redirect to \`www.example.com\` and load your Google Sites page. You are done.
+
+## Option 2: redirect.pizza (free)
+
+If you do not want to move your DNS to Cloudflare, redirect.pizza does this single job and nothing else.
+
+### Step 1: Sign up
+
+Go to redirect.pizza and create a free account.
+
+### Step 2: Create a redirect
+
+Click "Add a redirect" or similar. Set the source to \`example.com\` and the destination to \`https://www.example.com\`. Choose type 301 (permanent). Save.
+
+### Step 3: Point your DNS at redirect.pizza
+
+redirect.pizza gives you one or two IP addresses to point your apex domain at. Go to your current DNS provider (wherever you bought the domain) and add an A record for the apex pointing at that IP. If you have an existing A record on the apex pointing somewhere else, replace it.
+
+### Step 4: Test
+
+After DNS propagates (a few minutes to an hour), open a private browser window and type \`example.com\`. It should redirect to \`www.example.com\` and load your Google Sites page.
+
+You do not change nameservers. You do not move your DNS. You add one A record and you are done.
+
+## What about other services that have this same problem?
+
+The exact same problem and solution apply to any web hosting service that requires you to use a CNAME for your custom domain, which is most modern hosting platforms. Wix, Webflow, Notion sites, Carrd, some Squarespace setups, Substack, Beehiiv, and many others have the same naked domain limitation. The fix is the same: set up an apex-to-www redirect using Cloudflare or redirect.pizza or a similar service.
+
+## A few things worth knowing
+
+After this is set up, search engines will eventually treat \`www.example.com\` as the canonical version of your site. That is fine. Search engines understand 301 redirects perfectly well. Make sure your Google Sites custom domain setting and your Google Search Console verification both use the www version going forward.
+
+If you have email forwarding set up on your domain (like \`you@example.com\`), that is handled by MX records, which are completely separate from this fix. Setting up the apex redirect does not break your email.
+
+If you bought your domain through Google Domains and were migrated to Squarespace as part of that transition, the same logic applies. You can still use Cloudflare or redirect.pizza on top of a Squarespace-managed registration without any issue.
+
+## If you got here from a search result
+
+The reason this post exists is that there are dozens of unanswered Reddit threads from people who are stuck on this exact problem and don't know the terminology to find a solution. If this saved you an evening, share it with the next person who asks the question.`,
+  },
+  {
     slug: "resend-namecheap-private-email-setup",
     title:
       "Set up Resend transactional email on a Namecheap domain that already uses Private Email",
