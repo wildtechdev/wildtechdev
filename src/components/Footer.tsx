@@ -18,6 +18,7 @@ const companyLinks = [
 const resourceLinks = [
   { href: "/journal", label: "Journal" },
   { href: "/faq", label: "FAQ" },
+  { href: "/press", label: "Press" },
   { href: "/contact", label: "Contact" },
 ];
 

@@ -92,6 +92,44 @@ export default function RootLayout({
       className={`${inter.variable} ${instrumentSerif.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
+        {/* WebSite JSON-LD with SearchAction enables Google's sitelinks
+            search box on branded queries. Person Knowledge Graph hint
+            associates Will McCants with this site at the site root. */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebSite",
+              "@id": "https://www.wildtechdev.com#website",
+              url: "https://www.wildtechdev.com",
+              name: "WildTech Development",
+              alternateName: "WildTech",
+              description:
+                "Charleston, SC software and hardware studio founded by Will McCants.",
+              inLanguage: "en-US",
+              publisher: {
+                "@type": "Organization",
+                name: "WildTech Ventures, LLC",
+                url: "https://www.wildtechdev.com",
+              },
+              about: {
+                "@type": "Person",
+                name: "Will McCants",
+                url: "https://www.wildtechdev.com/will-mccants",
+              },
+              potentialAction: {
+                "@type": "SearchAction",
+                target: {
+                  "@type": "EntryPoint",
+                  urlTemplate:
+                    "https://www.wildtechdev.com/journal?q={search_term_string}",
+                },
+                "query-input": "required name=search_term_string",
+              },
+            }),
+          }}
+        />
         <ScrollProgress />
         <Cursor />
         <CommandPalette />

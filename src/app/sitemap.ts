@@ -41,7 +41,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${baseUrl}/will-mccants`,
       lastModified: now,
       changeFrequency: "monthly",
-      priority: 0.8,
+      priority: 0.95,
+    },
+    {
+      url: `${baseUrl}/press`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.75,
     },
     {
       url: `${baseUrl}/journal`,

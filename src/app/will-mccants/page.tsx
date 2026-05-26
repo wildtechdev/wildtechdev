@@ -6,143 +6,383 @@ import ScrollReveal from "@/components/ScrollReveal";
 
 export const metadata: Metadata = {
   title: {
-    absolute: "Will McCants | Founder of WildTech Ventures, LLC",
+    absolute:
+      "Will McCants | Charleston, SC Software Developer & Founder of WildTech Development",
   },
   description:
-    "Will McCants (William McCants) is the founder of WildTech Ventures, LLC. Mount Pleasant, SC native, Porter-Gaud alum, Director of E-Commerce at MSI-Viking Gage, and Charleston-based builder of Churchd, Viking Sensors, and WildTech Development.",
+    "Will McCants (William McCants) is the Charleston, SC based founder of WildTech Development and WildTech Ventures, LLC. Mount Pleasant native, Porter-Gaud alum, Director of E-Commerce at MSI-Viking Gage, and builder of Churchd, Viking Sensors, We The People: Your Rights, Spirits of Charleston, Spirits of Savannah, and EZ Fuse Tester.",
   keywords: [
     "Will McCants",
     "William McCants",
     "Will McCants Charleston",
+    "Will McCants Charleston SC",
     "Will McCants Mount Pleasant",
     "Will McCants James Island",
+    "Will McCants software developer",
+    "Will McCants iOS developer",
     "Will McCants WildTech",
     "Will McCants WildTech Ventures",
+    "Will McCants WildTech Development",
     "Will McCants MSI-Viking",
     "Will McCants Porter-Gaud",
     "Will McCants founder",
-    "Will McCants developer",
+    "Will McCants entrepreneur",
+    "Will McCants developer Charleston",
+    "Will McCants engineer Charleston",
     "WildTech Ventures founder",
+    "WildTech Development founder Charleston",
     "Churchd founder",
-    "Viking Sensors co-founder",
+    "Viking Sensors founder",
+    "Spirits of Charleston app developer",
+    "We The People Your Rights app developer",
   ],
   alternates: {
     canonical: "https://www.wildtechdev.com/will-mccants",
   },
   openGraph: {
-    title: "Will McCants | Founder of WildTech Ventures, LLC",
+    title:
+      "Will McCants | Charleston SC Software Developer & Founder of WildTech Development",
     description:
-      "Will McCants is the founder of WildTech Ventures, LLC. Charleston, SC based engineer, developer, and builder of iOS apps, web platforms, and IoT hardware.",
+      "Charleston, SC based founder of WildTech Development. Builder of Churchd, Viking Sensors, We The People: Your Rights, Spirits of Charleston, Spirits of Savannah, and EZ Fuse Tester.",
     type: "profile",
     url: "https://www.wildtechdev.com/will-mccants",
     images: [
       {
+        url: "/api/og?title=Will%20McCants%20%E2%80%94%20Charleston%2C%20SC%20founder%20of%20WildTech%20Development&kind=Founder",
+        width: 1200,
+        height: 630,
+        alt: "Will McCants, Charleston SC founder of WildTech Development",
+      },
+      {
         url: "/headshot.jpg",
         width: 1125,
         height: 1687,
-        alt: "Will McCants, founder of WildTech Ventures, LLC",
+        alt: "Will McCants, Charleston SC founder of WildTech Development",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Will McCants | Founder of WildTech Ventures, LLC",
+    title:
+      "Will McCants | Charleston SC Software Developer & Founder of WildTech Development",
     description:
-      "Will McCants is the founder of WildTech Ventures, LLC. Charleston, SC based engineer, developer, and builder of iOS apps, web platforms, and IoT hardware.",
-    images: ["/headshot.jpg"],
+      "Charleston, SC based founder of WildTech Development. Builder of Churchd, Viking Sensors, We The People: Your Rights, Spirits of Charleston, Spirits of Savannah, and EZ Fuse Tester.",
+    images: [
+      "/api/og?title=Will%20McCants%20%E2%80%94%20Charleston%2C%20SC%20founder%20of%20WildTech%20Development&kind=Founder",
+    ],
   },
 };
 
+// Comprehensive Person + ProfilePage schema. The ProfilePage wrapper is
+// Google's preferred type for profile pages. The mainEntity Person includes
+// disambiguatingDescription to differentiate from any other Will McCants,
+// extensive sameAs links to anchor entity identity, hasOccupation with
+// proper Occupation type, and subjectOf back-references to anchor authority.
 const personJsonLd = {
   "@context": "https://schema.org",
-  "@type": "Person",
-  name: "Will McCants",
-  alternateName: ["William McCants", "Will McCants"],
-  givenName: "William",
-  additionalName: "Will",
-  familyName: "McCants",
-  jobTitle: "Founder & Director of E-Commerce",
-  description:
-    "Founder of WildTech Ventures, LLC. Mount Pleasant, SC native and Charleston-based engineer, software developer, and hardware builder behind Churchd, Viking Sensors, and WildTech Development. Also serves as Director of E-Commerce at MSI-Viking Gage.",
-  image: "https://www.wildtechdev.com/headshot.jpg",
+  "@type": "ProfilePage",
   url: "https://www.wildtechdev.com/will-mccants",
-  nationality: "American",
-  birthPlace: {
-    "@type": "Place",
-    name: "Mount Pleasant, South Carolina",
+  name: "Will McCants | Charleston SC Software Developer & Founder of WildTech Development",
+  description:
+    "The profile of Will McCants, Charleston SC based software developer, hardware engineer, and founder of WildTech Development.",
+  primaryImageOfPage: {
+    "@type": "ImageObject",
+    url: "https://www.wildtechdev.com/headshot.jpg",
+    width: 1125,
+    height: 1687,
+    caption:
+      "Will McCants, Charleston SC founder of WildTech Development",
+  },
+  mainEntity: {
+    "@type": "Person",
+    "@id": "https://www.wildtechdev.com/will-mccants#person",
+    name: "Will McCants",
+    alternateName: ["William McCants", "W. McCants"],
+    givenName: "William",
+    additionalName: "Will",
+    familyName: "McCants",
+    honorificSuffix: "Founder",
+    jobTitle: "Founder & Software Developer",
+    description:
+      "Charleston, South Carolina based software developer, hardware engineer, and entrepreneur. Founder of WildTech Development and WildTech Ventures, LLC. Mount Pleasant, SC native, Porter-Gaud alum, FAA private pilot. Builder of the iOS apps Spirits of Charleston, Spirits of Savannah, EZ Fuse Tester, and We The People: Your Rights, the church community platform Churchd, and the precision climate monitoring product Viking Sensors. Also serves as Director of E-Commerce at MSI-Viking Gage.",
+    disambiguatingDescription:
+      "This Will McCants is the Charleston, SC based software developer and founder of WildTech Development. Not to be confused with any other person of the same name.",
+    image: {
+      "@type": "ImageObject",
+      url: "https://www.wildtechdev.com/headshot.jpg",
+      width: 1125,
+      height: 1687,
+    },
+    url: "https://www.wildtechdev.com/will-mccants",
+    mainEntityOfPage: "https://www.wildtechdev.com/will-mccants",
+    nationality: "American",
+    gender: "Male",
+    birthPlace: {
+      "@type": "Place",
+      name: "Mount Pleasant, South Carolina",
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "Mount Pleasant",
+        addressRegion: "SC",
+        addressCountry: "US",
+      },
+    },
+    homeLocation: {
+      "@type": "Place",
+      name: "James Island, Charleston, South Carolina",
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "Charleston",
+        addressRegion: "SC",
+        addressCountry: "US",
+      },
+    },
+    workLocation: {
+      "@type": "Place",
+      name: "Charleston, South Carolina",
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "Charleston",
+        addressRegion: "SC",
+        addressCountry: "US",
+      },
+    },
     address: {
       "@type": "PostalAddress",
-      addressLocality: "Mount Pleasant",
+      addressLocality: "Charleston",
       addressRegion: "SC",
       addressCountry: "US",
     },
-  },
-  address: {
-    "@type": "PostalAddress",
-    addressLocality: "James Island, Charleston",
-    addressRegion: "SC",
-    addressCountry: "US",
-  },
-  alumniOf: [
-    { "@type": "EducationalOrganization", name: "Porter-Gaud School" },
-    { "@type": "EducationalOrganization", name: "First Baptist Church School" },
-    {
-      "@type": "EducationalOrganization",
-      name: "Trident Technical College",
-      description: "Aircraft Assembly Certificate via ReadySC program",
-    },
-  ],
-  worksFor: [
-    {
+    alumniOf: [
+      {
+        "@type": "EducationalOrganization",
+        name: "Porter-Gaud School",
+        address: {
+          "@type": "PostalAddress",
+          addressLocality: "Charleston",
+          addressRegion: "SC",
+          addressCountry: "US",
+        },
+      },
+      {
+        "@type": "EducationalOrganization",
+        name: "First Baptist Church School",
+        address: {
+          "@type": "PostalAddress",
+          addressLocality: "Charleston",
+          addressRegion: "SC",
+          addressCountry: "US",
+        },
+      },
+      {
+        "@type": "EducationalOrganization",
+        name: "Trident Technical College",
+        description: "Aircraft Assembly Certificate via ReadySC program",
+        address: {
+          "@type": "PostalAddress",
+          addressLocality: "Charleston",
+          addressRegion: "SC",
+          addressCountry: "US",
+        },
+      },
+    ],
+    worksFor: [
+      {
+        "@type": "Organization",
+        name: "WildTech Ventures, LLC",
+        legalName: "WildTech Ventures, LLC",
+        url: "https://www.wildtechdev.com",
+        address: {
+          "@type": "PostalAddress",
+          addressLocality: "Charleston",
+          addressRegion: "SC",
+          addressCountry: "US",
+        },
+      },
+      {
+        "@type": "Organization",
+        name: "MSI-Viking Gage",
+        url: "https://msi-viking.com",
+      },
+    ],
+    founder: {
       "@type": "Organization",
       name: "WildTech Ventures, LLC",
       url: "https://www.wildtechdev.com",
     },
-    {
+    foundingDate: "2024",
+    hasOccupation: [
+      {
+        "@type": "Occupation",
+        name: "Software Developer",
+        occupationLocation: {
+          "@type": "City",
+          name: "Charleston, South Carolina",
+        },
+        skills:
+          "iOS development, Swift, SwiftUI, web development, Next.js, React, TypeScript, hardware engineering, IoT, embedded systems",
+        responsibilities:
+          "Designs and builds iOS apps, web platforms, and custom hardware products. Owner-operated end-to-end engineering for client projects and proprietary products.",
+      },
+      {
+        "@type": "Occupation",
+        name: "Founder",
+        occupationLocation: {
+          "@type": "City",
+          name: "Charleston, South Carolina",
+        },
+        responsibilities:
+          "Founded WildTech Ventures, LLC in Charleston, SC. Operates WildTech Development, the studio that builds custom software and hardware for clients.",
+      },
+      {
+        "@type": "Occupation",
+        name: "Director of E-Commerce",
+        occupationLocation: {
+          "@type": "City",
+          name: "Charleston, South Carolina",
+        },
+        responsibilities:
+          "Director of E-Commerce at MSI-Viking Gage, one of the country's leading precision measurement firms.",
+      },
+    ],
+    spouse: {
+      "@type": "Person",
+      name: "Brittany McCants",
+    },
+    memberOf: {
       "@type": "Organization",
-      name: "MSI-Viking Gage",
+      name: "Harbor View Presbyterian Church",
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "James Island",
+        addressRegion: "SC",
+        addressCountry: "US",
+      },
     },
-  ],
-  spouse: {
-    "@type": "Person",
-    name: "Brittany McCants",
+    knowsAbout: [
+      "Software Development",
+      "iOS Development",
+      "Swift",
+      "SwiftUI",
+      "Web Development",
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Hardware Engineering",
+      "IoT",
+      "Embedded Systems",
+      "CAD Modeling",
+      "Additive Manufacturing",
+      "3D Printing",
+      "Metrology",
+      "ZEISS Optotechnik 3D Scanning",
+      "Reverse Engineering",
+      "E-Commerce",
+      "NetSuite Administration",
+      "Aircraft Assembly",
+      "App Store Optimization",
+      "Resend Email",
+      "Vercel Deployment",
+      "Charleston SC Software Development",
+    ],
+    knowsLanguage: ["English"],
+    hasCredential: [
+      {
+        "@type": "EducationalOccupationalCredential",
+        name: "FAA Part 61 Private Pilot Certificate",
+        credentialCategory: "license",
+      },
+      {
+        "@type": "EducationalOccupationalCredential",
+        name: "Aircraft Assembly Certificate",
+        credentialCategory: "certificate",
+        educationalLevel: "Trident Technical College, ReadySC program",
+      },
+    ],
+    sameAs: [
+      "https://www.linkedin.com/in/willmccants/",
+      "https://www.wildtechdev.com",
+      "https://www.wildtechdev.com/about",
+      "https://www.wildtechdev.com/press",
+      "https://churchd.com",
+      "https://vikingsensors.com",
+      "https://apps.apple.com/us/developer/wildtech-ventures-llc/id1718456894",
+      "https://apps.apple.com/us/app/spirits-of-charleston/id6476931671",
+      "https://apps.apple.com/us/app/spirits-of-savannah/id6740187114",
+      "https://apps.apple.com/us/app/ez-fuse-tester/id6737378228",
+      "https://apps.apple.com/us/app/we-the-people-your-rights/id6770393978",
+    ],
+    subjectOf: [
+      {
+        "@type": "WebPage",
+        url: "https://www.wildtechdev.com/will-mccants",
+        name: "Will McCants Founder Page",
+      },
+      {
+        "@type": "WebPage",
+        url: "https://www.wildtechdev.com/about",
+        name: "About WildTech Development",
+      },
+      {
+        "@type": "WebPage",
+        url: "https://www.wildtechdev.com/press",
+        name: "Press Kit",
+      },
+    ],
   },
-  memberOf: {
-    "@type": "Organization",
-    name: "Harbor View Presbyterian Church",
-    address: {
-      "@type": "PostalAddress",
-      addressLocality: "James Island",
-      addressRegion: "SC",
-      addressCountry: "US",
+  about: {
+    "@id": "https://www.wildtechdev.com/will-mccants#person",
+  },
+};
+
+// FAQ that anchors the entity. Every answer mentions the name + Charleston
+// explicitly. Wrapped in FAQPage JSON-LD for rich SERP results.
+const founderFaqs = [
+  {
+    q: "Who is Will McCants?",
+    a: "Will McCants (full name William McCants) is a Charleston, South Carolina based software developer, hardware engineer, and entrepreneur. He is the founder of WildTech Ventures, LLC and runs WildTech Development, the studio that builds custom iOS apps, web platforms, and precision hardware for clients across the United States. He also serves as Director of E-Commerce at MSI-Viking Gage, one of the country's leading precision measurement firms.",
+  },
+  {
+    q: "Where is Will McCants based?",
+    a: "Will McCants lives on James Island in Charleston, South Carolina. He was born and raised in Mount Pleasant, South Carolina and has spent most of his life in the Charleston Lowcountry. WildTech Ventures, LLC is registered and operated from Charleston, SC.",
+  },
+  {
+    q: "What companies has Will McCants founded?",
+    a: "Will McCants founded WildTech Ventures, LLC in 2024, the parent company behind WildTech Development. WildTech Ventures is also the parent entity for Viking Sensors (the precision climate monitoring product distributed exclusively through MSI-Viking Gage) and Churchd (the church community platform currently in active development).",
+  },
+  {
+    q: "What apps has Will McCants built?",
+    a: "Will McCants is the developer and publisher of several iOS apps on the App Store: Spirits of Charleston (Lowcountry ghost story app), Spirits of Savannah (Savannah ghost story app), EZ Fuse Tester (free utility that turns an iPhone into a fuse continuity tester), and We The People: Your Rights (plain-English Constitution and Bill of Rights reference). All apps are published under WildTech Ventures, LLC.",
+  },
+  {
+    q: "Where did Will McCants go to school?",
+    a: "Will McCants attended Porter-Gaud School and First Baptist Church School in Charleston, South Carolina. He later completed an Aircraft Assembly Certificate at Trident Technical College through the ReadySC program. He holds an FAA Part 61 Private Pilot Certificate.",
+  },
+  {
+    q: "What does Will McCants do at MSI-Viking Gage?",
+    a: "Will McCants serves as Director of E-Commerce at MSI-Viking Gage, the precision measurement and metrology firm that is also the exclusive distributor of Viking Sensors. His role covers e-commerce strategy, NetSuite administration, and ongoing technical leadership.",
+  },
+  {
+    q: "How do I hire Will McCants or WildTech Development?",
+    a: "The fastest way to start a conversation with Will McCants is the contact form on wildtechdev.com. WildTech Development takes on a small number of client projects each year covering iOS, Windows, web, integration, and custom hardware work. The intro call is free.",
+  },
+  {
+    q: "Is this the same Will McCants who works at Brookings Institution?",
+    a: "No. The Will McCants on this site is the Charleston, South Carolina based software developer and founder of WildTech Development. He is not affiliated with any other person of the same name.",
+  },
+];
+
+const founderFaqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: founderFaqs.map((f) => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: f.a,
     },
-  },
-  knowsAbout: [
-    "Software Development",
-    "iOS Development",
-    "Web Development",
-    "Hardware Engineering",
-    "IoT",
-    "CAD Modeling",
-    "Additive Manufacturing",
-    "Metrology",
-    "ZEISS Optotechnik 3D Scanning",
-    "Reverse Engineering",
-    "E-Commerce",
-    "NetSuite Administration",
-    "Aircraft Assembly",
-  ],
-  hasCredential: {
-    "@type": "EducationalOccupationalCredential",
-    name: "FAA Part 61 Private Pilot Certificate",
-    credentialCategory: "license",
-  },
-  sameAs: [
-    "https://www.linkedin.com/in/willmccants/",
-    "https://churchd.com",
-    "https://vikingsensors.com",
-    "https://www.wildtechdev.com/about",
-  ],
+  })),
 };
 
 const quickFacts = [
@@ -335,6 +575,10 @@ export default function WillMcCantsPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(founderFaqJsonLd) }}
       />
       <BreadcrumbJsonLd
         items={[
@@ -903,6 +1147,45 @@ export default function WillMcCantsPage() {
                     </ScrollReveal>
                   );
                 })}
+              </div>
+            </div>
+          </ScrollReveal>
+
+          {/* FAQ */}
+          <ScrollReveal>
+            <div className="border-t border-border pt-16 mb-20">
+              <p className="section-label text-xs uppercase tracking-[0.18em] text-muted mb-3 font-[family-name:var(--font-sans)]">
+                Questions
+              </p>
+              <h2 className="text-3xl sm:text-4xl font-[family-name:var(--font-serif)] italic text-heading mb-10">
+                Frequently asked about Will McCants.
+              </h2>
+              <div className="space-y-px bg-border">
+                {founderFaqs.map((faq, i) => (
+                  <details
+                    key={faq.q}
+                    className="group bg-[#06070a] open:bg-[#0a0c10] transition-colors"
+                    open={i < 2}
+                  >
+                    <summary className="cursor-pointer list-none px-6 py-5 flex items-start gap-4 hover:bg-[#0a0c10] transition-colors">
+                      <span className="text-[11px] font-mono tracking-[0.2em] text-green mt-1.5 shrink-0">
+                        {String(i + 1).padStart(2, "0")}
+                      </span>
+                      <span className="flex-1 text-base sm:text-lg font-[family-name:var(--font-sans)] text-heading">
+                        {faq.q}
+                      </span>
+                      <span
+                        className="mt-2 w-3 h-3 border-r-2 border-b-2 border-muted group-open:rotate-[225deg] -rotate-45 transition-transform shrink-0"
+                        aria-hidden="true"
+                      />
+                    </summary>
+                    <div className="px-6 pb-6 pl-[58px]">
+                      <p className="text-body leading-relaxed text-sm">
+                        {faq.a}
+                      </p>
+                    </div>
+                  </details>
+                ))}
               </div>
             </div>
           </ScrollReveal>

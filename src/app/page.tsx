@@ -16,13 +16,19 @@ export const metadata: Metadata = {
 
 const orgJsonLd = {
   "@context": "https://schema.org",
-  "@type": "Organization",
+  "@type": ["Organization", "LocalBusiness", "ProfessionalService"],
+  "@id": "https://www.wildtechdev.com#organization",
   name: "WildTech Development",
   legalName: "WildTech Ventures, LLC",
+  alternateName: ["WildTech", "WildTech Ventures"],
   url: "https://www.wildtechdev.com",
   logo: "https://www.wildtechdev.com/android-chrome-512x512.png",
+  image:
+    "https://www.wildtechdev.com/api/og?title=WildTech%20Development%20%E2%80%94%20Custom%20software%20and%20hardware%20from%20Charleston%2C%20SC&kind=WildTech%20Development",
   description:
-    "Software and hardware studio in Charleston, SC. iOS apps, web platforms, and precision IoT hardware.",
+    "Software and hardware studio in Charleston, South Carolina. Owner-operated by Will McCants. Custom iOS apps, web platforms, and precision IoT hardware for clients across the United States.",
+  slogan:
+    "Custom software, hardware, and integration from Charleston, SC.",
   foundingDate: "2024",
   founder: {
     "@type": "Person",
@@ -30,24 +36,98 @@ const orgJsonLd = {
     alternateName: "William McCants",
     url: "https://www.wildtechdev.com/will-mccants",
   },
+  employee: {
+    "@type": "Person",
+    name: "Will McCants",
+    jobTitle: "Founder",
+    url: "https://www.wildtechdev.com/will-mccants",
+  },
   address: {
     "@type": "PostalAddress",
     addressLocality: "Charleston",
     addressRegion: "SC",
     addressCountry: "US",
+    postalCode: "29412",
   },
+  areaServed: [
+    {
+      "@type": "Place",
+      name: "Charleston Metropolitan Area",
+    },
+    {
+      "@type": "State",
+      name: "South Carolina",
+    },
+    {
+      "@type": "Country",
+      name: "United States",
+    },
+  ],
+  serviceArea: {
+    "@type": "GeoCircle",
+    geoMidpoint: {
+      "@type": "GeoCoordinates",
+      latitude: 32.7765,
+      longitude: -79.9311,
+    },
+    geoRadius: "5000000",
+  },
+  knowsAbout: [
+    "iOS Development",
+    "Swift",
+    "SwiftUI",
+    "Web Development",
+    "Next.js",
+    "React",
+    "TypeScript",
+    "Hardware Engineering",
+    "IoT",
+    "Systems Integration",
+    "App Store Optimization",
+    "Custom Software Development",
+    "Charleston SC Software Development",
+  ],
   sameAs: [
-    "https://www.wildtechdev.com",
     "https://churchd.com",
     "https://vikingsensors.com",
     "https://www.linkedin.com/in/willmccants/",
+    "https://apps.apple.com/us/developer/wildtech-ventures-llc/id1718456894",
   ],
-  contactPoint: {
-    "@type": "ContactPoint",
-    contactType: "customer service",
-    email: "info@wildtechdev.com",
-    areaServed: "US",
-    availableLanguage: "English",
+  contactPoint: [
+    {
+      "@type": "ContactPoint",
+      contactType: "customer service",
+      email: "info@wildtechdev.com",
+      areaServed: "US",
+      availableLanguage: "English",
+    },
+    {
+      "@type": "ContactPoint",
+      contactType: "sales",
+      email: "info@wildtechdev.com",
+      areaServed: "US",
+      availableLanguage: "English",
+    },
+    {
+      "@type": "ContactPoint",
+      contactType: "press",
+      email: "info@wildtechdev.com",
+      areaServed: "US",
+      availableLanguage: "English",
+    },
+  ],
+  priceRange: "$$-$$$",
+  openingHoursSpecification: {
+    "@type": "OpeningHoursSpecification",
+    dayOfWeek: [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+    ],
+    opens: "09:00",
+    closes: "18:00",
   },
 };
 
