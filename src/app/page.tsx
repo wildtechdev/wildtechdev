@@ -590,7 +590,11 @@ export default function HomePage() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-border">
             {products.map((product, i) => (
-              <ScrollReveal key={product.name} delay={i * 80}>
+              <ScrollReveal
+                key={product.name}
+                delay={i * 80}
+                className="h-full"
+              >
                 <HomeProductCard product={product} index={i} />
               </ScrollReveal>
             ))}
