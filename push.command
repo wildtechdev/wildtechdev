@@ -2,7 +2,7 @@
 cd "$(dirname "$0")"
 rm -f .git/index.lock .git/HEAD.lock .git/ORIG_HEAD.lock
 git add -A
-git commit -m "fix(newsletter): /api/subscribe now actually does something - sends a branded welcome email to the subscriber and a notification to info@ for each new signup, with best-effort Resend Audience add if RESEND_AUDIENCE_ID is configured. Previous version silently logged and returned ok which is why subscribers got no email and nothing showed up in Resend."
+git commit -m "feat(mockups): replace all 6 placeholder PhoneMockup SVG designs with actual cropped product screenshots - Spirits of Charleston (Garden Theatre), Spirits of Savannah (Olde Pink House), EZ Fuse Tester (FAIL state), Churchd (feed view), Viking Sensors (live dashboard), We The People (founding documents). Status bars and Safari/system chrome cropped out, all optimized to ~600x1200 JPEG."
 git push origin main
 echo ""
 echo "Done! Press any key to close."

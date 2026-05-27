@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 type Product =
   | "spirits-charleston"
   | "spirits-savannah"
@@ -208,12 +210,17 @@ function LightningIcon({ className }: { className?: string }) {
   );
 }
 
+// Config per product. When `imageSrc` is set, the real cropped screenshot
+// fills the phone screen and we hide the placeholder label/gradient. When
+// it's absent, fall back to the original SVG abstract.
 const configs: Record<Product, {
   gradient: string;
   screenContent: React.ReactNode;
   accentIcon: React.ReactNode;
   label: string;
   labelStyle: string;
+  imageSrc?: string;
+  imageAlt?: string;
 }> = {
   "spirits-charleston": {
     gradient: "from-amber-950/80 via-amber-900/40 to-stone-950",
@@ -221,6 +228,9 @@ const configs: Record<Product, {
     accentIcon: <MapPinIcon className="w-4 h-4 text-amber-500/50" />,
     label: "75+ Stories",
     labelStyle: "font-[family-name:var(--font-serif)] italic text-amber-300/70",
+    imageSrc: "/products/spirits-charleston.jpg",
+    imageAlt:
+      "Spirits of Charleston app showing the Garden Theatre story at 371 King Street with audio player and historic photo",
   },
   "spirits-savannah": {
     gradient: "from-teal-950/80 via-emerald-900/30 to-stone-950",
@@ -228,6 +238,9 @@ const configs: Record<Product, {
     accentIcon: <MapPinIcon className="w-4 h-4 text-teal-500/50" />,
     label: "55+ Stories",
     labelStyle: "font-[family-name:var(--font-serif)] italic text-teal-300/70",
+    imageSrc: "/products/spirits-savannah.jpg",
+    imageAlt:
+      "Spirits of Savannah app showing the Olde Pink House story at 23 Abercorn Street with audio player and historic photo",
   },
   "ez-fuse": {
     gradient: "from-green-950/80 via-green-900/30 to-stone-950",
@@ -235,6 +248,9 @@ const configs: Record<Product, {
     accentIcon: <LightningIcon className="w-4 h-4 text-green-500/50" />,
     label: "PASS / FAIL",
     labelStyle: "font-mono text-xs tracking-[0.3em] text-green-400/70",
+    imageSrc: "/products/ez-fuse.jpg",
+    imageAlt:
+      "EZ Fuse Tester app showing a FAIL No Continuity Detected result with the fuse test area",
   },
   churchd: {
     gradient: "from-indigo-950/80 via-indigo-900/30 to-stone-950",
@@ -242,6 +258,9 @@ const configs: Record<Product, {
     accentIcon: null,
     label: "Community",
     labelStyle: "font-[family-name:var(--font-serif)] italic text-indigo-300/70",
+    imageSrc: "/products/churchd.jpg",
+    imageAlt:
+      "Churchd community platform showing an upcoming Gary Gist Men's Breakfast event and a Harbor View Presbyterian book club post",
   },
   vikingsense: {
     gradient: "from-red-950/80 via-red-900/20 to-stone-950",
@@ -249,6 +268,9 @@ const configs: Record<Product, {
     accentIcon: null,
     label: "Precision",
     labelStyle: "font-[family-name:var(--font-serif)] italic text-red-300/70",
+    imageSrc: "/products/vikingsense.jpg",
+    imageAlt:
+      "Viking Sensors dashboard showing real-time temperature and humidity data with a 24-hour graph",
   },
   "we-the-people": {
     gradient: "from-blue-950/85 via-indigo-950/40 to-slate-950",
@@ -257,6 +279,9 @@ const configs: Record<Product, {
     label: "Know your rights",
     labelStyle:
       "font-[family-name:var(--font-serif)] italic text-blue-200/80",
+    imageSrc: "/products/we-the-people.jpg",
+    imageAlt:
+      "We The People: Your Rights app home screen showing the four founding documents",
   },
 };
 
@@ -281,20 +306,41 @@ export default function PhoneMockup({
 
         {/* Screen content */}
         <div className={`absolute inset-[3px] rounded-[17px] overflow-hidden bg-gradient-to-b ${cfg.gradient}`}>
-          {/* SVG screen details */}
-          <svg className="absolute inset-0 w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
-            {cfg.screenContent}
-          </svg>
+          {cfg.imageSrc ? (
+            // Real cropped screenshot fills the phone screen
+            <Image
+              src={cfg.imageSrc}
+              alt={cfg.imageAlt ?? cfg.label}
+              fill
+              className="object-cover object-top"
+              sizes={isSmall ? "144px" : "224px"}
+            />
+          ) : (
+            <>
+              {/* SVG abstract placeholder */}
+              <svg
+                className="absolute inset-0 w-full h-full"
+                viewBox="0 0 100 100"
+                preserveAspectRatio="none"
+              >
+                {cfg.screenContent}
+              </svg>
 
-          {/* Label overlay */}
-          <div className="absolute inset-0 flex flex-col items-center justify-end pb-6 z-10">
-            <p className={`${cfg.labelStyle} ${isSmall ? "text-sm" : "text-lg"}`}>
-              {cfg.label}
-            </p>
-            {cfg.accentIcon && (
-              <div className="mt-1">{cfg.accentIcon}</div>
-            )}
-          </div>
+              {/* Label overlay (only on placeholders, not real screenshots) */}
+              <div className="absolute inset-0 flex flex-col items-center justify-end pb-6 z-10">
+                <p
+                  className={`${cfg.labelStyle} ${
+                    isSmall ? "text-sm" : "text-lg"
+                  }`}
+                >
+                  {cfg.label}
+                </p>
+                {cfg.accentIcon && (
+                  <div className="mt-1">{cfg.accentIcon}</div>
+                )}
+              </div>
+            </>
+          )}
         </div>
       </div>
     </div>
