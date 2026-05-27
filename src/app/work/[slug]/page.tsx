@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
+import PhoneMockup from "@/components/PhoneMockup";
 import Prose from "@/components/Prose";
 import ScrollReveal from "@/components/ScrollReveal";
 import {
@@ -74,7 +75,7 @@ export default async function CaseStudyPage({
           }}
           aria-hidden="true"
         />
-        <div className="relative max-w-3xl mx-auto px-6 lg:px-8">
+        <div className="relative max-w-5xl mx-auto px-6 lg:px-8">
           <Link
             href="/work"
             className="inline-flex items-center gap-1.5 text-[10px] font-mono uppercase tracking-[0.22em] text-muted hover:text-green transition-colors mb-10"
@@ -97,15 +98,27 @@ export default async function CaseStudyPage({
           </Link>
 
           <header className="mb-14">
-            <p className="text-xs font-mono tracking-[0.2em] text-green mb-3">
-              {cs.year}
-            </p>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-[family-name:var(--font-serif)] italic text-heading mb-4 leading-[1.05]">
-              {cs.product}
-            </h1>
-            <p className="text-body text-lg leading-relaxed mb-10 max-w-2xl">
-              {cs.title}
-            </p>
+            {/* Top: title block + product mockup side-by-side on desktop,
+                stacked on mobile with the mockup below the title. */}
+            <div className="flex flex-col lg:flex-row lg:items-start gap-10 lg:gap-16 mb-12">
+              <div className="flex-1 min-w-0">
+                <p className="text-xs font-mono tracking-[0.2em] text-green mb-3">
+                  {cs.year}
+                </p>
+                <h1 className="text-4xl sm:text-5xl lg:text-6xl font-[family-name:var(--font-serif)] italic text-heading mb-4 leading-[1.05]">
+                  {cs.product}
+                </h1>
+                <p className="text-body text-lg leading-relaxed max-w-2xl">
+                  {cs.title}
+                </p>
+              </div>
+              <div
+                className="shrink-0 self-center lg:self-start"
+                style={{ transform: "translateZ(0)" }}
+              >
+                <PhoneMockup product={cs.mockup} />
+              </div>
+            </div>
 
             <dl className="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-8 border-t border-border">
               <div>
@@ -153,12 +166,12 @@ export default async function CaseStudyPage({
             )}
           </header>
 
-          <div className="border-t border-border pt-10">
+          <div className="border-t border-border pt-10 max-w-3xl mx-auto">
             <Prose content={cs.content} />
           </div>
 
           <ScrollReveal>
-            <div className="mt-16 pt-10 border-t border-border flex flex-col sm:flex-row gap-4 items-start sm:items-center justify-between">
+            <div className="mt-16 pt-10 border-t border-border flex flex-col sm:flex-row gap-4 items-start sm:items-center justify-between max-w-3xl mx-auto">
               <div className="flex flex-wrap gap-3">
                 {cs.appStoreUrl && (
                   <a
@@ -197,7 +210,7 @@ export default async function CaseStudyPage({
           </ScrollReveal>
 
           <ScrollReveal>
-            <div className="mt-16 pt-10 border-t border-border">
+            <div className="mt-16 pt-10 border-t border-border max-w-3xl mx-auto">
               <p className="section-label text-xs uppercase tracking-[0.18em] text-muted mb-6 font-[family-name:var(--font-sans)]">
                 Up next
               </p>

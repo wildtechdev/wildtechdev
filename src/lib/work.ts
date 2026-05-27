@@ -14,6 +14,13 @@ export type CaseStudy = {
   externalUrl?: string;
   appStoreUrl?: string;
   productAnchor: string; // Anchor on /products to link back to
+  mockup:
+    | "spirits-charleston"
+    | "spirits-savannah"
+    | "ez-fuse"
+    | "churchd"
+    | "vikingsense"
+    | "we-the-people"; // PhoneMockup product id for the header screenshot
   content: string;
 };
 
@@ -42,6 +49,7 @@ export const caseStudies: CaseStudy[] = [
     ],
     externalUrl: "https://vikingsensors.com",
     productAnchor: "viking-sensors",
+    mockup: "vikingsense",
     content: `Viking Sensors is the longest-running and most operationally mature product in the WildTech portfolio. It is a line of precision climate monitoring devices paired with cloud telemetry and dashboards, sold into calibration labs, server rooms, warehouses, cleanrooms, and any other environment where temperature and humidity have to stay inside narrow bounds and someone has to be able to prove it.
 
 The product exists because the off-the-shelf options were not good enough. Consumer sensors are not accurate enough for calibration work. Industrial sensors are accurate but ship with software that looks like it was last updated in 2005. The gap between "accurate" and "usable" was a real product opportunity, and Viking Sensors fills it.
@@ -111,6 +119,7 @@ If you have a hardware idea that needs to become a real product with real custom
     appStoreUrl:
       "https://apps.apple.com/us/app/we-the-people-your-rights/id6770393978",
     productAnchor: "we-the-people-your-rights",
+    mockup: "we-the-people",
     content: `We The People: Your Rights is the most personal app we have ever shipped. The full origin story lives on the founder page, but the short version is that it started with a conversation in a men's society meeting where someone passed around a small pocket Constitution and said this was the most important thing anyone in the room owned. We agreed. We also realized that almost nobody actually carries one of those, and that the modern equivalent should be on the phone in your pocket.
 
 The app shipped to the App Store on a fast schedule, free, with no ads, no tracking, no in-app purchases, and no account required. It is the kind of project that did not need to make money to be worth building.
@@ -181,6 +190,7 @@ If you have an idea that needs to exist in the world, let's talk about how to ma
     appStoreUrl:
       "https://apps.apple.com/us/app/spirits-of-charleston/id6476931671",
     productAnchor: "spirits-of-charleston",
+    mockup: "spirits-charleston",
     content: `Spirits of Charleston is what happens when a software developer who grew up on the Lowcountry's haunted history sits down to ask why no good tool existed for exploring it.
 
 Charleston has a deep, real ghost story tradition that goes back centuries. There are walking tour companies that have built whole businesses around it. There are books, websites, and the occasional television special. What there was not, before this app, was a single comprehensive reference that covered the whole region, included professional audio narration, mapped every story to a real place you could visit, and let you explore at your own pace without paying a tour guide forty dollars to spend ninety minutes downtown.
@@ -244,6 +254,7 @@ If you have a guidebook, an audio tour, a reference work, or any other content-d
     appStoreUrl:
       "https://apps.apple.com/us/app/spirits-of-savannah/id6740187114",
     productAnchor: "spirits-of-savannah",
+    mockup: "spirits-savannah",
     content: `Spirits of Savannah is the second app in the Spirits series and the first product where we proved the model could repeat. The Charleston version had been live for several months, had earned a 5.0 rating, and had attracted enough positive feedback that the obvious question was whether the same approach would work in another haunted Southern city. Savannah was the answer.
 
 The app launched later that same year with over 55 narrated stories, the same offline-first technical architecture, and the same business model. One-time purchase, no ads, no subscription.
@@ -296,6 +307,7 @@ If you have a content product that you think could work across multiple cities, 
     ],
     appStoreUrl: "https://apps.apple.com/us/app/ez-fuse-tester/id6737378228",
     productAnchor: "ez-fuse-tester",
+    mockup: "ez-fuse",
     content: `EZ Fuse Tester is the smallest, most focused app we have ever shipped, and one of the most successful. It is a free utility that turns an iPhone screen into a continuity tester for small glass cartridge fuses, using the phone's built-in capacitive touch sensors to detect whether the fuse is intact or blown. The whole app is one screen. There is no signup, no account, no in-app purchase, no ads, and no data collection.
 
 The full story of how the idea showed up on a Tuesday evening in October 2023 is in our journal post on what we learned shipping EZ Fuse Tester. This case study is the structured version for clients trying to understand whether we are the right team for a small focused utility project.
@@ -361,6 +373,7 @@ If you have a small focused utility idea that should exist, let's talk about how
     ],
     externalUrl: "https://churchd.com",
     productAnchor: "churchd",
+    mockup: "churchd",
     content: `Churchd is the largest software product WildTech is currently building. It is a community platform designed specifically for churches and the people in them, intended to replace the awkward patchwork of iMessage threads, GroupMe chats, Facebook events, paper sign-up sheets, and spreadsheets that most congregations rely on with one purpose-built tool.
 
 The product is in active development. The founder page tells the origin story of the legal pad sketches and the conviction that drove the project. This case study is the structured version of what is being built and why it matters.
