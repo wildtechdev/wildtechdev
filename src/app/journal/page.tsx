@@ -83,7 +83,7 @@ export default function JournalPage() {
                       {post.tags.map((tag) => (
                         <span
                           key={tag}
-                          className="inline-flex items-center gap-1.5 text-[10px] font-mono uppercase tracking-[0.16em] text-muted px-2.5 py-1 border border-border bg-[#0a0c10]"
+                          className="inline-flex items-center gap-1.5 text-[10px] font-mono uppercase tracking-[0.16em] text-muted px-2.5 py-1 border border-border bg-surface"
                         >
                           <span className="w-0.5 h-0.5 rounded-full bg-green" />
                           {tag}

@@ -138,7 +138,7 @@ export default function ServicesPage() {
         <div className="space-y-px bg-border">
           {services.map((service, i) => (
             <ScrollReveal key={service.title}>
-              <article className="group relative bg-[#06070a] hover:bg-[#0a0c10] transition-colors duration-500 py-12 lg:py-14 px-6 lg:px-10 overflow-hidden">
+              <article className="group relative bg-black hover:bg-surface transition-colors duration-500 py-12 lg:py-14 px-6 lg:px-10 overflow-hidden">
                 {/* Hover sweep */}
                 <div
                   className="absolute inset-0 bg-gradient-to-r from-green/[0.03] via-transparent to-transparent translate-x-[-100%] group-hover:translate-x-0 transition-transform duration-1000 ease-out pointer-events-none"
@@ -168,7 +168,7 @@ export default function ServicesPage() {
                       {service.tags.map((tag) => (
                         <span
                           key={tag}
-                          className="inline-flex items-center gap-1.5 text-[10px] font-mono uppercase tracking-[0.16em] text-muted px-3 py-1.5 border border-border bg-[#0a0c10] transition-all duration-300 hover:border-green/40 hover:text-body"
+                          className="inline-flex items-center gap-1.5 text-[10px] font-mono uppercase tracking-[0.16em] text-muted px-3 py-1.5 border border-border bg-surface transition-all duration-300 hover:border-green/40 hover:text-body"
                         >
                           <span className="w-0.5 h-0.5 rounded-full bg-green" />
                           {tag}
@@ -184,7 +184,7 @@ export default function ServicesPage() {
 
         {/* Why WildTech */}
         <ScrollReveal>
-          <div className="mt-24 relative bg-[#0a0c10] border border-border -mx-6 px-6 lg:-mx-10 lg:px-10 py-14 lg:py-16 overflow-hidden">
+          <div className="mt-24 relative bg-surface border border-border -mx-6 px-6 lg:-mx-10 lg:px-10 py-14 lg:py-16 overflow-hidden">
             <div className="absolute top-0 left-0 w-12 h-px bg-green" />
             <div
               className="absolute -top-20 right-0 w-[400px] h-[300px] rounded-full pointer-events-none"

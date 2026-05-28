@@ -144,7 +144,7 @@ export default function ProcessPage() {
           <div className="space-y-2 mb-24">
             {phases.map((phase) => (
               <ScrollReveal key={phase.number}>
-                <article className="group relative bg-[#06070a] hover:bg-[#0a0c10] transition-colors duration-500 border-l-[3px] border-l-green/30 hover:border-l-green py-12 lg:py-14 pl-8 pr-6">
+                <article className="group relative bg-black hover:bg-surface transition-colors duration-500 border-l-[3px] border-l-green/30 hover:border-l-green py-12 lg:py-14 pl-8 pr-6">
                   <div className="flex flex-col lg:flex-row lg:items-start gap-6 lg:gap-12">
                     <div className="lg:w-[260px] shrink-0">
                       <div className="flex items-baseline gap-3 mb-3">
@@ -186,7 +186,7 @@ export default function ProcessPage() {
           </div>
 
           <ScrollReveal>
-            <div className="relative bg-[#0a0c10] border border-border -mx-6 px-6 lg:-mx-10 lg:px-10 py-14 overflow-hidden mb-24">
+            <div className="relative bg-surface border border-border -mx-6 px-6 lg:-mx-10 lg:px-10 py-14 overflow-hidden mb-24">
               <div className="absolute top-0 left-0 w-12 h-px bg-green" />
               <p className="section-label text-xs uppercase tracking-[0.18em] text-muted mb-3 font-[family-name:var(--font-sans)]">
                 Principles

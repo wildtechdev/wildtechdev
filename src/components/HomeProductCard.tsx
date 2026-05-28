@@ -42,7 +42,7 @@ export default function HomeProductCard({
   return (
     <TiltCard
       intensity={6}
-      className={`group relative h-full flex flex-col bg-[#0a0c10] p-8 border border-transparent transition-colors duration-500 hover:border-green/40 ${
+      className={`group relative h-full flex flex-col bg-surface p-8 border border-transparent transition-colors duration-500 hover:border-green/40 ${
         accentTints[product.accent]
       }`}
     >

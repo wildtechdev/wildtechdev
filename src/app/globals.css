@@ -23,8 +23,21 @@
   from { opacity: 0; transform: translateY(8px); }
 }
 
+/*
+ * Theme tokens.
+ *
+ * Default = dark theme (the brand identity, what most marketing assets and
+ * OG images are built around). When the user opts into light mode the
+ * [data-theme="light"] selector below overrides each surface and text token
+ * with a calibrated light palette. Everything that uses semantic Tailwind
+ * classes (bg-black, bg-surface, bg-card, text-heading, text-body, text-muted,
+ * border-border, etc.) switches automatically.
+ *
+ * The brand green stays identical in both themes so the WildTech identity
+ * reads consistently across light and dark.
+ */
 @theme inline {
-  /* Base surfaces (warm-tinted near-black, less harsh than pure #000) */
+  /* Base surfaces (DARK theme defaults) */
   --color-black: #06070a;
   --color-surface: #0a0c10;
   --color-card: #11141a;
@@ -42,11 +55,22 @@
   --color-accent: #f59e0b;
   --color-accent-soft: rgba(245, 158, 11, 0.6);
 
-  /* Text */
+  /* Text (DARK theme defaults) */
   --color-heading: #f5f6f8;
   --color-body: #a8acb7;
   --color-muted: #6b7180;
   --color-faint: #3a3f4d;
+
+  /* Page-level chrome that the body uses directly (var() in CSS rules) */
+  --page-bg: #06070a;
+  --page-glow-1: rgba(34, 197, 94, 0.06);
+  --page-glow-2: rgba(34, 197, 94, 0.03);
+  --scrollbar-track: #06070a;
+  --scrollbar-thumb: #2a2f3d;
+  --scrollbar-thumb-hover: #3a3f4d;
+  --selection-bg: rgba(34, 197, 94, 0.3);
+  --selection-fg: #f5f6f8;
+  --noise-opacity: 0.03;
 
   /* Fonts */
   --font-sans: var(--font-inter);
@@ -62,28 +86,63 @@
   --shadow-glow-strong: 0 0 60px rgba(34, 197, 94, 0.3);
 }
 
+/*
+ * Light theme overrides.
+ *
+ * Applied when <html data-theme="light"> is set (via ThemeProvider).
+ * Backgrounds shift to warm off-whites, text to dark charcoals,
+ * borders to soft grays. Brand green stays the same.
+ */
+[data-theme="light"] {
+  --color-black: #ffffff;
+  --color-surface: #fafaf9;
+  --color-card: #f5f5f4;
+  --color-elevated: #e7e7e6;
+  --color-border: #e4e4e7;
+  --color-border-strong: #c4c4c8;
+
+  --color-heading: #0a0a0a;
+  --color-body: #3f3f46;
+  --color-muted: #71717a;
+  --color-faint: #c4c4c8;
+
+  --page-bg: #fafaf9;
+  --page-glow-1: rgba(34, 197, 94, 0.05);
+  --page-glow-2: rgba(34, 197, 94, 0.025);
+  --scrollbar-track: #f5f5f4;
+  --scrollbar-thumb: #c4c4c8;
+  --scrollbar-thumb-hover: #a1a1aa;
+  --selection-bg: rgba(34, 197, 94, 0.25);
+  --selection-fg: #0a0a0a;
+  --noise-opacity: 0.015;
+
+  color-scheme: light;
+}
+
 * {
   -webkit-tap-highlight-color: transparent;
 }
 
 html {
   scroll-behavior: smooth;
-  background: #06070a;
+  background: var(--page-bg);
   color-scheme: dark;
+  transition: background-color 0.4s ease;
 }
 
 body {
   background:
-    radial-gradient(ellipse 120% 60% at 50% -10%, rgba(34, 197, 94, 0.06), transparent 60%),
-    radial-gradient(ellipse 80% 50% at 50% 110%, rgba(34, 197, 94, 0.03), transparent 60%),
-    #06070a;
-  color: #a8acb7;
+    radial-gradient(ellipse 120% 60% at 50% -10%, var(--page-glow-1), transparent 60%),
+    radial-gradient(ellipse 80% 50% at 50% 110%, var(--page-glow-2), transparent 60%),
+    var(--page-bg);
+  color: var(--color-body);
   font-family: var(--font-sans);
   font-feature-settings: "ss01", "cv11";
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   min-height: 100vh;
+  transition: color 0.4s ease;
 }
 
 /* Noise texture overlay (kept, but slightly subtler) */
@@ -93,14 +152,15 @@ body::before {
   inset: 0;
   z-index: 9999;
   pointer-events: none;
-  opacity: 0.03;
+  opacity: var(--noise-opacity);
+  transition: opacity 0.4s ease;
   background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAOxAAADsQBlSsOGwAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAANLSURBVGiB7ZpNbhNBEIW/6vEkJIAEO8QFOABwAQ7ABTgAm+wQEpBYsEJISCAh/8YzXSzmJ+Ox3TPjmfEk8kqWxtPTXa+rq6t7BuD/ZmLfBuwqYhBfI34C3gMn0+gDuA08Ac7u0LabgZfAa+Ct/3wEuAl86afvYLTIN3bpIrAM3PX/6x7JWtN4mDJGV4BrwEXghn9dBq5Mo0/su0X/BjsLPAbe+M/rwAPfPwdcA+77zyXgJvCon76HPXr2EfC8z4GeAPfs6r3S5y3lPHAFuOJ/zwGX/P4icMm/rsZ5jydOPaHfMxK7ykggYhBfI6b/jUAm0kn0eUYi7DgSYsqZ3BfxBLhkOmEgZkJfPqPPswjLsJq65Oo7CcsvKjHE3fLvhJ/mPi1xW6Yyu7aIZ+Rx8l3LSJ1n/9CbPfvxD3gGvECuOyfq+k98Rp4DJzz93N+Ogdc9p+rfnqFfVfb83v7aXSTgTvAY+JlUXg8c3Eo95X38kxsC7wD3iA3Kd6V3zXX/eQy86j+viIh+FxH5Dv7oiI16D3xGVoHr/vcs8JD4qN9XpjU8jgXsRkY/IKvEaqfm+T7x3XiOrgCXi8xdGP2MH8f3+NfLYeCxJ6w7mXaX4KNnXIJec28IuKBe2Txin5hNzp3q/J7FkJBKZG5vYWIjFBYj0tSUPwHx3bxu/8f5VKkukaT5gYqxGJG73JRIZxRLBYjEEqHjCUqyXCxm3OYikUxjESvVOBKLxI7nQMzE2Lk+EJNBY3QhiZ9GItqU8jQSsY4kJjJKJGI9SUxklEhIkegM5J8TkzEMIjI3MlclcrG/T0wCSd3qfYn8C4z2xDY5EhkZHSVCdpZIbhCfPYlEsmsRU4/ZWm0nstlRIhH7M3sXpXQcCSidxy1lFIh0hOQi+RP5F3TG5NmCWL9HIr8XxM4SCyWy2ZFI/DQSMR8ksr5G/FKPlSVWDxH/E8NcOiNrRML3JdbKxOgqkZi2SGYD/hLMhNz0JKYbCdtJIrppLGa+x03tKhG7ySCR3JQjEXcciXQrke5uJJJdJBK/jER2O+JWl4h+74itnSdyK07EvhKLawyPn0Yi6aqFzNfyH+FEvqIxhTnmAAAAAElFTkSuQmCC");
 }
 
 /* Selection */
 ::selection {
-  background: rgba(34, 197, 94, 0.3);
-  color: #f5f6f8;
+  background: var(--selection-bg);
+  color: var(--selection-fg);
 }
 
 /* Scrollbar */
@@ -109,22 +169,23 @@ body::before {
   height: 10px;
 }
 ::-webkit-scrollbar-track {
-  background: #06070a;
+  background: var(--scrollbar-track);
 }
 ::-webkit-scrollbar-thumb {
-  background: #2a2f3d;
-  border: 2px solid #06070a;
+  background: var(--scrollbar-thumb);
+  border: 2px solid var(--scrollbar-track);
   border-radius: 999px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #3a3f4d;
+  background: var(--scrollbar-thumb-hover);
 }
 
 /* Headings */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-serif);
-  color: #f5f6f8;
+  color: var(--color-heading);
   letter-spacing: -0.01em;
+  transition: color 0.4s ease;
 }
 
 /* Focus styles (accessibility) */
@@ -238,7 +299,7 @@ a:focus-visible {
   transition: color 0.2s ease;
 }
 .link-bright:hover {
-  color: #f5f6f8;
+  color: var(--color-heading);
 }
 
 /* ====== SECTION LABEL ====== */
@@ -364,14 +425,14 @@ a:focus-visible {
   width: 100%;
   background: transparent;
   border: 0;
-  border-bottom: 1px solid #1f2330;
-  color: #f5f6f8;
+  border-bottom: 1px solid var(--color-border);
+  color: var(--color-heading);
   padding: 12px 0;
   font-size: 14px;
-  transition: border-color 0.3s ease, padding 0.3s ease;
+  transition: border-color 0.3s ease, padding 0.3s ease, color 0.4s ease;
 }
 .input-line::placeholder {
-  color: #6b7180;
+  color: var(--color-muted);
 }
 .input-line:focus {
   outline: none;
@@ -392,13 +453,13 @@ a:focus-visible {
 .divider-fade {
   width: 100%;
   height: 1px;
-  background: linear-gradient(to right, transparent, #2a2f3d 30%, #2a2f3d 70%, transparent);
+  background: linear-gradient(to right, transparent, var(--color-border-strong) 30%, var(--color-border-strong) 70%, transparent);
 }
 .divider-fade-short {
   width: 60%;
   height: 1px;
   margin-inline: auto;
-  background: linear-gradient(to right, transparent, #2a2f3d, transparent);
+  background: linear-gradient(to right, transparent, var(--color-border-strong), transparent);
 }
 
 /* ====== CUSTOM CURSOR ====== */
@@ -422,6 +483,7 @@ a:focus-visible {
   border-color: rgba(34, 197, 94, 0.95);
 }
 .cursor-ring.cursor-labeled span {
+  /* Always dark — pill stays brand green in both themes, dark text reads best on green */
   color: #06070a;
 }
 .cursor-ring.cursor-down {

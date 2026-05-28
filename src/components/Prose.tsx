@@ -79,7 +79,7 @@ function renderInline(text: string) {
       return (
         <code
           key={idx}
-          className="rounded bg-[#11141a] border border-border px-1.5 py-0.5 text-[0.92em] text-heading font-mono"
+          className="rounded bg-card border border-border px-1.5 py-0.5 text-[0.92em] text-heading font-mono"
         >
           {part.slice(1, -1)}
         </code>
@@ -136,7 +136,7 @@ export default function Prose({ content }: { content: string }) {
           return (
             <pre
               key={i}
-              className="overflow-x-auto rounded border border-border bg-[#0a0c10] p-4 text-sm font-mono text-heading"
+              className="overflow-x-auto rounded border border-border bg-surface p-4 text-sm font-mono text-heading"
             >
               <code>{b.text}</code>
             </pre>

@@ -181,7 +181,7 @@ export default function PressPage() {
               </p>
               <dl className="grid grid-cols-1 sm:grid-cols-2 gap-px bg-border border border-border">
                 {facts.map((f) => (
-                  <div key={f.label} className="bg-[#06070a] p-5">
+                  <div key={f.label} className="bg-black p-5">
                     <dt className="text-[10px] uppercase tracking-[0.22em] text-muted font-mono mb-2">
                       {f.label}
                     </dt>
@@ -310,7 +310,7 @@ export default function PressPage() {
 
           {/* Cite-ready quote */}
           <ScrollReveal>
-            <div className="mb-20 bg-[#0a0c10] border border-border p-8">
+            <div className="mb-20 bg-surface border border-border p-8">
               <p className="section-label text-xs uppercase tracking-[0.18em] text-muted mb-4 font-[family-name:var(--font-sans)]">
                 Cite-ready quote
               </p>

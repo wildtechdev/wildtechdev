@@ -1173,10 +1173,10 @@ export default function WillMcCantsPage() {
                 {founderFaqs.map((faq, i) => (
                   <details
                     key={faq.q}
-                    className="group bg-[#06070a] open:bg-[#0a0c10] transition-colors"
+                    className="group bg-black open:bg-surface transition-colors"
                     open={i < 2}
                   >
-                    <summary className="cursor-pointer list-none px-6 py-5 flex items-start gap-4 hover:bg-[#0a0c10] transition-colors">
+                    <summary className="cursor-pointer list-none px-6 py-5 flex items-start gap-4 hover:bg-surface transition-colors">
                       <span className="text-[11px] font-mono tracking-[0.2em] text-green mt-1.5 shrink-0">
                         {String(i + 1).padStart(2, "0")}
                       </span>

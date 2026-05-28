@@ -5,7 +5,16 @@ import Footer from "@/components/Footer";
 import Cursor from "@/components/Cursor";
 import ScrollProgress from "@/components/ScrollProgress";
 import CommandPalette from "@/components/CommandPalette";
+import ThemeProvider from "@/components/ThemeProvider";
 import "./globals.css";
+
+/**
+ * Inline script that runs before React hydrates. Reads the saved theme
+ * preference from localStorage (or falls back to the system preference) and
+ * sets data-theme on <html> immediately, so the page paints in the right
+ * theme with no flash. Kept dependency-free and tiny on purpose.
+ */
+const themeNoFlashScript = `(function(){try{var s=localStorage.getItem('wtd-theme');var t=s==='light'||s==='dark'?s:(window.matchMedia&&window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark');if(t==='light'){document.documentElement.setAttribute('data-theme','light');}}catch(e){}})();`;
 
 const inter = Inter({
   variable: "--font-inter",
@@ -90,7 +99,12 @@ export default function RootLayout({
       lang="en"
       id="top"
       className={`${inter.variable} ${instrumentSerif.variable} h-full antialiased`}
+      suppressHydrationWarning
     >
+      <head>
+        {/* Set theme before paint to avoid a flash of the wrong palette. */}
+        <script dangerouslySetInnerHTML={{ __html: themeNoFlashScript }} />
+      </head>
       <body className="min-h-full flex flex-col">
         {/* WebSite JSON-LD with SearchAction enables Google's sitelinks
             search box on branded queries. Person Knowledge Graph hint
@@ -130,12 +144,14 @@ export default function RootLayout({
             }),
           }}
         />
-        <ScrollProgress />
-        <Cursor />
-        <CommandPalette />
-        <Navbar />
-        <main className="flex-1 pt-16 animate-page-enter">{children}</main>
-        <Footer />
+        <ThemeProvider>
+          <ScrollProgress />
+          <Cursor />
+          <CommandPalette />
+          <Navbar />
+          <main className="flex-1 pt-16 animate-page-enter">{children}</main>
+          <Footer />
+        </ThemeProvider>
       </body>
     </html>
   );

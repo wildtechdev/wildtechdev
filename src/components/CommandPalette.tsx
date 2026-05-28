@@ -238,7 +238,7 @@ export default function CommandPalette() {
       />
       <div
         onClick={(e) => e.stopPropagation()}
-        className="relative w-full max-w-xl bg-[#0a0c10] border border-border rounded shadow-2xl overflow-hidden"
+        className="relative w-full max-w-xl bg-surface border border-border rounded shadow-2xl overflow-hidden"
         style={{ boxShadow: "0 0 60px rgba(34,197,94,0.15)" }}
       >
         <div className="flex items-center gap-3 border-b border-border px-4 py-3">
@@ -295,7 +295,7 @@ export default function CommandPalette() {
                         className={`w-full text-left px-3 py-2 rounded text-sm transition-colors ${
                           isSelected
                             ? "bg-green/15 text-heading"
-                            : "text-body hover:bg-[#11141a]"
+                            : "text-body hover:bg-card"
                         }`}
                       >
                         {c.label}

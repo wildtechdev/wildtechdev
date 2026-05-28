@@ -49,7 +49,7 @@ export default function NewsletterSignup({
 
   if (state === "ok") {
     return (
-      <div className="bg-[#0a0c10] border border-green/30 rounded p-6">
+      <div className="bg-surface border border-green/30 rounded p-6">
         <p className="text-sm text-green font-mono uppercase tracking-[0.18em] mb-1">
           Subscribed
         </p>

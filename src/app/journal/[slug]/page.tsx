@@ -151,7 +151,7 @@ export default async function PostPage({
               {post.tags.map((tag) => (
                 <span
                   key={tag}
-                  className="inline-flex items-center gap-1.5 text-[10px] font-mono uppercase tracking-[0.16em] text-muted px-2.5 py-1 border border-border bg-[#0a0c10]"
+                  className="inline-flex items-center gap-1.5 text-[10px] font-mono uppercase tracking-[0.16em] text-muted px-2.5 py-1 border border-border bg-surface"
                 >
                   <span className="w-0.5 h-0.5 rounded-full bg-green" />
                   {tag}
@@ -167,7 +167,7 @@ export default async function PostPage({
           <div className="mt-16 pt-10 border-t border-border">
             <Link
               href="/will-mccants"
-              className="group inline-flex items-center gap-4 -mx-2 px-2 py-2 rounded transition-colors duration-300 hover:bg-[#0a0c10]"
+              className="group inline-flex items-center gap-4 -mx-2 px-2 py-2 rounded transition-colors duration-300 hover:bg-surface"
               aria-label="About Will McCants, founder of WildTech Development"
             >
               <span className="relative block w-12 h-12 rounded-full overflow-hidden border border-border transition-all duration-500 group-hover:border-green/60 group-hover:shadow-[0_0_18px_rgba(34,197,94,0.25)]">

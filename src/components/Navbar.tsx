@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
+import ThemeToggle from "@/components/ThemeToggle";
 
 const navLinks = [
   { href: "/", label: "Home" },
@@ -46,7 +47,7 @@ export default function Navbar() {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled
-          ? "bg-[#06070a]/85 backdrop-blur-xl border-b border-border"
+          ? "bg-black/85 backdrop-blur-xl border-b border-border"
           : "bg-transparent border-b border-transparent"
       }`}
     >
@@ -95,32 +96,36 @@ export default function Navbar() {
                 </Link>
               );
             })}
+            <ThemeToggle className="ml-2" />
           </div>
 
-          <button
-            className="md:hidden text-body hover:text-heading transition-colors p-2 -mr-2"
-            onClick={() => setMobileOpen(!mobileOpen)}
-            aria-label={mobileOpen ? "Close menu" : "Open menu"}
-            aria-expanded={mobileOpen}
-          >
-            <div className="relative w-5 h-5">
-              <span
-                className={`absolute left-0 top-1.5 w-5 h-px bg-current transition-all duration-300 ${
-                  mobileOpen ? "rotate-45 translate-y-1" : ""
-                }`}
-              />
-              <span
-                className={`absolute left-0 top-1/2 -translate-y-1/2 w-5 h-px bg-current transition-all duration-300 ${
-                  mobileOpen ? "opacity-0" : ""
-                }`}
-              />
-              <span
-                className={`absolute left-0 bottom-1.5 w-5 h-px bg-current transition-all duration-300 ${
-                  mobileOpen ? "-rotate-45 -translate-y-1" : ""
-                }`}
-              />
-            </div>
-          </button>
+          <div className="flex items-center gap-2 md:hidden">
+            <ThemeToggle />
+            <button
+              className="text-body hover:text-heading transition-colors p-2 -mr-2"
+              onClick={() => setMobileOpen(!mobileOpen)}
+              aria-label={mobileOpen ? "Close menu" : "Open menu"}
+              aria-expanded={mobileOpen}
+            >
+              <div className="relative w-5 h-5">
+                <span
+                  className={`absolute left-0 top-1.5 w-5 h-px bg-current transition-all duration-300 ${
+                    mobileOpen ? "rotate-45 translate-y-1" : ""
+                  }`}
+                />
+                <span
+                  className={`absolute left-0 top-1/2 -translate-y-1/2 w-5 h-px bg-current transition-all duration-300 ${
+                    mobileOpen ? "opacity-0" : ""
+                  }`}
+                />
+                <span
+                  className={`absolute left-0 bottom-1.5 w-5 h-px bg-current transition-all duration-300 ${
+                    mobileOpen ? "-rotate-45 -translate-y-1" : ""
+                  }`}
+                />
+              </div>
+            </button>
+          </div>
         </div>
       </div>
 
@@ -132,7 +137,7 @@ export default function Navbar() {
             : "max-h-0 opacity-0"
         }`}
       >
-        <div className="bg-[#06070a]/95 backdrop-blur-xl border-t border-border px-6 py-8 space-y-1">
+        <div className="bg-black/95 backdrop-blur-xl border-t border-border px-6 py-8 space-y-1">
           {navLinks.map((link, i) => {
             const isActive =
               link.href === "/"

@@ -267,7 +267,7 @@ export default function AboutPage() {
 
           {/* Ecosystem */}
           <ScrollReveal>
-            <div className="mb-24 relative bg-[#0a0c10] border border-border -mx-6 px-6 lg:-mx-10 lg:px-10 py-12 lg:py-14">
+            <div className="mb-24 relative bg-surface border border-border -mx-6 px-6 lg:-mx-10 lg:px-10 py-12 lg:py-14">
               <div className="absolute top-0 left-0 w-12 h-px bg-green" />
               <p className="section-label text-xs uppercase tracking-[0.18em] text-muted mb-3 font-[family-name:var(--font-sans)]">
                 The ecosystem

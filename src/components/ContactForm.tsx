@@ -53,7 +53,7 @@ export default function ContactForm() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="relative space-y-8 bg-[#0a0c10] border border-border p-6 sm:p-10 lg:p-12"
+      className="relative space-y-8 bg-surface border border-border p-6 sm:p-10 lg:p-12"
       noValidate
     >
       <span className="absolute -top-px -left-px w-8 h-8 border-t border-l border-green" aria-hidden="true" />

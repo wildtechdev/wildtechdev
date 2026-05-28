@@ -434,7 +434,7 @@ export default function ProductsPage() {
                     .toLowerCase()
                     .replace(/[^a-z0-9]+/g, "-")
                     .replace(/^-|-$/g, "")}
-                  className={`group relative border-l-[3px] ${product.accentColor} py-14 lg:py-16 pl-8 pr-2 overflow-hidden transition-colors duration-700 hover:bg-[#0a0c10]/40`}
+                  className={`group relative border-l-[3px] ${product.accentColor} py-14 lg:py-16 pl-8 pr-2 overflow-hidden transition-colors duration-700 hover:bg-surface/40`}
                 >
                   {/* Subtle accent glow on hover */}
                   <div

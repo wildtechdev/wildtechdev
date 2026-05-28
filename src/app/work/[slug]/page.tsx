@@ -141,7 +141,7 @@ export default async function CaseStudyPage({
                   {cs.stack.map((s) => (
                     <span
                       key={s}
-                      className="inline-flex items-center text-[10px] font-mono uppercase tracking-[0.16em] text-muted px-2 py-1 border border-border bg-[#0a0c10]"
+                      className="inline-flex items-center text-[10px] font-mono uppercase tracking-[0.16em] text-muted px-2 py-1 border border-border bg-surface"
                     >
                       {s}
                     </span>
@@ -153,7 +153,7 @@ export default async function CaseStudyPage({
             {cs.metrics && cs.metrics.length > 0 && (
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-px bg-border mt-10">
                 {cs.metrics.map((m) => (
-                  <div key={m.label} className="bg-[#0a0c10] p-6">
+                  <div key={m.label} className="bg-surface p-6">
                     <p className="text-[10px] uppercase tracking-[0.22em] text-muted font-mono mb-2">
                       {m.label}
                     </p>
