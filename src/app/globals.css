@@ -36,8 +36,13 @@
  * The brand green stays identical in both themes so the WildTech identity
  * reads consistently across light and dark.
  */
-@theme inline {
-  /* Base surfaces (DARK theme defaults) */
+@theme {
+  /* Base surfaces (DARK theme defaults).
+     NOTE: Using plain @theme (NOT @theme inline) is critical. With inline,
+     Tailwind bakes static color values directly into utility classes
+     (.text-heading { color: #f5f6f8 }) so the [data-theme="light"] override
+     below would never take effect. Plain @theme makes utilities reference
+     var(--color-*) so runtime theme switching works. */
   --color-black: #06070a;
   --color-surface: #0a0c10;
   --color-card: #11141a;

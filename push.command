@@ -2,7 +2,7 @@
 cd "$(dirname "$0")"
 rm -f .git/index.lock .git/HEAD.lock .git/ORIG_HEAD.lock
 git add -A
-git commit -m "feat(theme): add light mode with ThemeProvider, sun/moon toggle in navbar, no-flash inline script, calibrated light palette via [data-theme=light] CSS variable overrides, and bulk replacement of hardcoded hex colors with semantic Tailwind tokens (bg-surface, bg-card, text-heading, border-border, etc.) so the entire site switches themes automatically while keeping brand green and OG images dark-only"
+git commit -m "fix(theme): switch @theme inline to plain @theme so Tailwind utilities reference var(--color-*) instead of baking static hex values - this is what makes the [data-theme=light] runtime override actually propagate to compiled utility classes like text-heading, bg-surface, border-border etc"
 git push origin main
 echo ""
 echo "Done! Press any key to close."
