@@ -2,7 +2,7 @@
 cd "$(dirname "$0")"
 rm -f .git/index.lock .git/HEAD.lock .git/ORIG_HEAD.lock
 git add -A
-git commit -m "fix(theme): switch @theme inline to plain @theme so Tailwind utilities reference var(--color-*) instead of baking static hex values - this is what makes the [data-theme=light] runtime override actually propagate to compiled utility classes like text-heading, bg-surface, border-border etc"
+git commit -m "polish(theme): rebalance light palette so cards lift off the page - surface goes pure white, page stays soft cream, color-black matches page (like dark mode pattern), faint bumped up for visible watermarks, noise opacity dialed back further"
 git push origin main
 echo ""
 echo "Done! Press any key to close."
