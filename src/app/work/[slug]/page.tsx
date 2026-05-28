@@ -78,7 +78,7 @@ export default async function CaseStudyPage({
         <div className="relative max-w-5xl mx-auto px-6 lg:px-8">
           <Link
             href="/work"
-            className="inline-flex items-center gap-1.5 text-[10px] font-mono uppercase tracking-[0.22em] text-muted hover:text-green transition-colors mb-10"
+            className="inline-flex items-center gap-1.5 text-[11.5px] font-mono uppercase tracking-[0.22em] text-muted hover:text-green transition-colors mb-10"
           >
             <svg
               className="w-3 h-3"
@@ -122,26 +122,26 @@ export default async function CaseStudyPage({
 
             <dl className="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-8 border-t border-border">
               <div>
-                <dt className="text-[10px] uppercase tracking-[0.22em] text-muted font-mono mb-2">
+                <dt className="text-[11.5px] uppercase tracking-[0.22em] text-muted font-mono mb-2">
                   Client
                 </dt>
                 <dd className="text-sm text-heading">{cs.client}</dd>
               </div>
               <div>
-                <dt className="text-[10px] uppercase tracking-[0.22em] text-muted font-mono mb-2">
+                <dt className="text-[11.5px] uppercase tracking-[0.22em] text-muted font-mono mb-2">
                   Role
                 </dt>
                 <dd className="text-sm text-heading">{cs.role}</dd>
               </div>
               <div>
-                <dt className="text-[10px] uppercase tracking-[0.22em] text-muted font-mono mb-2">
+                <dt className="text-[11.5px] uppercase tracking-[0.22em] text-muted font-mono mb-2">
                   Stack
                 </dt>
                 <dd className="flex flex-wrap gap-1.5">
                   {cs.stack.map((s) => (
                     <span
                       key={s}
-                      className="inline-flex items-center text-[10px] font-mono uppercase tracking-[0.16em] text-muted px-2 py-1 border border-border bg-surface"
+                      className="inline-flex items-center text-[11.5px] font-mono uppercase tracking-[0.16em] text-muted px-2 py-1 border border-border bg-surface"
                     >
                       {s}
                     </span>
@@ -154,7 +154,7 @@ export default async function CaseStudyPage({
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-px bg-border mt-10">
                 {cs.metrics.map((m) => (
                   <div key={m.label} className="bg-surface p-6">
-                    <p className="text-[10px] uppercase tracking-[0.22em] text-muted font-mono mb-2">
+                    <p className="text-[11.5px] uppercase tracking-[0.22em] text-muted font-mono mb-2">
                       {m.label}
                     </p>
                     <p className="text-lg sm:text-xl text-heading font-[family-name:var(--font-serif)] italic">

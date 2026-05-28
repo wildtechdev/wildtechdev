@@ -295,7 +295,7 @@ export default function AboutPage() {
                           className="absolute inset-0 bg-gradient-to-r from-green/[0.04] to-transparent translate-x-[-100%] group-hover:translate-x-0 transition-transform duration-700 ease-out"
                           aria-hidden="true"
                         />
-                        <span className="relative text-[10px] font-mono uppercase tracking-[0.2em] text-faint group-hover:text-green transition-colors duration-500 shrink-0 w-20">
+                        <span className="relative text-[11.5px] font-mono uppercase tracking-[0.2em] text-faint group-hover:text-green transition-colors duration-500 shrink-0 w-20">
                           {brand.note}
                         </span>
                         <h3 className="relative flex-1 text-xl sm:text-2xl font-[family-name:var(--font-serif)] italic text-heading transition-all duration-500 group-hover:text-green group-hover:translate-x-1">

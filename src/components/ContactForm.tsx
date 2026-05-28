@@ -83,7 +83,7 @@ export default function ContactForm() {
       <div>
         <label
           htmlFor="name"
-          className="block text-[10px] uppercase tracking-[0.22em] text-muted mb-3 font-mono"
+          className="block text-[11.5px] uppercase tracking-[0.22em] text-muted mb-3 font-mono"
         >
           Name
         </label>
@@ -101,7 +101,7 @@ export default function ContactForm() {
       <div>
         <label
           htmlFor="email"
-          className="block text-[10px] uppercase tracking-[0.22em] text-muted mb-3 font-mono"
+          className="block text-[11.5px] uppercase tracking-[0.22em] text-muted mb-3 font-mono"
         >
           Email
         </label>
@@ -119,7 +119,7 @@ export default function ContactForm() {
       <div>
         <label
           htmlFor="message"
-          className="block text-[10px] uppercase tracking-[0.22em] text-muted mb-3 font-mono"
+          className="block text-[11.5px] uppercase tracking-[0.22em] text-muted mb-3 font-mono"
         >
           Message
         </label>

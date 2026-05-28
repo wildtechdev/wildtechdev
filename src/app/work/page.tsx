@@ -59,7 +59,7 @@ export default function WorkPage() {
                       {String(i + 1).padStart(2, "0")}
                     </span>
                     <span className="w-8 h-px bg-faint group-hover:bg-green transition-colors duration-500" />
-                    <span className="text-[10px] uppercase tracking-[0.22em] text-muted font-mono">
+                    <span className="text-[11.5px] uppercase tracking-[0.22em] text-muted font-mono">
                       {cs.year}
                     </span>
                   </div>

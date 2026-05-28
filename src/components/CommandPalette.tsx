@@ -264,7 +264,7 @@ export default function CommandPalette() {
             onChange={(e) => setQuery(e.target.value)}
             className="flex-1 bg-transparent text-sm text-heading placeholder:text-muted focus:outline-none"
           />
-          <span className="text-[10px] uppercase tracking-[0.18em] text-muted font-mono">
+          <span className="text-[11.5px] uppercase tracking-[0.18em] text-muted font-mono">
             ESC
           </span>
         </div>
@@ -276,7 +276,7 @@ export default function CommandPalette() {
           )}
           {grouped.map(([group, items]) => (
             <div key={group} className="mb-2">
-              <p className="px-3 pt-3 pb-1.5 text-[10px] uppercase tracking-[0.22em] text-muted font-mono">
+              <p className="px-3 pt-3 pb-1.5 text-[11.5px] uppercase tracking-[0.22em] text-muted font-mono">
                 {group}
               </p>
               <ul>
@@ -307,7 +307,7 @@ export default function CommandPalette() {
             </div>
           ))}
         </div>
-        <div className="border-t border-border px-4 py-2.5 flex items-center gap-4 text-[10px] uppercase tracking-[0.18em] text-muted font-mono">
+        <div className="border-t border-border px-4 py-2.5 flex items-center gap-4 text-[11.5px] uppercase tracking-[0.18em] text-muted font-mono">
           <span>
             <kbd className="text-heading">&uarr;&darr;</kbd> Navigate
           </span>

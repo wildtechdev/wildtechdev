@@ -376,7 +376,7 @@ function StatusPill({ status }: { status: "Live" | "In Development" }) {
         />
       </span>
       <p
-        className={`text-[10px] uppercase tracking-[0.18em] font-mono ${
+        className={`text-[11.5px] uppercase tracking-[0.18em] font-mono ${
           isLive ? "text-green" : "text-amber-500"
         }`}
       >
@@ -506,7 +506,7 @@ export default function ProductsPage() {
                           <p className="text-sm text-body/90 italic font-[family-name:var(--font-serif)] leading-relaxed">
                             {product.review.quote}
                           </p>
-                          <p className="text-[10px] uppercase tracking-[0.22em] text-muted font-mono mt-3">
+                          <p className="text-[11.5px] uppercase tracking-[0.22em] text-muted font-mono mt-3">
                             {product.review.author}
                           </p>
                         </div>

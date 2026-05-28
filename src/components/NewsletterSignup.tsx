@@ -148,7 +148,7 @@ export default function NewsletterSignup({
         {state === "error" && error && (
           <p className="text-xs text-red-400 mt-1">{error}</p>
         )}
-        <p className="text-[10px] uppercase tracking-[0.18em] text-muted font-mono mt-2">
+        <p className="text-[11.5px] uppercase tracking-[0.18em] text-muted font-mono mt-2">
           Unsubscribe any time
         </p>
       </form>

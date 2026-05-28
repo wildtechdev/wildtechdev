@@ -533,7 +533,7 @@ export default function HomePage() {
       <section className="relative py-14 sm:py-16 border-b border-border bg-black overflow-hidden">
         <div className="max-w-6xl mx-auto px-6 lg:px-8">
           <div className="flex flex-col lg:flex-row lg:items-center gap-6 lg:gap-12">
-            <p className="text-[10px] uppercase tracking-[0.22em] text-muted font-mono shrink-0 lg:border-r lg:border-border lg:pr-12">
+            <p className="text-[11.5px] uppercase tracking-[0.22em] text-muted font-mono shrink-0 lg:border-r lg:border-border lg:pr-12">
               We have shipped for
             </p>
             <div className="flex flex-wrap gap-x-8 gap-y-3">
@@ -640,7 +640,7 @@ export default function HomePage() {
                   </div>
 
                   <div className="mt-auto pt-8 flex items-baseline justify-between gap-4 border-t border-border mt-8">
-                    <p className="text-[10px] uppercase tracking-[0.22em] text-muted font-mono">
+                    <p className="text-[11.5px] uppercase tracking-[0.22em] text-muted font-mono">
                       {t.author}
                     </p>
                     <p className="text-xs text-green font-[family-name:var(--font-sans)]">
@@ -770,7 +770,7 @@ export default function HomePage() {
                     <div className="relative shrink-0 z-10 sm:absolute sm:left-1/2 sm:-translate-x-1/2">
                       <span className="relative flex h-9 w-9 items-center justify-center rounded-full bg-surface border border-green/40">
                         <span className="absolute inset-0 rounded-full bg-green/10 animate-glow-pulse" />
-                        <span className="relative text-[10px] font-mono text-green tracking-wider">
+                        <span className="relative text-[11.5px] font-mono text-green tracking-wider">
                           {step.label}
                         </span>
                       </span>

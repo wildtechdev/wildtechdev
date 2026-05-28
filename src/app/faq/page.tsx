@@ -133,7 +133,7 @@ export default function FaqPage() {
                   open={i < 3}
                 >
                   <summary className="cursor-pointer list-none px-6 py-6 flex items-start gap-4 hover:bg-surface transition-colors">
-                    <span className="text-[11px] font-mono tracking-[0.2em] text-green mt-1.5 shrink-0">
+                    <span className="text-[12px] font-mono tracking-[0.2em] text-green mt-1.5 shrink-0">
                       {String(i + 1).padStart(2, "0")}
                     </span>
                     <span className="flex-1 text-lg sm:text-xl font-[family-name:var(--font-sans)] text-heading">

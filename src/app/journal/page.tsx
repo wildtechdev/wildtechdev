@@ -68,7 +68,7 @@ export default function JournalPage() {
                     href={`/journal/${post.slug}`}
                     className="block transition-transform duration-300 hover:translate-x-1"
                   >
-                    <div className="flex items-center gap-3 mb-3 text-[10px] font-mono uppercase tracking-[0.22em] text-muted">
+                    <div className="flex items-center gap-3 mb-3 text-[11.5px] font-mono uppercase tracking-[0.22em] text-muted">
                       <time dateTime={post.date}>{formatDate(post.date)}</time>
                       <span className="w-4 h-px bg-faint" />
                       <span>{post.readMinutes} min read</span>
@@ -83,7 +83,7 @@ export default function JournalPage() {
                       {post.tags.map((tag) => (
                         <span
                           key={tag}
-                          className="inline-flex items-center gap-1.5 text-[10px] font-mono uppercase tracking-[0.16em] text-muted px-2.5 py-1 border border-border bg-surface"
+                          className="inline-flex items-center gap-1.5 text-[11.5px] font-mono uppercase tracking-[0.16em] text-muted px-2.5 py-1 border border-border bg-surface"
                         >
                           <span className="w-0.5 h-0.5 rounded-full bg-green" />
                           {tag}

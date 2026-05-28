@@ -70,7 +70,7 @@ export default function ContactPage() {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
               <div className="group">
-                <p className="text-[10px] uppercase tracking-[0.22em] text-muted mb-3 font-mono">
+                <p className="text-[11.5px] uppercase tracking-[0.22em] text-muted mb-3 font-mono">
                   Email
                 </p>
                 <a
@@ -81,7 +81,7 @@ export default function ContactPage() {
                 </a>
               </div>
               <div>
-                <p className="text-[10px] uppercase tracking-[0.22em] text-muted mb-3 font-mono">
+                <p className="text-[11.5px] uppercase tracking-[0.22em] text-muted mb-3 font-mono">
                   Location
                 </p>
                 <p className="text-base text-heading flex items-center gap-2">

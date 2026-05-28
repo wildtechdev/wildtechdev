@@ -156,7 +156,7 @@ export default function ProcessPage() {
                       <h2 className="text-2xl sm:text-3xl font-[family-name:var(--font-serif)] italic text-heading">
                         {phase.title}
                       </h2>
-                      <p className="mt-2 text-[10px] uppercase tracking-[0.22em] text-muted font-mono">
+                      <p className="mt-2 text-[11.5px] uppercase tracking-[0.22em] text-muted font-mono">
                         {phase.duration}
                       </p>
                     </div>

@@ -118,7 +118,7 @@ export default async function PostPage({
         <div className="relative max-w-2xl mx-auto px-6 lg:px-8">
           <Link
             href="/journal"
-            className="inline-flex items-center gap-1.5 text-[10px] font-mono uppercase tracking-[0.22em] text-muted hover:text-green transition-colors mb-10"
+            className="inline-flex items-center gap-1.5 text-[11.5px] font-mono uppercase tracking-[0.22em] text-muted hover:text-green transition-colors mb-10"
           >
             <svg
               className="w-3 h-3"
@@ -138,7 +138,7 @@ export default async function PostPage({
           </Link>
 
           <header className="mb-12">
-            <div className="flex items-center gap-3 mb-5 text-[10px] font-mono uppercase tracking-[0.22em] text-muted">
+            <div className="flex items-center gap-3 mb-5 text-[11.5px] font-mono uppercase tracking-[0.22em] text-muted">
               <time dateTime={post.date}>{formatDate(post.date)}</time>
               <span className="w-4 h-px bg-faint" />
               <span>{post.readMinutes} min read</span>
@@ -151,7 +151,7 @@ export default async function PostPage({
               {post.tags.map((tag) => (
                 <span
                   key={tag}
-                  className="inline-flex items-center gap-1.5 text-[10px] font-mono uppercase tracking-[0.16em] text-muted px-2.5 py-1 border border-border bg-surface"
+                  className="inline-flex items-center gap-1.5 text-[11.5px] font-mono uppercase tracking-[0.16em] text-muted px-2.5 py-1 border border-border bg-surface"
                 >
                   <span className="w-0.5 h-0.5 rounded-full bg-green" />
                   {tag}
@@ -190,7 +190,7 @@ export default async function PostPage({
                 </span>
               </span>
               <span
-                className="ml-2 text-[10px] uppercase tracking-[0.22em] text-faint font-mono opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300"
+                className="ml-2 text-[11.5px] uppercase tracking-[0.22em] text-faint font-mono opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300"
                 aria-hidden="true"
               >
                 Read more &rarr;
@@ -211,7 +211,7 @@ export default async function PostPage({
                       href={`/journal/${p.slug}`}
                       className="block group"
                     >
-                      <p className="text-[10px] font-mono uppercase tracking-[0.22em] text-muted mb-1">
+                      <p className="text-[11.5px] font-mono uppercase tracking-[0.22em] text-muted mb-1">
                         {formatDate(p.date)}
                       </p>
                       <h3 className="text-xl font-[family-name:var(--font-serif)] italic text-heading group-hover:text-green transition-colors">

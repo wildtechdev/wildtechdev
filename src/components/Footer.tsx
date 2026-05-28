@@ -150,7 +150,7 @@ export default function Footer() {
             </p>
           </div>
           <div className="flex flex-col items-start sm:items-end gap-2">
-            <p className="text-[10px] uppercase tracking-[0.18em] text-muted font-mono">
+            <p className="text-[11.5px] uppercase tracking-[0.18em] text-muted font-mono">
               Press <kbd className="text-heading">&#8984;K</kbd> or{" "}
               <kbd className="text-heading">/</kbd> anywhere
             </p>

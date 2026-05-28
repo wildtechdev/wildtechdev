@@ -114,7 +114,7 @@ export default function NowPage() {
               </a>{" "}
               convention.
             </p>
-            <p className="mt-6 text-[10px] uppercase tracking-[0.22em] text-muted font-mono">
+            <p className="mt-6 text-[11.5px] uppercase tracking-[0.22em] text-muted font-mono">
               Last updated {lastUpdated}
             </p>
           </div>

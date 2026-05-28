@@ -651,7 +651,7 @@ export default function WillMcCantsPage() {
                   <span className="absolute inline-flex h-full w-full rounded-full bg-green opacity-60 animate-ping" />
                   <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-green" />
                 </span>
-                <p className="text-[10px] font-mono text-green tracking-[0.25em]">
+                <p className="text-[11.5px] font-mono text-green tracking-[0.25em]">
                   CHARLESTON, SC
                 </p>
               </div>
@@ -662,7 +662,7 @@ export default function WillMcCantsPage() {
                     key={fact.label}
                     className="flex items-baseline justify-between py-3 border-b border-dotted border-border gap-4"
                   >
-                    <span className="text-[10px] uppercase tracking-[0.22em] text-muted font-mono whitespace-nowrap">
+                    <span className="text-[11.5px] uppercase tracking-[0.22em] text-muted font-mono whitespace-nowrap">
                       {fact.label}
                     </span>
                     <span className="text-sm text-heading font-[family-name:var(--font-sans)] text-right">
@@ -767,7 +767,7 @@ export default function WillMcCantsPage() {
                       sizes="(max-width: 768px) 90vw, 28rem"
                     />
                   </div>
-                  <figcaption className="mt-3 flex items-center gap-2 text-[10px] font-mono text-muted tracking-[0.2em] uppercase">
+                  <figcaption className="mt-3 flex items-center gap-2 text-[11.5px] font-mono text-muted tracking-[0.2em] uppercase">
                     <span className="w-4 h-px bg-faint" />
                     Will at SANY headquarters
                   </figcaption>
@@ -1079,7 +1079,7 @@ export default function WillMcCantsPage() {
                           <span className="text-faint group-hover:text-green transition-colors duration-500">
                             {hobby.icon}
                           </span>
-                          <span className="text-[10px] uppercase tracking-[0.15em] text-muted group-hover:text-body transition-colors duration-500 font-[family-name:var(--font-sans)]">
+                          <span className="text-[11.5px] uppercase tracking-[0.15em] text-muted group-hover:text-body transition-colors duration-500 font-[family-name:var(--font-sans)]">
                             {hobby.label}
                           </span>
                         </div>
@@ -1103,7 +1103,7 @@ export default function WillMcCantsPage() {
                   inheritance as your reward. You are serving the Lord
                   Christ.
                 </p>
-                <cite className="block mt-4 text-[10px] uppercase tracking-[0.22em] text-muted not-italic font-[family-name:var(--font-sans)]">
+                <cite className="block mt-4 text-[11.5px] uppercase tracking-[0.22em] text-muted not-italic font-[family-name:var(--font-sans)]">
                   Colossians 3:23, 24
                 </cite>
               </blockquote>
@@ -1143,7 +1143,7 @@ export default function WillMcCantsPage() {
                           className="absolute inset-0 bg-gradient-to-r from-green/[0.04] to-transparent translate-x-[-100%] group-hover:translate-x-0 transition-transform duration-700 ease-out"
                           aria-hidden="true"
                         />
-                        <span className="relative text-[10px] font-mono uppercase tracking-[0.2em] text-faint group-hover:text-green transition-colors duration-500 shrink-0 w-20">
+                        <span className="relative text-[11.5px] font-mono uppercase tracking-[0.2em] text-faint group-hover:text-green transition-colors duration-500 shrink-0 w-20">
                           {project.meta}
                         </span>
                         <h3 className="relative flex-1 text-xl font-[family-name:var(--font-serif)] italic text-heading transition-all duration-500 group-hover:text-green group-hover:translate-x-1">
@@ -1177,7 +1177,7 @@ export default function WillMcCantsPage() {
                     open={i < 2}
                   >
                     <summary className="cursor-pointer list-none px-6 py-5 flex items-start gap-4 hover:bg-surface transition-colors">
-                      <span className="text-[11px] font-mono tracking-[0.2em] text-green mt-1.5 shrink-0">
+                      <span className="text-[12px] font-mono tracking-[0.2em] text-green mt-1.5 shrink-0">
                         {String(i + 1).padStart(2, "0")}
                       </span>
                       <span className="flex-1 text-base sm:text-lg font-[family-name:var(--font-sans)] text-heading">

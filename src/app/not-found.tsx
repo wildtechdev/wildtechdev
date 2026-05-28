@@ -43,7 +43,7 @@ export default function NotFound() {
 
         <div className="mt-6 flex items-center justify-center gap-3">
           <span className="w-8 h-px bg-green" />
-          <p className="text-[10px] uppercase tracking-[0.3em] font-mono text-green">
+          <p className="text-[11.5px] uppercase tracking-[0.3em] font-mono text-green">
             Not found
           </p>
           <span className="w-8 h-px bg-green" />

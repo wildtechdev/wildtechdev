@@ -49,7 +49,7 @@ export default function HomeProductCard({
       <span className="absolute top-5 left-7 text-[44px] leading-none font-[family-name:var(--font-serif)] italic text-faint group-hover:text-green/40 transition-colors duration-500 z-[1]">
         {String(index + 1).padStart(2, "0")}
       </span>
-      <span className="absolute top-7 right-7 text-[10px] font-mono tracking-[0.2em] text-green/80 uppercase z-[1]">
+      <span className="absolute top-7 right-7 text-[11.5px] font-mono tracking-[0.2em] text-green/80 uppercase z-[1]">
         {product.type}
       </span>
 
@@ -79,7 +79,7 @@ export default function HomeProductCard({
               </span>
             )}
             {product.rating && (
-              <span className="text-[10px] text-muted font-mono flex items-center gap-1">
+              <span className="text-[11.5px] text-muted font-mono flex items-center gap-1">
                 <span className="text-green">★</span>
                 {product.rating}
               </span>

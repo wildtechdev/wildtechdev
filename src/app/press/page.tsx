@@ -182,7 +182,7 @@ export default function PressPage() {
               <dl className="grid grid-cols-1 sm:grid-cols-2 gap-px bg-border border border-border">
                 {facts.map((f) => (
                   <div key={f.label} className="bg-black p-5">
-                    <dt className="text-[10px] uppercase tracking-[0.22em] text-muted font-mono mb-2">
+                    <dt className="text-[11.5px] uppercase tracking-[0.22em] text-muted font-mono mb-2">
                       {f.label}
                     </dt>
                     <dd className="text-sm text-heading font-[family-name:var(--font-sans)]">
@@ -240,7 +240,7 @@ export default function PressPage() {
                         sizes="(max-width: 1024px) 90vw, 280px"
                       />
                     </div>
-                    <figcaption className="mt-3 text-[10px] font-mono text-muted tracking-[0.18em] uppercase">
+                    <figcaption className="mt-3 text-[11.5px] font-mono text-muted tracking-[0.18em] uppercase">
                       Will McCants &middot; Charleston, SC
                     </figcaption>
                   </figure>
@@ -320,7 +320,7 @@ export default function PressPage() {
                 that does not happen at scale anywhere else. Building from
                 here is a feature, not a constraint.&rdquo;
               </blockquote>
-              <p className="text-[10px] uppercase tracking-[0.22em] text-muted font-mono">
+              <p className="text-[11.5px] uppercase tracking-[0.22em] text-muted font-mono">
                 Will McCants &middot; Founder, WildTech Development
               </p>
             </div>

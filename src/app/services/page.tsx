@@ -149,7 +149,7 @@ export default function ServicesPage() {
                   {/* Number + heading */}
                   <div className="lg:w-[280px] shrink-0">
                     <div className="flex items-baseline gap-3 mb-2">
-                      <span className="text-[11px] font-mono tracking-[0.2em] text-green">
+                      <span className="text-[12px] font-mono tracking-[0.2em] text-green">
                         {String(i + 1).padStart(2, "0")}
                       </span>
                       <span className="w-6 h-px bg-faint group-hover:bg-green transition-colors duration-500" />
@@ -168,7 +168,7 @@ export default function ServicesPage() {
                       {service.tags.map((tag) => (
                         <span
                           key={tag}
-                          className="inline-flex items-center gap-1.5 text-[10px] font-mono uppercase tracking-[0.16em] text-muted px-3 py-1.5 border border-border bg-surface transition-all duration-300 hover:border-green/40 hover:text-body"
+                          className="inline-flex items-center gap-1.5 text-[11.5px] font-mono uppercase tracking-[0.16em] text-muted px-3 py-1.5 border border-border bg-surface transition-all duration-300 hover:border-green/40 hover:text-body"
                         >
                           <span className="w-0.5 h-0.5 rounded-full bg-green" />
                           {tag}
