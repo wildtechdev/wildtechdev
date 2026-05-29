@@ -2,7 +2,7 @@
 cd "$(dirname "$0")"
 rm -f .git/index.lock .git/HEAD.lock .git/ORIG_HEAD.lock
 git add -A
-git commit -m "polish(type): bump smallest text sizes for readability - text-[10px] (45 instances) becomes text-[11.5px], text-[11px] (3 instances) becomes text-[12px], affects section labels, badges, footer fine print, breadcrumbs, and metadata chips across 22 files - preserves the tracked-uppercase aesthetic while making the long tracked labels actually readable"
+git commit -m "fix(seo): remove /privacy/we-the-people-your-rights from sitemap.xml - the page has robots:{index:false,follow:false} for App Store compliance, so listing it in the sitemap was sending Google contradictory signals (asking it to index a page we'd told it not to) - cleaner crawl budget, removes one entry from Search Console's discovered-not-indexed bucket"
 git push origin main
 echo ""
 echo "Done! Press any key to close."

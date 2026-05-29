@@ -85,12 +85,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "yearly",
       priority: 0.6,
     },
-    {
-      url: `${baseUrl}/privacy/we-the-people-your-rights`,
-      lastModified: new Date("2026-05-17T22:35:50-04:00"),
-      changeFrequency: "yearly",
-      priority: 0.3,
-    },
+    // NOTE: /privacy/we-the-people-your-rights is intentionally NOT in the
+    // sitemap. That page has robots: { index: false, follow: false } in its
+    // metadata because it exists only for App Store compliance and isn't
+    // meant to compete in search. Listing a noindex page in the sitemap
+    // sends contradictory signals to Google and wastes crawl budget.
   ];
 
   const caseStudyRoutes: MetadataRoute.Sitemap = caseStudies.map((cs) => ({
