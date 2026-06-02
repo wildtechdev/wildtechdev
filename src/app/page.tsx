@@ -143,6 +143,7 @@ const products: HomeProduct[] = [
     link: "https://apps.apple.com/us/app/spirits-of-charleston/id6476931671",
     linkLabel: "App Store",
     accent: "amber",
+    caseStudySlug: "spirits-of-charleston",
   },
   {
     name: "Spirits of Savannah",
@@ -155,6 +156,7 @@ const products: HomeProduct[] = [
     link: "https://apps.apple.com/us/app/spirits-of-savannah/id6740187114",
     linkLabel: "App Store",
     accent: "teal",
+    caseStudySlug: "spirits-of-savannah",
   },
   {
     name: "EZ Fuse Tester",
@@ -166,6 +168,7 @@ const products: HomeProduct[] = [
     link: "https://apps.apple.com/us/app/ez-fuse-tester/id6737378228",
     linkLabel: "App Store",
     accent: "green",
+    caseStudySlug: "ez-fuse-tester",
   },
   {
     name: "We The People: Your Rights",
@@ -177,6 +180,7 @@ const products: HomeProduct[] = [
     link: "https://apps.apple.com/us/app/we-the-people-your-rights/id6770393978",
     linkLabel: "App Store",
     accent: "blue",
+    caseStudySlug: "we-the-people-your-rights",
   },
   {
     name: "Churchd",
@@ -187,6 +191,7 @@ const products: HomeProduct[] = [
     link: "https://churchd.com",
     linkLabel: "churchd.com",
     accent: "indigo",
+    caseStudySlug: "churchd",
   },
   {
     name: "Viking Sensors",
@@ -197,6 +202,7 @@ const products: HomeProduct[] = [
     link: "https://vikingsensors.com",
     linkLabel: "vikingsensors.com",
     accent: "red",
+    caseStudySlug: "viking-sensors",
   },
 ];
 

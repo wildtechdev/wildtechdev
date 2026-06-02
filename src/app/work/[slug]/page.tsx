@@ -111,6 +111,63 @@ export default async function CaseStudyPage({
                 <p className="text-body text-lg leading-relaxed max-w-2xl">
                   {cs.title}
                 </p>
+
+                {/* Top-of-page product CTA. Duplicates the App Store / Visit
+                    site buttons from the bottom CTA block so visitors who
+                    don't scroll the whole case study can still follow through
+                    to the product directly from the header. */}
+                {(cs.appStoreUrl || cs.externalUrl) && (
+                  <div className="mt-7 flex flex-wrap gap-3">
+                    {cs.appStoreUrl && (
+                      <a
+                        href={cs.appStoreUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="btn-solid"
+                      >
+                        View on App Store
+                        <svg
+                          className="w-3.5 h-3.5"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                          strokeWidth={2}
+                          aria-hidden="true"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
+                          />
+                        </svg>
+                      </a>
+                    )}
+                    {cs.externalUrl && (
+                      <a
+                        href={cs.externalUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="btn-solid"
+                      >
+                        Visit site
+                        <svg
+                          className="w-3.5 h-3.5"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                          strokeWidth={2}
+                          aria-hidden="true"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
+                          />
+                        </svg>
+                      </a>
+                    )}
+                  </div>
+                )}
               </div>
               <div
                 className="shrink-0 self-center lg:self-start"

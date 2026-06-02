@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import PhoneMockup from "@/components/PhoneMockup";
 import TiltCard from "@/components/TiltCard";
 
@@ -21,6 +22,9 @@ export type HomeProduct = {
   link?: string;
   linkLabel?: string;
   accent: string;
+  /** Slug for the matching case study page at /work/[slug]. Clicking anywhere
+   *  on the card (outside the external link) navigates here. */
+  caseStudySlug: string;
 };
 
 const accentTints: Record<string, string> = {
@@ -46,6 +50,17 @@ export default function HomeProductCard({
         accentTints[product.accent]
       }`}
     >
+      {/* Stretched primary link. Sits above the decorative content (z-[2]) so
+          clicking anywhere on the card navigates to the case study, but BELOW
+          the App Store / external link below (z-[3]) so that link still wins
+          its own click target. Visually invisible; the card's hover styles do
+          all the affordance work. */}
+      <Link
+        href={`/work/${product.caseStudySlug}`}
+        aria-label={`Read the ${product.name} case study`}
+        className="absolute inset-0 z-[2] focus:outline-none focus-visible:ring-2 focus-visible:ring-green/60 focus-visible:ring-offset-2 focus-visible:ring-offset-surface"
+      />
+
       <span className="absolute top-5 left-7 text-[44px] leading-none font-[family-name:var(--font-serif)] italic text-faint group-hover:text-green/40 transition-colors duration-500 z-[1]">
         {String(index + 1).padStart(2, "0")}
       </span>
@@ -91,7 +106,10 @@ export default function HomeProductCard({
               href={product.link}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 text-green text-sm font-[family-name:var(--font-sans)] link-underline"
+              /* z-[3] keeps this above the stretched case-study link overlay
+                 (z-[2]) so clicking the App Store / external link opens that
+                 destination in a new tab instead of navigating the card. */
+              className="relative z-[3] inline-flex items-center gap-1.5 text-green text-sm font-[family-name:var(--font-sans)] link-underline"
             >
               {product.linkLabel}
               <svg
