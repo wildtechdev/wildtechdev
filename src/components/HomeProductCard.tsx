@@ -50,15 +50,23 @@ export default function HomeProductCard({
         accentTints[product.accent]
       }`}
     >
-      {/* Stretched primary link. Sits above the decorative content (z-[2]) so
-          clicking anywhere on the card navigates to the case study, but BELOW
-          the App Store / external link below (z-[3]) so that link still wins
-          its own click target. Visually invisible; the card's hover styles do
-          all the affordance work. */}
+      {/* Stretched primary link. Sits above the decorative content so clicking
+          anywhere on the card navigates to the case study, but BELOW the App
+          Store / external link below so that link still wins its own click
+          target. Visually invisible; the card's hover styles do all the
+          affordance work.
+
+          CRITICAL: TiltCard uses transform-style: preserve-3d, which makes
+          z-index meaningless between siblings that have different translateZ
+          values. The mockup wrapper sits at translateZ(20px), so this overlay
+          must use translateZ above that to actually receive clicks across the
+          mockup region. The App Store link below goes even higher so it still
+          wins clicks on its label. */}
       <Link
         href={`/work/${product.caseStudySlug}`}
         aria-label={`Read the ${product.name} case study`}
         className="absolute inset-0 z-[2] focus:outline-none focus-visible:ring-2 focus-visible:ring-green/60 focus-visible:ring-offset-2 focus-visible:ring-offset-surface"
+        style={{ transform: "translateZ(30px)" }}
       />
 
       <span className="absolute top-5 left-7 text-[44px] leading-none font-[family-name:var(--font-serif)] italic text-faint group-hover:text-green/40 transition-colors duration-500 z-[1]">
@@ -106,10 +114,15 @@ export default function HomeProductCard({
               href={product.link}
               target="_blank"
               rel="noopener noreferrer"
-              /* z-[3] keeps this above the stretched case-study link overlay
-                 (z-[2]) so clicking the App Store / external link opens that
-                 destination in a new tab instead of navigating the card. */
+              /* z-[3] AND translateZ(40px) together keep this above the
+                 stretched case-study link overlay (z-[2] / translateZ(30px))
+                 so clicking the App Store / external link opens that
+                 destination in a new tab instead of navigating the card.
+                 The translateZ is required because TiltCard uses
+                 transform-style: preserve-3d, which makes z-index alone
+                 insufficient. */
               className="relative z-[3] inline-flex items-center gap-1.5 text-green text-sm font-[family-name:var(--font-sans)] link-underline"
+              style={{ transform: "translateZ(40px)" }}
             >
               {product.linkLabel}
               <svg
