@@ -79,7 +79,7 @@ const shortBio =
   "Will McCants is the founder of WildTech Development, a Charleston, South Carolina based software and hardware studio. He builds custom iOS apps, web platforms, and IoT devices for clients across the United States, and is the developer behind Spirits of Charleston, Spirits of Savannah, EZ Fuse Tester, and We The People: Your Rights on the App Store. He also serves as Director of E-Commerce at MSI-Viking Gage.";
 
 const mediumBio =
-  "Will McCants is a Charleston, South Carolina based software developer, hardware engineer, and entrepreneur. He founded WildTech Ventures, LLC in 2024 and operates WildTech Development, the studio that builds custom iOS apps, web platforms, and precision hardware for clients across the country. His App Store catalog includes Spirits of Charleston (the most comprehensive ghost story app in the Lowcountry), Spirits of Savannah, EZ Fuse Tester (a free utility that turns an iPhone into a fuse continuity tester), and We The People: Your Rights (a plain-English Constitution reference). He is also building Churchd, a purpose-built community platform for churches, and is the technical co-founder behind Viking Sensors, the precision climate monitoring product distributed exclusively through MSI-Viking Gage. McCants is a Mount Pleasant, SC native, Porter-Gaud School alum, and holds an FAA Part 61 Private Pilot Certificate. He also serves as Director of E-Commerce at MSI-Viking Gage. He lives on James Island in Charleston with his wife Brittany.";
+  "Will McCants is a Charleston, South Carolina based software developer, hardware engineer, and entrepreneur. He founded WildTech Ventures, LLC in 2024 and operates WildTech Development, the studio that builds custom iOS apps, web platforms, and precision hardware for clients across the country. His App Store catalog includes Spirits of Charleston (the most comprehensive ghost story app in the Lowcountry), Spirits of Savannah, EZ Fuse Tester (a free utility that turns an iPhone into a fuse continuity tester), and We The People: Your Rights (a plain-English Constitution reference). He is also building Churchd, a purpose-built community platform for churches, and is the technical co-founder behind Viking Sensors, the precision climate monitoring product distributed exclusively through MSI-Viking Gage. McCants is a Mount Pleasant, SC native, Trident Technical College alum, and holds an FAA Part 61 Private Pilot Certificate. He also serves as Director of E-Commerce at MSI-Viking Gage. He lives on James Island in Charleston with his wife Brittany.";
 
 const facts = [
   { label: "Founded", value: "WildTech Ventures, LLC, 2024" },
@@ -332,7 +332,7 @@ export default function PressPage() {
               </h2>
               <p className="text-body mb-6 max-w-xl">
                 Will McCants responds personally to press inquiries. Reach out
-                with deadlines, questions, or interview requests.
+                with questions or interview requests.
               </p>
               <div className="flex flex-wrap gap-3">
                 <a
