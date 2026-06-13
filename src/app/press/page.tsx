@@ -93,7 +93,6 @@ const facts = [
 ];
 
 const milestones = [
-  { date: "2012", text: "Earns FAA Private Pilot Certificate" },
   { date: "2022", text: "Director of E-Commerce at MSI-Viking Gage" },
   { date: "2024", text: "WildTech Ventures, LLC founded in Charleston, SC" },
   { date: "2024", text: "Spirits of Charleston ships on the App Store" },
