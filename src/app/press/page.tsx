@@ -93,21 +93,13 @@ const facts = [
 ];
 
 const milestones = [
-  { date: "2012", text: "Will earns his FAA Private Pilot Certificate (VFR SEL), Sept 19" },
-  { date: "2012", text: "Will joins MSI-Viking Gage in the Charleston shipping department, fall" },
-  { date: "2016", text: "Self-teaches CAD modeling during the open-source 3D printing wave and transitions to MSI-Viking's Applications Engineering team" },
-  { date: "2020", text: "Retires from the road in November after the pandemic disrupts on-site engineering demos" },
-  { date: "2021", text: "Senior Engineer at PRC Industries in Spruce Pine, NC, an Amazon remanufacturing partner" },
-  { date: "2022", text: "Returns to MSI-Viking as Director of E-Commerce, January" },
-  { date: "2023", text: "A canceled Halloween night ghost walk sparks the concept for Spirits of Charleston, Oct 31" },
+  { date: "2012", text: "Earns FAA Private Pilot Certificate" },
+  { date: "2022", text: "Director of E-Commerce at MSI-Viking Gage" },
   { date: "2024", text: "WildTech Ventures, LLC founded in Charleston, SC" },
-  { date: "2024", text: "Spirits of Charleston ships on the App Store, Feb 1" },
-  { date: "2024", text: "Churchd sketched out on a five-page yellow legal pad" },
-  { date: "2024", text: "Spirits of Savannah follows on the App Store" },
-  { date: "2024", text: "EZ Fuse Tester ships on the App Store, mid year" },
-  { date: "2026", text: "WildTech buys churchd.com at 12:15 AM, active development begins, Mar 14" },
-  { date: "2026", text: "Viking Sensors, LLC co-founded with Steven Archibald, distributed exclusively through MSI-Viking Gage" },
-  { date: "2026", text: "We The People: Your Rights ships on the App Store after a local men's society introduction sparks the concept in May" },
+  { date: "2024", text: "Spirits of Charleston ships on the App Store" },
+  { date: "2024", text: "EZ Fuse Tester and Spirits of Savannah ship on the App Store" },
+  { date: "2026", text: "Viking Sensors co-founded with Steven Archibald, distributed by MSI-Viking Gage" },
+  { date: "2026", text: "We The People: Your Rights ships; Churchd in active development" },
 ];
 
 const assets = [
