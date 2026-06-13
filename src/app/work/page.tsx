@@ -48,6 +48,11 @@ export default function WorkPage() {
               The full story behind every product. Problem, approach, the
               decisions that mattered, and what shipped.
             </p>
+            <p className="text-muted text-sm max-w-2xl mt-4 animate-fade-in-up delay-300">
+              These case studies cover the products WildTech owns. Private
+              client engagements are covered under NDA and available on
+              request.
+            </p>
           </div>
 
           <div className="divide-y divide-border">

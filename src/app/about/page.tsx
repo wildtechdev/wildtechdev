@@ -155,7 +155,9 @@ export default function AboutPage() {
                 custom software and hardware for clients. Whether it is an iOS
                 app, a web platform, or a connected hardware product, we bring
                 the same precision and care to client work that we put into
-                our own portfolio.
+                our own portfolio. Most of that client work is covered under
+                NDA and cannot be publicly attributed, so the portfolio you
+                see here is the public slice of what we do.
               </p>
             </div>
           </div>

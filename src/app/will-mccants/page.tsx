@@ -851,6 +851,10 @@ export default function WillMcCantsPage() {
                     product since has started the same way: a real problem he
                     or someone close to him ran into, and a feeling that the
                     existing solutions were missing something obvious.
+                    Alongside the WildTech-owned products that anchor the
+                    portfolio, Will also takes on private client engagements,
+                    most of which are covered under NDA and cannot be
+                    publicly attributed.
                   </p>
                 </div>
               </div>

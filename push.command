@@ -2,7 +2,7 @@
 cd "$(dirname "$0")"
 rm -f .git/index.lock .git/HEAD.lock .git/ORIG_HEAD.lock
 git add -A
-git commit -m "fix(press,home): trim press timeline back to 7 major beats, swap Porter-Gaud alum (only attended 2 years no graduation) for Trident Tech alum in medium bio, drop 'deadlines' from the press contact prompt - also fixes the 3D click-through bug on home product cards where the mockup wrapper at translateZ(20px) blocked the overlay Link, by pushing the Link to translateZ(30px) and the App Store link wrapper to translateZ(40px)"
+git commit -m "feat(content): add light-touch private-client wording across home (Products section subtitle), work (intro), about (existing client paragraph), press (medium bio), and founder (Building WildTech) so prospective clients understand the displayed catalog is WildTech-owned products and that there is additional NDA client work behind it - plus the queued press timeline trim, Porter-Gaud to Trident swap, deadline drop, and the home card 3D click-through fix"
 git push origin main
 echo ""
 echo "Done! Press any key to close."

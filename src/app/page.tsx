@@ -571,6 +571,10 @@ export default function HomePage() {
               <h2 className="text-4xl sm:text-5xl font-[family-name:var(--font-serif)] italic text-heading">
                 Products
               </h2>
+              <p className="text-muted text-sm mt-3 max-w-md">
+                The products WildTech owns. Private client work is covered
+                under NDA.
+              </p>
             </div>
             <Link
               href="/products"
