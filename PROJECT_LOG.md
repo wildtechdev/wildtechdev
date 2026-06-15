@@ -90,6 +90,7 @@ Brand domain map:
 
 ## Recent work (most recent first)
 
+- Made journal posts sort by date automatically (newest first); fixed the google-sites post sitting out of order in the list
 - Spread journal dates evenly over 6 months ending June 8, 2026
 - Created this `PROJECT_LOG.md`
 - Added subtle private-client wording across home, work, about, press, founder
@@ -155,6 +156,8 @@ The user cannot run git from inside Cowork.
 ## Conventions for journal posts
 
 Dates in `src/lib/posts.ts` should look organically spaced. Currently 9 posts spread from `2025-12-15` to `2026-06-08`, roughly every 3 weeks. When adding a new post, pick a date close to "today" and update this log section if you reshuffle dates.
+
+The exported `posts` array now sorts itself by date (newest first), so the order entries appear in the source no longer matters. You can add a new post anywhere in the `allPosts` array and reshuffle dates freely without re-sorting by hand.
 
 ## Conventions for case studies
 

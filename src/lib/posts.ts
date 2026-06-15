@@ -1,4 +1,5 @@
-// Blog posts for /journal. Add new posts to the top of the array.
+// Blog posts for /journal. Posts are sorted by date (newest first) when
+// exported, so the order you add them in here does not matter.
 // Content uses a tiny markdown-ish format:
 //   - Paragraphs separated by blank lines.
 //   - Lines starting with "## " become h2 section headings.
@@ -18,7 +19,7 @@ export type Post = {
   content: string;
 };
 
-export const posts: Post[] = [
+const allPosts: Post[] = [
   {
     slug: "what-is-a-naked-domain",
     title:
@@ -770,6 +771,13 @@ If you are considering hiring a Charleston-based developer for a custom software
 If you are in the Charleston metropolitan area and have a software or hardware project you would rather hand to someone local than ship across the country, the contact form is one click away. The intro call is free, and we are likely already in the same area code.`,
   },
 ];
+
+// Always present newest first, regardless of the source order above.
+// ISO date strings sort lexically in chronological order, so this also
+// keeps the list correct whenever the post dates get reshuffled.
+export const posts: Post[] = [...allPosts].sort((a, b) =>
+  b.date.localeCompare(a.date),
+);
 
 export function getPostBySlug(slug: string): Post | undefined {
   return posts.find((p) => p.slug === slug);
