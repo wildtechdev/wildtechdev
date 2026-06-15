@@ -25,7 +25,7 @@ export const posts: Post[] = [
       "What is a 'naked domain'? (the terminology fix for a confusing problem)",
     summary:
       "Plain-English explainer for the term you didn't know you needed when your website only works with www but not without. What a naked domain is, why your hosting provider can't fix it, and what your real options are.",
-    date: "2026-05-26",
+    date: "2026-05-17",
     readMinutes: 5,
     tags: ["DNS", "Web", "Tutorial"],
     content: `If you have ever spent an hour Googling things like "why doesn't my website work without www" or "how do I make example.com load without typing www first," you have run into a problem that is easy to fix once you know the term for it but almost impossible to find a solution to if you don't. The term is **naked domain**.
@@ -93,7 +93,7 @@ That is the entire reason this post exists. If you got here from a search and no
       "How to set up free email forwarding on your custom domain (3 services compared)",
     summary:
       "Three good free email forwarding services compared: ImprovMX, Cloudflare Email Routing, and Namecheap Private Email forwarding. What each is good for, the trade-offs, and how to set each one up.",
-    date: "2026-05-26",
+    date: "2026-04-25",
     readMinutes: 9,
     tags: ["Email", "DNS", "Tutorial", "Small Business"],
     content: `If you have a custom domain and you want emails to addresses like \`hello@yourdomain.com\` to forward to your regular Gmail or iCloud inbox, you have three good free options and a few mediocre ones. This post compares the three good ones and explains how to set each one up.
@@ -224,7 +224,7 @@ For most small-business and personal use cases, free email forwarding is enough.
       "Why your business email keeps going to spam (a diagnostic checklist)",
     summary:
       "If emails from your custom domain keep landing in customers' spam folders, the cause is almost always one of six things. Here is the diagnostic checklist we use to find and fix it.",
-    date: "2026-05-26",
+    date: "2026-04-03",
     readMinutes: 10,
     tags: ["Email", "DNS", "Deliverability", "Small Business"],
     content: `If you have a custom domain and emails from your business address keep landing in customers' spam folders, the cause is almost always one of six things. None of them are random and all of them are fixable. This is the diagnostic checklist we use when clients ask us why their email isn't getting through.
@@ -398,7 +398,7 @@ If you want a second set of eyes on your setup, we are happy to take a look. Con
       "Make your Google Sites work without www (the naked domain fix, free)",
     summary:
       "If your Google Sites custom domain works at www.example.com but not example.com, the term you need to know is 'naked domain.' Here are two free, step-by-step fixes using Cloudflare and redirect.pizza.",
-    date: "2026-05-26",
+    date: "2026-06-08",
     readMinutes: 8,
     tags: ["Google Sites", "DNS", "Cloudflare", "Tutorial"],
     content: `If you set up a custom domain on Google Sites and your site only loads when people type the full www.example.com, while example.com on its own throws an error or a "this site can't be reached" message, you have just run into one of the most common and least-well-explained problems in DIY web hosting. There is a term for it that almost nobody tells you when you Google "google sites no www," "google sites root domain not loading," or "how do I make google sites work without www," which is part of why it's so hard to find a solution.
@@ -513,7 +513,7 @@ The reason this post exists is that there are dozens of unanswered Reddit thread
       "Set up Resend transactional email on a Namecheap domain that already uses Private Email",
     summary:
       "A complete walkthrough of getting Resend sending mail from your apex domain without breaking the inbox you already use for info@ and friends. Includes the DNS records that worked and the ones that did not.",
-    date: "2026-05-25",
+    date: "2026-03-12",
     readMinutes: 8,
     tags: ["Email", "DNS", "Resend", "Namecheap"],
     content: `If you bought your domain through Namecheap and turned on Private Email for the apex inbox, you already have working MX records for receiving mail at addresses like info@yourdomain.com or hello@yourdomain.com. Adding Resend on top so a contact form or transactional system can send mail from the same domain is one of those tasks where every tutorial assumes a different starting state, and the official documentation does not warn you about the conflict you are about to hit.
@@ -591,7 +591,7 @@ If you ever want to move away from Private Email later, the Mail Settings sectio
     title: "What it actually costs to ship a custom iOS app in 2026",
     summary:
       "Honest numbers from a solo developer who has shipped multiple paid and free apps on the App Store. Includes Apple's fees, the realistic timeline, and what changes when you bring in a team.",
-    date: "2026-05-22",
+    date: "2026-02-18",
     readMinutes: 10,
     tags: ["iOS", "Pricing", "Founders"],
     content: `Every prospective client we talk to wants to know the same thing in the first email. How much is this going to cost. The answer is never the answer they want, which is a single number, but it is also not the dodge that most agency websites give. Here is the honest version, written from the perspective of a solo developer who has shipped multiple apps to the App Store and run the whole lifecycle from first conversation to first review.
@@ -654,7 +654,7 @@ If you want a realistic estimate for your specific project, the fastest path is 
       "What we learned shipping EZ Fuse Tester, the app that turns your iPhone into a fuse tester",
     summary:
       "A short build log for a free iOS utility born from a frustrated evening with broken Halloween lights. Why we shipped it, how it works, and what App Store users have done with it.",
-    date: "2026-05-15",
+    date: "2026-01-27",
     readMinutes: 6,
     tags: ["iOS", "Hardware", "Build Log"],
     content: `EZ Fuse Tester started on a Tuesday evening in late October 2023, with a half-untangled string of Halloween lights on the kitchen floor and the realization that we had no idea which of the tiny glass fuses inside the plug had blown. The cardboard packaging said something about replacement fuses being included for exactly this purpose. They were, of course, long gone. The nearest hardware store was closed. Testing each suspect fuse with a multimeter meant unscrewing the plug, prying out each one, and probing it with the leads in good light, which is a slow and grumpy way to spend the half hour before kids show up at the door.
@@ -706,7 +706,7 @@ There is a lesson buried in that for any developer or small studio: the projects
     title: "What we build and why",
     summary:
       "A short note on what WildTech Development exists to do, who we serve best, and what to expect if you reach out.",
-    date: "2026-04-08",
+    date: "2026-01-05",
     readMinutes: 4,
     tags: ["Founders", "WildTech"],
     content: `Most software studio websites read like marketing brochures. This is meant to be a short personal version. What WildTech Development exists to do, who we serve best, and what to expect if you decide to work with us.
@@ -738,7 +738,7 @@ If you have a project you have been turning over and want to talk it through wit
     title: "Building software from Charleston, SC: a field report",
     summary:
       "Notes from running a small software and hardware studio out of Charleston, South Carolina. What the Lowcountry gets right, where it has to import talent, and why Charleston turns out to be a quietly excellent place to ship a product.",
-    date: "2026-04-01",
+    date: "2025-12-15",
     readMinutes: 7,
     tags: ["Charleston", "Founders"],
     content: `Most of the writing about software in the American Southeast still treats Charleston, South Carolina as a vacation backdrop instead of a place where people actually build things. That framing is a few years out of date. Charleston has quietly grown a working software economy, and from the seat we occupy on James Island, it is the right place to build a small studio.
