@@ -28,7 +28,7 @@ export default function ContactPage() {
     <section className="relative py-20 sm:py-28 overflow-hidden">
       {/* Top glow */}
       <div
-        className="absolute -top-40 right-1/4 w-[600px] h-[400px] rounded-full pointer-events-none"
+        className="absolute -top-40 right-1/4 w-[600px] h-[400px] rounded-full pointer-events-none section-glow"
         style={{
           background:
             "radial-gradient(ellipse at center, rgba(34,197,94,0.12) 0%, transparent 70%)",
@@ -50,6 +50,10 @@ export default function ContactPage() {
             Whether you need an app on the App Store, a custom piece of hardware,
             or a full web platform, it all starts with a conversation. Tell us
             what you are trying to solve.
+          </p>
+          <p className="mt-5 text-sm text-muted flex items-center gap-2.5">
+            <span className="w-1 h-1 bg-green rounded-full shrink-0" aria-hidden="true" />
+            We reply to every inquiry within one business day.
           </p>
         </div>
 

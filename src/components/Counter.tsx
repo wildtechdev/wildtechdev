@@ -1,7 +1,12 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 
+/**
+ * Animated count-up. Writes textContent directly through a ref, so the
+ * animation causes zero React re-renders (the old version set state on
+ * every animation frame).
+ */
 export default function Counter({
   to,
   duration = 1800,
@@ -15,7 +20,6 @@ export default function Counter({
   prefix?: string;
   className?: string;
 }) {
-  const [value, setValue] = useState(0);
   const ref = useRef<HTMLSpanElement>(null);
   const started = useRef(false);
 
@@ -23,11 +27,15 @@ export default function Counter({
     const el = ref.current;
     if (!el) return;
 
+    const setDisplay = (value: number) => {
+      el.textContent = `${prefix}${Math.round(value)}${suffix}`;
+    };
+
     const prefersReduced = window.matchMedia(
       "(prefers-reduced-motion: reduce)"
     ).matches;
     if (prefersReduced) {
-      setValue(to);
+      setDisplay(to);
       return;
     }
 
@@ -40,11 +48,11 @@ export default function Counter({
         const progress = Math.min(elapsed / duration, 1);
         // ease-out-cubic
         const eased = 1 - Math.pow(1 - progress, 3);
-        setValue(to * eased);
+        setDisplay(to * eased);
         if (progress < 1) {
           requestAnimationFrame(tick);
         } else {
-          setValue(to);
+          setDisplay(to);
         }
       };
       requestAnimationFrame(tick);
@@ -52,8 +60,7 @@ export default function Counter({
 
     // If element is already in view at mount, kick off immediately
     const rect = el.getBoundingClientRect();
-    const inView =
-      rect.top < window.innerHeight && rect.bottom > 0;
+    const inView = rect.top < window.innerHeight && rect.bottom > 0;
     if (inView) {
       start();
       return;
@@ -71,15 +78,11 @@ export default function Counter({
 
     observer.observe(el);
     return () => observer.disconnect();
-  }, [to, duration]);
-
-  const displayValue = Math.round(value);
+  }, [to, duration, prefix, suffix]);
 
   return (
     <span ref={ref} className={className}>
-      {prefix}
-      {displayValue}
-      {suffix}
+      {prefix}0{suffix}
     </span>
   );
 }

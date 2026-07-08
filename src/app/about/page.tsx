@@ -63,7 +63,12 @@ const orgJsonLd = {
     "@type": "Organization",
     name: "WildTech Ventures, LLC",
   },
-  sameAs: ["https://churchd.com", "https://vikingsensors.com"],
+  sameAs: [
+    "https://churchd.com",
+    "https://vikingsensors.com",
+    "https://www.linkedin.com/in/willmccants/",
+    "https://apps.apple.com/us/developer/wildtech-ventures-llc/id1718456894",
+  ],
 };
 
 const ecosystem = [
@@ -107,7 +112,7 @@ export default function AboutPage() {
       <section className="relative py-20 sm:py-28 overflow-hidden">
         {/* Top glow */}
         <div
-          className="absolute -top-40 left-1/2 -translate-x-1/2 w-[700px] h-[400px] rounded-full pointer-events-none"
+          className="absolute -top-40 left-1/2 -translate-x-1/2 w-[700px] h-[400px] rounded-full pointer-events-none section-glow"
           style={{
             background:
               "radial-gradient(ellipse at center, rgba(34,197,94,0.12) 0%, transparent 70%)",

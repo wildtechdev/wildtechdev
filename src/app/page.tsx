@@ -400,8 +400,9 @@ export default function HomePage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd) }}
       />
 
-      {/* Hero */}
-      <section className="relative min-h-[92vh] flex items-center justify-center overflow-hidden">
+      {/* Hero. min-h uses svh so iOS Safari's collapsing URL bar does not
+          cause layout jumps; vh stays as the fallback for older browsers. */}
+      <section className="relative min-h-[92vh] min-h-[92svh] flex items-center justify-center overflow-hidden">
         <HeroSpotlight />
         <div
           className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full pointer-events-none animate-glow-pulse"
@@ -413,7 +414,7 @@ export default function HomePage() {
           aria-hidden="true"
         />
         <div
-          className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] rounded-full pointer-events-none"
+          className="section-glow absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] rounded-full pointer-events-none section-glow"
           style={{
             background:
               "radial-gradient(circle, rgba(34,197,94,0.18) 0%, transparent 70%)",
@@ -557,7 +558,7 @@ export default function HomePage() {
       </section>
 
       {/* Products */}
-      <section className="relative py-20 sm:py-28 border-t border-border bg-gradient-to-b from-black via-black to-black overflow-hidden">
+      <section className="relative py-20 sm:py-28 border-t border-border bg-black overflow-hidden">
         <div className="absolute -top-8 right-6 lg:right-12 text-[260px] leading-none font-[family-name:var(--font-serif)] italic text-heading pointer-events-none select-none opacity-[0.07]">
           01
         </div>
@@ -602,7 +603,7 @@ export default function HomePage() {
             {products.map((product, i) => (
               <ScrollReveal
                 key={product.name}
-                delay={i * 80}
+                delay={(i % 3) * 60}
                 className="h-full"
               >
                 <HomeProductCard product={product} index={i} />
@@ -615,7 +616,7 @@ export default function HomePage() {
       {/* Testimonials */}
       <section className="relative py-24 sm:py-32 border-t border-border overflow-hidden">
         <div
-          className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] rounded-full pointer-events-none"
+          className="section-glow absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] rounded-full pointer-events-none section-glow"
           style={{
             background:
               "radial-gradient(ellipse at center, rgba(34,197,94,0.08) 0%, transparent 70%)",
@@ -635,28 +636,33 @@ export default function HomePage() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-border">
             {testimonials.map((t, i) => (
-              <ScrollReveal key={i} delay={i * 100}>
-                <Spotlight className="bg-surface p-8 lg:p-10 h-full flex flex-col">
-                  <div className="relative">
-                    <span
-                      className="absolute -top-4 -left-2 text-7xl text-green/20 font-[family-name:var(--font-serif)] leading-none select-none"
-                      aria-hidden="true"
-                    >
-                      &ldquo;
-                    </span>
-                    <p className="relative text-body text-base leading-relaxed font-[family-name:var(--font-serif)] italic pl-4">
-                      {t.quote}
-                    </p>
-                  </div>
+              <ScrollReveal key={i} delay={i * 60}>
+                <Spotlight
+                  as="article"
+                  className="bg-surface p-8 lg:p-10 h-full"
+                >
+                  <figure className="h-full flex flex-col">
+                    <blockquote className="relative">
+                      <span
+                        className="absolute -top-4 -left-2 text-7xl text-green/20 font-[family-name:var(--font-serif)] leading-none select-none"
+                        aria-hidden="true"
+                      >
+                        &ldquo;
+                      </span>
+                      <p className="relative text-body text-base leading-relaxed font-[family-name:var(--font-serif)] italic pl-4">
+                        {t.quote}
+                      </p>
+                    </blockquote>
 
-                  <div className="mt-auto pt-8 flex items-baseline justify-between gap-4 border-t border-border mt-8">
-                    <p className="text-[11.5px] uppercase tracking-[0.22em] text-muted font-mono">
-                      {t.author}
-                    </p>
-                    <p className="text-xs text-green font-[family-name:var(--font-sans)]">
-                      {t.product}
-                    </p>
-                  </div>
+                    <figcaption className="mt-auto pt-8 flex items-baseline justify-between gap-4 border-t border-border">
+                      <span className="text-[11.5px] uppercase tracking-[0.22em] text-muted font-mono">
+                        {t.author}
+                      </span>
+                      <span className="text-xs text-green font-[family-name:var(--font-sans)]">
+                        {t.product}
+                      </span>
+                    </figcaption>
+                  </figure>
                 </Spotlight>
               </ScrollReveal>
             ))}
@@ -748,7 +754,7 @@ export default function HomePage() {
       </section>
 
       {/* Process */}
-      <section className="relative py-24 sm:py-32 border-t border-border overflow-hidden bg-gradient-to-b from-black via-black to-black">
+      <section className="relative py-24 sm:py-32 border-t border-border overflow-hidden bg-black">
         <div className="absolute -top-8 right-6 lg:right-12 text-[260px] leading-none font-[family-name:var(--font-serif)] italic text-heading pointer-events-none select-none opacity-[0.07]">
           03
         </div>
@@ -805,7 +811,7 @@ export default function HomePage() {
       {/* Closing CTA */}
       <section className="relative py-28 sm:py-36 border-t border-border overflow-hidden">
         <div
-          className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full pointer-events-none animate-glow-pulse"
+          className="section-glow absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full pointer-events-none animate-glow-pulse"
           style={{
             background:
               "radial-gradient(circle, rgba(34,197,94,0.18) 0%, transparent 70%)",

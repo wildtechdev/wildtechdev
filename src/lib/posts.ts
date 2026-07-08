@@ -654,13 +654,13 @@ If you want a realistic estimate for your specific project, the fastest path is 
     title:
       "What we learned shipping EZ Fuse Tester, the app that turns your iPhone into a fuse tester",
     summary:
-      "A short build log for a free iOS utility born from a frustrated evening with broken Halloween lights. Why we shipped it, how it works, and what App Store users have done with it.",
+      "A short build log for a free iOS utility born from a late-night viral video about capacitive touchscreens. Why we shipped it, how it works, and what App Store users have done with it.",
     date: "2026-01-27",
     readMinutes: 6,
     tags: ["iOS", "Hardware", "Build Log"],
-    content: `EZ Fuse Tester started on a Tuesday evening in late October 2023, with a half-untangled string of Halloween lights on the kitchen floor and the realization that we had no idea which of the tiny glass fuses inside the plug had blown. The cardboard packaging said something about replacement fuses being included for exactly this purpose. They were, of course, long gone. The nearest hardware store was closed. Testing each suspect fuse with a multimeter meant unscrewing the plug, prying out each one, and probing it with the leads in good light, which is a slow and grumpy way to spend the half hour before kids show up at the door.
+    content: `EZ Fuse Tester started late one night with a viral video. The clip hinted that an iPhone's capacitive touchscreen could detect electrical continuity across a small conductive object, and the idea would not let go. Anyone who has fixed a string of holiday lights, an old radio, or a classic car knows the ritual: somewhere in the device is a tiny glass fuse that may or may not be blown, and finding out means digging out a multimeter, prying each fuse loose, and probing it with the leads in good light. Slow, grumpy work for a question that deserves an instant answer.
 
-The iPhone was sitting on the counter, screen up. The screen on a modern iPhone is essentially a giant capacitive sensor. The thought arrived as one of those middle-of-the-task questions: could you tell whether a fuse is good by laying it across the screen and seeing if the touch sensor registers the resistance change?
+The screen on a modern iPhone is essentially a giant capacitive sensor. The question the video planted was simple: could you tell whether a fuse is good by laying it across the screen and seeing what the touch sensor registers?
 
 The answer, after a weekend of prototyping, was yes. EZ Fuse Tester shipped to the App Store free, without ads, and without collecting any data from its users, in mid 2024 after a stretch of refinement on the original prototype.
 
@@ -684,7 +684,7 @@ The second reason is that EZ Fuse Tester turned out to be the best advertising w
 
 ## What App Store users have done with it
 
-The most common reviews are some variation of "I was about to throw out my Halloween lights and the app saved them," because of course that is how it started. The second most common review is about cars. Old British cars in particular have a lot of small glass fuses and a fanbase that likes to fix things themselves at home. We get reviews from people who used the app on Land Rovers, MG Midgets, and old Volvos. One reviewer used it to test the fuses in a vintage Sony reel-to-reel tape deck and reported back that the app saved his weekend.
+The most common reviews are some variation of "I was about to throw out my Halloween lights and the app saved them," which fits: rescuing a string of holiday lights is exactly the moment the app was designed for. The second most common review is about cars. Old British cars in particular have a lot of small glass fuses and a fanbase that likes to fix things themselves at home. We get reviews from people who used the app on Land Rovers, MG Midgets, and old Volvos. One reviewer used it to test the fuses in a vintage Sony reel-to-reel tape deck and reported back that the app saved his weekend.
 
 The reviews that always make us smile are from people who were not technical at all. They downloaded the app on the recommendation of someone in their family, used it to fix a lamp or a string of lights, and wrote a review that was more about the relief of not having to drive to a store than anything else.
 

@@ -16,6 +16,14 @@ export const metadata: Metadata = {
     title: "Products | WildTech Development",
     description:
       "iOS apps, community platforms, and precision hardware from WildTech Development.",
+    images: [
+      {
+        url: "/api/og?title=iOS%20apps%2C%20platforms%2C%20and%20precision%20hardware&kind=Products",
+        width: 1200,
+        height: 630,
+        alt: "WildTech Development products",
+      },
+    ],
   },
 };
 
@@ -164,6 +172,7 @@ const productsJsonLd = {
 const products = [
   {
     name: "Spirits of Charleston",
+    slug: "spirits-of-charleston",
     mockup: "spirits-charleston" as const,
     status: "Live" as const,
     price: "$4.99",
@@ -193,6 +202,7 @@ const products = [
   },
   {
     name: "Spirits of Savannah",
+    slug: "spirits-of-savannah",
     mockup: "spirits-savannah" as const,
     status: "Live" as const,
     price: "$3.99",
@@ -207,7 +217,7 @@ const products = [
       "Extensive historic photos and documents",
       "Intuitive search",
       "Coverage beyond downtown",
-      "206.5 MB · Age 9+",
+      "Offline access",
     ],
     appStoreUrl:
       "https://apps.apple.com/us/app/spirits-of-savannah/id6740187114",
@@ -222,6 +232,7 @@ const products = [
   },
   {
     name: "EZ Fuse Tester",
+    slug: "ez-fuse-tester",
     mockup: "ez-fuse" as const,
     status: "Live" as const,
     price: "Free",
@@ -250,6 +261,7 @@ const products = [
   },
   {
     name: "We The People: Your Rights",
+    slug: "we-the-people-your-rights",
     mockup: "we-the-people" as const,
     status: "Live" as const,
     price: "Free",
@@ -276,6 +288,7 @@ const products = [
   },
   {
     name: "Churchd",
+    slug: "churchd",
     mockup: "churchd" as const,
     status: "In Development" as const,
     price: null,
@@ -307,6 +320,7 @@ const products = [
   },
   {
     name: "Viking Sensors",
+    slug: "viking-sensors",
     mockup: "vikingsense" as const,
     status: "Live" as const,
     price: null,
@@ -402,7 +416,7 @@ export default function ProductsPage() {
       <section className="relative py-20 sm:py-28 overflow-hidden">
       {/* Top glow */}
       <div
-        className="absolute -top-40 right-0 w-[700px] h-[400px] rounded-full pointer-events-none"
+        className="absolute -top-40 right-0 w-[700px] h-[400px] rounded-full pointer-events-none section-glow"
         style={{
           background:
             "radial-gradient(ellipse at center, rgba(34,197,94,0.08) 0%, transparent 70%)",
@@ -430,10 +444,7 @@ export default function ProductsPage() {
             return (
               <ScrollReveal key={product.name}>
                 <article
-                  id={product.name
-                    .toLowerCase()
-                    .replace(/[^a-z0-9]+/g, "-")
-                    .replace(/^-|-$/g, "")}
+                  id={product.slug}
                   className={`group relative border-l-[3px] ${product.accentColor} py-14 lg:py-16 pl-8 pr-2 overflow-hidden transition-colors duration-700 hover:bg-surface/40`}
                 >
                   {/* Subtle accent glow on hover */}
@@ -452,7 +463,7 @@ export default function ProductsPage() {
                   >
                     {/* Mockup */}
                     <div className="flex justify-center lg:flex-shrink-0 lg:self-start transition-transform duration-700 group-hover:-translate-y-1">
-                      <PhoneMockup product={product.mockup} />
+                      <PhoneMockup product={product.mockup} priority={index === 0} />
                     </div>
 
                     {/* Content */}
@@ -550,10 +561,7 @@ export default function ProductsPage() {
                           </a>
                         )}
                         <Link
-                          href={`/work/${product.name
-                            .toLowerCase()
-                            .replace(/[^a-z0-9]+/g, "-")
-                            .replace(/^-|-$/g, "")}`}
+                          href={`/work/${product.slug}`}
                           className="inline-flex items-center gap-2 text-sm text-body hover:text-heading transition-colors duration-300 link-underline py-2"
                         >
                           Read the case study
@@ -572,7 +580,7 @@ export default function ProductsPage() {
     {/* Closing CTA */}
     <section className="relative py-24 sm:py-32 border-t border-border overflow-hidden">
       <div
-        className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full pointer-events-none"
+        className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full pointer-events-none section-glow"
         style={{
           background:
             "radial-gradient(circle, rgba(34,197,94,0.14) 0%, transparent 70%)",

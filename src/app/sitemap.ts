@@ -4,7 +4,10 @@ import { caseStudies } from "@/lib/work";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://www.wildtechdev.com";
-  const now = new Date();
+  // Stable release stamp for static routes. Bump this when page content
+  // meaningfully changes. (The old `new Date()` stamped every route as
+  // modified on every request, which tells Google nothing.)
+  const now = new Date("2026-07-07");
 
   const staticRoutes: MetadataRoute.Sitemap = [
     {
@@ -84,6 +87,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: now,
       changeFrequency: "yearly",
       priority: 0.6,
+    },
+    {
+      url: `${baseUrl}/privacy`,
+      lastModified: now,
+      changeFrequency: "yearly",
+      priority: 0.3,
     },
     // NOTE: /privacy/we-the-people-your-rights is intentionally NOT in the
     // sitemap. That page has robots: { index: false, follow: false } in its

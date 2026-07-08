@@ -14,6 +14,14 @@ export const metadata: Metadata = {
     title: "Process | WildTech Development",
     description:
       "How we work with clients from first conversation to shipped product. Five phases, no surprises.",
+    images: [
+      {
+        url: "/api/og?title=Five%20phases%2C%20no%20surprises&kind=Process",
+        width: 1200,
+        height: 630,
+        alt: "The WildTech Development process",
+      },
+    ],
   },
 };
 
@@ -119,7 +127,7 @@ export default function ProcessPage() {
       />
       <section className="relative py-20 sm:py-28 overflow-hidden">
         <div
-          className="absolute -top-40 right-1/4 w-[700px] h-[400px] rounded-full pointer-events-none"
+          className="absolute -top-40 right-1/4 w-[700px] h-[400px] rounded-full pointer-events-none section-glow"
           style={{
             background:
               "radial-gradient(ellipse at center, rgba(34,197,94,0.08) 0%, transparent 70%)",
@@ -217,7 +225,7 @@ export default function ProcessPage() {
                 Ready to start
               </p>
               <h2 className="text-3xl sm:text-4xl font-[family-name:var(--font-serif)] italic text-heading mb-4">
-                Let's run the first phase together.
+                Let&apos;s run the first phase together.
               </h2>
               <p className="text-body mb-10 max-w-lg mx-auto">
                 A free thirty minute call to see if the project is a fit. No

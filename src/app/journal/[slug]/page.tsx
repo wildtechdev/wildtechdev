@@ -7,6 +7,7 @@ import NewsletterSignup from "@/components/NewsletterSignup";
 import Prose from "@/components/Prose";
 import ScrollReveal from "@/components/ScrollReveal";
 import { getAllSlugs, getPostBySlug, posts } from "@/lib/posts";
+import { formatDate } from "@/lib/format";
 
 type Params = { slug: string };
 
@@ -24,6 +25,7 @@ export async function generateMetadata({
   if (!post) {
     return { title: "Post not found" };
   }
+  const ogImage = `/api/og?title=${encodeURIComponent(post.title)}&kind=Journal`;
   return {
     title: post.title,
     description: post.summary,
@@ -37,17 +39,15 @@ export async function generateMetadata({
       publishedTime: post.date,
       authors: ["Will McCants"],
       tags: post.tags,
+      images: [{ url: ogImage, width: 1200, height: 630, alt: post.title }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: post.title,
+      description: post.summary,
+      images: [ogImage],
     },
   };
-}
-
-function formatDate(iso: string) {
-  const d = new Date(iso);
-  return d.toLocaleDateString("en-US", {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  });
 }
 
 export default async function PostPage({
@@ -66,6 +66,9 @@ export default async function PostPage({
     "@type": "BlogPosting",
     headline: post.title,
     description: post.summary,
+    url: `https://www.wildtechdev.com/journal/${post.slug}`,
+    image: `https://www.wildtechdev.com/api/og?title=${encodeURIComponent(post.title)}&kind=Journal`,
+    keywords: post.tags.join(", "),
     author: {
       "@type": "Person",
       name: "Will McCants",
@@ -77,6 +80,7 @@ export default async function PostPage({
       url: "https://www.wildtechdev.com",
     },
     datePublished: post.date,
+    dateModified: post.date,
     mainEntityOfPage: {
       "@type": "WebPage",
       "@id": `https://www.wildtechdev.com/journal/${post.slug}`,
@@ -88,6 +92,11 @@ export default async function PostPage({
     .filter((p) => p.slug !== post.slug)
     .filter((p) => p.tags.some((t) => post.tags.includes(t)))
     .slice(0, 2);
+
+  // Chronological neighbors (posts array is sorted newest first).
+  const index = posts.findIndex((p) => p.slug === post.slug);
+  const newer = index > 0 ? posts[index - 1] : null;
+  const older = index < posts.length - 1 ? posts[index + 1] : null;
 
   return (
     <>
@@ -107,7 +116,7 @@ export default async function PostPage({
       />
       <article className="relative py-20 sm:py-28 overflow-hidden">
         <div
-          className="absolute -top-40 left-1/4 w-[700px] h-[400px] rounded-full pointer-events-none"
+          className="absolute -top-40 left-1/4 w-[700px] h-[400px] rounded-full pointer-events-none section-glow"
           style={{
             background:
               "radial-gradient(ellipse at center, rgba(34,197,94,0.07) 0%, transparent 70%)",
@@ -197,6 +206,38 @@ export default async function PostPage({
               </span>
             </Link>
           </div>
+
+          {(older || newer) && (
+            <nav
+              aria-label="Post navigation"
+              className="mt-16 pt-10 border-t border-border grid grid-cols-1 sm:grid-cols-2 gap-6"
+            >
+              <div>
+                {older && (
+                  <Link href={`/journal/${older.slug}`} className="block group">
+                    <p className="text-[11.5px] font-mono uppercase tracking-[0.22em] text-muted mb-2">
+                      &larr; Older
+                    </p>
+                    <p className="text-base font-[family-name:var(--font-serif)] italic text-heading group-hover:text-green transition-colors">
+                      {older.title}
+                    </p>
+                  </Link>
+                )}
+              </div>
+              <div className="sm:text-right">
+                {newer && (
+                  <Link href={`/journal/${newer.slug}`} className="block group">
+                    <p className="text-[11.5px] font-mono uppercase tracking-[0.22em] text-muted mb-2">
+                      Newer &rarr;
+                    </p>
+                    <p className="text-base font-[family-name:var(--font-serif)] italic text-heading group-hover:text-green transition-colors">
+                      {newer.title}
+                    </p>
+                  </Link>
+                )}
+              </div>
+            </nav>
+          )}
 
           {related.length > 0 && (
             <ScrollReveal>

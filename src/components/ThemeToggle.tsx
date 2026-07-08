@@ -1,7 +1,21 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useSyncExternalStore } from "react";
 import { useTheme } from "@/components/ThemeProvider";
+
+const emptySubscribe = () => () => {};
+
+/**
+ * Hydration-safe "am I on the client yet" flag without the setState-in-effect
+ * pattern: server snapshot is false, client snapshot is true.
+ */
+function useMounted() {
+  return useSyncExternalStore(
+    emptySubscribe,
+    () => true,
+    () => false
+  );
+}
 
 /**
  * Sun / moon icon toggle. Mounts a small icon button that flips the site
@@ -14,11 +28,7 @@ export default function ThemeToggle({
   className?: string;
 }) {
   const { theme, toggleTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
+  const mounted = useMounted();
 
   const isLight = mounted && theme === "light";
   const label = isLight ? "Switch to dark mode" : "Switch to light mode";
@@ -28,6 +38,7 @@ export default function ThemeToggle({
       type="button"
       onClick={toggleTheme}
       aria-label={label}
+      aria-pressed={isLight}
       title={label}
       className={`group relative inline-flex h-9 w-9 items-center justify-center border border-border bg-surface text-body transition-colors duration-300 hover:border-green/50 hover:text-green ${className}`}
     >

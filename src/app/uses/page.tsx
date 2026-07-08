@@ -13,6 +13,14 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Uses | WildTech Development",
     description: "Hardware, software, and services we actually use.",
+    images: [
+      {
+        url: "/api/og?title=The%20hardware%2C%20software%2C%20and%20services%20we%20actually%20use&kind=Uses",
+        width: 1200,
+        height: 630,
+        alt: "WildTech Development uses",
+      },
+    ],
   },
 };
 
@@ -45,7 +53,7 @@ const sections = [
       { name: "Next.js", note: "App Router, server components, Turbopack" },
       { name: "React 19", note: "UI" },
       { name: "TypeScript", note: "End to end on every web project" },
-      { name: "Tailwind CSS", note: "Design tokens via @theme inline" },
+      { name: "Tailwind CSS", note: "Design tokens via @theme" },
       { name: "Vercel", note: "Hosting and deploys" },
       { name: "Supabase", note: "Postgres and auth where appropriate" },
     ],
@@ -118,7 +126,7 @@ export default function UsesPage() {
       />
       <section className="relative py-20 sm:py-28 overflow-hidden">
         <div
-          className="absolute -top-40 left-0 w-[700px] h-[400px] rounded-full pointer-events-none"
+          className="absolute -top-40 left-0 w-[700px] h-[400px] rounded-full pointer-events-none section-glow"
           style={{
             background:
               "radial-gradient(ellipse at center, rgba(34,197,94,0.07) 0%, transparent 70%)",

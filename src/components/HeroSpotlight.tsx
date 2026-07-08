@@ -25,7 +25,7 @@ export default function HeroSpotlight() {
   return (
     <div
       ref={ref}
-      className="absolute inset-0 pointer-events-none transition-opacity duration-700"
+      className="absolute inset-0 pointer-events-none section-glow"
       style={{
         background:
           "radial-gradient(600px circle at var(--hx, 50%) var(--hy, 50%), rgba(34,197,94,0.14), transparent 50%)",

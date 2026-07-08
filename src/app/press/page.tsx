@@ -137,7 +137,7 @@ export default function PressPage() {
       />
       <section className="relative py-20 sm:py-28 overflow-hidden">
         <div
-          className="absolute -top-40 right-0 w-[700px] h-[400px] rounded-full pointer-events-none"
+          className="absolute -top-40 right-0 w-[700px] h-[400px] rounded-full pointer-events-none section-glow"
           style={{
             background:
               "radial-gradient(ellipse at center, rgba(34,197,94,0.08) 0%, transparent 70%)",

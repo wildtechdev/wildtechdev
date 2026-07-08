@@ -16,15 +16,30 @@ export default function Spotlight({
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
-    const onMove = (e: MouseEvent) => {
+
+    // rAF-throttled coordinate updates (one style write per frame max).
+    let rafId = 0;
+    let lastX = 0;
+    let lastY = 0;
+
+    const apply = () => {
+      rafId = 0;
       const rect = el.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-      el.style.setProperty("--mx", `${x}px`);
-      el.style.setProperty("--my", `${y}px`);
+      el.style.setProperty("--mx", `${lastX - rect.left}px`);
+      el.style.setProperty("--my", `${lastY - rect.top}px`);
     };
-    el.addEventListener("mousemove", onMove);
-    return () => el.removeEventListener("mousemove", onMove);
+
+    const onMove = (e: MouseEvent) => {
+      lastX = e.clientX;
+      lastY = e.clientY;
+      if (!rafId) rafId = requestAnimationFrame(apply);
+    };
+
+    el.addEventListener("mousemove", onMove, { passive: true });
+    return () => {
+      if (rafId) cancelAnimationFrame(rafId);
+      el.removeEventListener("mousemove", onMove);
+    };
   }, []);
 
   const Tag = as;

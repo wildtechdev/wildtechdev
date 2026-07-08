@@ -4,7 +4,7 @@ export default function AppStoreBadge({ href }: { href: string }) {
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className="group inline-flex items-center gap-2.5 px-5 py-2.5 bg-heading text-black rounded-md transition-all duration-300 hover:bg-white hover:-translate-y-0.5 hover:shadow-[0_8px_24px_-8px_rgba(255,255,255,0.3)]"
+      className="group inline-flex items-center gap-2.5 px-5 py-2.5 bg-heading text-black rounded-md transition-all duration-300 hover:opacity-90 hover:-translate-y-0.5 hover:shadow-[0_10px_28px_-10px_rgba(0,0,0,0.45)]"
     >
       <svg
         className="w-5 h-5 transition-transform duration-300 group-hover:scale-110"

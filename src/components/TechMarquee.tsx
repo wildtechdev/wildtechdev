@@ -26,27 +26,38 @@ const tech = [
   "ZEISS Optotechnik",
 ];
 
-export default function TechMarquee() {
-  // Duplicate the list so the loop is seamless
-  const items = [...tech, ...tech];
-
+function MarqueeGroup() {
   return (
-    <div className="relative py-10 border-y border-border bg-[#070a0f] overflow-hidden marquee-mask marquee-pause-on-hover">
+    <div className="flex items-center gap-12 shrink-0 pr-12">
+      {tech.map((label) => (
+        <div key={label} className="flex items-center gap-3 shrink-0">
+          <span className="w-1 h-1 rounded-full bg-green/60" />
+          <span className="text-sm font-mono uppercase tracking-[0.18em] text-muted hover:text-green transition-colors duration-300">
+            {label}
+          </span>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+export default function TechMarquee() {
+  return (
+    <div className="relative py-10 border-y border-border bg-card overflow-hidden marquee-mask marquee-pause-on-hover">
+      {/* Screen readers get one plain sentence instead of 50 looping items. */}
+      <p className="sr-only">
+        Technologies we work with: {tech.join(", ")}.
+      </p>
       <div
-        className="marquee-track gap-12"
+        className="marquee-track"
         style={{ ["--marquee-duration" as string]: "40s" }}
+        aria-hidden="true"
       >
-        {items.map((label, i) => (
-          <div
-            key={`${label}-${i}`}
-            className="flex items-center gap-3 shrink-0"
-          >
-            <span className="w-1 h-1 rounded-full bg-green/60" />
-            <span className="text-sm font-mono uppercase tracking-[0.18em] text-muted hover:text-green transition-colors duration-300">
-              {label}
-            </span>
-          </div>
-        ))}
+        {/* Two identical groups make the -50% translate loop seamless.
+            Each group carries its own trailing gap (pr-12) so the seam
+            between copies matches the gap between items exactly. */}
+        <MarqueeGroup />
+        <MarqueeGroup />
       </div>
     </div>
   );

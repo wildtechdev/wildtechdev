@@ -14,6 +14,14 @@ export const metadata: Metadata = {
     title: "FAQ | WildTech Development",
     description:
       "Common pre-sales questions answered. Cost, timeline, scope, IP, support.",
+    images: [
+      {
+        url: "/api/og?title=Honest%20answers%20to%20the%20questions%20clients%20ask&kind=FAQ",
+        width: 1200,
+        height: 630,
+        alt: "WildTech Development FAQ",
+      },
+    ],
   },
 };
 
@@ -104,7 +112,7 @@ export default function FaqPage() {
       />
       <section className="relative py-20 sm:py-28 overflow-hidden">
         <div
-          className="absolute -top-40 left-1/4 w-[700px] h-[400px] rounded-full pointer-events-none"
+          className="absolute -top-40 left-1/4 w-[700px] h-[400px] rounded-full pointer-events-none section-glow"
           style={{
             background:
               "radial-gradient(ellipse at center, rgba(34,197,94,0.08) 0%, transparent 70%)",

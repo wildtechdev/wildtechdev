@@ -24,6 +24,13 @@ export default function NewsletterSignup({
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     if (!email.trim()) return;
+    // Cheap client-side shape check saves a pointless round trip; the
+    // server still validates for real.
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim())) {
+      setState("error");
+      setError("That email address does not look right.");
+      return;
+    }
     setState("loading");
     setError(null);
     try {
@@ -49,7 +56,7 @@ export default function NewsletterSignup({
 
   if (state === "ok") {
     return (
-      <div className="bg-surface border border-green/30 rounded p-6">
+      <div role="status" className="bg-surface border border-green/30 rounded p-6">
         <p className="text-sm text-green font-mono uppercase tracking-[0.18em] mb-1">
           Subscribed
         </p>
@@ -105,6 +112,8 @@ export default function NewsletterSignup({
           <input
             type="text"
             placeholder="Your first name (optional)"
+            aria-label="Your first name (optional)"
+            autoComplete="given-name"
             value={name}
             onChange={(e) => setName(e.target.value)}
             className="w-full bg-transparent border border-border px-4 py-3 text-sm text-heading placeholder:text-muted focus:outline-none focus:border-green transition-colors"
@@ -116,6 +125,8 @@ export default function NewsletterSignup({
             type="email"
             required
             placeholder="you@example.com"
+            aria-label="Email address"
+            autoComplete="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             className="flex-1 bg-transparent border border-border px-4 py-3 text-sm text-heading placeholder:text-muted focus:outline-none focus:border-green transition-colors"
@@ -145,9 +156,11 @@ export default function NewsletterSignup({
             )}
           </button>
         </div>
-        {state === "error" && error && (
-          <p className="text-xs text-red-400 mt-1">{error}</p>
-        )}
+        <div role="status" aria-live="polite">
+          {state === "error" && error && (
+            <p className="text-xs text-red-400 mt-1">{error}</p>
+          )}
+        </div>
         <p className="text-[11.5px] uppercase tracking-[0.18em] text-muted font-mono mt-2">
           Unsubscribe any time
         </p>

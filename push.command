@@ -2,7 +2,7 @@
 cd "$(dirname "$0")"
 rm -f .git/index.lock .git/HEAD.lock .git/ORIG_HEAD.lock
 git add -A
-git commit -m "fix(journal): sort posts by date so the journal always lists newest first; the exported posts array now sorts itself by date, which fixes the google-sites post showing out of order, and updates PROJECT_LOG to note order is handled automatically"
+git commit -m "feat(site): full modernization pass per AUDIT.md with over 100 improvements covering light mode fixes, prose renderer bold and numbered lists, per page social images, RSS feed, journal search, privacy page, accessibility, animation polish, SEO structured data, security headers, and the EZ Fuse origin story now matching the founder page"
 git push origin main
 echo ""
 echo "Done! Press any key to close."

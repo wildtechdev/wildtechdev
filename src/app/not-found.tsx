@@ -49,9 +49,9 @@ export default function NotFound() {
           <span className="w-8 h-px bg-green" />
         </div>
 
-        <h2 className="mt-6 text-2xl font-[family-name:var(--font-serif)] italic text-heading">
+        <h1 className="mt-6 text-2xl font-[family-name:var(--font-serif)] italic text-heading">
           Lost in the static
-        </h2>
+        </h1>
         <p className="text-sm text-muted mt-4 leading-relaxed">
           The page you are looking for does not exist or has been moved
           somewhere new.
@@ -82,6 +82,32 @@ export default function NotFound() {
             Report a broken link
           </Link>
         </div>
+
+        <div className="mt-8 flex items-center justify-center gap-5 text-xs text-muted">
+          <Link
+            href="/work"
+            className="hover:text-body transition-colors duration-300"
+          >
+            Case studies
+          </Link>
+          <span className="w-px h-3 bg-border-strong" aria-hidden="true" />
+          <Link
+            href="/journal"
+            className="hover:text-body transition-colors duration-300"
+          >
+            Journal
+          </Link>
+          <span className="w-px h-3 bg-border-strong" aria-hidden="true" />
+          <Link
+            href="/products"
+            className="hover:text-body transition-colors duration-300"
+          >
+            Products
+          </Link>
+        </div>
+        <p className="mt-6 text-[11.5px] uppercase tracking-[0.18em] text-faint font-mono">
+          Or press <kbd className="text-muted">&#8984;K</kbd> to search
+        </p>
       </div>
     </section>
   );

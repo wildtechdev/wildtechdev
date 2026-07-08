@@ -13,11 +13,19 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Now | WildTech Development",
     description: "What we are working on this month, in plain language.",
+    images: [
+      {
+        url: "/api/og?title=What%20we%20are%20working%20on%20right%20now&kind=Now",
+        width: 1200,
+        height: 630,
+        alt: "What WildTech Development is working on now",
+      },
+    ],
   },
 };
 
 // Update this date when you refresh the page content.
-const lastUpdated = "May 25, 2026";
+const lastUpdated = "July 7, 2026";
 
 const sections = [
   {
@@ -33,7 +41,7 @@ const sections = [
       },
       {
         title: "wildtechdev.com",
-        body: "Just shipped case studies for every product, a journal, an FAQ, a /now and /uses page, dynamic OG images, a Cmd-K command palette, and a newsletter signup. The site is becoming the office.",
+        body: "Just wrapped a full modernization pass on the site: refined light mode, journal search, an RSS feed, a proper privacy page, smoother animations, and a long list of accessibility and SEO improvements. The site is becoming the office.",
       },
     ],
   },
@@ -85,7 +93,7 @@ export default function NowPage() {
       />
       <section className="relative py-20 sm:py-28 overflow-hidden">
         <div
-          className="absolute -top-40 right-0 w-[600px] h-[400px] rounded-full pointer-events-none"
+          className="absolute -top-40 right-0 w-[600px] h-[400px] rounded-full pointer-events-none section-glow"
           style={{
             background:
               "radial-gradient(ellipse at center, rgba(34,197,94,0.08) 0%, transparent 70%)",
@@ -110,7 +118,7 @@ export default function NowPage() {
                 rel="noopener noreferrer"
                 className="link-underline text-heading"
               >
-                Derek Sivers' /now page
+                Derek Sivers&apos; /now page
               </a>{" "}
               convention.
             </p>

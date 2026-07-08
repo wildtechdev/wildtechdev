@@ -6,11 +6,55 @@ const MAX_LENGTH = {
   message: 5000,
 };
 
+// Best-effort in-memory rate limit: max submissions per IP per window.
+// Serverless instances each keep their own map, so this is a speed bump
+// rather than a guarantee, but combined with the honeypot it stops the
+// casual abuse case at zero infrastructure cost.
+const RATE_LIMIT = 5;
+const RATE_WINDOW_MS = 10 * 60 * 1000;
+const submissions = new Map<string, number[]>();
+
+function isRateLimited(ip: string): boolean {
+  const now = Date.now();
+  const recent = (submissions.get(ip) ?? []).filter(
+    (t) => now - t < RATE_WINDOW_MS
+  );
+  if (recent.length >= RATE_LIMIT) {
+    submissions.set(ip, recent);
+    return true;
+  }
+  recent.push(now);
+  submissions.set(ip, recent);
+  // Opportunistic cleanup so the map cannot grow unbounded.
+  if (submissions.size > 500) {
+    for (const [key, times] of submissions) {
+      if (times.every((t) => now - t >= RATE_WINDOW_MS)) {
+        submissions.delete(key);
+      }
+    }
+  }
+  return false;
+}
+
 function isValidEmail(email: string) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 }
 
 export async function POST(request: Request) {
+  const ip =
+    request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ??
+    "unknown";
+  if (isRateLimited(ip)) {
+    return NextResponse.json(
+      {
+        ok: false,
+        error:
+          "Too many messages in a short time. Please wait a few minutes, or email info@wildtechdev.com directly.",
+      },
+      { status: 429 }
+    );
+  }
+
   let body: Record<string, unknown>;
   try {
     body = await request.json();
@@ -140,8 +184,20 @@ export async function POST(request: Request) {
           inquiryRes.status,
           await inquiryRes.text()
         );
+        // The message did NOT reach the inbox. Telling the visitor it was
+        // sent would be a lie, so return an honest error with a fallback.
+        return NextResponse.json(
+          {
+            ok: false,
+            error:
+              "Your message could not be delivered right now. Please email info@wildtechdev.com directly.",
+          },
+          { status: 502 }
+        );
       }
       if (!confirmationRes.ok) {
+        // The inquiry itself was delivered; a failed confirmation copy is
+        // not worth failing the whole submission over.
         console.error(
           "Resend confirmation send failed:",
           confirmationRes.status,
@@ -150,6 +206,14 @@ export async function POST(request: Request) {
       }
     } catch (err) {
       console.error("Resend send threw:", err);
+      return NextResponse.json(
+        {
+          ok: false,
+          error:
+            "Your message could not be delivered right now. Please email info@wildtechdev.com directly.",
+        },
+        { status: 502 }
+      );
     }
   } else {
     console.log("[contact] submission (no Resend key configured):", {

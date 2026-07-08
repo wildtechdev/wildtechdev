@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
 import NewsletterSignup from "@/components/NewsletterSignup";
 import ScrollReveal from "@/components/ScrollReveal";
+import JournalList from "@/components/JournalList";
 import { posts } from "@/lib/posts";
 
 export const metadata: Metadata = {
@@ -15,21 +15,57 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Journal | WildTech Development",
     description: "Build logs and technical writing from WildTech.",
+    images: [
+      {
+        url: "/api/og?title=Build%20logs%20and%20notes%20from%20the%20workshop&kind=Journal",
+        width: 1200,
+        height: 630,
+        alt: "WildTech Development Journal",
+      },
+    ],
   },
 };
 
-function formatDate(iso: string) {
-  const d = new Date(iso);
-  return d.toLocaleDateString("en-US", {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  });
-}
+const blogJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Blog",
+  "@id": "https://www.wildtechdev.com/journal#blog",
+  url: "https://www.wildtechdev.com/journal",
+  name: "WildTech Development Journal",
+  description:
+    "Build logs, technical writing, and notes from the WildTech Development workshop.",
+  inLanguage: "en-US",
+  publisher: {
+    "@type": "Organization",
+    name: "WildTech Development",
+    url: "https://www.wildtechdev.com",
+  },
+  blogPost: posts.map((p) => ({
+    "@type": "BlogPosting",
+    headline: p.title,
+    url: `https://www.wildtechdev.com/journal/${p.slug}`,
+    datePublished: p.date,
+  })),
+};
 
 export default function JournalPage() {
+  const listPosts = posts.map(
+    ({ slug, title, summary, date, readMinutes, tags }) => ({
+      slug,
+      title,
+      summary,
+      date,
+      readMinutes,
+      tags,
+    })
+  );
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(blogJsonLd) }}
+      />
       <BreadcrumbJsonLd
         items={[
           { name: "Home", url: "https://www.wildtechdev.com" },
@@ -38,7 +74,7 @@ export default function JournalPage() {
       />
       <section className="relative py-20 sm:py-28 overflow-hidden">
         <div
-          className="absolute -top-40 right-0 w-[700px] h-[400px] rounded-full pointer-events-none"
+          className="absolute -top-40 right-0 w-[700px] h-[400px] rounded-full pointer-events-none section-glow"
           style={{
             background:
               "radial-gradient(ellipse at center, rgba(34,197,94,0.08) 0%, transparent 70%)",
@@ -47,7 +83,7 @@ export default function JournalPage() {
           aria-hidden="true"
         />
         <div className="relative max-w-3xl mx-auto px-6 lg:px-8">
-          <div className="mb-16">
+          <div className="mb-12">
             <p className="section-label text-xs uppercase tracking-[0.18em] text-muted mb-3 font-[family-name:var(--font-sans)] animate-fade-in-up">
               Build logs and notes
             </p>
@@ -56,62 +92,15 @@ export default function JournalPage() {
             </h1>
             <p className="text-body text-base sm:text-lg max-w-xl animate-fade-in-up delay-200">
               Technical writing, build logs, and notes from the workshop. New
-              posts when there is something real to say.
+              posts when there is something real to say. Also available as an{" "}
+              <a href="/feed.xml" className="link-underline text-heading">
+                RSS feed
+              </a>
+              .
             </p>
           </div>
 
-          <div className="divide-y divide-border">
-            {posts.map((post) => (
-              <ScrollReveal key={post.slug}>
-                <article className="group py-10">
-                  <Link
-                    href={`/journal/${post.slug}`}
-                    className="block transition-transform duration-300 hover:translate-x-1"
-                  >
-                    <div className="flex items-center gap-3 mb-3 text-[11.5px] font-mono uppercase tracking-[0.22em] text-muted">
-                      <time dateTime={post.date}>{formatDate(post.date)}</time>
-                      <span className="w-4 h-px bg-faint" />
-                      <span>{post.readMinutes} min read</span>
-                    </div>
-                    <h2 className="text-2xl sm:text-3xl font-[family-name:var(--font-serif)] italic text-heading mb-3 group-hover:text-green transition-colors duration-300">
-                      {post.title}
-                    </h2>
-                    <p className="text-body leading-relaxed mb-4">
-                      {post.summary}
-                    </p>
-                    <div className="flex flex-wrap gap-2 items-center">
-                      {post.tags.map((tag) => (
-                        <span
-                          key={tag}
-                          className="inline-flex items-center gap-1.5 text-[11.5px] font-mono uppercase tracking-[0.16em] text-muted px-2.5 py-1 border border-border bg-surface"
-                        >
-                          <span className="w-0.5 h-0.5 rounded-full bg-green" />
-                          {tag}
-                        </span>
-                      ))}
-                      <span className="ml-auto text-xs text-muted group-hover:text-green transition-colors duration-300 inline-flex items-center gap-1">
-                        Read
-                        <svg
-                          className="w-3 h-3 transition-transform duration-300 group-hover:translate-x-0.5"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                          strokeWidth={2}
-                          aria-hidden="true"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
-                          />
-                        </svg>
-                      </span>
-                    </div>
-                  </Link>
-                </article>
-              </ScrollReveal>
-            ))}
-          </div>
+          <JournalList posts={listPosts} />
 
           <ScrollReveal>
             <div className="mt-16 pt-12 border-t border-border">

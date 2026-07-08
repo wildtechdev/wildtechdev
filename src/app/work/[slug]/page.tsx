@@ -25,6 +25,7 @@ export async function generateMetadata({
   const { slug } = await params;
   const cs = getCaseStudyBySlug(slug);
   if (!cs) return { title: "Case study not found" };
+  const ogImage = `/api/og?title=${encodeURIComponent(cs.product)}&kind=${encodeURIComponent("Case Study")}`;
   return {
     title: `${cs.product} case study`,
     description: cs.summary,
@@ -35,6 +36,15 @@ export async function generateMetadata({
       title: `${cs.product} | WildTech Case Study`,
       description: cs.summary,
       type: "article",
+      images: [
+        { url: ogImage, width: 1200, height: 630, alt: `${cs.product} case study` },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${cs.product} | WildTech Case Study`,
+      description: cs.summary,
+      images: [ogImage],
     },
   };
 }
@@ -48,13 +58,40 @@ export default async function CaseStudyPage({
   const cs = getCaseStudyBySlug(slug);
   if (!cs) notFound();
 
-  const nextIndex =
-    (caseStudies.findIndex((c) => c.slug === cs.slug) + 1) %
-    caseStudies.length;
-  const next = caseStudies[nextIndex];
+  const currentIndex = caseStudies.findIndex((c) => c.slug === cs.slug);
+  const next = caseStudies[(currentIndex + 1) % caseStudies.length];
+  const prev =
+    caseStudies[(currentIndex - 1 + caseStudies.length) % caseStudies.length];
+
+  const articleJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: `${cs.product}: ${cs.title}`,
+    description: cs.summary,
+    url: `https://www.wildtechdev.com/work/${cs.slug}`,
+    image: `https://www.wildtechdev.com/api/og?title=${encodeURIComponent(cs.product)}&kind=${encodeURIComponent("Case Study")}`,
+    author: {
+      "@type": "Organization",
+      name: "WildTech Development",
+      url: "https://www.wildtechdev.com",
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "WildTech Development",
+      url: "https://www.wildtechdev.com",
+    },
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": `https://www.wildtechdev.com/work/${cs.slug}`,
+    },
+  };
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
+      />
       <BreadcrumbJsonLd
         items={[
           { name: "Home", url: "https://www.wildtechdev.com" },
@@ -67,7 +104,7 @@ export default async function CaseStudyPage({
       />
       <article className="relative py-20 sm:py-28 overflow-hidden">
         <div
-          className="absolute -top-40 left-0 w-[700px] h-[400px] rounded-full pointer-events-none"
+          className="absolute -top-40 left-0 w-[700px] h-[400px] rounded-full pointer-events-none section-glow"
           style={{
             background:
               "radial-gradient(ellipse at center, rgba(34,197,94,0.07) 0%, transparent 70%)",
@@ -173,7 +210,7 @@ export default async function CaseStudyPage({
                 className="shrink-0 self-center lg:self-start"
                 style={{ transform: "translateZ(0)" }}
               >
-                <PhoneMockup product={cs.mockup} />
+                <PhoneMockup product={cs.mockup} priority />
               </div>
             </div>
 
@@ -267,18 +304,33 @@ export default async function CaseStudyPage({
           </ScrollReveal>
 
           <ScrollReveal>
-            <div className="mt-16 pt-10 border-t border-border max-w-3xl mx-auto">
-              <p className="section-label text-xs uppercase tracking-[0.18em] text-muted mb-6 font-[family-name:var(--font-sans)]">
-                Up next
-              </p>
-              <Link href={`/work/${next.slug}`} className="block group">
-                <h3 className="text-2xl font-[family-name:var(--font-serif)] italic text-heading group-hover:text-green transition-colors mb-2">
-                  {next.product}
-                </h3>
-                <p className="text-sm text-body leading-relaxed">
-                  {next.summary}
+            <div className="mt-16 pt-10 border-t border-border max-w-3xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-10">
+              <div>
+                <p className="section-label text-xs uppercase tracking-[0.18em] text-muted mb-6 font-[family-name:var(--font-sans)]">
+                  Previous
                 </p>
-              </Link>
+                <Link href={`/work/${prev.slug}`} className="block group">
+                  <h3 className="text-xl font-[family-name:var(--font-serif)] italic text-heading group-hover:text-green transition-colors mb-2">
+                    {prev.product}
+                  </h3>
+                  <p className="text-sm text-body leading-relaxed">
+                    {prev.summary}
+                  </p>
+                </Link>
+              </div>
+              <div>
+                <p className="section-label text-xs uppercase tracking-[0.18em] text-muted mb-6 font-[family-name:var(--font-sans)]">
+                  Up next
+                </p>
+                <Link href={`/work/${next.slug}`} className="block group">
+                  <h3 className="text-xl font-[family-name:var(--font-serif)] italic text-heading group-hover:text-green transition-colors mb-2">
+                    {next.product}
+                  </h3>
+                  <p className="text-sm text-body leading-relaxed">
+                    {next.summary}
+                  </p>
+                </Link>
+              </div>
             </div>
           </ScrollReveal>
         </div>

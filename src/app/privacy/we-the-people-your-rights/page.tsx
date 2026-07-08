@@ -50,7 +50,7 @@ export default function WeThePeoplePrivacyPolicyPage() {
         </div>
 
         <ScrollReveal>
-          <div className="bg-[#0a0a0a] border border-border p-5 sm:p-8 lg:p-12 space-y-12">
+          <div className="bg-surface border border-border p-5 sm:p-8 lg:p-12 space-y-12">
             {/* Summary */}
             <div>
               <h2 className="text-xs uppercase tracking-widest text-muted mb-4 font-[family-name:var(--font-sans)]">

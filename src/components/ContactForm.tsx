@@ -93,6 +93,7 @@ export default function ContactForm() {
           name="name"
           required
           maxLength={200}
+          autoComplete="name"
           disabled={isSubmitting}
           className="input-line disabled:opacity-60"
           placeholder="Your name"
@@ -111,6 +112,7 @@ export default function ContactForm() {
           name="email"
           required
           maxLength={200}
+          autoComplete="email"
           disabled={isSubmitting}
           className="input-line disabled:opacity-60"
           placeholder="you@example.com"
@@ -227,16 +229,18 @@ export default function ContactForm() {
           )}
         </button>
 
-        {status === "success" && (
-          <p className="text-sm text-green font-[family-name:var(--font-sans)]">
-            Thanks. We will be in touch soon.
-          </p>
-        )}
-        {status === "error" && errorMessage && (
-          <p className="text-sm text-amber-500 font-[family-name:var(--font-sans)]">
-            {errorMessage}
-          </p>
-        )}
+        <div role="status" aria-live="polite">
+          {status === "success" && (
+            <p className="text-sm text-green font-[family-name:var(--font-sans)]">
+              Thanks. We will be in touch within one business day.
+            </p>
+          )}
+          {status === "error" && errorMessage && (
+            <p className="text-sm text-amber-500 font-[family-name:var(--font-sans)]">
+              {errorMessage}
+            </p>
+          )}
+        </div>
       </div>
     </form>
   );

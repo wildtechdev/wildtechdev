@@ -113,7 +113,7 @@ export default function ServicesPage() {
       />
       <section className="relative py-20 sm:py-28 overflow-hidden">
       <div
-        className="absolute -top-40 left-0 w-[700px] h-[400px] rounded-full pointer-events-none"
+        className="absolute -top-40 left-0 w-[700px] h-[400px] rounded-full pointer-events-none section-glow"
         style={{
           background:
             "radial-gradient(ellipse at center, rgba(34,197,94,0.08) 0%, transparent 70%)",
@@ -187,7 +187,7 @@ export default function ServicesPage() {
           <div className="mt-24 relative bg-surface border border-border -mx-6 px-6 lg:-mx-10 lg:px-10 py-14 lg:py-16 overflow-hidden">
             <div className="absolute top-0 left-0 w-12 h-px bg-green" />
             <div
-              className="absolute -top-20 right-0 w-[400px] h-[300px] rounded-full pointer-events-none"
+              className="absolute -top-20 right-0 w-[400px] h-[300px] rounded-full pointer-events-none section-glow"
               style={{
                 background:
                   "radial-gradient(ellipse at center, rgba(34,197,94,0.08) 0%, transparent 70%)",

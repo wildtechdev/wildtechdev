@@ -31,6 +31,33 @@ export default function Magnetic({
     let cx = 0,
       cy = 0;
     let rafId = 0;
+    let running = false;
+
+    // The rAF loop only runs while there is movement to animate. It
+    // self-cancels once the element settles back at rest, so idle pages
+    // do zero per-frame work.
+    const tick = () => {
+      cx += (tx - cx) * 0.15;
+      cy += (ty - cy) * 0.15;
+      el.style.transform = `translate3d(${cx}px, ${cy}px, 0)`;
+      const settled =
+        tx === 0 && ty === 0 && Math.abs(cx) < 0.05 && Math.abs(cy) < 0.05;
+      if (settled) {
+        cx = 0;
+        cy = 0;
+        el.style.transform = "";
+        running = false;
+        return;
+      }
+      rafId = requestAnimationFrame(tick);
+    };
+
+    const wake = () => {
+      if (!running) {
+        running = true;
+        rafId = requestAnimationFrame(tick);
+      }
+    };
 
     const onMove = (e: MouseEvent) => {
       const rect = el.getBoundingClientRect();
@@ -42,32 +69,29 @@ export default function Magnetic({
         const factor = (1 - dist / range) * strength;
         tx = dx * factor;
         ty = dy * factor;
-      } else {
+        wake();
+      } else if (tx !== 0 || ty !== 0) {
         tx = 0;
         ty = 0;
+        wake();
       }
     };
 
     const onLeave = () => {
-      tx = 0;
-      ty = 0;
+      if (tx !== 0 || ty !== 0) {
+        tx = 0;
+        ty = 0;
+        wake();
+      }
     };
 
-    const tick = () => {
-      cx += (tx - cx) * 0.15;
-      cy += (ty - cy) * 0.15;
-      el.style.transform = `translate3d(${cx}px, ${cy}px, 0)`;
-      rafId = requestAnimationFrame(tick);
-    };
-
-    window.addEventListener("mousemove", onMove);
-    window.addEventListener("mouseleave", onLeave);
-    rafId = requestAnimationFrame(tick);
+    window.addEventListener("mousemove", onMove, { passive: true });
+    document.addEventListener("mouseleave", onLeave);
 
     return () => {
       cancelAnimationFrame(rafId);
       window.removeEventListener("mousemove", onMove);
-      window.removeEventListener("mouseleave", onLeave);
+      document.removeEventListener("mouseleave", onLeave);
     };
   }, [strength, range]);
 

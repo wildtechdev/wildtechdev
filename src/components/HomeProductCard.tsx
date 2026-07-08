@@ -27,13 +27,17 @@ export type HomeProduct = {
   caseStudySlug: string;
 };
 
-const accentTints: Record<string, string> = {
-  amber: "hover:bg-amber-950/20",
-  teal: "hover:bg-teal-950/20",
-  green: "hover:bg-green-950/20",
-  indigo: "hover:bg-indigo-950/20",
-  red: "hover:bg-red-950/20",
-  blue: "hover:bg-blue-950/30",
+/* Theme-aware hover tints. Dark values are deep color washes over the dark
+   card; light values are soft pastels that read correctly on white (the old
+   dark-950 Tailwind tints rendered as muddy smears in light mode). Applied
+   through the .accent-tint CSS in globals.css. */
+const accentTints: Record<string, { dark: string; light: string }> = {
+  amber: { dark: "rgba(69, 26, 3, 0.2)", light: "rgba(254, 243, 199, 0.45)" },
+  teal: { dark: "rgba(4, 47, 46, 0.2)", light: "rgba(204, 251, 241, 0.45)" },
+  green: { dark: "rgba(5, 46, 22, 0.2)", light: "rgba(220, 252, 231, 0.5)" },
+  indigo: { dark: "rgba(30, 27, 75, 0.2)", light: "rgba(224, 231, 255, 0.45)" },
+  red: { dark: "rgba(69, 10, 10, 0.2)", light: "rgba(254, 226, 226, 0.4)" },
+  blue: { dark: "rgba(23, 37, 84, 0.3)", light: "rgba(219, 234, 254, 0.5)" },
 };
 
 export default function HomeProductCard({
@@ -43,12 +47,18 @@ export default function HomeProductCard({
   product: HomeProduct;
   index: number;
 }) {
+  const tint = accentTints[product.accent] ?? accentTints.green;
+
   return (
     <TiltCard
       intensity={6}
-      className={`group relative h-full flex flex-col bg-surface p-8 border border-transparent transition-colors duration-500 hover:border-green/40 ${
-        accentTints[product.accent]
-      }`}
+      className="group accent-tint relative h-full flex flex-col bg-surface p-8 border border-transparent transition-colors duration-500 hover:border-green/40"
+      style={
+        {
+          "--tint-dark": tint.dark,
+          "--tint-light": tint.light,
+        } as React.CSSProperties
+      }
     >
       {/* Stretched primary link. Sits above the decorative content so clicking
           anywhere on the card navigates to the case study, but BELOW the App

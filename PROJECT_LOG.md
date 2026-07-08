@@ -1,6 +1,6 @@
-# WildTech Development — Project Log
+# WildTech Development: Project Log
 
-A continuity document for resuming work in a fresh Cowork session. Read this end-to-end before making any non-trivial changes. Last updated June 15, 2026.
+A continuity document for resuming work in a fresh Cowork session. Read this end-to-end before making any non-trivial changes. Last updated July 7, 2026.
 
 ---
 
@@ -8,7 +8,7 @@ A continuity document for resuming work in a fresh Cowork session. Read this end
 
 1. Read this file end-to-end.
 2. Read `AGENTS.md` (Next.js 16 has breaking changes from training-data Next.js).
-3. Read `src/app/will-mccants/page.tsx` — this is the canonical narrative source. When facts conflict elsewhere on the site, the founder page wins.
+3. Read `src/app/will-mccants/page.tsx`: this is the canonical narrative source. When facts conflict elsewhere on the site, the founder page wins.
 4. The user cannot run git from inside Cowork. To deploy, edit `push.command` with the right commit message, then ask the user to double-click it in Finder.
 5. Trust the data in `src/lib/work.ts` (case studies) and `src/lib/posts.ts` (journal) as the canonical content sources.
 
@@ -68,6 +68,9 @@ Brand domain map:
 - An inline no-flash script in `src/app/layout.tsx` runs before React hydrates to set the theme before paint.
 - Brand green `#22c55e` is identical in both themes.
 - Light palette: page bg is soft cream `#fafaf9`, cards lift to pure white `#ffffff` (inverted-elevation logic vs dark where surface is lighter than page).
+- **Decorative glows:** every radial-gradient glow div carries the `section-glow` class; light mode dims them via `--glow-opacity`. Glow-pulse keyframes read `--glow-pulse-lo/hi` vars (also dimmed in light). New glows must include `section-glow` in className.
+- **Product card hover tints:** `.accent-tint` + `--tint-dark`/`--tint-light` inline vars (see HomeProductCard). Never use dark-950 Tailwind tints directly; they look muddy on white.
+- **Never hardcode dark hexes for surfaces** (`bg-[#070a0f]` style); use the theme tokens. The three light-mode bugs fixed in July 2026 all came from hardcoded dark values.
 
 ### Home product cards (clickability)
 
@@ -90,6 +93,7 @@ Brand domain map:
 
 ## Recent work (most recent first)
 
+- **July 7, 2026: full-site modernization pass (see `AUDIT.md`).** 100+ improvements across light mode (marquee strip, WTP privacy card, App Store badge hover, product card tints, dimmed glows via `.section-glow` and glow CSS vars), animation polish (cursor click feedback, idle-cancelling rAF loops, reduced-motion coverage for ping/spin/view transitions, animated FAQ accordions), the Prose renderer (bold, ordered lists, heading anchors; journal posts were showing literal asterisks), accessibility (skip link, palette combobox semantics and focus management, aria-live form status, Escape-to-close mobile menu), SEO (per-page OG images for case studies and posts which previously had none, Blog/CollectionPage/Article JSON-LD, stable sitemap dates, viewport themeColor), features (RSS at `/feed.xml`, journal search via `?q=` making the SearchAction real, site `/privacy` page, prev/next navigation on posts and case studies, footer socials and palette button), API hardening (honest contact failure responses, best-effort rate limit), and security headers in `next.config.ts`. Resolved the pending EZ Fuse origin conflict: case study and journal post now match the founder page's viral-video origin.
 - Made journal posts sort by date automatically (newest first); fixed the google-sites post sitting out of order in the list
 - Spread journal dates evenly over 6 months ending June 8, 2026
 - Created this `PROJECT_LOG.md`
@@ -114,7 +118,6 @@ As of June 15, 2026:
 
 ## Pending / open items
 
-- **EZ Fuse Tester case study at `/work/ez-fuse-tester`** still has the Halloween-lights origin in its body content, which conflicts with the founder page's viral-video origin. Pending the user's decision on whether to rewrite the case study's intro and "The problem" section. Press page has been corrected already.
 - **Off-site reputation work** (user's homework):
   - Email outreach to 2012 article publishers with pardon documentation
   - Google removal request
@@ -122,26 +125,32 @@ As of June 15, 2026:
   - Backlinks: LinkedIn profile, vikingsensors.com footer, churchd.com footer, GitHub bio
 - **Optional:** Set `RESEND_AUDIENCE_ID` env var in Vercel. Requires temporary Full Access Resend API key to look up the General audience ID.
 - **Task #81** (low priority): Investigate magnetic button click interception on contact form. May be an automation-only artifact.
+- **Flagged in AUDIT.md, deliberately untouched:** `public/headshot.png` (unreferenced duplicate) and `public/products-source/` (source screenshots shipped publicly); founder-page "Porter-Gaud alum" phrasing vs the press correction; WTP privacy contact email being the personal address; product data triplicated across home, /products, and work.ts (candidate for a future `lib/products.ts` consolidation session).
 
 ## Key files
 
-- `src/app/page.tsx` — home
-- `src/app/will-mccants/page.tsx` — founder bio, **canonical narrative source**
-- `src/app/press/page.tsx` — press kit (timeline, bios, facts, assets)
-- `src/app/about/page.tsx` — company summary
-- `src/app/work/[slug]/page.tsx` — case study template (top CTA + body)
-- `src/app/work/page.tsx` — case studies index
-- `src/lib/work.ts` — case study content (6 entries)
-- `src/lib/posts.ts` — journal posts (9 entries)
-- `src/app/sitemap.ts` — sitemap; do NOT add noindex pages here
-- `src/app/layout.tsx` — root layout, contains the no-flash theme script
-- `src/app/globals.css` — design system, theme variables (use `@theme` not `@theme inline`)
-- `src/components/HomeProductCard.tsx` — clickable product card
-- `src/components/ThemeProvider.tsx` — theme state
-- `src/components/ThemeToggle.tsx` — sun/moon button
+- `AUDIT.md`: July 2026 full-site audit; the categorized list of everything the modernization pass changed and why
+- `src/app/privacy/page.tsx`: site privacy policy (indexed, in sitemap; distinct from the noindex WTP app policy)
+- `src/app/feed.xml/route.ts`: journal RSS feed
+- `src/lib/format.ts`: shared UTC-safe formatDate (use this, not ad hoc toLocaleDateString)
+- `src/components/JournalList.tsx`: client-side journal search/filter (?q=), keeps /journal static
+- `src/app/page.tsx`: home
+- `src/app/will-mccants/page.tsx`: founder bio, **canonical narrative source**
+- `src/app/press/page.tsx`: press kit (timeline, bios, facts, assets)
+- `src/app/about/page.tsx`: company summary
+- `src/app/work/[slug]/page.tsx`: case study template (top CTA + body)
+- `src/app/work/page.tsx`: case studies index
+- `src/lib/work.ts`: case study content (6 entries)
+- `src/lib/posts.ts`: journal posts (9 entries)
+- `src/app/sitemap.ts`: sitemap; do NOT add noindex pages here
+- `src/app/layout.tsx`: root layout, contains the no-flash theme script
+- `src/app/globals.css`: design system, theme variables (use `@theme` not `@theme inline`)
+- `src/components/HomeProductCard.tsx`: clickable product card
+- `src/components/ThemeProvider.tsx`: theme state
+- `src/components/ThemeToggle.tsx`: sun/moon button
 - `src/components/Navbar.tsx`
 - `src/components/Footer.tsx`
-- `push.command` — bash script for git push; user double-clicks in Finder
+- `push.command`: bash script for git push; user double-clicks in Finder
 
 ## Deploy workflow
 

@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter, Instrument_Serif } from "next/font/google";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -30,8 +30,20 @@ const instrumentSerif = Instrument_Serif({
   style: ["normal", "italic"],
 });
 
+export const viewport: Viewport = {
+  themeColor: "#06070a",
+};
+
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.wildtechdev.com"),
+  applicationName: "WildTech Development",
+  alternates: {
+    types: {
+      "application/rss+xml": [
+        { url: "/feed.xml", title: "WildTech Development Journal" },
+      ],
+    },
+  },
   title: {
     default: "WildTech Development | Software & Hardware Solutions",
     template: "%s | WildTech Development",
@@ -144,12 +156,20 @@ export default function RootLayout({
             }),
           }}
         />
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[100] focus:px-4 focus:py-2 focus:bg-green focus:text-black focus:text-sm focus:font-medium"
+        >
+          Skip to content
+        </a>
         <ThemeProvider>
           <ScrollProgress />
           <Cursor />
           <CommandPalette />
           <Navbar />
-          <main className="flex-1 pt-16 animate-page-enter">{children}</main>
+          <main id="main-content" className="flex-1 pt-16 animate-page-enter">
+            {children}
+          </main>
           <Footer />
         </ThemeProvider>
       </body>

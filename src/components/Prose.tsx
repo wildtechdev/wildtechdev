@@ -1,16 +1,20 @@
 import { Fragment } from "react";
 
 // Tiny renderer for the markdown-light format used by posts and case studies.
-// Splits on blank lines; treats "## " as h2, "### " as h3, "- " as list items.
-// Wraps `inline code` in <code>. Triple-backtick blocks become <pre><code>.
+// Splits on blank lines; treats "## " as h2, "### " as h3, "- " as list items,
+// and "1. " style lines as ordered list items. Wraps `inline code` in <code>
+// and **bold** in <strong>. Triple-backtick blocks become <pre><code>.
 // Plain paragraphs render as prose with the site's body styling.
 
 type Block =
   | { type: "h2"; text: string }
   | { type: "h3"; text: string }
   | { type: "ul"; items: string[] }
+  | { type: "ol"; items: string[] }
   | { type: "pre"; text: string }
   | { type: "p"; text: string };
+
+const OL_RE = /^\d+\.\s+/;
 
 function parse(markdown: string): Block[] {
   const blocks: Block[] = [];
@@ -52,6 +56,27 @@ function parse(markdown: string): Block[] {
       blocks.push({ type: "ul", items });
       continue;
     }
+    if (OL_RE.test(line)) {
+      // Numbered items may be separated by blank lines in the source; keep
+      // consuming as long as the next non-empty line is numbered too.
+      const items: string[] = [];
+      while (i < lines.length) {
+        if (OL_RE.test(lines[i])) {
+          items.push(lines[i].replace(OL_RE, "").trim());
+          i++;
+        } else if (
+          lines[i].trim() === "" &&
+          i + 1 < lines.length &&
+          OL_RE.test(lines[i + 1])
+        ) {
+          i++;
+        } else {
+          break;
+        }
+      }
+      blocks.push({ type: "ol", items });
+      continue;
+    }
     // Paragraph: accumulate consecutive non-empty, non-special lines.
     const buf: string[] = [line];
     i++;
@@ -61,6 +86,7 @@ function parse(markdown: string): Block[] {
       !lines[i].startsWith("## ") &&
       !lines[i].startsWith("### ") &&
       !lines[i].startsWith("- ") &&
+      !OL_RE.test(lines[i]) &&
       !lines[i].startsWith("```")
     ) {
       buf.push(lines[i]);
@@ -71,9 +97,18 @@ function parse(markdown: string): Block[] {
   return blocks;
 }
 
+/** URL-safe id from heading text, for deep links. */
+function slugify(text: string): string {
+  return text
+    .toLowerCase()
+    .replace(/[^a-z0-9\s-]/g, "")
+    .trim()
+    .replace(/\s+/g, "-");
+}
+
 function renderInline(text: string) {
-  // Wrap `inline code` in <code>. Keep the rest as plain text.
-  const parts = text.split(/(`[^`]+`)/g);
+  // Handle `inline code` and **bold** spans; everything else is plain text.
+  const parts = text.split(/(`[^`]+`|\*\*[^*]+\*\*)/g);
   return parts.map((part, idx) => {
     if (part.startsWith("`") && part.endsWith("`")) {
       return (
@@ -83,6 +118,13 @@ function renderInline(text: string) {
         >
           {part.slice(1, -1)}
         </code>
+      );
+    }
+    if (part.startsWith("**") && part.endsWith("**")) {
+      return (
+        <strong key={idx} className="text-heading font-semibold">
+          {part.slice(2, -2)}
+        </strong>
       );
     }
     return <Fragment key={idx}>{part}</Fragment>;
@@ -98,7 +140,8 @@ export default function Prose({ content }: { content: string }) {
           return (
             <h2
               key={i}
-              className="text-2xl sm:text-3xl font-[family-name:var(--font-serif)] italic text-heading mt-12 mb-2"
+              id={slugify(b.text)}
+              className="text-2xl sm:text-3xl font-[family-name:var(--font-serif)] italic text-heading mt-12 mb-2 scroll-mt-24"
             >
               {b.text}
             </h2>
@@ -108,7 +151,8 @@ export default function Prose({ content }: { content: string }) {
           return (
             <h3
               key={i}
-              className="text-xl font-[family-name:var(--font-sans)] font-semibold text-heading mt-8 mb-1"
+              id={slugify(b.text)}
+              className="text-xl font-[family-name:var(--font-sans)] font-semibold text-heading mt-8 mb-1 scroll-mt-24"
             >
               {b.text}
             </h3>
@@ -130,6 +174,26 @@ export default function Prose({ content }: { content: string }) {
                 </li>
               ))}
             </ul>
+          );
+        }
+        if (b.type === "ol") {
+          return (
+            <ol key={i} className="space-y-3 pl-1">
+              {b.items.map((item, j) => (
+                <li
+                  key={j}
+                  className="flex items-start gap-3 text-body leading-relaxed"
+                >
+                  <span
+                    className="mt-0.5 text-[12px] font-mono text-green tracking-wider shrink-0"
+                    aria-hidden="true"
+                  >
+                    {String(j + 1).padStart(2, "0")}
+                  </span>
+                  <span>{renderInline(item)}</span>
+                </li>
+              ))}
+            </ol>
           );
         }
         if (b.type === "pre") {

@@ -19,6 +19,15 @@ export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
+  // Close the mobile menu when the route changes. Adjusting state during
+  // render (comparing against the previous pathname) is React's sanctioned
+  // pattern for this and avoids an extra effect-triggered render pass.
+  const [lastPathname, setLastPathname] = useState(pathname);
+  if (lastPathname !== pathname) {
+    setLastPathname(pathname);
+    setMobileOpen(false);
+  }
+
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 16);
     onScroll();
@@ -38,10 +47,15 @@ export default function Navbar() {
     };
   }, [mobileOpen]);
 
-  // Close mobile menu on route change
+  // Close mobile menu on Escape
   useEffect(() => {
-    setMobileOpen(false);
-  }, [pathname]);
+    if (!mobileOpen) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setMobileOpen(false);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [mobileOpen]);
 
   return (
     <nav
@@ -106,6 +120,7 @@ export default function Navbar() {
               onClick={() => setMobileOpen(!mobileOpen)}
               aria-label={mobileOpen ? "Close menu" : "Open menu"}
               aria-expanded={mobileOpen}
+              aria-controls="mobile-nav"
             >
               <div className="relative w-5 h-5">
                 <span
@@ -131,6 +146,7 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       <div
+        id="mobile-nav"
         className={`md:hidden overflow-hidden transition-[max-height,opacity] duration-500 ease-out ${
           mobileOpen
             ? "max-h-[80vh] opacity-100"

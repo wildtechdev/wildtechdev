@@ -599,7 +599,7 @@ export default function WillMcCantsPage() {
       <section className="relative py-20 sm:py-28 overflow-hidden">
         {/* Top glow */}
         <div
-          className="absolute -top-32 left-1/4 w-[600px] h-[400px] rounded-full pointer-events-none"
+          className="absolute -top-32 left-1/4 w-[600px] h-[400px] rounded-full pointer-events-none section-glow"
           style={{
             background:
               "radial-gradient(ellipse at center, rgba(34,197,94,0.1) 0%, transparent 70%)",

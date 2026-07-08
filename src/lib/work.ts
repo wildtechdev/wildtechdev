@@ -295,7 +295,7 @@ If you have a content product that you think could work across multiple cities, 
     title:
       "The free utility app that turns an iPhone screen into a fuse continuity tester",
     summary:
-      "A weekend project born from a frustrating evening with broken Halloween lights. Free, no ads, no data collection, and one of the most useful pieces of software we have ever shipped.",
+      "A weekend project sparked by a late-night viral video about capacitive touchscreens. Free, no ads, no data collection, and one of the most useful pieces of software we have ever shipped.",
     client: "WildTech Ventures, LLC",
     role: "Concept, design, iOS development, App Store launch",
     year: "2024",
@@ -310,13 +310,13 @@ If you have a content product that you think could work across multiple cities, 
     mockup: "ez-fuse",
     content: `EZ Fuse Tester is the smallest, most focused app we have ever shipped, and one of the most successful. It is a free utility that turns an iPhone screen into a continuity tester for small glass cartridge fuses, using the phone's built-in capacitive touch sensors to detect whether the fuse is intact or blown. The whole app is one screen. There is no signup, no account, no in-app purchase, no ads, and no data collection.
 
-The full story of how the idea showed up on a Tuesday evening in October 2023 is in our journal post on what we learned shipping EZ Fuse Tester. This case study is the structured version for clients trying to understand whether we are the right team for a small focused utility project.
+The full story of how a late-night viral video turned into a working prototype in a single weekend is in our journal post on what we learned shipping EZ Fuse Tester. This case study is the structured version for clients trying to understand whether we are the right team for a small focused utility project.
 
 ## The problem
 
-The original problem was personal. A string of Halloween lights stopped working. Somewhere in the plug was a tiny glass fuse that had blown. The replacement fuses that supposedly came with the lights had been gone for years. The nearest hardware store was closed. Testing each fuse with a multimeter meant disassembling the plug, which is slow.
+The spark was a viral video. Late one night, a clip hinted that an iPhone's capacitive touchscreen could detect electrical continuity across a small conductive object. The question it raised was immediate: could the phone almost everyone already owns replace a multimeter for the most common quick test in home electronics, checking whether a tiny glass fuse is still good?
 
-The general version of that problem applies to anyone who works with small electronics. Automotive enthusiasts. People who restore old radios or stereos. Anyone with a soldering iron and a workshop. The fuses themselves are cheap. The hassle is testing them to figure out which one needs replacing.
+That problem is real for anyone who works with small electronics. Automotive enthusiasts. People who restore old radios or stereos. Anyone with a soldering iron and a workshop. The fuses themselves are cheap. The hassle is testing them to figure out which one needs replacing.
 
 The opportunity was to use a device almost everyone already owns, the iPhone, to solve the problem for free.
 
@@ -332,7 +332,7 @@ The implementation is a few hundred lines of Swift. There is no networking code.
 
 ## The launch
 
-EZ Fuse Tester shipped to the App Store in mid 2024, after a stretch of refinement on a prototype that started as a kitchen-table experiment on Halloween night 2023. App Review approved it on the first submission. We chose to release it free, with no ads and no data collection, because the app's value is in being available at the exact moment someone needs it. Friction at install or use would defeat the point.
+EZ Fuse Tester shipped to the App Store in mid 2024, after a stretch of refinement on a prototype that came together over a single weekend once the viral video planted the idea. App Review approved it on the first submission. We chose to release it free, with no ads and no data collection, because the app's value is in being available at the exact moment someone needs it. Friction at install or use would defeat the point.
 
 The privacy policy is one sentence long. The marketing site is the App Store listing.
 
