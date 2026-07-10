@@ -21,6 +21,87 @@ export type Post = {
 
 const allPosts: Post[] = [
   {
+    slug: "twenty-dollar-website-setup",
+    title:
+      "The twenty dollar website: a complete beginner setup with real domain, email, and SEO",
+    summary:
+      "Google Sites, a Namecheap domain, a free redirect for the naked domain, Namecheap's cheap Private Email, a sitemap, and Google Search Console. The complete shoestring stack for a functional business website, working email at your own domain, and basic SEO for about twenty dollars a year.",
+    date: "2026-07-09",
+    readMinutes: 8,
+    tags: ["Google Sites", "Small Business", "Web", "Tutorial"],
+    content: `If you search "cheapest way to make a business website," you get two kinds of answers: ads for site builders that start free and quietly climb to thirty dollars a month, and advice from developers that assumes you want to learn web development. This post is the third answer. It is the setup we recommend to friends who need a real website on a real budget, and it lands at about twenty dollars a year, total.
+
+Here is what that twenty dollars buys when you wire it up right: a website you can edit yourself, your own domain that works with and without the www, email at that domain that sends and receives, and a site that Google can find and index. That is a functional small business web presence. Plenty of businesses run on exactly this for years.
+
+## The stack at a glance
+
+- **Google Sites** for the website itself. Free, including hosting.
+- **A domain from a registrar** (we like Namecheap). Roughly ten to fifteen dollars a year for a normal .com, and that includes free WHOIS privacy.
+- **Cloudflare free or redirect.pizza free** to make the naked domain work. Zero dollars.
+- **Namecheap Private Email** for real mailboxes at your domain. A few dollars a year on the starter plan, and it is frequently on promotion. (Free forwarding is the zero-dollar alternative, with a trade-off covered below.)
+- **Google Search Console** and your sitemap for basic SEO. Zero dollars.
+
+Everything except the domain and the email is free. Now the order of operations, because doing these in the right sequence saves you an afternoon of confusion.
+
+## Step 1: Buy the domain at a registrar, in your own account
+
+Buy your domain directly from a registrar, not through a website builder or an agency. This is the single most important decision in the whole setup, because the domain is the one asset that must always be yours. Sites can be rebuilt. A domain someone else controls is a hostage situation.
+
+We use and recommend Namecheap: fair renewal prices, free WHOIS privacy so your home address is not published to the world, and (relevant in a moment) cheap email that lives in the same dashboard. Register the domain in an account you own, with your own email as the recovery address, and turn on auto-renew so it never lapses by accident.
+
+Two money-saving quirks worth knowing before you check out:
+
+1. Search Google for **Namecheap discount code** before you buy. There is almost always an active promo code floating around, and it routinely knocks twenty percent or so off a new domain registration. Thirty seconds of searching is the best hourly rate in this whole guide.
+
+2. This is the part that catches people: the promotional prices Namecheap advertises on its own homepage and during the domain search are **not applied automatically**. Even when the discount is displayed right next to the domain you are buying, you still have to copy the promo code and paste it into the promo code box at checkout. Skip that paste and you quietly pay full price for a discount you were just shown.
+
+One more tip while you are in there: some registrars pre-load new domains with a parking page record on the apex. Remember it exists. It becomes relevant in step 3.
+
+## Step 2: Build the site on Google Sites
+
+Google Sites is the most underrated free website builder on the internet. It is not fancy, and that is the point: free hosting on Google's infrastructure, templates that look clean, drag-and-drop editing your least technical employee can handle, and no plugins to update or hosting bill to pay, ever.
+
+Build your pages first, before touching the domain. For a small business, the pages that matter are: what you do, who you do it for, where you are, proof (photos, reviews), and how to contact you. Our post on what local SEO actually requires covers what to write on those pages so Google understands them.
+
+## Step 3: Connect the domain, then fix the naked domain
+
+In Google Sites, add your custom domain under the publish settings. Google walks you through adding a CNAME record for \`www\` at your registrar. Follow it, and \`www.yourdomain.com\` will load your site.
+
+Then you will discover the famous catch: \`yourdomain.com\` without the www does not work, because Google Sites only supports the CNAME method and CNAME records cannot live on a naked domain. This is the single most common stumbling block in this entire setup, and it is fixable for free in fifteen minutes with either Cloudflare or redirect.pizza. We wrote a full step-by-step guide (our Google Sites naked domain post) so we will not repeat it here.
+
+The one warning worth repeating: your apex can only have one record answering for web traffic. If you hit an error adding the redirect record, that parking record from step 1 (or an old A record from previous hosting) is sitting on \`@\` and needs to be deleted first. Leave MX and TXT records alone; they run your email.
+
+## Step 4: Email at your domain
+
+An email address at your own domain is the difference between looking like a business and looking like a hobby. \`you@yourdomain.com\` on a business card earns a level of trust that a gmail address never will.
+
+You have two options on this budget:
+
+1. **Free forwarding.** Namecheap includes free email forwarding with your domain, so mail sent to \`hello@yourdomain.com\` lands in your existing Gmail inbox. Costs nothing. The trade-off: when you reply, it comes from your personal Gmail address, which spoils the effect.
+
+2. **Namecheap Private Email.** For a few dollars a year on the starter plan, you get a real mailbox that both receives *and sends* as your domain, with webmail and phone setup. This is the option we recommend, and it is the line item that takes the annual total from about fifteen dollars to about twenty.
+
+Whichever you pick, the setup is a couple of MX records in the same DNS panel you were just in. If your messages land in spam folders later, our post on why business email goes to spam covers the three DNS records (SPF, DKIM, DMARC) that fix it.
+
+## Step 5: Introduce yourself to Google
+
+A website Google has not indexed is a brochure in a locked drawer. Two free tools fix that.
+
+**Google Search Console** is Google's own dashboard for site owners. Create an account, add your domain as a "domain property," and verify it with a TXT record at your registrar, one more copy-and-paste in the DNS panel you now know well. Search Console shows you what searches you appear for, which pages are indexed, and any problems Google finds.
+
+**Your sitemap** is the machine-readable list of your pages. Google Sites publishes one automatically: check \`yourdomain.com/sitemap.xml\` in a browser and you should see it. Paste that address into Search Console under Sitemaps and submit. (If you are ever on a platform that does not generate one, free tools like xml-sitemaps.com will crawl your site and build the file, but you will need hosting that lets you upload it. Google Sites handles this for you.)
+
+Then use the URL inspection tool in Search Console to request indexing on your homepage and your most important pages. Indexing takes days to weeks. That is normal. Search Console will email you when things change.
+
+## The honest math, and the honest limits
+
+Add it up: ten to fifteen dollars for the domain, a few dollars for Private Email, zero for everything else. Right around twenty dollars a year for a real website, a working naked domain, email that sends from your business name, and a site Google can find. Compare that to thirty dollars a *month* for the builder subscriptions this replaces.
+
+Now the limits, because we do not sell fantasies. Google Sites has a speed ceiling, limited design control, and none of the deeper SEO and integration capability a serious online-revenue business eventually needs. Our builder-or-custom post covers the signals that you have outgrown this setup. But those are next-year problems, and some businesses never hit them at all.
+
+If you work through this and get stuck on the DNS parts, the guides linked throughout this post cover every step in detail. And if you reach the point where the twenty dollar setup is holding the business back, that conversation is what the contact form is for. We will tell you honestly whether it is time, because we would rather you spend twenty dollars well than two thousand badly.`,
+  },
+  {
     slug: "small-business-website-speed",
     title:
       "Why your small business website feels slow (and the free fixes that actually matter)",
