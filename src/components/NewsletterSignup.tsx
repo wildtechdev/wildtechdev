@@ -158,7 +158,7 @@ export default function NewsletterSignup({
         </div>
         <div role="status" aria-live="polite">
           {state === "error" && error && (
-            <p className="text-xs text-red-400 mt-1">{error}</p>
+            <p className="text-xs form-error mt-1">{error}</p>
           )}
         </div>
         <p className="text-[11.5px] uppercase tracking-[0.18em] text-muted font-mono mt-2">

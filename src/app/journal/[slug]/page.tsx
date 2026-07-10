@@ -6,6 +6,8 @@ import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
 import NewsletterSignup from "@/components/NewsletterSignup";
 import Prose from "@/components/Prose";
 import ScrollReveal from "@/components/ScrollReveal";
+import ShareRow from "@/components/ShareRow";
+import TableOfContents from "@/components/TableOfContents";
 import { getAllSlugs, getPostBySlug, posts } from "@/lib/posts";
 import { formatDate } from "@/lib/format";
 
@@ -170,10 +172,18 @@ export default async function PostPage({
           </header>
 
           <div className="border-t border-border pt-10">
+            <TableOfContents content={post.content} />
             <Prose content={post.content} />
           </div>
 
-          <div className="mt-16 pt-10 border-t border-border">
+          <div className="mt-12 pt-8 border-t border-border">
+            <ShareRow
+              url={`https://www.wildtechdev.com/journal/${post.slug}`}
+              title={post.title}
+            />
+          </div>
+
+          <div className="mt-12 pt-10 border-t border-border">
             <Link
               href="/will-mccants"
               className="group inline-flex items-center gap-4 -mx-2 px-2 py-2 rounded transition-colors duration-300 hover:bg-surface"

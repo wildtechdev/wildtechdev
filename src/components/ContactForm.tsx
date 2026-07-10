@@ -236,7 +236,7 @@ export default function ContactForm() {
             </p>
           )}
           {status === "error" && errorMessage && (
-            <p className="text-sm text-amber-500 font-[family-name:var(--font-sans)]">
+            <p className="text-sm form-error font-[family-name:var(--font-sans)]">
               {errorMessage}
             </p>
           )}

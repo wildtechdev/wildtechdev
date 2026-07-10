@@ -423,6 +423,36 @@ a:focus-visible {
   background-color: var(--tint-light, transparent);
 }
 
+/* ====== FORM STATUS COLORS ======
+   Theme-aware error red: the old text-amber-500/text-red-400 utilities were
+   dark-theme colors that fell below readable contrast on the cream page. */
+.form-error {
+  color: #f87171;
+}
+[data-theme="light"] .form-error {
+  color: #dc2626;
+}
+
+/* ====== HEADING ANCHORS (Prose deep links) ====== */
+.heading-anchor {
+  opacity: 0;
+  margin-left: 0.4em;
+  font-size: 0.7em;
+  font-style: normal;
+  font-family: var(--font-sans);
+  color: var(--color-muted);
+  text-decoration: none;
+  transition: opacity 0.2s ease, color 0.2s ease;
+}
+h2:hover .heading-anchor,
+h3:hover .heading-anchor,
+.heading-anchor:focus-visible {
+  opacity: 1;
+}
+.heading-anchor:hover {
+  color: var(--color-green);
+}
+
 /* ====== INPUT ====== */
 .input-line {
   width: 100%;
@@ -441,6 +471,12 @@ a:focus-visible {
   outline: none;
   border-bottom-color: #22c55e;
   padding-bottom: 14px;
+}
+/* Textareas grow with their content on supporting browsers */
+textarea.input-line {
+  field-sizing: content;
+  min-height: 9rem;
+  max-height: 24rem;
 }
 
 /* ====== DIVIDER ====== */
@@ -595,6 +631,46 @@ a:focus-visible {
   }
   details[open]::details-content {
     block-size: auto;
+  }
+}
+
+/* ====== PRINT ======
+   Tutorial posts get printed; strip the chrome and effects so what comes
+   out of the printer is clean black-on-white text. */
+@media print {
+  nav,
+  footer,
+  form,
+  .scroll-progress,
+  .cursor-dot,
+  .cursor-ring,
+  .section-glow,
+  .marquee-track,
+  .heading-anchor {
+    display: none !important;
+  }
+  body::before {
+    display: none !important;
+  }
+  html,
+  body {
+    background: #ffffff !important;
+  }
+  body {
+    color: #1a1a1a;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    color: #000000;
+  }
+  main {
+    padding-top: 0 !important;
+  }
+  .scroll-reveal {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  a {
+    color: #166534;
   }
 }
 

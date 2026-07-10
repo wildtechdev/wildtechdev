@@ -510,11 +510,15 @@ You are looking for:
 
 If you send through Google Workspace AND a transactional service like Resend, your record should look like:
 
-\`v=spf1 include:_spf.google.com include:send.resend.com ~all\`
+\`\`\`
+v=spf1 include:_spf.google.com include:send.resend.com ~all
+\`\`\`
 
 If you send through Namecheap Private Email AND Resend:
 
-\`v=spf1 include:privateemail.com include:send.resend.com ~all\`
+\`\`\`
+v=spf1 include:privateemail.com include:send.resend.com ~all
+\`\`\`
 
 The key is that EVERY service sending mail under your name has to be in this record. If you have multiple, combine them into one record. You cannot have two SPF records on the same domain. Some DNS providers will let you add two, but receiving mail servers will reject one or both. (Running Namecheap Private Email alongside Resend? That exact combined record is [documented step by step here](/journal/resend-namecheap-private-email-setup).)
 
@@ -564,13 +568,17 @@ Look up \`_dmarc.yourdomain.com\` as a TXT record. If nothing comes back, you ha
 
 A reasonable starting DMARC record:
 
-\`v=DMARC1; p=none; rua=mailto:dmarc-reports@yourdomain.com\`
+\`\`\`
+v=DMARC1; p=none; rua=mailto:dmarc-reports@yourdomain.com
+\`\`\`
 
 The \`p=none\` policy means "monitor only, don't actually quarantine or reject mail." This is the right starting point because it lets you collect data on who is sending mail as your domain before you tighten policy.
 
 After a few weeks of monitoring, if the SPF and DKIM are passing cleanly, tighten to:
 
-\`v=DMARC1; p=quarantine; rua=mailto:dmarc-reports@yourdomain.com; pct=100\`
+\`\`\`
+v=DMARC1; p=quarantine; rua=mailto:dmarc-reports@yourdomain.com; pct=100
+\`\`\`
 
 \`p=quarantine\` means "if SPF or DKIM fails, send to spam." This signals to receiving mail servers that you take email security seriously, which in practice improves inbox placement for your legitimate mail.
 
@@ -614,9 +622,13 @@ If you send any kind of bulk mail (newsletter, marketing, even high-volume trans
 
 If your email service is modern (Resend, Postmark, Mailgun, SendGrid), it handles this automatically. If you are rolling your own SMTP, you need to add these headers manually:
 
-\`List-Unsubscribe: <mailto:unsubscribe@yourdomain.com>, <https://yourdomain.com/unsubscribe?id=xyz>\`
+\`\`\`
+List-Unsubscribe: <mailto:unsubscribe@yourdomain.com>, <https://yourdomain.com/unsubscribe?id=xyz>
+\`\`\`
 
-\`List-Unsubscribe-Post: List-Unsubscribe=One-Click\`
+\`\`\`
+List-Unsubscribe-Post: List-Unsubscribe=One-Click
+\`\`\`
 
 For pure personal or small-business correspondence (one-to-one emails, support replies), these headers are not required. They are for bulk mail.
 
@@ -802,7 +814,9 @@ CNAME record at www pointing to whatever your hosting provider expects.
 
 TXT record at @ for your SPF policy. The value should be:
 
-\`v=spf1 include:send.resend.com include:privateemail.com ~all\`
+\`\`\`
+v=spf1 include:send.resend.com include:privateemail.com ~all
+\`\`\`
 
 This single line authorizes both Resend's sending IPs and Namecheap Private Email's sending IPs. If you only put include:amazonses.com here (which is what some Resend documentation suggests) you will break Private Email's ability to send mail. The include:send.resend.com is the modern equivalent and covers all of Resend's infrastructure.
 

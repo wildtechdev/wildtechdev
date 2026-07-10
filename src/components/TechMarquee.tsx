@@ -23,7 +23,6 @@ const tech = [
   "WebSockets",
   "REST APIs",
   "GraphQL",
-  "ZEISS Optotechnik",
 ];
 
 function MarqueeGroup() {

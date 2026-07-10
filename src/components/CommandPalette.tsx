@@ -3,7 +3,6 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import { useTheme } from "@/components/ThemeProvider";
-import { posts } from "@/lib/posts";
 
 type Command = {
   id: string;
@@ -14,11 +13,20 @@ type Command = {
   action: () => void;
 };
 
+/** Lightweight journal index passed in from the server layout. Passing props
+ *  instead of importing lib/posts keeps the full post bodies (90KB+) out of
+ *  the client bundle that ships with every page. */
+export type PaletteWtdPost = { slug: string; title: string; tags: string[] };
+
 /** Name of the window event that opens the palette (used by the footer hint
  *  button so mouse/touch users can open it without the keyboard). */
 export const OPEN_PALETTE_EVENT = "wtd:open-palette";
 
-export default function CommandPalette() {
+export default function CommandPalette({
+  posts,
+}: {
+  posts: PaletteWtdPost[];
+}) {
   const router = useRouter();
   const { toggleTheme } = useTheme();
   const [open, setOpen] = useState(false);
@@ -84,7 +92,7 @@ export default function CommandPalette() {
         action: () => router.push(`/journal/${p.slug}`),
       })),
     ],
-    [router, toggleTheme]
+    [router, toggleTheme, posts]
   );
 
   const filtered = useMemo(() => {

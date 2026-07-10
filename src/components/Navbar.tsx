@@ -29,7 +29,9 @@ export default function Navbar() {
   }
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 16);
+    // Low threshold so the solid background arrives before any page content
+    // can slide underneath the fixed bar.
+    const onScroll = () => setScrolled(window.scrollY > 8);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
@@ -59,9 +61,9 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-300 ${
         scrolled
-          ? "bg-black/85 backdrop-blur-xl border-b border-border"
+          ? "bg-black border-b border-border"
           : "bg-transparent border-b border-transparent"
       }`}
     >
@@ -153,7 +155,7 @@ export default function Navbar() {
             : "max-h-0 opacity-0"
         }`}
       >
-        <div className="bg-black/95 backdrop-blur-xl border-t border-border px-6 py-8 space-y-1">
+        <div className="bg-black border-t border-border px-6 py-8 space-y-1">
           {navLinks.map((link, i) => {
             const isActive =
               link.href === "/"

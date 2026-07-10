@@ -7,6 +7,8 @@ import Spotlight from "@/components/Spotlight";
 import TechMarquee from "@/components/TechMarquee";
 import HeroSpotlight from "@/components/HeroSpotlight";
 import HomeProductCard, { type HomeProduct } from "@/components/HomeProductCard";
+import { posts } from "@/lib/posts";
+import { formatDate } from "@/lib/format";
 
 export const metadata: Metadata = {
   alternates: {
@@ -804,6 +806,76 @@ export default function HomePage() {
                 </ScrollReveal>
               ))}
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* From the journal. The journal is how strangers find the studio, so
+          the homepage surfaces the three latest posts. */}
+      <section className="relative py-20 sm:py-28 border-t border-border overflow-hidden">
+        <div className="absolute -top-8 right-6 lg:right-12 text-[260px] leading-none font-[family-name:var(--font-serif)] italic text-heading pointer-events-none select-none opacity-[0.07]">
+          04
+        </div>
+
+        <div className="relative max-w-5xl mx-auto px-6 lg:px-8">
+          <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between mb-14 gap-6">
+            <div>
+              <p className="section-label text-xs uppercase tracking-[0.18em] text-muted mb-3 font-[family-name:var(--font-sans)]">
+                From the workshop
+              </p>
+              <h2 className="text-4xl sm:text-5xl font-[family-name:var(--font-serif)] italic text-heading">
+                Journal
+              </h2>
+              <p className="text-muted text-sm mt-3 max-w-md">
+                Build logs, plain-English tutorials, and honest notes on
+                running a small studio.
+              </p>
+            </div>
+            <Link
+              href="/journal"
+              className="group inline-flex items-center gap-2 text-sm text-body hover:text-green transition-colors duration-300 self-start sm:self-end"
+            >
+              All posts
+              <svg
+                className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                strokeWidth={2}
+                aria-hidden="true"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
+                />
+              </svg>
+            </Link>
+          </div>
+
+          <div className="border-t border-border">
+            {posts.slice(0, 3).map((post, i) => (
+              <ScrollReveal key={post.slug} delay={i * 60}>
+                <Link
+                  href={`/journal/${post.slug}`}
+                  className="group flex flex-col sm:flex-row sm:items-baseline gap-2 sm:gap-8 border-b border-border py-6 relative overflow-hidden"
+                >
+                  <span
+                    className="absolute inset-0 bg-gradient-to-r from-green/[0.04] to-transparent translate-x-[-100%] group-hover:translate-x-0 transition-transform duration-700 ease-out"
+                    aria-hidden="true"
+                  />
+                  <span className="relative text-[11.5px] font-mono uppercase tracking-[0.2em] text-muted shrink-0 sm:w-36">
+                    {formatDate(post.date)}
+                  </span>
+                  <span className="relative flex-1 text-lg sm:text-xl font-[family-name:var(--font-serif)] italic text-heading transition-all duration-500 group-hover:text-green group-hover:translate-x-1">
+                    {post.title}
+                  </span>
+                  <span className="relative text-[11.5px] font-mono uppercase tracking-[0.2em] text-faint group-hover:text-muted transition-colors duration-500 shrink-0">
+                    {post.readMinutes} min
+                  </span>
+                </Link>
+              </ScrollReveal>
+            ))}
           </div>
         </div>
       </section>

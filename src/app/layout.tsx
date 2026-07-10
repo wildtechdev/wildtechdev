@@ -6,7 +6,16 @@ import Cursor from "@/components/Cursor";
 import ScrollProgress from "@/components/ScrollProgress";
 import CommandPalette from "@/components/CommandPalette";
 import ThemeProvider from "@/components/ThemeProvider";
+import { posts } from "@/lib/posts";
 import "./globals.css";
+
+// Lightweight journal index for the command palette. Mapped here (server
+// side) so the client bundle never has to include the full post bodies.
+const paletteWtdPosts = posts.map(({ slug, title, tags }) => ({
+  slug,
+  title,
+  tags,
+}));
 
 /**
  * Inline script that runs before React hydrates. Reads the saved theme
@@ -165,7 +174,7 @@ export default function RootLayout({
         <ThemeProvider>
           <ScrollProgress />
           <Cursor />
-          <CommandPalette />
+          <CommandPalette posts={paletteWtdPosts} />
           <Navbar />
           <main id="main-content" className="flex-1 pt-16 animate-page-enter">
             {children}

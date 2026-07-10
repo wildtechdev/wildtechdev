@@ -2,6 +2,10 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   poweredByHeader: false,
+  images: {
+    // AVIF first (smaller), WebP fallback, original as last resort.
+    formats: ["image/avif", "image/webp"],
+  },
   async headers() {
     return [
       {
@@ -40,6 +44,13 @@ const nextConfig: NextConfig = {
       { source: "/media", destination: "/press", permanent: true },
       { source: "/media-kit", destination: "/press", permanent: true },
       { source: "/about-will", destination: "/will-mccants", permanent: true },
+      // People guess these URLs for blogs and feeds; catch them all
+      { source: "/blog", destination: "/journal", permanent: true },
+      { source: "/blog/:slug", destination: "/journal/:slug", permanent: true },
+      { source: "/posts", destination: "/journal", permanent: true },
+      { source: "/rss", destination: "/feed.xml", permanent: true },
+      { source: "/rss.xml", destination: "/feed.xml", permanent: true },
+      { source: "/feed", destination: "/feed.xml", permanent: true },
       // Journal post slug change to remove name from URL
       {
         source: "/journal/what-i-build-and-why",

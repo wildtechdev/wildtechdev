@@ -39,6 +39,10 @@ const faqs = [
     a: "We are happy to take on small, focused projects starting around fifteen thousand dollars. Below that the discovery and setup overhead does not leave enough room for the actual work. If your project is smaller than that, we are glad to point you to other developers who specialize in that range.",
   },
   {
+    q: "Do you build simple small business websites?",
+    a: "Yes, and honestly, many small businesses do not need us for that. If what you need is a straightforward brochure site, our journal has a complete guide to a functional twenty dollar per year setup using Google Sites and a Namecheap domain, plus an honest breakdown of when a website builder beats custom work. When a business has outgrown those options and the website needs real performance, custom integrations, or functionality a template cannot express, that is where our web development work starts.",
+  },
+  {
     q: "Who owns the work when it is done?",
     a: "You do. Every contract assigns full intellectual property ownership of the work product to you on delivery. The code, the designs, the App Store listing, the hardware schematics. Yours, unconditionally. We retain the right to mention the project in our portfolio unless you ask us not to.",
   },

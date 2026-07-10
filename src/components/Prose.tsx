@@ -1,5 +1,7 @@
 import { Fragment } from "react";
 import Link from "next/link";
+import CopyCode from "@/components/CopyCode";
+import { slugify } from "@/lib/slugify";
 
 // Tiny renderer for the markdown-light format used by posts and case studies.
 // Splits on blank lines; treats "## " as h2, "### " as h3, "- " as list items,
@@ -99,13 +101,17 @@ function parse(markdown: string): Block[] {
   return blocks;
 }
 
-/** URL-safe id from heading text, for deep links. */
-function slugify(text: string): string {
-  return text
-    .toLowerCase()
-    .replace(/[^a-z0-9\s-]/g, "")
-    .trim()
-    .replace(/\s+/g, "-");
+/** Hover-revealed "#" link so readers can grab a deep link to any section. */
+function HeadingAnchor({ id, text }: { id: string; text: string }) {
+  return (
+    <a
+      href={`#${id}`}
+      className="heading-anchor"
+      aria-label={`Link to section: ${text}`}
+    >
+      #
+    </a>
+  );
 }
 
 const LINK_CLASS = "text-green link-underline";
@@ -151,6 +157,9 @@ function renderInline(text: string) {
           className={LINK_CLASS}
         >
           {label}
+          <span aria-hidden="true" className="text-[0.8em] ml-0.5">
+            &#8599;
+          </span>
         </a>
       );
     }
@@ -164,24 +173,28 @@ export default function Prose({ content }: { content: string }) {
     <div className="space-y-6">
       {blocks.map((b, i) => {
         if (b.type === "h2") {
+          const id = slugify(b.text);
           return (
             <h2
               key={i}
-              id={slugify(b.text)}
+              id={id}
               className="text-2xl sm:text-3xl font-[family-name:var(--font-serif)] italic text-heading mt-12 mb-2 scroll-mt-24"
             >
               {b.text}
+              <HeadingAnchor id={id} text={b.text} />
             </h2>
           );
         }
         if (b.type === "h3") {
+          const id = slugify(b.text);
           return (
             <h3
               key={i}
-              id={slugify(b.text)}
+              id={id}
               className="text-xl font-[family-name:var(--font-sans)] font-semibold text-heading mt-8 mb-1 scroll-mt-24"
             >
               {b.text}
+              <HeadingAnchor id={id} text={b.text} />
             </h3>
           );
         }
@@ -225,12 +238,12 @@ export default function Prose({ content }: { content: string }) {
         }
         if (b.type === "pre") {
           return (
-            <pre
-              key={i}
-              className="overflow-x-auto rounded border border-border bg-surface p-4 text-sm font-mono text-heading"
-            >
-              <code>{b.text}</code>
-            </pre>
+            <div key={i} className="group relative">
+              <CopyCode text={b.text} />
+              <pre className="overflow-x-auto rounded border border-border bg-surface p-4 text-sm font-mono text-heading">
+                <code>{b.text}</code>
+              </pre>
+            </div>
           );
         }
         return (

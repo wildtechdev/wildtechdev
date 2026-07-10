@@ -47,36 +47,42 @@ const services = [
     description:
       "We build native iOS applications using Swift and SwiftUI that are designed to last. From the first conversation about what the app should do through design, development, testing, and App Store submission, we handle the full lifecycle. Our own apps are live on the App Store, which means we deal with the same review process, the same guidelines, and the same real-world user feedback that your app will face. That experience shows up in every decision we make during development.",
     tags: ["Swift & SwiftUI", "App Store Submission", "In-App Purchases", "Push Notifications"],
+    proof: { label: "See it shipped: Spirits of Charleston", href: "/work/spirits-of-charleston" },
   },
   {
     title: "Windows Development",
     description:
       "Not everything belongs on a phone or in a browser. Some tools work best as desktop applications, and we build those too. Productivity tools, data processing utilities, and custom business solutions for the Windows ecosystem. Our Windows work has included privately distributed software for national clients where reliability and performance matter more than flashy design.",
     tags: [".NET & WPF", "Custom Utilities", "Data Processing", "Business Automation"],
+    proof: null,
   },
   {
     title: "Web Development",
     description:
       "We build modern, responsive web applications using Next.js, React, and Tailwind CSS. Every site we ship is fast, accessible, SEO-optimized, and built to look sharp on any screen size. This site is a working example of our approach: server-rendered for speed, designed for clarity, and deployed on infrastructure that scales without babysitting.",
     tags: ["Next.js & React", "Responsive Design", "SEO Optimization", "Performance-First"],
+    proof: { label: "See it shipped: Churchd", href: "/work/churchd" },
   },
   {
     title: "App Store Optimization",
     description:
       "Getting an app approved is only half the battle. The other half is making sure people can actually find it. We handle keyword optimization, screenshot design, review management, and analytics reporting to increase your app's visibility and downloads. Our own apps compete in crowded categories on the App Store, so the strategies we recommend are the same ones we use ourselves.",
     tags: ["Keyword Optimization", "Screenshot Design", "Review Management", "Analytics"],
+    proof: { label: "See it shipped: EZ Fuse Tester", href: "/work/ez-fuse-tester" },
   },
   {
     title: "Systems Integration",
     description:
       "Most businesses run on a patchwork of software, hardware, and third-party services that were never designed to talk to each other. We connect those pieces into unified systems with clean data pipelines and reliable automation. Whether it is linking an ERP system to an e-commerce storefront or bridging legacy equipment with modern dashboards, we build the connective tissue that makes everything work together.",
     tags: ["API Integration", "Data Pipelines", "Legacy Modernization", "Cloud Services"],
+    proof: { label: "See it shipped: Viking Sensors", href: "/work/viking-sensors" },
   },
   {
     title: "Hardware Solutions",
     description:
       "Custom hardware design and IoT solutions for environments where off-the-shelf sensors and consumer-grade devices fall short. We build sensor networks, embedded monitoring systems, and precision instruments backed by software that makes the data useful. Viking Sensors is the flagship example: industrial-grade climate monitoring built from scratch and distributed through one of the largest metrology companies in the country.",
     tags: ["IoT Sensors", "Embedded Systems", "Real-Time Dashboards", "Industrial-Grade"],
+    proof: { label: "See it shipped: Viking Sensors", href: "/work/viking-sensors" },
   },
 ];
 
@@ -175,6 +181,28 @@ export default function ServicesPage() {
                         </span>
                       ))}
                     </div>
+                    {service.proof && (
+                      <Link
+                        href={service.proof.href}
+                        className="mt-5 inline-flex items-center gap-2 text-sm text-green link-underline"
+                      >
+                        {service.proof.label}
+                        <svg
+                          className="w-3 h-3"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                          strokeWidth={2}
+                          aria-hidden="true"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
+                          />
+                        </svg>
+                      </Link>
+                    )}
                   </div>
                 </div>
               </article>

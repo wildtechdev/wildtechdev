@@ -141,6 +141,11 @@ export default async function CaseStudyPage({
               <div className="flex-1 min-w-0">
                 <p className="text-xs font-mono tracking-[0.2em] text-green mb-3">
                   {cs.year}
+                  <span className="text-muted">
+                    {" "}&middot;{" "}
+                    {Math.max(2, Math.round(cs.content.split(/\s+/).length / 200))}{" "}
+                    min read
+                  </span>
                 </p>
                 <h1 className="text-4xl sm:text-5xl lg:text-6xl font-[family-name:var(--font-serif)] italic text-heading mb-4 leading-[1.05]">
                   {cs.product}
