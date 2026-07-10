@@ -2,7 +2,7 @@
 cd "$(dirname "$0")"
 rm -f .git/index.lock .git/HEAD.lock .git/ORIG_HEAD.lock
 git add -A
-git commit -m "feat(journal): add the twenty dollar website post, a complete beginner setup guide covering Google Sites, a Namecheap domain, the free naked domain redirect, Namecheap Private Email, sitemap and Search Console, tying together the existing DNS and email guides"
+git commit -m "feat(journal): add apex record troubleshooting to the redirect guide after reader feedback, add four new small business posts including the twenty dollar website setup with Namecheap discount code tips, add markdown link support to the prose renderer, and cross-link all thirteen posts with 26 in-content references"
 git push origin main
 echo ""
 echo "Done! Press any key to close."

@@ -6,6 +6,7 @@
 //   - Lines starting with "### " become h3 sub-headings.
 //   - Lines starting with "- " become list items in a ul.
 //   - Lines wrapped in `backticks` get rendered as inline code.
+//   - [text](/journal/slug) becomes a styled link (internal or external).
 //   - Triple-backtick fenced blocks become preformatted code blocks.
 // Keep paragraphs in plain prose (no em dashes, no -- substitutes).
 
@@ -61,13 +62,13 @@ One more tip while you are in there: some registrars pre-load new domains with a
 
 Google Sites is the most underrated free website builder on the internet. It is not fancy, and that is the point: free hosting on Google's infrastructure, templates that look clean, drag-and-drop editing your least technical employee can handle, and no plugins to update or hosting bill to pay, ever.
 
-Build your pages first, before touching the domain. For a small business, the pages that matter are: what you do, who you do it for, where you are, proof (photos, reviews), and how to contact you. Our post on what local SEO actually requires covers what to write on those pages so Google understands them.
+Build your pages first, before touching the domain. For a small business, the pages that matter are: what you do, who you do it for, where you are, proof (photos, reviews), and how to contact you. [Our post on what local SEO actually requires](/journal/local-seo-basics-small-business) covers what to write on those pages so Google understands them.
 
 ## Step 3: Connect the domain, then fix the naked domain
 
 In Google Sites, add your custom domain under the publish settings. Google walks you through adding a CNAME record for \`www\` at your registrar. Follow it, and \`www.yourdomain.com\` will load your site.
 
-Then you will discover the famous catch: \`yourdomain.com\` without the www does not work, because Google Sites only supports the CNAME method and CNAME records cannot live on a naked domain. This is the single most common stumbling block in this entire setup, and it is fixable for free in fifteen minutes with either Cloudflare or redirect.pizza. We wrote a full step-by-step guide (our Google Sites naked domain post) so we will not repeat it here.
+Then you will discover the famous catch: \`yourdomain.com\` without the www does not work, because Google Sites only supports the CNAME method and CNAME records cannot live on a naked domain. This is the single most common stumbling block in this entire setup, and it is fixable for free in fifteen minutes with either Cloudflare or redirect.pizza. We wrote a [full step-by-step guide to this exact fix](/journal/google-sites-naked-domain-redirect) so we will not repeat it here.
 
 The one warning worth repeating: your apex can only have one record answering for web traffic. If you hit an error adding the redirect record, that parking record from step 1 (or an old A record from previous hosting) is sitting on \`@\` and needs to be deleted first. Leave MX and TXT records alone; they run your email.
 
@@ -77,11 +78,11 @@ An email address at your own domain is the difference between looking like a bus
 
 You have two options on this budget:
 
-1. **Free forwarding.** Namecheap includes free email forwarding with your domain, so mail sent to \`hello@yourdomain.com\` lands in your existing Gmail inbox. Costs nothing. The trade-off: when you reply, it comes from your personal Gmail address, which spoils the effect.
+1. **Free forwarding.** Namecheap includes free email forwarding with your domain, so mail sent to \`hello@yourdomain.com\` lands in your existing Gmail inbox. Costs nothing ([our comparison of the three free forwarding services](/journal/free-email-forwarding-custom-domain) covers setup). The trade-off: when you reply, it comes from your personal Gmail address, which spoils the effect.
 
 2. **Namecheap Private Email.** For a few dollars a year on the starter plan, you get a real mailbox that both receives *and sends* as your domain, with webmail and phone setup. This is the option we recommend, and it is the line item that takes the annual total from about fifteen dollars to about twenty.
 
-Whichever you pick, the setup is a couple of MX records in the same DNS panel you were just in. If your messages land in spam folders later, our post on why business email goes to spam covers the three DNS records (SPF, DKIM, DMARC) that fix it.
+Whichever you pick, the setup is a couple of MX records in the same DNS panel you were just in. If your messages land in spam folders later, [our post on why business email goes to spam](/journal/why-business-email-goes-to-spam) covers the three DNS records (SPF, DKIM, DMARC) that fix it.
 
 ## Step 5: Introduce yourself to Google
 
@@ -97,7 +98,7 @@ Then use the URL inspection tool in Search Console to request indexing on your h
 
 Add it up: ten to fifteen dollars for the domain, a few dollars for Private Email, zero for everything else. Right around twenty dollars a year for a real website, a working naked domain, email that sends from your business name, and a site Google can find. Compare that to thirty dollars a *month* for the builder subscriptions this replaces.
 
-Now the limits, because we do not sell fantasies. Google Sites has a speed ceiling, limited design control, and none of the deeper SEO and integration capability a serious online-revenue business eventually needs. Our builder-or-custom post covers the signals that you have outgrown this setup. But those are next-year problems, and some businesses never hit them at all.
+Now the limits, because we do not sell fantasies. Google Sites has a speed ceiling, limited design control, and none of the deeper SEO and integration capability a serious online-revenue business eventually needs. [Our builder-or-custom post](/journal/website-builder-vs-custom-site) covers the signals that you have outgrown this setup. But those are next-year problems, and some businesses never hit them at all.
 
 If you work through this and get stuck on the DNS parts, the guides linked throughout this post cover every step in detail. And if you reach the point where the twenty dollar setup is holding the business back, that conversation is what the contact form is for. We will tell you honestly whether it is time, because we would rather you spend twenty dollars well than two thousand badly.`,
   },
@@ -151,7 +152,7 @@ Then re-run PageSpeed Insights and enjoy the before-and-after.
 
 ## When it is the platform, not you
 
-If you have done the above and the site is still slow, the problem is usually the hosting or the platform itself. Upgrading from bargain shared hosting to a mid-tier plan is often the best $10 a month a small business can spend. And if the site is old enough that it is held together with years of accumulated plugins, a clean rebuild on a modern platform is frequently cheaper than another year of fighting it.
+If you have done the above and the site is still slow, the problem is usually the hosting or the platform itself. Upgrading from bargain shared hosting to a mid-tier plan is often the best $10 a month a small business can spend. For a simple brochure site, another option is sidestepping hosting bills entirely with [the twenty dollar setup](/journal/twenty-dollar-website-setup). And if the site is old enough that it is held together with years of accumulated plugins, a clean rebuild on a modern platform is frequently cheaper than another year of fighting it (whether that rebuild should be a builder or custom work is [its own honest conversation](/journal/website-builder-vs-custom-site)).
 
 That last case is the kind of project we take on, and it is also the kind of honest assessment we are happy to give for free. If you are not sure whether your site needs twenty minutes of image compression or an actual rebuild, send it over through the contact form and we will tell you which one it is.`,
   },
@@ -211,6 +212,8 @@ You will get cold emails promising hundreds of directory citations, guaranteed f
 
 Local SEO is a compounding asset, not a switch. A completed profile starts helping within weeks. Reviews build over months. The businesses that dominate their local results in year two are just the ones that kept doing the boring parts all through year one.
 
+One more thing: if you do not have a website at all yet, [our twenty dollar website setup](/journal/twenty-dollar-website-setup) gets you a functional one with Search Console already wired in.
+
 If you want a second set of eyes on your local presence, or your website needs the technical pieces done properly, that is work we do. The intro call is free and we will tell you honestly if you even need us, because most of this list you can do yourself.`,
   },
   {
@@ -239,7 +242,7 @@ If that is where your business is, our advice is to spend the custom-website bud
 Builders trade flexibility for convenience, and the trade shows up in predictable places:
 
 - **Speed has a ceiling.** You can follow every optimization guide and a heavy template will still carry weight you cannot remove. For most brochure sites this ceiling is fine. For sites that live or die on conversion, it eventually is not.
-- **The technical corners get weird.** Custom domains that only work with www (we have written two posts about that one), limited control over redirects, structured data you cannot fully shape, integrations that exist only as an iframe embed.
+- **The technical corners get weird.** Custom domains that only work with www (we have written [an explainer](/journal/what-is-a-naked-domain) and a [step-by-step fix](/journal/google-sites-naked-domain-redirect) about that one), limited control over redirects, structured data you cannot fully shape, integrations that exist only as an iframe embed.
 - **Complex features become monthly fees.** Booking, membership, quoting, inventory. Each one is another plugin subscription, and they do not always cooperate with each other.
 - **You are a tenant, not an owner.** Prices rise, features change, and the day you outgrow the platform, very little comes with you. The design, the plugins, and sometimes even the content structure stay behind.
 
@@ -261,7 +264,7 @@ When one of those is true, custom work stops being a luxury and starts being inf
 
 ## The middle path we usually recommend
 
-Start on a builder. Keep the domain registered in your own name at a registrar you control, because the domain is the one asset that must always be yours. Write your content as if you will move it someday. Then let the business tell you when it has outgrown the template. It will not be subtle.
+Start on a builder. Keep the domain registered in your own name at a registrar you control, because the domain is the one asset that must always be yours. Write your content as if you will move it someday. Then let the business tell you when it has outgrown the template. It will not be subtle. And if you are starting from zero on a true shoestring, [our twenty dollar website setup](/journal/twenty-dollar-website-setup) is the complete beginner version of this advice.
 
 And if you are standing at that line and genuinely cannot tell which side you are on, that is a fifteen-minute conversation we have with people all the time. The intro call is free, the contact form is one click away, and "honestly, stay on Squarespace" is an answer we give more often than you would guess.`,
   },
@@ -309,7 +312,7 @@ The fix is to set up an HTTP redirect from the naked domain to the www subdomain
 
 There are three common ways to set this up:
 
-1. **Use a redirect service**. Cloudflare and redirect.pizza both do this for free. Cloudflare requires you to move your DNS to them. redirect.pizza just needs you to change one DNS record. We wrote a step-by-step guide for Google Sites users that walks through both, and the same steps work for any other CNAME-only platform by changing the CNAME target.
+1. **Use a redirect service**. Cloudflare and redirect.pizza both do this for free. Cloudflare requires you to move your DNS to them. redirect.pizza just needs you to change one DNS record. We wrote a [step-by-step guide for Google Sites users](/journal/google-sites-naked-domain-redirect) that walks through both, and the same steps work for any other CNAME-only platform by changing the CNAME target.
 
 2. **Use a hosting provider that natively supports apex domains**. Some providers (Vercel, Netlify, and a few others) have technical workarounds called ALIAS or ANAME records that simulate a CNAME on the apex. If your hosting provider supports this, just use the feature they built for it.
 
@@ -331,7 +334,7 @@ For 95% of small business websites and DIY site owners on Google Sites, Wix, Web
 
 The reason most people get stuck on this problem is that the user-facing language ("my domain doesn't work") and the technical language ("apex CNAME limitation") do not share any words. Search engines cannot bridge that gap on their own. You have to learn the term first to find the answer.
 
-That is the entire reason this post exists. If you got here from a search and now know the term, you have what you need to find the rest of the fix. Search for "naked domain redirect" or "apex domain redirect to www" and you will find dozens of step-by-step guides, including the one on this site.`,
+That is the entire reason this post exists. If you got here from a search and now know the term, you have what you need to find the rest of the fix. Search for "naked domain redirect" or "apex domain redirect to www" and you will find dozens of step-by-step guides, including [the one on this site](/journal/google-sites-naked-domain-redirect).`,
   },
   {
     slug: "free-email-forwarding-custom-domain",
@@ -445,8 +448,8 @@ All three of these services handle the receiving side of email forwarding. None 
 If you want replies to look like they came from your custom address, you need to also configure Gmail (or your mail client) to send AS that address. The setup involves SMTP credentials, which the three forwarding services above do not provide for free. For sending-as, you would need:
 
 - A paid Google Workspace plan (the easiest)
-- An SMTP relay service like Resend, Postmark, SendGrid, or Mailgun (free tiers available but require some setup)
-- A paid email mailbox service like Namecheap Private Email or Fastmail
+- An SMTP relay service like Resend, Postmark, SendGrid, or Mailgun (free tiers available but require some setup; we documented [the exact Resend on Namecheap configuration](/journal/resend-namecheap-private-email-setup))
+- A paid email mailbox service like Namecheap Private Email or Fastmail (Private Email is the route we recommend in [our twenty dollar website setup](/journal/twenty-dollar-website-setup))
 
 For a small business that just wants to receive at a professional-looking address and reply from their normal inbox, free forwarding alone is fine. Most people will not notice that your replies are coming from a different address than the one they wrote to.
 
@@ -454,7 +457,7 @@ For a small business that just wants to receive at a professional-looking addres
 
 **Setting up two services at once.** Each of these services needs its own MX records. If you have ImprovMX MX records AND Cloudflare Email Routing MX records on the same domain at the same time, you will get duplicate emails, lost emails, or both. Pick one.
 
-**Forgetting the SPF record.** SPF (the TXT record) is what tells receiving mail servers that the forwarding service is allowed to send on behalf of your domain. Without it, forwarded emails often land in spam. All three setups above include an SPF record. Use it.
+**Forgetting the SPF record.** SPF (the TXT record) is what tells receiving mail servers that the forwarding service is allowed to send on behalf of your domain. Without it, forwarded emails often land in spam. And if your mail keeps landing in spam even with SPF in place, [our deliverability checklist](/journal/why-business-email-goes-to-spam) walks the full diagnosis. All three setups above include an SPF record. Use it.
 
 **Trying to forward at the apex AND a subdomain.** Email forwarding configured on \`yourdomain.com\` does not automatically apply to \`mail.yourdomain.com\` or \`hello.yourdomain.com\`. Each domain or subdomain needs its own setup.
 
@@ -513,7 +516,7 @@ If you send through Namecheap Private Email AND Resend:
 
 \`v=spf1 include:privateemail.com include:send.resend.com ~all\`
 
-The key is that EVERY service sending mail under your name has to be in this record. If you have multiple, combine them into one record. You cannot have two SPF records on the same domain. Some DNS providers will let you add two, but receiving mail servers will reject one or both.
+The key is that EVERY service sending mail under your name has to be in this record. If you have multiple, combine them into one record. You cannot have two SPF records on the same domain. Some DNS providers will let you add two, but receiving mail servers will reject one or both. (Running Namecheap Private Email alongside Resend? That exact combined record is [documented step by step here](/journal/resend-namecheap-private-email-setup).)
 
 ### Common mistakes
 
@@ -649,7 +652,7 @@ If you want a second set of eyes on your setup, we are happy to take a look. Con
     tags: ["Google Sites", "DNS", "Cloudflare", "Tutorial"],
     content: `If you set up a custom domain on Google Sites and your site only loads when people type the full www.example.com, while example.com on its own throws an error or a "this site can't be reached" message, you have just run into one of the most common and least-well-explained problems in DIY web hosting. There is a term for it that almost nobody tells you when you Google "google sites no www," "google sites root domain not loading," or "how do I make google sites work without www," which is part of why it's so hard to find a solution.
 
-The term is **naked domain**. It is also called the **apex domain** or the **root domain**. Once you know the term, the rest of this is fixable in about fifteen minutes for free.
+The term is **naked domain**. It is also called the **apex domain** or the **root domain**. Once you know the term, the rest of this is fixable in about fifteen minutes for free. (Want the background on why this limitation exists at all? [Our plain-English naked domain explainer](/journal/what-is-a-naked-domain) covers it.)
 
 This is a quick guide for Google Sites owners who are stuck on this exact problem, written in the words people actually type into Google rather than the jargon DNS administrators use to discuss it with each other.
 
@@ -758,13 +761,13 @@ The exact same problem and solution apply to any web hosting service that requir
 
 After this is set up, search engines will eventually treat \`www.example.com\` as the canonical version of your site. That is fine. Search engines understand 301 redirects perfectly well. Make sure your Google Sites custom domain setting and your Google Search Console verification both use the www version going forward.
 
-If you have email forwarding set up on your domain (like \`you@example.com\`), that is handled by MX records, which are completely separate from this fix. Setting up the apex redirect does not break your email.
+If you have email forwarding set up on your domain (like \`you@example.com\`), that is handled by MX records, which are completely separate from this fix. Setting up the apex redirect does not break your email. (No email at your domain yet? [Three free forwarding services, compared](/journal/free-email-forwarding-custom-domain).)
 
 If you bought your domain through Google Domains and were migrated to Squarespace as part of that transition, the same logic applies. You can still use Cloudflare or redirect.pizza on top of a Squarespace-managed registration without any issue.
 
 ## If you got here from a search result
 
-The reason this post exists is that there are dozens of unanswered Reddit threads from people who are stuck on this exact problem and don't know the terminology to find a solution. If this saved you an evening, share it with the next person who asks the question.`,
+The reason this post exists is that there are dozens of unanswered Reddit threads from people who are stuck on this exact problem and don't know the terminology to find a solution. If this saved you an evening, share it with the next person who asks the question. And if you are building the whole site from scratch on a budget, this fix is one step of [our complete twenty dollar website setup](/journal/twenty-dollar-website-setup).`,
   },
   {
     slug: "resend-namecheap-private-email-setup",
@@ -837,7 +840,7 @@ Create an API key in Resend scoped to Sending access. The key starts with re_ fo
 
 If you are deploying through Vercel, add RESEND_API_KEY in Settings > Environment Variables for Production and Preview. Add a second variable for the from address. We use CONTACT_FROM_EMAIL with a value like WildTech Development <noreply@yourdomain.com>. Trigger a redeploy so the new environment variables are picked up by your serverless functions.
 
-Test with a real submission through whatever form posts to your API route. If it shows as Delivered in the Resend Emails dashboard but does not arrive in your inbox, check your spam folder. Brand new sending domains land in spam for the first couple of weeks until the receiving mail providers build up reputation signals. This is normal and improves on its own as you send more legitimate mail.
+Test with a real submission through whatever form posts to your API route. If it shows as Delivered in the Resend Emails dashboard but does not arrive in your inbox, check your spam folder. Brand new sending domains land in spam for the first couple of weeks until the receiving mail providers build up reputation signals. This is normal and improves on its own as you send more legitimate mail. If it keeps happening past that window, work through [our spam diagnostic checklist](/journal/why-business-email-goes-to-spam).
 
 ## What to watch out for
 
@@ -867,7 +870,7 @@ Each of those phases has a different rate, and the actual mix of hours depends o
 
 Here are real ranges, broken down by app complexity. These assume a developer or small team that knows iOS deeply and is not learning on your project.
 
-A simple utility app with no backend, no user accounts, and no in-app purchases will land between fifteen and thirty thousand dollars. Think a calculator, a converter, a single-purpose tool. EZ Fuse Tester, one of our apps, falls in this category. It uses the iPhone's built-in capacitive sensors to test small glass fuses and has no server side at all. Apps like this are the fastest to build and the cheapest to maintain.
+A simple utility app with no backend, no user accounts, and no in-app purchases will land between fifteen and thirty thousand dollars. Think a calculator, a converter, a single-purpose tool. [EZ Fuse Tester](/journal/what-we-learned-shipping-ez-fuse), one of our apps, falls in this category. It uses the iPhone's built-in capacitive sensors to test small glass fuses and has no server side at all. Apps like this are the fastest to build and the cheapest to maintain.
 
 A content-driven app with audio, GPS, or media and a moderate level of polish will land between thirty and seventy thousand dollars. Our Spirits of Charleston and Spirits of Savannah apps fall here. They include narrated audio for dozens of stories, GPS-tagged locations, historical photo galleries, offline access, and a one-time purchase paywall. The development cost is driven less by the code and more by content licensing, narration recording, and image rights.
 
@@ -956,7 +959,7 @@ We probably would not change anything about the business model. Free, no ads, no
 
 ## The bigger lesson
 
-The whole project took about a weekend of focused work plus a couple of evenings of polish before submission. The total cost was the time. It earns no money. It runs entirely on the phone. It generates no support tickets because there is nothing to support. And it has produced more inbound interest in WildTech than any of our paid marketing experiments combined.
+The whole project took about a weekend of focused work plus a couple of evenings of polish before submission. The total cost was the time. (Commissioned as a client project, a utility in this class runs fifteen to thirty thousand dollars; [our honest iOS cost breakdown](/journal/real-cost-of-custom-ios-app) explains where that money goes.) It earns no money. It runs entirely on the phone. It generates no support tickets because there is nothing to support. And it has produced more inbound interest in WildTech than any of our paid marketing experiments combined.
 
 There is a lesson buried in that for any developer or small studio: the projects that pay off are not always the ones you build to make money. Sometimes the right thing to build is the tool you wish existed at the moment you needed it, and then to ship it the way you wish it had been shipped. Free, fast, no nonsense. That is what EZ Fuse Tester is, and it is one of the things we are most proud of having put into the world.`,
   },
@@ -972,7 +975,7 @@ There is a lesson buried in that for any developer or small studio: the projects
 
 ## What this is
 
-WildTech Development is an owner-operated software and hardware studio in Charleston, South Carolina. We built it because we wanted to do the work we think is worth doing on the terms we think it should be done on. End to end. Honest scoping. Real engineering, not theater. No subscription traps. No surveillance. No deliverables that exist to justify the next phase of an engagement.
+WildTech Development is an owner-operated software and hardware studio in Charleston, South Carolina. (Why Charleston? [We wrote a field report on that](/journal/building-software-in-charleston-sc).) We built it because we wanted to do the work we think is worth doing on the terms we think it should be done on. End to end. Honest scoping. Real engineering, not theater. No subscription traps. No surveillance. No deliverables that exist to justify the next phase of an engagement.
 
 We take on a small number of client projects each year. Apps for the App Store, web platforms, integrations, and occasional custom hardware. We also build proprietary products under the WildTech umbrella: Spirits of Charleston, Spirits of Savannah, EZ Fuse Tester, We The People: Your Rights, the church platform Churchd, and the precision climate monitoring product Viking Sensors. Some of those make money. Some are free and exist because we thought they should exist. That is by design.
 
@@ -980,7 +983,7 @@ We take on a small number of client projects each year. Apps for the App Store, 
 
 The clients who get the most out of WildTech tend to share three things. They have a real problem they want to solve, not just a desire to "do something with AI" or "build an app." They want to work directly with the person doing the work, not through three layers of agency project management. And they value the discipline of small, honest, well-built things over the bigger-faster-louder approach.
 
-Concretely: a metrology firm that needs a custom monitoring stack. A small congregation that wants a community platform that does not surveil its members. A trade business that needs an iOS app for a specific operational job and does not want to pay a SaaS company a subscription forever. A solo founder with an app idea who wants it built right and shipped to the App Store. A hardware project that needs both the device and the software around it. These are the engagements where we do our best work.
+Concretely: a metrology firm that needs a custom monitoring stack. A small congregation that wants a community platform that does not surveil its members. A trade business that needs an iOS app for a specific operational job and does not want to pay a SaaS company a subscription forever. A solo founder with an app idea who wants it built right and shipped to the App Store ([what that actually costs](/journal/real-cost-of-custom-ios-app)). A hardware project that needs both the device and the software around it. These are the engagements where we do our best work.
 
 ## What working with us looks like
 
@@ -1024,7 +1027,7 @@ The combination of moderate talent depth, real customers, low overhead, and easy
 
 ## What this means for clients
 
-If you are considering hiring a Charleston-based developer for a custom software or hardware project, you have more options than you probably realize. We are one of them. There are several others. We would not pretend Charleston is the only good place to find this kind of work. We would pretend the opposite: it is a perfectly good place, and proximity matters more than tech hubs like to admit.
+If you are considering hiring a Charleston-based developer for a custom software or hardware project, you have more options than you probably realize. We are one of them ([what we build and why](/journal/what-we-build-and-why) is the short version of our pitch). There are several others. We would not pretend Charleston is the only good place to find this kind of work. We would pretend the opposite: it is a perfectly good place, and proximity matters more than tech hubs like to admit.
 
 If you are in the Charleston metropolitan area and have a software or hardware project you would rather hand to someone local than ship across the country, the contact form is one click away. The intro call is free, and we are likely already in the same area code.`,
   },

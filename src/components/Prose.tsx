@@ -1,10 +1,12 @@
 import { Fragment } from "react";
+import Link from "next/link";
 
 // Tiny renderer for the markdown-light format used by posts and case studies.
 // Splits on blank lines; treats "## " as h2, "### " as h3, "- " as list items,
-// and "1. " style lines as ordered list items. Wraps `inline code` in <code>
-// and **bold** in <strong>. Triple-backtick blocks become <pre><code>.
-// Plain paragraphs render as prose with the site's body styling.
+// and "1. " style lines as ordered list items. Wraps `inline code` in <code>,
+// **bold** in <strong>, and [text](url) in links (internal /paths get
+// client-side navigation via next/link). Triple-backtick blocks become
+// <pre><code>. Plain paragraphs render as prose with the site's body styling.
 
 type Block =
   | { type: "h2"; text: string }
@@ -106,9 +108,12 @@ function slugify(text: string): string {
     .replace(/\s+/g, "-");
 }
 
+const LINK_CLASS = "text-green link-underline";
+
 function renderInline(text: string) {
-  // Handle `inline code` and **bold** spans; everything else is plain text.
-  const parts = text.split(/(`[^`]+`|\*\*[^*]+\*\*)/g);
+  // Handle `inline code`, **bold**, and [text](url) spans; everything else
+  // is plain text.
+  const parts = text.split(/(`[^`]+`|\*\*[^*]+\*\*|\[[^\]]+\]\([^)]+\))/g);
   return parts.map((part, idx) => {
     if (part.startsWith("`") && part.endsWith("`")) {
       return (
@@ -125,6 +130,28 @@ function renderInline(text: string) {
         <strong key={idx} className="text-heading font-semibold">
           {part.slice(2, -2)}
         </strong>
+      );
+    }
+    const linkMatch = part.match(/^\[([^\]]+)\]\(([^)]+)\)$/);
+    if (linkMatch) {
+      const [, label, href] = linkMatch;
+      if (href.startsWith("/")) {
+        return (
+          <Link key={idx} href={href} className={LINK_CLASS}>
+            {label}
+          </Link>
+        );
+      }
+      return (
+        <a
+          key={idx}
+          href={href}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={LINK_CLASS}
+        >
+          {label}
+        </a>
       );
     }
     return <Fragment key={idx}>{part}</Fragment>;
