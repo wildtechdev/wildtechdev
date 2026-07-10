@@ -2,7 +2,7 @@
 cd "$(dirname "$0")"
 rm -f .git/index.lock .git/HEAD.lock .git/ORIG_HEAD.lock
 git add -A
-git commit -m "feat(site): journal expansion and second improvement pass, adds apex record troubleshooting and four small business posts with cross-linking, homepage journal section, post tables of contents, share row, code copy buttons, full content RSS, branded error page, url redirects, security txt, print styles, palette bundle slimming, opaque navbar fixing bleed-through, and removes ZEISS Optotechnik from the marquee"
+git commit -m "feat(site): journal expansion, second improvement pass, and full claims audit per CLAIMS_AUDIT.md, corrects Savannah release year to 2025 and EZ Fuse to fall 2024, fixes rating counts against live App Store data, restores the missing app privacy policy pages Apple has registered, untangles the WTP origin story, trims the marquee to corroborated technologies, fixes navbar bleed-through, and adds the second pass features from homepage journal section to full content RSS"
 git push origin main
 echo ""
 echo "Done! Press any key to close."

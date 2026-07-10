@@ -96,7 +96,8 @@ const milestones = [
   { date: "2022", text: "Director of E-Commerce at MSI-Viking Gage" },
   { date: "2024", text: "WildTech Ventures, LLC founded in Charleston, SC" },
   { date: "2024", text: "Spirits of Charleston ships on the App Store" },
-  { date: "2024", text: "EZ Fuse Tester and Spirits of Savannah ship on the App Store" },
+  { date: "2024", text: "EZ Fuse Tester ships on the App Store" },
+  { date: "2025", text: "Spirits of Savannah ships on the App Store" },
   { date: "2026", text: "Viking Sensors co-founded with Steven Archibald, distributed by MSI-Viking Gage" },
   { date: "2026", text: "We The People: Your Rights ships; Churchd in active development" },
 ];

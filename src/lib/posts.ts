@@ -937,7 +937,7 @@ If you want a realistic estimate for your specific project, the fastest path is 
 
 The screen on a modern iPhone is essentially a giant capacitive sensor. The question the video planted was simple: could you tell whether a fuse is good by laying it across the screen and seeing what the touch sensor registers?
 
-The answer, after a weekend of prototyping, was yes. EZ Fuse Tester shipped to the App Store free, without ads, and without collecting any data from its users, in mid 2024 after a stretch of refinement on the original prototype.
+The answer, after a weekend of prototyping, was yes. EZ Fuse Tester shipped to the App Store free, without ads, and without collecting any data from its users, in the fall of 2024 after a stretch of refinement on the original prototype.
 
 ## How it actually works
 
@@ -965,7 +965,7 @@ The reviews that always make us smile are from people who were not technical at 
 
 ## What we would do differently
 
-If we built EZ Fuse Tester today we would add support for blade fuses, which are the larger flat fuses found in modern cars. The current version only works with the small glass cartridge fuses, which is mentioned clearly in the App Store description but does generate the occasional one-star review from someone who tried to test the wrong kind of fuse on it.
+If we built EZ Fuse Tester today we would add support for blade fuses, which are the larger flat fuses found in modern cars. The current version only works with the small glass cartridge fuses, which is mentioned clearly in the App Store description but still generates occasional confusion from someone who tried to test the wrong kind of fuse on it.
 
 We would also add an optional dark mode UI. The current PASS and FAIL screens are bright and high contrast, which works well in the daylight and terrible at three in the morning when your refrigerator just made a strange noise and you are trying to find the bad fuse without waking anyone up.
 

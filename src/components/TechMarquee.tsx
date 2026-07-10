@@ -1,3 +1,6 @@
+// Every item here must be corroborated elsewhere on the site (/uses, a case
+// study stack, or the founder narrative). Do not add technologies that the
+// studio cannot back up with shipped work.
 const tech = [
   "Swift",
   "SwiftUI",
@@ -7,13 +10,10 @@ const tech = [
   "Tailwind",
   "Node.js",
   "Supabase",
-  "Firebase",
   "Vercel",
-  "Capacitor",
   "ESP32",
   "Arduino",
   "C++",
-  "Python",
   ".NET",
   "WPF",
   "NetSuite",
@@ -22,7 +22,6 @@ const tech = [
   "PostgreSQL",
   "WebSockets",
   "REST APIs",
-  "GraphQL",
 ];
 
 function MarqueeGroup() {

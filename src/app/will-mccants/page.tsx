@@ -884,7 +884,7 @@ export default function WillMcCantsPage() {
               <div>
                 <SectionHeading>Lowcountry to the coast</SectionHeading>
                 <p>
-                  Spirits of Savannah followed soon after, applying the same
+                  Spirits of Savannah followed in January 2025, applying the same
                   care and depth to a city with even more haunted history per
                   square mile than the Lowcountry. Same coverage philosophy:
                   not just the downtown squares, but Ossabaw Island,
@@ -901,7 +901,7 @@ export default function WillMcCantsPage() {
                   iPhone&apos;s capacitive touchscreen could detect electrical
                   continuity across a small object. The weekend prototype
                   worked. After a stretch of refinement, EZ Fuse Tester
-                  shipped to the App Store in mid 2024. Place a standard
+                  shipped to the App Store in the fall of 2024. Place a standard
                   glass fuse across the screen and the app gives you instant
                   pass or fail feedback. No extra hardware, no cables, no
                   batteries. It quickly became Will&apos;s most-downloaded

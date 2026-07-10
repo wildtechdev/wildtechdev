@@ -69,9 +69,11 @@ const productsJsonLd = {
         url: "https://apps.apple.com/us/app/spirits-of-savannah/id6740187114",
       },
       aggregateRating: {
+        // Values verified against the live App Store listing July 2026.
+        // Refresh these when ratings change (itunes.apple.com/lookup?id=...).
         "@type": "AggregateRating",
         ratingValue: "5.0",
-        ratingCount: "8",
+        ratingCount: "3",
       },
       url: "https://apps.apple.com/us/app/spirits-of-savannah/id6740187114",
       publisher: {

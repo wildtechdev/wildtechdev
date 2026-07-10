@@ -104,7 +104,7 @@ If you have a hardware idea that needs to become a real product with real custom
     slug: "we-the-people-your-rights",
     product: "We The People: Your Rights",
     title:
-      "A plain-English Constitution and Bill of Rights reference, built in eight weeks and shipped free forever",
+      "A plain-English Constitution and Bill of Rights reference, built in a matter of weeks and shipped free forever",
     summary:
       "A civic literacy app for the moment in American life when knowing what the founding documents actually say has stopped feeling optional.",
     client: "WildTech Ventures, LLC",
@@ -152,7 +152,7 @@ There is no analytics. There is no user account. There is no telemetry. The priv
 
 ## The launch
 
-The app launched in 2026 on a tight schedule. The domain for it was purchased one night at 12:15 AM after a conversation that made the project feel urgent. The first version of the app was in the App Store a few weeks later. We chose to ship a deliberately small first version rather than wait until the app was comprehensive, because the most important thing was to put the tool into people's hands as fast as possible. Future versions will expand the content and add features like additional founding documents, state constitutions, and more scenarios.
+The app launched in May 2026 on a tight schedule. The first version was in the App Store within weeks of the idea taking hold. We chose to ship a deliberately small first version rather than wait until the app was comprehensive, because the most important thing was to put the tool into people's hands as fast as possible. Future versions will expand the content and add features like additional founding documents, state constitutions, and more scenarios.
 
 The App Store review process for this app was uneventful. We had been worried that the political sensitivity of the content might trigger extra scrutiny. It did not. The app was approved on the first submission.
 
@@ -244,7 +244,7 @@ If you have a guidebook, an audio tour, a reference work, or any other content-d
       "Following the Charleston playbook into another haunted Southern city, covering the squares, the islands, and the colonial cemeteries most visitors never hear about.",
     client: "WildTech Ventures, LLC",
     role: "Concept, content, design, iOS development, audio production, App Store launch",
-    year: "2024",
+    year: "2025",
     stack: ["Swift", "SwiftUI", "MapKit", "AVFoundation", "Offline content"],
     metrics: [
       { label: "Stories", value: "55+ and growing" },
@@ -255,9 +255,9 @@ If you have a guidebook, an audio tour, a reference work, or any other content-d
       "https://apps.apple.com/us/app/spirits-of-savannah/id6740187114",
     productAnchor: "spirits-of-savannah",
     mockup: "spirits-savannah",
-    content: `Spirits of Savannah is the second app in the Spirits series and the first product where we proved the model could repeat. The Charleston version had been live for several months, had earned a 5.0 rating, and had attracted enough positive feedback that the obvious question was whether the same approach would work in another haunted Southern city. Savannah was the answer.
+    content: `Spirits of Savannah is the second app in the Spirits series and the first product where we proved the model could repeat. The Charleston version had been live for most of a year, had earned a 5.0 rating, and had attracted enough positive feedback that the obvious question was whether the same approach would work in another haunted Southern city. Savannah was the answer.
 
-The app launched later that same year with over 55 narrated stories, the same offline-first technical architecture, and the same business model. One-time purchase, no ads, no subscription.
+The app launched in January 2025 with over 55 narrated stories, the same offline-first technical architecture, and the same business model. One-time purchase, no ads, no subscription.
 
 ## The problem
 
@@ -332,7 +332,7 @@ The implementation is a few hundred lines of Swift. There is no networking code.
 
 ## The launch
 
-EZ Fuse Tester shipped to the App Store in mid 2024, after a stretch of refinement on a prototype that came together over a single weekend once the viral video planted the idea. App Review approved it on the first submission. We chose to release it free, with no ads and no data collection, because the app's value is in being available at the exact moment someone needs it. Friction at install or use would defeat the point.
+EZ Fuse Tester shipped to the App Store in the fall of 2024, after a stretch of refinement on a prototype that came together over a single weekend once the viral video planted the idea. App Review approved it on the first submission. We chose to release it free, with no ads and no data collection, because the app's value is in being available at the exact moment someone needs it. Friction at install or use would defeat the point.
 
 The privacy policy is one sentence long. The marketing site is the App Store listing.
 

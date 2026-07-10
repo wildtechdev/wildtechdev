@@ -44,6 +44,10 @@ const nextConfig: NextConfig = {
       { source: "/media", destination: "/press", permanent: true },
       { source: "/media-kit", destination: "/press", permanent: true },
       { source: "/about-will", destination: "/will-mccants", permanent: true },
+      // App Store registered privacy policy URLs. Apple has these exact
+      // paths on file for the app listings; they must never 404.
+      { source: "/spirits-privacy", destination: "/privacy/spirits", permanent: true },
+      { source: "/ez-fuse-privacy", destination: "/privacy/ez-fuse-tester", permanent: true },
       // People guess these URLs for blogs and feeds; catch them all
       { source: "/blog", destination: "/journal", permanent: true },
       { source: "/blog/:slug", destination: "/journal/:slug", permanent: true },
