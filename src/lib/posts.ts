@@ -21,6 +21,170 @@ export type Post = {
 
 const allPosts: Post[] = [
   {
+    slug: "small-business-website-speed",
+    title:
+      "Why your small business website feels slow (and the free fixes that actually matter)",
+    summary:
+      "Most slow small business websites are slow for the same three reasons, and none of them require a developer to fix. How to measure your real speed, what actually causes the problem, and the fixes worth twenty minutes of your time.",
+    date: "2026-06-18",
+    readMinutes: 6,
+    tags: ["Web", "Performance", "Small Business", "Tutorial"],
+    content: `A slow website costs a small business in ways that never show up on an invoice. Visitors leave before the page finishes loading, Google quietly ranks faster competitors above you, and the people who do wait around start the relationship mildly annoyed. The good news is that most slow small business sites are slow for the same few reasons, and the biggest fixes are free.
+
+If you got here by searching "why is my website so slow" or "website takes forever to load," this is written for you. It is a practical guide for owners, not developers, in the words people actually type into Google rather than the jargon performance engineers use with each other. No jargon that does not earn its place, and nothing that requires touching code.
+
+## First, measure it honestly
+
+Do not judge your site from your own desk. Your browser has the site cached, your office wifi is fast, and your impression will be wildly optimistic compared to a first-time visitor on a phone.
+
+Two better tests:
+
+1. Open **pagespeed.web.dev** (Google's free PageSpeed Insights tool), enter your address, and look at the mobile score first. Mobile is where most of your visitors are and where slow sites hurt worst.
+
+2. Borrow a phone that has never visited your site, turn off wifi so it is on cellular data, and load your homepage. Count the seconds until you could actually read and click things. That number is what your customers experience.
+
+If the page is usable in under about three seconds on a phone, you are fine and can stop reading. If it takes five, eight, or fifteen seconds, keep going.
+
+## The usual culprits, in order
+
+After years of looking at small business sites, the same problems show up in the same order of frequency.
+
+**Giant images are the cause most of the time.** Someone uploaded photos straight from a phone or camera, and now the homepage is loading six images that are each the size of the entire rest of the page combined. A modern phone photo is often 4000 pixels wide and several megabytes. On a website it gets displayed 800 pixels wide. All that extra data is downloaded, then thrown away.
+
+**Too many plugins, widgets, and embeds.** Every chat bubble, review widget, booking embed, social feed, and analytics tool you add loads its own pile of code from its own servers before your page settles down. Sites accumulate these over the years like a junk drawer. Each one seemed small at the time.
+
+**Bottom-tier hosting.** The $3 per month shared hosting plan was a fine choice when you set the site up. If your business has grown and your site matters now, the server taking two full seconds to even start responding is a tax on every single visitor.
+
+**Autoplay video backgrounds.** They look impressive in the template preview. They are also usually the single heaviest thing on the page, and on a phone they compete with everything else for a narrow connection.
+
+## The twenty-minute fixes
+
+Start with images, because that is where the payoff is.
+
+- Before uploading any photo, resize it to roughly the size it will display (1600 pixels wide is plenty for a full-width banner, 800 for a column image) and run it through a free compressor like Squoosh or TinyPNG. A 4 MB photo routinely becomes 150 KB with no visible difference.
+- Go through the images already on your key pages and replace the heaviest offenders. You do not need to fix every page. Fix the homepage and the two or three pages people actually land on.
+- Open your site editor and remove every widget and embed you added more than a year ago and forgot about. If you cannot remember why the third analytics script is there, it should not be.
+- If you use a page builder, check for a built-in "lazy loading" setting for images and turn it on. It makes the browser skip images until the visitor scrolls near them.
+
+Then re-run PageSpeed Insights and enjoy the before-and-after.
+
+## When it is the platform, not you
+
+If you have done the above and the site is still slow, the problem is usually the hosting or the platform itself. Upgrading from bargain shared hosting to a mid-tier plan is often the best $10 a month a small business can spend. And if the site is old enough that it is held together with years of accumulated plugins, a clean rebuild on a modern platform is frequently cheaper than another year of fighting it.
+
+That last case is the kind of project we take on, and it is also the kind of honest assessment we are happy to give for free. If you are not sure whether your site needs twenty minutes of image compression or an actual rebuild, send it over through the contact form and we will tell you which one it is.`,
+  },
+  {
+    slug: "local-seo-basics-small-business",
+    title:
+      "Local SEO for small businesses: what actually moves the needle",
+    summary:
+      "Showing up when someone nearby searches for what you do comes down to a short list: a properly filled out Google Business Profile, steady reviews, consistent business info, and a website that says what you do and where. The realistic checklist, minus the snake oil.",
+    date: "2026-06-29",
+    readMinutes: 7,
+    tags: ["SEO", "Small Business", "Tutorial"],
+    content: `When someone searches "electrician near me" or "bakery in Charleston," Google shows two different things: a map with three businesses pinned at the top, and the normal list of websites underneath. Local SEO is the work of showing up in both. It is one of the highest-return marketing efforts available to a small business, and most of it is free. It is also surrounded by more snake oil than almost any other corner of marketing.
+
+Here is the short list of what actually matters, based on what consistently works rather than what gets sold in cold emails.
+
+## Google Business Profile is half the battle
+
+The map pack at the top of local results is driven almost entirely by your **Google Business Profile** (the listing that used to be called Google My Business). If you do only one thing from this post, do this:
+
+1. Claim your profile at business.google.com if you have not already. Google mails a postcard or calls to verify you are real.
+
+2. Fill out every field. Not most fields. Every field. Hours, phone, website, services, service area, photos, description. Google visibly rewards complete profiles, and half-empty ones signal a business that might not exist anymore.
+
+3. Choose your categories carefully. The primary category is the strongest single signal you control. Be specific: "HVAC contractor" beats "Contractor," and "Wedding photographer" beats "Photographer."
+
+4. Add real photos, and keep adding them occasionally. Profiles with recent photos get dramatically more clicks than profiles with a logo and a five-year-old storefront shot.
+
+## Reviews are the other half
+
+Reviews drive both your map ranking and, more importantly, whether the humans who see you actually pick you.
+
+The businesses that win here do one simple thing: they ask. Every satisfied customer gets a short message with a direct link to the review form (your Business Profile dashboard gives you that link). No incentives, no scripts, just a genuine ask at the moment the work went well.
+
+Then reply to every review. Thank the good ones in a sentence or two. Answer the bad ones calmly, factually, and briefly, because your reply is really written for the hundred future customers reading over that reviewer's shoulder.
+
+## Keep your business info boringly consistent
+
+Google cross-references your business name, address, and phone number everywhere it finds them: your website, your Business Profile, Yelp, Facebook, Apple Maps, the chamber of commerce directory. When those disagree (an old address on one, a tracking phone number on another, "LLC" on some and not others) it erodes Google's confidence in showing you.
+
+Pick one exact way of writing your name, address, and phone. Fix the big listings to match. This is tedious for an afternoon and then done.
+
+## What your website needs to say
+
+Your site does not need SEO wizardry. It needs to clearly say what you do and where, in the places Google reads first:
+
+- The page title of your homepage should include your service and your city ("Smith Electric | Electrician in Charleston, SC" rather than just "Home").
+- If you offer distinct services, give the important ones their own page each, with a plain description of the service and the areas you cover. One page per service beats one giant list.
+- Put your address, phone, and hours in the footer as text, not trapped inside an image.
+- If your platform supports it, add LocalBusiness structured data, which is machine-readable business info embedded in the page. We run it on this site. It is invisible to visitors and useful to Google. A developer can add it in under an hour.
+
+## What to skip
+
+You will get cold emails promising hundreds of directory citations, guaranteed first-page rankings, and secret relationships with Google. Delete them. Citation-blast services create the inconsistency problem described above, nobody can guarantee rankings, and Google publicly says as much. The boring checklist above outperforms all of it.
+
+## A realistic timeline
+
+Local SEO is a compounding asset, not a switch. A completed profile starts helping within weeks. Reviews build over months. The businesses that dominate their local results in year two are just the ones that kept doing the boring parts all through year one.
+
+If you want a second set of eyes on your local presence, or your website needs the technical pieces done properly, that is work we do. The intro call is free and we will tell you honestly if you even need us, because most of this list you can do yourself.`,
+  },
+  {
+    slug: "website-builder-vs-custom-site",
+    title:
+      "Website builder or custom website? An honest answer for small businesses",
+    summary:
+      "A studio that builds custom websites telling you when not to buy one. Where Squarespace, Wix, and friends are genuinely the right call, the real limits you will eventually hit, and the signals that custom work has started paying for itself.",
+    date: "2026-07-08",
+    readMinutes: 6,
+    tags: ["Web", "Small Business", "Founders"],
+    content: `We build custom websites for a living, so take it seriously when we say this: most small businesses should start on a website builder, and many should stay there. The dishonest version of this article, written by a thousand agencies, concludes that everyone needs custom work. The honest version is that custom development is a tool with a specific job, and buying it before you need it is just an expensive way to feel professional.
+
+Here is the version we would tell a friend.
+
+## When a builder is the right answer
+
+Squarespace, Wix, Webflow, and the rest are genuinely good at what they do. A builder is the right call when your website's job is to be a clear, credible brochure: who you are, what you do, where you are, how to reach you, and a gallery of proof. That describes most restaurants, trades, salons, professional practices, and service businesses.
+
+The economics are hard to argue with. For a modest monthly fee you get hosting, security updates, a designed template, and the ability to fix your own typos at 10 PM without calling anyone. That last one matters more than it sounds. A custom site you cannot edit yourself quietly rots, and a builder site you update weekly beats a beautiful custom site nobody has touched since launch.
+
+If that is where your business is, our advice is to spend the custom-website budget on better photography instead. A builder template with excellent photos outperforms an expensive site with phone snapshots every single time.
+
+## The limits you will actually hit
+
+Builders trade flexibility for convenience, and the trade shows up in predictable places:
+
+- **Speed has a ceiling.** You can follow every optimization guide and a heavy template will still carry weight you cannot remove. For most brochure sites this ceiling is fine. For sites that live or die on conversion, it eventually is not.
+- **The technical corners get weird.** Custom domains that only work with www (we have written two posts about that one), limited control over redirects, structured data you cannot fully shape, integrations that exist only as an iframe embed.
+- **Complex features become monthly fees.** Booking, membership, quoting, inventory. Each one is another plugin subscription, and they do not always cooperate with each other.
+- **You are a tenant, not an owner.** Prices rise, features change, and the day you outgrow the platform, very little comes with you. The design, the plugins, and sometimes even the content structure stay behind.
+
+None of these are reasons to avoid builders. They are the rent you pay for the convenience, and rent is often the right financial decision.
+
+## When custom starts paying for itself
+
+The signal is not "we have some budget now." The signal is that the website has become part of how the business operates, not just how it introduces itself. In practice that looks like one of these:
+
+1. The site needs to talk to your other systems: scheduling, inventory, a customer portal, industrial equipment, a database that runs the business.
+
+2. You are competing on search in a serious way and need full control over performance, structured data, and content architecture, because each ranking position is measurable revenue.
+
+3. The thing you are building IS the product: a platform, a tool, an experience a template cannot express.
+
+4. You are paying for the builder's limits every month in plugin fees, workarounds, and staff time, and the arithmetic has flipped.
+
+When one of those is true, custom work stops being a luxury and starts being infrastructure. This site is a working example of the trade: we needed full control over speed, structured data, and some deliberately unusual design, so we built it from scratch on Next.js. Your bakery website does not need that. A metrology firm's monitoring dashboard does.
+
+## The middle path we usually recommend
+
+Start on a builder. Keep the domain registered in your own name at a registrar you control, because the domain is the one asset that must always be yours. Write your content as if you will move it someday. Then let the business tell you when it has outgrown the template. It will not be subtle.
+
+And if you are standing at that line and genuinely cannot tell which side you are on, that is a fifteen-minute conversation we have with people all the time. The intro call is free, the contact form is one click away, and "honestly, stay on Squarespace" is an answer we give more often than you would guess.`,
+  },
+  {
     slug: "what-is-a-naked-domain",
     title:
       "What is a 'naked domain'? (the terminology fix for a confusing problem)",
@@ -400,7 +564,7 @@ If you want a second set of eyes on your setup, we are happy to take a look. Con
     summary:
       "If your Google Sites custom domain works at www.example.com but not example.com, the term you need to know is 'naked domain.' Here are two free, step-by-step fixes using Cloudflare and redirect.pizza.",
     date: "2026-06-08",
-    readMinutes: 8,
+    readMinutes: 9,
     tags: ["Google Sites", "DNS", "Cloudflare", "Tutorial"],
     content: `If you set up a custom domain on Google Sites and your site only loads when people type the full www.example.com, while example.com on its own throws an error or a "this site can't be reached" message, you have just run into one of the most common and least-well-explained problems in DIY web hosting. There is a term for it that almost nobody tells you when you Google "google sites no www," "google sites root domain not loading," or "how do I make google sites work without www," which is part of why it's so hard to find a solution.
 
@@ -452,6 +616,8 @@ You need an A record on the apex (\`@\` or \`example.com\`) so Cloudflare can in
 
 Add an A record: type A, name \`@\`, content \`192.0.2.1\`, proxy status **Proxied** (orange cloud icon). This part is critical. The proxy must be ON for Cloudflare to be able to intercept and redirect.
 
+One thing to check first: if Cloudflare imported an old A record on the apex from your previous setup (leftover hosting, a registrar parking page), delete it so this dummy-IP record is the only A record on \`@\`. Two apex A records means visitors randomly hit the old server instead of the redirect.
+
 ### Step 5: Change your nameservers at your registrar
 
 Cloudflare gives you two nameservers that look like \`alice.ns.cloudflare.com\` and \`bob.ns.cloudflare.com\`. Go to your registrar (the company where you bought the domain) and change the nameservers from whatever they are now to these two Cloudflare values.
@@ -485,6 +651,17 @@ Click "Add a redirect" or similar. Set the source to \`example.com\` and the des
 ### Step 3: Point your DNS at redirect.pizza
 
 redirect.pizza gives you one or two IP addresses to point your apex domain at. Go to your current DNS provider (wherever you bought the domain) and add an A record for the apex pointing at that IP. If you have an existing A record on the apex pointing somewhere else, replace it.
+
+### If you get an error at this step, check for other @ records
+
+This is the single most common place people get stuck, so here is the rule: your apex can only have **one** record answering for web traffic. If your DNS panel throws an error when you try to add the new record ("record already exists," "conflicting record," or similar), it is because something is already sitting on the apex. Depending on the provider, the apex shows up in the records list as \`@\`, a blank name field, or your bare domain name.
+
+The usual culprits are an old A record left over from previous hosting, a parking-page record your registrar added automatically when you bought the domain, an ALIAS or ANAME record, or a "URL Redirect" record (Namecheap in particular adds these, and they quietly occupy the apex slot). Find that record, delete it, and then add the redirect.pizza A record in its place.
+
+Two cautions while you are in there:
+
+- Only remove the web-traffic record on the apex (A, AAAA, ALIAS, ANAME, or URL Redirect). Leave any **MX** and **TXT** records on \`@\` exactly where they are. Those run your email and domain verification, they coexist with the new A record just fine, and deleting them will break things that have nothing to do with this fix.
+- If your provider let you add the new A record *without* an error and the redirect only works some of the time, the old A record is probably still there alongside the new one. DNS treats multiple A records on the same name as a random rotation, so half your visitors reach redirect.pizza and half reach the old dead server. Delete the old one and the redirect becomes reliable within the hour.
 
 ### Step 4: Test
 

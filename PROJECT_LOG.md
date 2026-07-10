@@ -45,7 +45,7 @@ Routes:
 - `/faq`
 - `/now`
 - `/uses`
-- `/journal` and `/journal/[slug]` (9 posts)
+- `/journal` and `/journal/[slug]` (12 posts)
 - `/privacy` and `/privacy/we-the-people-your-rights` (the WTP privacy is noindex and NOT in sitemap)
 
 Case study slugs in `src/lib/work.ts`: `viking-sensors`, `we-the-people-your-rights`, `spirits-of-charleston`, `spirits-of-savannah`, `ez-fuse-tester`, `churchd`.
@@ -93,6 +93,7 @@ Brand domain map:
 
 ## Recent work (most recent first)
 
+- **July 9, 2026: journal updates.** A real reader (found us through the Google Sites redirect post!) hit a DNS error using the redirect.pizza method because an existing apex record was occupying `@`. Added a full troubleshooting section to that post ("If you get an error at this step, check for other @ records") covering the one-web-record-per-apex rule, the usual culprits (old A records, registrar parking, Namecheap URL Redirect records), the caution to leave MX/TXT records alone, and the intermittent-failure symptom when two A records coexist. Added a matching note to the Cloudflare path. Also added three new small-business posts in the existing plain-English voice: website speed (`small-business-website-speed`, June 18), local SEO (`local-seo-basics-small-business`, June 29), and builder vs custom (`website-builder-vs-custom-site`, July 8). Journal is now 12 posts.
 - **July 7, 2026: full-site modernization pass (see `AUDIT.md`).** 100+ improvements across light mode (marquee strip, WTP privacy card, App Store badge hover, product card tints, dimmed glows via `.section-glow` and glow CSS vars), animation polish (cursor click feedback, idle-cancelling rAF loops, reduced-motion coverage for ping/spin/view transitions, animated FAQ accordions), the Prose renderer (bold, ordered lists, heading anchors; journal posts were showing literal asterisks), accessibility (skip link, palette combobox semantics and focus management, aria-live form status, Escape-to-close mobile menu), SEO (per-page OG images for case studies and posts which previously had none, Blog/CollectionPage/Article JSON-LD, stable sitemap dates, viewport themeColor), features (RSS at `/feed.xml`, journal search via `?q=` making the SearchAction real, site `/privacy` page, prev/next navigation on posts and case studies, footer socials and palette button), API hardening (honest contact failure responses, best-effort rate limit), and security headers in `next.config.ts`. Resolved the pending EZ Fuse origin conflict: case study and journal post now match the founder page's viral-video origin.
 - Made journal posts sort by date automatically (newest first); fixed the google-sites post sitting out of order in the list
 - Spread journal dates evenly over 6 months ending June 8, 2026
@@ -164,7 +165,7 @@ The user cannot run git from inside Cowork.
 
 ## Conventions for journal posts
 
-Dates in `src/lib/posts.ts` should look organically spaced. Currently 9 posts spread from `2025-12-15` to `2026-06-08`, roughly every 3 weeks. When adding a new post, pick a date close to "today" and update this log section if you reshuffle dates.
+Dates in `src/lib/posts.ts` should look organically spaced. Currently 12 posts spread from `2025-12-15` to `2026-07-08`, roughly every 2 to 3 weeks. When adding a new post, pick a date close to "today" and update this log section if you reshuffle dates.
 
 The exported `posts` array now sorts itself by date (newest first), so the order entries appear in the source no longer matters. You can add a new post anywhere in the `allPosts` array and reshuffle dates freely without re-sorting by hand.
 
