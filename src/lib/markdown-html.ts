@@ -3,10 +3,12 @@ import { slugify } from "@/lib/slugify";
 // Converts the site's markdown-light post format to plain HTML for the RSS
 // feed's content:encoded payload, mirroring the rules the Prose component
 // renders on the site: ## / ### headings, - lists, 1. lists, **bold**,
-// `inline code`, [text](url) links, and fenced code blocks.
+// `inline code`, [text](url) links, fenced code blocks, and standalone
+// ![alt](src "caption") figure lines (image paths made absolute for readers).
 
 const SITE = "https://www.wildtechdev.com";
 const OL_RE = /^\d+\.\s+/;
+const IMG_RE = /^!\[([^\]]*)\]\(([^)\s]+)(?:\s+"([^"]*)")?\)\s*$/;
 
 function escapeHtml(s: string): string {
   return s
@@ -69,6 +71,18 @@ export function markdownToHtml(markdown: string): string {
       i++;
       continue;
     }
+    const img = line.match(IMG_RE);
+    if (img) {
+      const src = img[2].startsWith("/") ? `${SITE}${img[2]}` : img[2];
+      const caption = img[3]
+        ? `<figcaption>${escapeHtml(img[3])}</figcaption>`
+        : "";
+      out.push(
+        `<figure><img src="${escapeHtml(src)}" alt="${escapeHtml(img[1])}"/>${caption}</figure>`
+      );
+      i++;
+      continue;
+    }
     if (line.startsWith("- ")) {
       const items: string[] = [];
       while (i < lines.length && lines[i].startsWith("- ")) {
@@ -106,7 +120,8 @@ export function markdownToHtml(markdown: string): string {
       !lines[i].startsWith("### ") &&
       !lines[i].startsWith("- ") &&
       !OL_RE.test(lines[i]) &&
-      !lines[i].startsWith("```")
+      !lines[i].startsWith("```") &&
+      !IMG_RE.test(lines[i])
     ) {
       buf.push(lines[i]);
       i++;

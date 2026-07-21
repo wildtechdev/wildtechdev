@@ -8,7 +8,9 @@ import { slugify } from "@/lib/slugify";
 // and "1. " style lines as ordered list items. Wraps `inline code` in <code>,
 // **bold** in <strong>, and [text](url) in links (internal /paths get
 // client-side navigation via next/link). Triple-backtick blocks become
-// <pre><code>. Plain paragraphs render as prose with the site's body styling.
+// <pre><code>. A standalone ![alt](src "caption") line becomes a full-width
+// figure (caption optional). Plain paragraphs render as prose with the site's
+// body styling.
 
 type Block =
   | { type: "h2"; text: string }
@@ -16,9 +18,11 @@ type Block =
   | { type: "ul"; items: string[] }
   | { type: "ol"; items: string[] }
   | { type: "pre"; text: string }
+  | { type: "img"; alt: string; src: string; caption?: string }
   | { type: "p"; text: string };
 
 const OL_RE = /^\d+\.\s+/;
+const IMG_RE = /^!\[([^\]]*)\]\(([^)\s]+)(?:\s+"([^"]*)")?\)\s*$/;
 
 function parse(markdown: string): Block[] {
   const blocks: Block[] = [];
@@ -48,6 +52,12 @@ function parse(markdown: string): Block[] {
     }
     if (line.startsWith("### ")) {
       blocks.push({ type: "h3", text: line.slice(4).trim() });
+      i++;
+      continue;
+    }
+    const img = line.match(IMG_RE);
+    if (img) {
+      blocks.push({ type: "img", alt: img[1], src: img[2], caption: img[3] });
       i++;
       continue;
     }
@@ -91,7 +101,8 @@ function parse(markdown: string): Block[] {
       !lines[i].startsWith("### ") &&
       !lines[i].startsWith("- ") &&
       !OL_RE.test(lines[i]) &&
-      !lines[i].startsWith("```")
+      !lines[i].startsWith("```") &&
+      !IMG_RE.test(lines[i])
     ) {
       buf.push(lines[i]);
       i++;
@@ -234,6 +245,25 @@ export default function Prose({ content }: { content: string }) {
                 </li>
               ))}
             </ol>
+          );
+        }
+        if (b.type === "img") {
+          return (
+            <figure key={i} className="my-10">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={b.src}
+                alt={b.alt}
+                loading="lazy"
+                decoding="async"
+                className="w-full rounded-lg border border-border bg-card"
+              />
+              {b.caption ? (
+                <figcaption className="mt-3 text-[12px] font-mono uppercase tracking-wider text-body/60">
+                  {b.caption}
+                </figcaption>
+              ) : null}
+            </figure>
           );
         }
         if (b.type === "pre") {
