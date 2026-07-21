@@ -28,7 +28,7 @@ const allPosts: Post[] = [
     title:
       "Rebuilding my home church's website: from $47 a month to almost free",
     summary:
-      "Harbor View Presbyterian had been paying $47 a month for years for a WordPress site nobody in the office could edit. The replacement: a fully custom build, a private admin portal designed around how a church office actually works, all new photography, a three day launch with zero email downtime, and a recurring bill that dropped to the price of a domain renewal.",
+      "Harbor View Presbyterian had been paying $47 a month for years for a WordPress site nobody in the office could edit. The replacement: a fully custom build, a private admin portal designed around how a church office actually works, all new photography, a three day launch with zero email downtime, and an annual recurring bill that dropped to the price of a hamburger meal.",
     date: "2026-07-21",
     readMinutes: 8,
     tags: ["Build Log", "Charleston", "Small Business", "Web"],
