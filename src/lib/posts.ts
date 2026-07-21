@@ -183,7 +183,9 @@ Add it up: ten to fifteen dollars for the domain, a few dollars for Private Emai
 
 Now the limits, because we do not sell fantasies. Google Sites has a speed ceiling, limited design control, and none of the deeper SEO and integration capability a serious online-revenue business eventually needs. [Our builder-or-custom post](/journal/website-builder-vs-custom-site) covers the signals that you have outgrown this setup. But those are next-year problems, and some businesses never hit them at all.
 
-If you work through this and get stuck on the DNS parts, the guides linked throughout this post cover every step in detail. And if you reach the point where the twenty dollar setup is holding the business back, that conversation is what the contact form is for. We will tell you honestly whether it is time, because we would rather you spend twenty dollars well than two thousand badly.`,
+If you work through this and get stuck on the DNS parts, the guides linked throughout this post cover every step in detail. And if you reach the point where the twenty dollar setup is holding the business back, that conversation is what the contact form is for. We will tell you honestly whether it is time, because we would rather you spend twenty dollars well than two thousand badly.
+
+**Update, July 2026:** if you want to see this philosophy running at the other end of the complexity scale, read [the story of rebuilding Harbor View Presbyterian's website](/journal/rebuilding-my-home-church-website). It is a fully custom build with a private admin portal and all new photography, and it still lives by the rule this guide is built on: the church owns its own domain and accounts, hosting costs nothing at its scale, and the only recurring bill is the domain renewal.`,
   },
   {
     slug: "small-business-website-speed",
