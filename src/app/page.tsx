@@ -7,6 +7,7 @@ import Spotlight from "@/components/Spotlight";
 import TechMarquee from "@/components/TechMarquee";
 import HeroSpotlight from "@/components/HeroSpotlight";
 import HomeProductCard, { type HomeProduct } from "@/components/HomeProductCard";
+import LogoMark from "@/components/LogoMark";
 import { posts } from "@/lib/posts";
 import { formatDate } from "@/lib/format";
 
@@ -426,6 +427,7 @@ export default function HomePage() {
         />
 
         <div className="relative z-10 max-w-5xl mx-auto px-6 lg:px-8 text-center">
+          <LogoMark className="relative h-28 sm:h-36 lg:h-44 w-auto mx-auto mb-8 text-logomark animate-hero-reveal" />
           <h1 className="relative">
             <span className="relative block text-[clamp(3.5rem,10vw,7.5rem)] font-[family-name:var(--font-serif)] italic text-heading leading-[0.92] tracking-tight animate-hero-reveal">
               WildTech
