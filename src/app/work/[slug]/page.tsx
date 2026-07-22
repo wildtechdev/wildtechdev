@@ -107,7 +107,7 @@ export default async function CaseStudyPage({
           className="absolute -top-40 left-0 w-[700px] h-[400px] rounded-full pointer-events-none section-glow"
           style={{
             background:
-              "radial-gradient(ellipse at center, rgba(34,197,94,0.07) 0%, transparent 70%)",
+              "radial-gradient(ellipse at center, color-mix(in srgb, var(--color-accent) 7.000000000000001%, transparent) 0%, transparent 70%)",
             filter: "blur(60px)",
           }}
           aria-hidden="true"
@@ -115,7 +115,7 @@ export default async function CaseStudyPage({
         <div className="relative max-w-5xl mx-auto px-6 lg:px-8">
           <Link
             href="/work"
-            className="inline-flex items-center gap-1.5 text-[11.5px] font-mono uppercase tracking-[0.22em] text-muted hover:text-green transition-colors mb-10"
+            className="inline-flex items-center gap-1.5 text-[11.5px] font-mono uppercase tracking-[0.22em] text-muted hover:text-accent transition-colors mb-10"
           >
             <svg
               className="w-3 h-3"
@@ -139,7 +139,7 @@ export default async function CaseStudyPage({
                 stacked on mobile with the mockup below the title. */}
             <div className="flex flex-col lg:flex-row lg:items-start gap-10 lg:gap-16 mb-12">
               <div className="flex-1 min-w-0">
-                <p className="text-xs font-mono tracking-[0.2em] text-green mb-3">
+                <p className="text-xs font-mono tracking-[0.2em] text-accent mb-3">
                   {cs.year}
                   <span className="text-muted">
                     {" "}&middot;{" "}
@@ -315,7 +315,7 @@ export default async function CaseStudyPage({
                   Previous
                 </p>
                 <Link href={`/work/${prev.slug}`} className="block group">
-                  <h3 className="text-xl font-[family-name:var(--font-serif)] italic text-heading group-hover:text-green transition-colors mb-2">
+                  <h3 className="text-xl font-[family-name:var(--font-serif)] italic text-heading group-hover:text-accent transition-colors mb-2">
                     {prev.product}
                   </h3>
                   <p className="text-sm text-body leading-relaxed">
@@ -328,7 +328,7 @@ export default async function CaseStudyPage({
                   Up next
                 </p>
                 <Link href={`/work/${next.slug}`} className="block group">
-                  <h3 className="text-xl font-[family-name:var(--font-serif)] italic text-heading group-hover:text-green transition-colors mb-2">
+                  <h3 className="text-xl font-[family-name:var(--font-serif)] italic text-heading group-hover:text-accent transition-colors mb-2">
                     {next.product}
                   </h3>
                   <p className="text-sm text-body leading-relaxed">

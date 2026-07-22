@@ -72,15 +72,15 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-16">
           <Link href="/" className="group relative flex items-center gap-2">
             <span
-              className="absolute -left-1 -right-1 -top-1 -bottom-1 rounded-full bg-green/0 group-hover:bg-green/10 blur-md transition-all duration-500"
+              className="absolute -left-1 -right-1 -top-1 -bottom-1 rounded-full bg-accent/0 group-hover:bg-accent/10 blur-md transition-all duration-500"
               aria-hidden="true"
             />
             <LogoMark className="relative h-7 w-auto shrink-0 text-logomark" />
-            <span className="relative text-lg font-[family-name:var(--font-serif)] italic text-heading tracking-tight transition-all duration-500 group-hover:[text-shadow:0_0_20px_rgba(34,197,94,0.4)]">
+            <span className="relative text-lg font-[family-name:var(--font-serif)] italic text-heading tracking-tight transition-all duration-500 group-hover:[text-shadow:0_0_20px_color-mix(in_srgb,var(--color-accent)_40%,transparent)]">
               WildTech
             </span>
             <span
-              className="relative w-1 h-1 rounded-full bg-green opacity-70 group-hover:opacity-100 transition-opacity"
+              className="relative w-1 h-1 rounded-full bg-accent opacity-70 group-hover:opacity-100 transition-opacity"
               aria-hidden="true"
             />
           </Link>
@@ -105,8 +105,8 @@ export default function Navbar() {
                   <span
                     className={`absolute left-4 right-4 bottom-1 h-px transition-all duration-500 ${
                       isActive
-                        ? "bg-green scale-x-100"
-                        : "bg-green scale-x-0 group-hover:scale-x-100"
+                        ? "bg-accent scale-x-100"
+                        : "bg-accent scale-x-0 group-hover:scale-x-100"
                     }`}
                     style={{ transformOrigin: "left" }}
                     aria-hidden="true"
@@ -179,7 +179,7 @@ export default function Navbar() {
               >
                 <span
                   className={`w-1.5 h-1.5 rounded-full transition-all duration-300 ${
-                    isActive ? "bg-green" : "bg-faint"
+                    isActive ? "bg-accent" : "bg-faint"
                   }`}
                   aria-hidden="true"
                 />

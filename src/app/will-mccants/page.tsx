@@ -566,7 +566,7 @@ const projects = [
 function SectionHeading({ children }: { children: React.ReactNode }) {
   return (
     <div className="flex items-center gap-3 mb-4">
-      <span className="w-6 h-px bg-green" aria-hidden="true" />
+      <span className="w-6 h-px bg-accent" aria-hidden="true" />
       <h2 className="text-xs uppercase tracking-[0.2em] text-muted font-[family-name:var(--font-sans)]">
         {children}
       </h2>
@@ -602,7 +602,7 @@ export default function WillMcCantsPage() {
           className="absolute -top-32 left-1/4 w-[600px] h-[400px] rounded-full pointer-events-none section-glow"
           style={{
             background:
-              "radial-gradient(ellipse at center, rgba(34,197,94,0.1) 0%, transparent 70%)",
+              "radial-gradient(ellipse at center, color-mix(in srgb, var(--color-accent) 10%, transparent) 0%, transparent 70%)",
             filter: "blur(60px)",
           }}
           aria-hidden="true"
@@ -628,7 +628,7 @@ export default function WillMcCantsPage() {
               <div className="relative max-w-[220px] lg:max-w-[300px] w-full group">
                 {/* Frame glow */}
                 <div
-                  className="absolute -inset-1 bg-gradient-to-br from-green/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 blur-md"
+                  className="absolute -inset-1 bg-gradient-to-br from-accent/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 blur-md"
                   aria-hidden="true"
                 />
                 <div className="relative overflow-hidden border border-border">
@@ -643,15 +643,15 @@ export default function WillMcCantsPage() {
                   />
                 </div>
                 {/* Corner accents */}
-                <span className="absolute -top-1 -left-1 w-3 h-3 border-t border-l border-green" aria-hidden="true" />
-                <span className="absolute -bottom-1 -right-1 w-3 h-3 border-b border-r border-green" aria-hidden="true" />
+                <span className="absolute -top-1 -left-1 w-3 h-3 border-t border-l border-accent" aria-hidden="true" />
+                <span className="absolute -bottom-1 -right-1 w-3 h-3 border-b border-r border-accent" aria-hidden="true" />
               </div>
               <div className="mt-5 flex items-center gap-2">
                 <span className="relative flex h-1.5 w-1.5">
-                  <span className="absolute inline-flex h-full w-full rounded-full bg-green opacity-60 animate-ping" />
-                  <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-green" />
+                  <span className="absolute inline-flex h-full w-full rounded-full bg-accent opacity-60 animate-ping" />
+                  <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-accent" />
                 </span>
-                <p className="text-[11.5px] font-mono text-green tracking-[0.25em]">
+                <p className="text-[11.5px] font-mono text-accent tracking-[0.25em]">
                   CHARLESTON, SC
                 </p>
               </div>
@@ -755,8 +755,8 @@ export default function WillMcCantsPage() {
               {/* Industrial photo break */}
               <ScrollReveal>
                 <figure className="relative group max-w-md mx-auto">
-                  <span className="absolute -top-1 -left-1 w-3 h-3 border-t border-l border-green opacity-50" aria-hidden="true" />
-                  <span className="absolute -bottom-1 -right-1 w-3 h-3 border-b border-r border-green opacity-50" aria-hidden="true" />
+                  <span className="absolute -top-1 -left-1 w-3 h-3 border-t border-l border-accent opacity-50" aria-hidden="true" />
+                  <span className="absolute -bottom-1 -right-1 w-3 h-3 border-b border-r border-accent opacity-50" aria-hidden="true" />
                   <div className="overflow-hidden border border-border aspect-[3/4]">
                     <Image
                       src="/william-industrial.jpg"
@@ -969,7 +969,7 @@ export default function WillMcCantsPage() {
                     href="https://vikingsensors.com"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-green link-underline"
+                    className="text-accent link-underline"
                   >
                     Viking Sensors, LLC
                   </a>{" "}
@@ -1080,7 +1080,7 @@ export default function WillMcCantsPage() {
                     {hobbies.map((hobby, i) => (
                       <ScrollReveal key={hobby.label} delay={i * 50}>
                         <div className="group flex flex-col items-center gap-2 text-center">
-                          <span className="text-faint group-hover:text-green transition-colors duration-500">
+                          <span className="text-faint group-hover:text-accent transition-colors duration-500">
                             {hobby.icon}
                           </span>
                           <span className="text-[11.5px] uppercase tracking-[0.15em] text-muted group-hover:text-body transition-colors duration-500 font-[family-name:var(--font-sans)]">
@@ -1094,9 +1094,9 @@ export default function WillMcCantsPage() {
               </div>
 
               {/* Faith quote */}
-              <blockquote className="relative border-l-2 border-green pl-7 py-3 my-4">
+              <blockquote className="relative border-l-2 border-accent pl-7 py-3 my-4">
                 <span
-                  className="absolute -left-3 top-0 text-6xl text-green/20 font-[family-name:var(--font-serif)] leading-none select-none"
+                  className="absolute -left-3 top-0 text-6xl text-accent/20 font-[family-name:var(--font-serif)] leading-none select-none"
                   aria-hidden="true"
                 >
                   &ldquo;
@@ -1144,13 +1144,13 @@ export default function WillMcCantsPage() {
                         className="group relative flex flex-col sm:flex-row sm:items-baseline gap-2 sm:gap-6 border-b border-border py-5 overflow-hidden"
                       >
                         <span
-                          className="absolute inset-0 bg-gradient-to-r from-green/[0.04] to-transparent translate-x-[-100%] group-hover:translate-x-0 transition-transform duration-700 ease-out"
+                          className="absolute inset-0 bg-gradient-to-r from-accent/[0.04] to-transparent translate-x-[-100%] group-hover:translate-x-0 transition-transform duration-700 ease-out"
                           aria-hidden="true"
                         />
-                        <span className="relative text-[11.5px] font-mono uppercase tracking-[0.2em] text-faint group-hover:text-green transition-colors duration-500 shrink-0 w-20">
+                        <span className="relative text-[11.5px] font-mono uppercase tracking-[0.2em] text-faint group-hover:text-accent transition-colors duration-500 shrink-0 w-20">
                           {project.meta}
                         </span>
-                        <h3 className="relative flex-1 text-xl font-[family-name:var(--font-serif)] italic text-heading transition-all duration-500 group-hover:text-green group-hover:translate-x-1">
+                        <h3 className="relative flex-1 text-xl font-[family-name:var(--font-serif)] italic text-heading transition-all duration-500 group-hover:text-accent group-hover:translate-x-1">
                           {project.name}
                         </h3>
                         <p className="relative text-sm text-muted group-hover:text-body transition-colors duration-500 font-[family-name:var(--font-sans)]">
@@ -1181,7 +1181,7 @@ export default function WillMcCantsPage() {
                     open={i < 2}
                   >
                     <summary className="cursor-pointer list-none px-6 py-5 flex items-start gap-4 hover:bg-surface transition-colors">
-                      <span className="text-[12px] font-mono tracking-[0.2em] text-green mt-1.5 shrink-0">
+                      <span className="text-[12px] font-mono tracking-[0.2em] text-accent mt-1.5 shrink-0">
                         {String(i + 1).padStart(2, "0")}
                       </span>
                       <span className="flex-1 text-base sm:text-lg font-[family-name:var(--font-sans)] text-heading">

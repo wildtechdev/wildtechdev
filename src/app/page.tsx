@@ -410,7 +410,7 @@ export default function HomePage() {
           className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full pointer-events-none animate-glow-pulse"
           style={{
             background:
-              "radial-gradient(circle, rgba(34,197,94,0.3) 0%, rgba(34,197,94,0.1) 35%, transparent 70%)",
+              "radial-gradient(circle, color-mix(in srgb, var(--color-accent) 30%, transparent) 0%, color-mix(in srgb, var(--color-accent) 10%, transparent) 35%, transparent 70%)",
             filter: "blur(60px)",
           }}
           aria-hidden="true"
@@ -419,7 +419,7 @@ export default function HomePage() {
           className="section-glow absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] rounded-full pointer-events-none section-glow"
           style={{
             background:
-              "radial-gradient(circle, rgba(34,197,94,0.18) 0%, transparent 70%)",
+              "radial-gradient(circle, color-mix(in srgb, var(--color-accent) 18%, transparent) 0%, transparent 70%)",
             filter: "blur(30px)",
           }}
           aria-hidden="true"
@@ -442,10 +442,10 @@ export default function HomePage() {
 
           <div className="mt-4 flex items-center justify-center gap-2 animate-fade-in-up delay-400">
             <span className="relative flex h-2 w-2">
-              <span className="absolute inline-flex h-full w-full rounded-full bg-green opacity-60 animate-ping" />
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-green" />
+              <span className="absolute inline-flex h-full w-full rounded-full bg-accent opacity-60 animate-ping" />
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-accent" />
             </span>
-            <p className="text-xs font-mono text-green tracking-[0.25em]">
+            <p className="text-xs font-mono text-accent tracking-[0.25em]">
               CHARLESTON, SC
             </p>
           </div>
@@ -485,7 +485,7 @@ export default function HomePage() {
           {/* Stats row */}
           <div className="mt-16 flex flex-col sm:flex-row items-center justify-center gap-5 sm:gap-0 font-mono text-sm animate-fade-in-up delay-600">
             <span className="flex items-center gap-2.5">
-              <span className="w-1.5 h-1.5 bg-green rounded-full" />
+              <span className="w-1.5 h-1.5 bg-accent rounded-full" />
               <Counter to={4} className="text-heading text-base" />
               <span className="text-muted text-xs uppercase tracking-widest">
                 Apps Live
@@ -493,7 +493,7 @@ export default function HomePage() {
             </span>
             <span className="hidden sm:block mx-6 w-px h-3 bg-border-strong" />
             <span className="flex items-center gap-2.5">
-              <span className="w-1.5 h-1.5 bg-green rounded-full" />
+              <span className="w-1.5 h-1.5 bg-accent rounded-full" />
               <Counter to={6} className="text-heading text-base" />
               <span className="text-muted text-xs uppercase tracking-widest">
                 Products
@@ -501,7 +501,7 @@ export default function HomePage() {
             </span>
             <span className="hidden sm:block mx-6 w-px h-3 bg-border-strong" />
             <span className="flex items-center gap-2.5">
-              <span className="w-1.5 h-1.5 bg-green rounded-full" />
+              <span className="w-1.5 h-1.5 bg-accent rounded-full" />
               <span className="text-heading text-base">2024</span>
               <span className="text-muted text-xs uppercase tracking-widest">
                 Est.
@@ -581,7 +581,7 @@ export default function HomePage() {
             </div>
             <Link
               href="/products"
-              className="group inline-flex items-center gap-2 text-sm text-body hover:text-green transition-colors duration-300 self-start sm:self-end"
+              className="group inline-flex items-center gap-2 text-sm text-body hover:text-accent transition-colors duration-300 self-start sm:self-end"
             >
               View all
               <svg
@@ -621,7 +621,7 @@ export default function HomePage() {
           className="section-glow absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] rounded-full pointer-events-none section-glow"
           style={{
             background:
-              "radial-gradient(ellipse at center, rgba(34,197,94,0.08) 0%, transparent 70%)",
+              "radial-gradient(ellipse at center, color-mix(in srgb, var(--color-accent) 8%, transparent) 0%, transparent 70%)",
             filter: "blur(60px)",
           }}
           aria-hidden="true"
@@ -646,7 +646,7 @@ export default function HomePage() {
                   <figure className="h-full flex flex-col">
                     <blockquote className="relative">
                       <span
-                        className="absolute -top-4 -left-2 text-7xl text-green/20 font-[family-name:var(--font-serif)] leading-none select-none"
+                        className="absolute -top-4 -left-2 text-7xl text-accent/20 font-[family-name:var(--font-serif)] leading-none select-none"
                         aria-hidden="true"
                       >
                         &ldquo;
@@ -660,7 +660,7 @@ export default function HomePage() {
                       <span className="text-[11.5px] uppercase tracking-[0.22em] text-muted font-mono">
                         {t.author}
                       </span>
-                      <span className="text-xs text-green font-[family-name:var(--font-sans)]">
+                      <span className="text-xs text-accent font-[family-name:var(--font-sans)]">
                         {t.product}
                       </span>
                     </figcaption>
@@ -690,7 +690,7 @@ export default function HomePage() {
             </div>
             <Link
               href="/services"
-              className="group inline-flex items-center gap-2 text-sm text-body hover:text-green transition-colors duration-300 self-start sm:self-end"
+              className="group inline-flex items-center gap-2 text-sm text-body hover:text-accent transition-colors duration-300 self-start sm:self-end"
             >
               View all
               <svg
@@ -718,15 +718,15 @@ export default function HomePage() {
                   className="group flex items-center justify-between gap-6 border-b border-border py-6 relative overflow-hidden"
                 >
                   <span
-                    className="absolute inset-0 bg-gradient-to-r from-green/[0.04] to-transparent translate-x-[-100%] group-hover:translate-x-0 transition-transform duration-700 ease-out"
+                    className="absolute inset-0 bg-gradient-to-r from-accent/[0.04] to-transparent translate-x-[-100%] group-hover:translate-x-0 transition-transform duration-700 ease-out"
                     aria-hidden="true"
                   />
                   <div className="relative flex items-center gap-5 flex-1 min-w-0">
-                    <span className="text-faint group-hover:text-green transition-colors duration-500 shrink-0">
+                    <span className="text-faint group-hover:text-accent transition-colors duration-500 shrink-0">
                       {service.icon}
                     </span>
                     <div className="flex-1 min-w-0 flex flex-col sm:flex-row sm:items-baseline sm:gap-6">
-                      <h3 className="text-xl sm:text-2xl font-[family-name:var(--font-sans)] font-semibold text-heading transition-all duration-500 group-hover:translate-x-1 group-hover:text-green shrink-0">
+                      <h3 className="text-xl sm:text-2xl font-[family-name:var(--font-sans)] font-semibold text-heading transition-all duration-500 group-hover:translate-x-1 group-hover:text-accent shrink-0">
                         {service.title}
                       </h3>
                       <p className="text-xs sm:text-sm text-muted group-hover:text-body transition-colors duration-500 font-[family-name:var(--font-sans)]">
@@ -735,7 +735,7 @@ export default function HomePage() {
                     </div>
                   </div>
                   <svg
-                    className="relative w-4 h-4 text-faint shrink-0 transition-all duration-500 group-hover:text-green group-hover:rotate-45"
+                    className="relative w-4 h-4 text-faint shrink-0 transition-all duration-500 group-hover:text-accent group-hover:rotate-45"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -786,9 +786,9 @@ export default function HomePage() {
                     } sm:items-center`}
                   >
                     <div className="relative shrink-0 z-10 sm:absolute sm:left-1/2 sm:-translate-x-1/2">
-                      <span className="relative flex h-9 w-9 items-center justify-center rounded-full bg-surface border border-green/40">
-                        <span className="absolute inset-0 rounded-full bg-green/10 animate-glow-pulse" />
-                        <span className="relative text-[11.5px] font-mono text-green tracking-wider">
+                      <span className="relative flex h-9 w-9 items-center justify-center rounded-full bg-surface border border-accent/40">
+                        <span className="absolute inset-0 rounded-full bg-accent/10 animate-glow-pulse" />
+                        <span className="relative text-[11.5px] font-mono text-accent tracking-wider">
                           {step.label}
                         </span>
                       </span>
@@ -833,7 +833,7 @@ export default function HomePage() {
             </div>
             <Link
               href="/journal"
-              className="group inline-flex items-center gap-2 text-sm text-body hover:text-green transition-colors duration-300 self-start sm:self-end"
+              className="group inline-flex items-center gap-2 text-sm text-body hover:text-accent transition-colors duration-300 self-start sm:self-end"
             >
               All posts
               <svg
@@ -861,13 +861,13 @@ export default function HomePage() {
                   className="group flex flex-col sm:flex-row sm:items-baseline gap-2 sm:gap-8 border-b border-border py-6 relative overflow-hidden"
                 >
                   <span
-                    className="absolute inset-0 bg-gradient-to-r from-green/[0.04] to-transparent translate-x-[-100%] group-hover:translate-x-0 transition-transform duration-700 ease-out"
+                    className="absolute inset-0 bg-gradient-to-r from-accent/[0.04] to-transparent translate-x-[-100%] group-hover:translate-x-0 transition-transform duration-700 ease-out"
                     aria-hidden="true"
                   />
                   <span className="relative text-[11.5px] font-mono uppercase tracking-[0.2em] text-muted shrink-0 sm:w-36">
                     {formatDate(post.date)}
                   </span>
-                  <span className="relative flex-1 text-lg sm:text-xl font-[family-name:var(--font-serif)] italic text-heading transition-all duration-500 group-hover:text-green group-hover:translate-x-1">
+                  <span className="relative flex-1 text-lg sm:text-xl font-[family-name:var(--font-serif)] italic text-heading transition-all duration-500 group-hover:text-accent group-hover:translate-x-1">
                     {post.title}
                   </span>
                   <span className="relative text-[11.5px] font-mono uppercase tracking-[0.2em] text-faint group-hover:text-muted transition-colors duration-500 shrink-0">
@@ -886,7 +886,7 @@ export default function HomePage() {
           className="section-glow absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full pointer-events-none animate-glow-pulse"
           style={{
             background:
-              "radial-gradient(circle, rgba(34,197,94,0.18) 0%, transparent 70%)",
+              "radial-gradient(circle, color-mix(in srgb, var(--color-accent) 18%, transparent) 0%, transparent 70%)",
             filter: "blur(60px)",
           }}
           aria-hidden="true"

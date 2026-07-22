@@ -119,7 +119,7 @@ export default function FaqPage() {
           className="absolute -top-40 left-1/4 w-[700px] h-[400px] rounded-full pointer-events-none section-glow"
           style={{
             background:
-              "radial-gradient(ellipse at center, rgba(34,197,94,0.08) 0%, transparent 70%)",
+              "radial-gradient(ellipse at center, color-mix(in srgb, var(--color-accent) 8%, transparent) 0%, transparent 70%)",
             filter: "blur(60px)",
           }}
           aria-hidden="true"
@@ -145,7 +145,7 @@ export default function FaqPage() {
                   open={i < 3}
                 >
                   <summary className="cursor-pointer list-none px-6 py-6 flex items-start gap-4 hover:bg-surface transition-colors">
-                    <span className="text-[12px] font-mono tracking-[0.2em] text-green mt-1.5 shrink-0">
+                    <span className="text-[12px] font-mono tracking-[0.2em] text-accent mt-1.5 shrink-0">
                       {String(i + 1).padStart(2, "0")}
                     </span>
                     <span className="flex-1 text-lg sm:text-xl font-[family-name:var(--font-sans)] text-heading">

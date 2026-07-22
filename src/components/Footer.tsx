@@ -61,7 +61,7 @@ export default function Footer() {
         className="absolute -bottom-32 left-1/2 -translate-x-1/2 w-[600px] h-[200px] rounded-full pointer-events-none section-glow"
         style={{
           background:
-            "radial-gradient(ellipse at center, rgba(34,197,94,0.07) 0%, transparent 70%)",
+            "radial-gradient(ellipse at center, color-mix(in srgb, var(--color-accent) 7.000000000000001%, transparent) 0%, transparent 70%)",
         }}
         aria-hidden="true"
       />
@@ -73,10 +73,10 @@ export default function Footer() {
             <Link href="/" className="inline-flex items-center gap-3 group">
               <LogoMark className="h-12 w-auto shrink-0 text-logomark" />
               <span className="inline-flex items-baseline gap-1.5">
-                <span className="text-[34px] font-[family-name:var(--font-serif)] italic text-heading tracking-tight transition-all duration-500 group-hover:[text-shadow:0_0_24px_rgba(34,197,94,0.4)]">
+                <span className="text-[34px] font-[family-name:var(--font-serif)] italic text-heading tracking-tight transition-all duration-500 group-hover:[text-shadow:0_0_24px_color-mix(in_srgb,var(--color-accent)_40%,transparent)]">
                   WildTech
                 </span>
-                <span className="w-1.5 h-1.5 rounded-full bg-green opacity-70 group-hover:opacity-100 transition-opacity" />
+                <span className="w-1.5 h-1.5 rounded-full bg-accent opacity-70 group-hover:opacity-100 transition-opacity" />
               </span>
             </Link>
             <p className="text-sm text-body mt-3 max-w-sm leading-relaxed">
@@ -85,8 +85,8 @@ export default function Footer() {
             </p>
             <div className="mt-6 flex items-center gap-2 text-xs font-mono tracking-widest text-muted">
               <span className="relative flex h-2 w-2">
-                <span className="absolute inline-flex h-full w-full rounded-full bg-green opacity-60 animate-ping" />
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-green" />
+                <span className="absolute inline-flex h-full w-full rounded-full bg-accent opacity-60 animate-ping" />
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-accent" />
               </span>
               CHARLESTON, SC
             </div>
@@ -102,7 +102,7 @@ export default function Footer() {
                     {...(isExternal
                       ? { target: "_blank", rel: "noopener noreferrer" }
                       : {})}
-                    className="inline-flex h-9 w-9 items-center justify-center border border-border bg-surface text-muted transition-colors duration-300 hover:border-green/50 hover:text-green"
+                    className="inline-flex h-9 w-9 items-center justify-center border border-border bg-surface text-muted transition-colors duration-300 hover:border-accent/50 hover:text-accent"
                   >
                     {s.icon}
                   </a>
@@ -130,7 +130,7 @@ export default function Footer() {
                       className="group inline-flex items-center gap-2 text-sm text-body hover:text-heading transition-colors duration-300"
                     >
                       <span
-                        className="w-0 h-px bg-green transition-all duration-300 group-hover:w-3"
+                        className="w-0 h-px bg-accent transition-all duration-300 group-hover:w-3"
                         aria-hidden="true"
                       />
                       <span className="transition-transform duration-300 group-hover:translate-x-1">
@@ -154,7 +154,7 @@ export default function Footer() {
                       className="group inline-flex items-center gap-2 text-sm text-body hover:text-heading transition-colors duration-300"
                     >
                       <span
-                        className="w-0 h-px bg-green transition-all duration-300 group-hover:w-3"
+                        className="w-0 h-px bg-accent transition-all duration-300 group-hover:w-3"
                         aria-hidden="true"
                       />
                       <span className="transition-transform duration-300 group-hover:translate-x-1">
@@ -178,7 +178,7 @@ export default function Footer() {
                       className="group inline-flex items-center gap-2 text-sm text-body hover:text-heading transition-colors duration-300"
                     >
                       <span
-                        className="w-0 h-px bg-green transition-all duration-300 group-hover:w-3"
+                        className="w-0 h-px bg-accent transition-all duration-300 group-hover:w-3"
                         aria-hidden="true"
                       />
                       <span className="transition-transform duration-300 group-hover:translate-x-1">
@@ -224,7 +224,7 @@ export default function Footer() {
             </OpenPaletteButton>
             <a
               href="#top"
-              className="group inline-flex items-center gap-2 text-xs uppercase tracking-[0.15em] text-muted hover:text-green transition-colors duration-300"
+              className="group inline-flex items-center gap-2 text-xs uppercase tracking-[0.15em] text-muted hover:text-accent transition-colors duration-300"
             >
               <span>Back to top</span>
               <svg

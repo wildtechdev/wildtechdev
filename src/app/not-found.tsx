@@ -21,7 +21,7 @@ export default function NotFound() {
         className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full pointer-events-none animate-glow-pulse"
         style={{
           background:
-            "radial-gradient(circle, rgba(34,197,94,0.18) 0%, transparent 70%)",
+            "radial-gradient(circle, color-mix(in srgb, var(--color-accent) 18%, transparent) 0%, transparent 70%)",
           filter: "blur(60px)",
         }}
         aria-hidden="true"
@@ -31,7 +31,7 @@ export default function NotFound() {
         {/* 404 number with stacked depth */}
         <div className="relative inline-block">
           <p
-            className="absolute inset-0 text-[9rem] sm:text-[12rem] font-[family-name:var(--font-serif)] italic text-green/10 leading-none select-none blur-md"
+            className="absolute inset-0 text-[9rem] sm:text-[12rem] font-[family-name:var(--font-serif)] italic text-accent/10 leading-none select-none blur-md"
             aria-hidden="true"
           >
             404
@@ -42,11 +42,11 @@ export default function NotFound() {
         </div>
 
         <div className="mt-6 flex items-center justify-center gap-3">
-          <span className="w-8 h-px bg-green" />
-          <p className="text-[11.5px] uppercase tracking-[0.3em] font-mono text-green">
+          <span className="w-8 h-px bg-accent" />
+          <p className="text-[11.5px] uppercase tracking-[0.3em] font-mono text-accent">
             Not found
           </p>
-          <span className="w-8 h-px bg-green" />
+          <span className="w-8 h-px bg-accent" />
         </div>
 
         <h1 className="mt-6 text-2xl font-[family-name:var(--font-serif)] italic text-heading">

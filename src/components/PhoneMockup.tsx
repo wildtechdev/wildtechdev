@@ -31,7 +31,7 @@ const configs: Record<
       "Spirits of Savannah app showing the Olde Pink House story at 23 Abercorn Street with audio player and historic photo",
   },
   "ez-fuse": {
-    gradient: "from-green-950/80 via-green-900/30 to-stone-950",
+    gradient: "from-accent-950/80 via-accent-900/30 to-stone-950",
     imageSrc: "/products/ez-fuse.jpg",
     imageAlt:
       "EZ Fuse Tester app showing a FAIL No Continuity Detected result with the fuse test area",

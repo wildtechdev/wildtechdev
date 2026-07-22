@@ -125,7 +125,7 @@ function HeadingAnchor({ id, text }: { id: string; text: string }) {
   );
 }
 
-const LINK_CLASS = "text-green link-underline";
+const LINK_CLASS = "text-accent link-underline";
 
 function renderInline(text: string) {
   // Handle `inline code`, **bold**, and [text](url) spans; everything else
@@ -218,7 +218,7 @@ export default function Prose({ content }: { content: string }) {
                   className="flex items-start gap-3 text-body leading-relaxed"
                 >
                   <span
-                    className="mt-2.5 w-1 h-1 bg-green rounded-full shrink-0 shadow-[0_0_6px_rgba(34,197,94,0.6)]"
+                    className="mt-2.5 w-1 h-1 bg-accent rounded-full shrink-0 shadow-[0_0_6px_color-mix(in_srgb,var(--color-accent)_60%,transparent)]"
                     aria-hidden="true"
                   />
                   <span>{renderInline(item)}</span>
@@ -236,7 +236,7 @@ export default function Prose({ content }: { content: string }) {
                   className="flex items-start gap-3 text-body leading-relaxed"
                 >
                   <span
-                    className="mt-0.5 text-[12px] font-mono text-green tracking-wider shrink-0"
+                    className="mt-0.5 text-[12px] font-mono text-accent tracking-wider shrink-0"
                     aria-hidden="true"
                   >
                     {String(j + 1).padStart(2, "0")}

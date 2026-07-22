@@ -130,7 +130,7 @@ export default function ProcessPage() {
           className="absolute -top-40 right-1/4 w-[700px] h-[400px] rounded-full pointer-events-none section-glow"
           style={{
             background:
-              "radial-gradient(ellipse at center, rgba(34,197,94,0.08) 0%, transparent 70%)",
+              "radial-gradient(ellipse at center, color-mix(in srgb, var(--color-accent) 8%, transparent) 0%, transparent 70%)",
             filter: "blur(60px)",
           }}
           aria-hidden="true"
@@ -152,14 +152,14 @@ export default function ProcessPage() {
           <div className="space-y-2 mb-24">
             {phases.map((phase) => (
               <ScrollReveal key={phase.number}>
-                <article className="group relative bg-black hover:bg-surface transition-colors duration-500 border-l-[3px] border-l-green/30 hover:border-l-green py-12 lg:py-14 pl-8 pr-6">
+                <article className="group relative bg-black hover:bg-surface transition-colors duration-500 border-l-[3px] border-l-accent/30 hover:border-l-accent py-12 lg:py-14 pl-8 pr-6">
                   <div className="flex flex-col lg:flex-row lg:items-start gap-6 lg:gap-12">
                     <div className="lg:w-[260px] shrink-0">
                       <div className="flex items-baseline gap-3 mb-3">
-                        <span className="text-xs font-mono tracking-[0.2em] text-green">
+                        <span className="text-xs font-mono tracking-[0.2em] text-accent">
                           {phase.number}
                         </span>
-                        <span className="w-6 h-px bg-faint group-hover:bg-green transition-colors duration-500" />
+                        <span className="w-6 h-px bg-faint group-hover:bg-accent transition-colors duration-500" />
                       </div>
                       <h2 className="text-2xl sm:text-3xl font-[family-name:var(--font-serif)] italic text-heading">
                         {phase.title}
@@ -179,7 +179,7 @@ export default function ProcessPage() {
                             className="flex items-start gap-2.5 text-sm text-muted"
                           >
                             <span
-                              className="mt-2 w-1 h-1 bg-green rounded-full shrink-0 shadow-[0_0_6px_rgba(34,197,94,0.6)]"
+                              className="mt-2 w-1 h-1 bg-accent rounded-full shrink-0 shadow-[0_0_6px_color-mix(in_srgb,var(--color-accent)_60%,transparent)]"
                               aria-hidden="true"
                             />
                             <span>{item}</span>
@@ -195,7 +195,7 @@ export default function ProcessPage() {
 
           <ScrollReveal>
             <div className="relative bg-surface border border-border -mx-6 px-6 lg:-mx-10 lg:px-10 py-14 overflow-hidden mb-24">
-              <div className="absolute top-0 left-0 w-12 h-px bg-green" />
+              <div className="absolute top-0 left-0 w-12 h-px bg-accent" />
               <p className="section-label text-xs uppercase tracking-[0.18em] text-muted mb-3 font-[family-name:var(--font-sans)]">
                 Principles
               </p>

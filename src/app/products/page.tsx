@@ -239,8 +239,8 @@ const products = [
     status: "Live" as const,
     price: "Free",
     rating: null,
-    accentColor: "border-l-green/50",
-    glowColor: "rgba(34, 197, 94, 0.08)",
+    accentColor: "border-l-accent/50",
+    glowColor: "color-mix(in srgb, var(--color-accent) 8%, transparent)",
     description:
       "EZ Fuse Tester turns your iPhone into a simple fuse continuity tester. Place a standard glass cartridge fuse across the screen and the app gives you instant pass or fail feedback using the phone's built-in capacitive sensors. There is nothing to buy, nothing to plug in, and nothing to charge. It works with the small glass fuses you find in cars, household electronics, and holiday string lights. One reviewer was about to throw out a set of Halloween lights before testing the fuses with the app, replacing two of them, and getting the whole set working again.",
     features: [
@@ -355,10 +355,10 @@ function StarRating({ rating }: { rating: string }) {
         {[...Array(5)].map((_, i) => (
           <svg
             key={i}
-            className="w-3.5 h-3.5 text-green"
+            className="w-3.5 h-3.5 text-accent"
             viewBox="0 0 20 20"
             fill="currentColor"
-            style={{ filter: "drop-shadow(0 0 4px rgba(34,197,94,0.4))" }}
+            style={{ filter: "drop-shadow(0 0 4px color-mix(in srgb, var(--color-accent) 40%, transparent))" }}
           >
             <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
           </svg>
@@ -375,25 +375,25 @@ function StatusPill({ status }: { status: "Live" | "In Development" }) {
     <div
       className={`inline-flex items-center gap-2 px-2.5 py-1 rounded-full border ${
         isLive
-          ? "border-green/30 bg-green/[0.06]"
+          ? "border-accent/30 bg-accent/[0.06]"
           : "border-amber-500/30 bg-amber-500/[0.06]"
       }`}
     >
       <span className="relative flex h-1.5 w-1.5">
         <span
           className={`absolute inline-flex h-full w-full rounded-full opacity-60 animate-ping ${
-            isLive ? "bg-green" : "bg-amber-500"
+            isLive ? "bg-accent" : "bg-amber-500"
           }`}
         />
         <span
           className={`relative inline-flex rounded-full h-1.5 w-1.5 ${
-            isLive ? "bg-green" : "bg-amber-500"
+            isLive ? "bg-accent" : "bg-amber-500"
           }`}
         />
       </span>
       <p
         className={`text-[11.5px] uppercase tracking-[0.18em] font-mono ${
-          isLive ? "text-green" : "text-amber-500"
+          isLive ? "text-accent" : "text-amber-500"
         }`}
       >
         {status}
@@ -421,7 +421,7 @@ export default function ProductsPage() {
         className="absolute -top-40 right-0 w-[700px] h-[400px] rounded-full pointer-events-none section-glow"
         style={{
           background:
-            "radial-gradient(ellipse at center, rgba(34,197,94,0.08) 0%, transparent 70%)",
+            "radial-gradient(ellipse at center, color-mix(in srgb, var(--color-accent) 8%, transparent) 0%, transparent 70%)",
           filter: "blur(60px)",
         }}
         aria-hidden="true"
@@ -501,7 +501,7 @@ export default function ProductsPage() {
                             key={feature}
                             className="text-sm text-muted flex items-start gap-2.5 font-[family-name:var(--font-sans)]"
                           >
-                            <span className="w-1 h-1 bg-green rounded-full shrink-0 mt-2 shadow-[0_0_6px_rgba(34,197,94,0.6)]" />
+                            <span className="w-1 h-1 bg-accent rounded-full shrink-0 mt-2 shadow-[0_0_6px_color-mix(in_srgb,var(--color-accent)_60%,transparent)]" />
                             <span>{feature}</span>
                           </p>
                         ))}
@@ -509,9 +509,9 @@ export default function ProductsPage() {
 
                       {/* Review */}
                       {product.review && (
-                        <div className="relative border-l-2 border-green/30 pl-6 mb-8 max-w-xl">
+                        <div className="relative border-l-2 border-accent/30 pl-6 mb-8 max-w-xl">
                           <span
-                            className="absolute -left-2.5 top-0 text-5xl text-green/30 font-[family-name:var(--font-serif)] leading-none select-none"
+                            className="absolute -left-2.5 top-0 text-5xl text-accent/30 font-[family-name:var(--font-serif)] leading-none select-none"
                             aria-hidden="true"
                           >
                             &ldquo;
@@ -585,7 +585,7 @@ export default function ProductsPage() {
         className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full pointer-events-none section-glow"
         style={{
           background:
-            "radial-gradient(circle, rgba(34,197,94,0.14) 0%, transparent 70%)",
+            "radial-gradient(circle, color-mix(in srgb, var(--color-accent) 14.000000000000002%, transparent) 0%, transparent 70%)",
           filter: "blur(60px)",
         }}
         aria-hidden="true"

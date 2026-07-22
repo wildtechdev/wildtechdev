@@ -64,7 +64,7 @@ export default function WorkPage() {
           className="absolute -top-40 right-1/4 w-[700px] h-[400px] rounded-full pointer-events-none section-glow"
           style={{
             background:
-              "radial-gradient(ellipse at center, rgba(34,197,94,0.08) 0%, transparent 70%)",
+              "radial-gradient(ellipse at center, color-mix(in srgb, var(--color-accent) 8%, transparent) 0%, transparent 70%)",
             filter: "blur(60px)",
           }}
           aria-hidden="true"
@@ -97,15 +97,15 @@ export default function WorkPage() {
                 >
                   <div className="flex-1 min-w-0">
                     <div className="flex items-baseline gap-4 mb-3">
-                      <span className="text-xs font-mono tracking-[0.2em] text-green">
+                      <span className="text-xs font-mono tracking-[0.2em] text-accent">
                         {String(i + 1).padStart(2, "0")}
                       </span>
-                      <span className="w-8 h-px bg-faint group-hover:bg-green transition-colors duration-500" />
+                      <span className="w-8 h-px bg-faint group-hover:bg-accent transition-colors duration-500" />
                       <span className="text-[11.5px] uppercase tracking-[0.22em] text-muted font-mono">
                         {cs.year}
                       </span>
                     </div>
-                    <h2 className="text-2xl sm:text-3xl font-[family-name:var(--font-serif)] italic text-heading mb-3 group-hover:text-green transition-colors">
+                    <h2 className="text-2xl sm:text-3xl font-[family-name:var(--font-serif)] italic text-heading mb-3 group-hover:text-accent transition-colors">
                       {cs.product}
                     </h2>
                     <p className="text-body leading-relaxed mb-4 max-w-3xl">

@@ -20,7 +20,7 @@ export default function ShareRow({
   const encodedTitle = encodeURIComponent(title);
 
   const buttonClass =
-    "inline-flex h-8 items-center gap-1.5 px-2.5 border border-border bg-surface text-[11.5px] font-mono uppercase tracking-[0.12em] text-muted transition-colors duration-300 hover:border-green/50 hover:text-green";
+    "inline-flex h-8 items-center gap-1.5 px-2.5 border border-border bg-surface text-[11.5px] font-mono uppercase tracking-[0.12em] text-muted transition-colors duration-300 hover:border-accent/50 hover:text-accent";
 
   return (
     <div className="flex flex-wrap items-center gap-2">

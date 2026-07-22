@@ -5,7 +5,7 @@ export const runtime = "edge";
 // Dynamic Open Graph image generator.
 // Usage: /api/og?title=Something&kind=Journal
 // The image renders the WildTech wordmark, an optional kind label, and the
-// title in serif italic on the dark brand background with a green accent.
+// title in serif italic on the dark brand background with a burgundy accent.
 
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
@@ -39,7 +39,7 @@ export async function GET(request: Request) {
             left: 0,
             width: 120,
             height: 4,
-            background: "#22c55e",
+            background: "#c9515c",
           }}
         />
         {/* Radial glow */}
@@ -52,7 +52,7 @@ export async function GET(request: Request) {
             height: 700,
             borderRadius: 9999,
             background:
-              "radial-gradient(circle, rgba(34,197,94,0.18) 0%, transparent 60%)",
+              "radial-gradient(circle, rgba(201, 81, 92,0.18) 0%, transparent 60%)",
           }}
         />
 
@@ -74,8 +74,8 @@ export async function GET(request: Request) {
               width: 10,
               height: 10,
               borderRadius: 9999,
-              background: "#22c55e",
-              boxShadow: "0 0 16px rgba(34,197,94,0.7)",
+              background: "#c9515c",
+              boxShadow: "0 0 16px rgba(201, 81, 92,0.7)",
             }}
           />
           {kind && (

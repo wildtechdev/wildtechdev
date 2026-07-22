@@ -56,8 +56,8 @@ export default function ContactForm() {
       className="relative space-y-8 bg-surface border border-border p-6 sm:p-10 lg:p-12"
       noValidate
     >
-      <span className="absolute -top-px -left-px w-8 h-8 border-t border-l border-green" aria-hidden="true" />
-      <span className="absolute -bottom-px -right-px w-8 h-8 border-b border-r border-green" aria-hidden="true" />
+      <span className="absolute -top-px -left-px w-8 h-8 border-t border-l border-accent" aria-hidden="true" />
+      <span className="absolute -bottom-px -right-px w-8 h-8 border-b border-r border-accent" aria-hidden="true" />
 
       {/* Honeypot */}
       <div
@@ -231,7 +231,7 @@ export default function ContactForm() {
 
         <div role="status" aria-live="polite">
           {status === "success" && (
-            <p className="text-sm text-green font-[family-name:var(--font-sans)]">
+            <p className="text-sm text-accent font-[family-name:var(--font-sans)]">
               Thanks. We will be in touch within one business day.
             </p>
           )}

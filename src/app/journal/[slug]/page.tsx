@@ -121,7 +121,7 @@ export default async function PostPage({
           className="absolute -top-40 left-1/4 w-[700px] h-[400px] rounded-full pointer-events-none section-glow"
           style={{
             background:
-              "radial-gradient(ellipse at center, rgba(34,197,94,0.07) 0%, transparent 70%)",
+              "radial-gradient(ellipse at center, color-mix(in srgb, var(--color-accent) 7.000000000000001%, transparent) 0%, transparent 70%)",
             filter: "blur(60px)",
           }}
           aria-hidden="true"
@@ -129,7 +129,7 @@ export default async function PostPage({
         <div className="relative max-w-2xl mx-auto px-6 lg:px-8">
           <Link
             href="/journal"
-            className="inline-flex items-center gap-1.5 text-[11.5px] font-mono uppercase tracking-[0.22em] text-muted hover:text-green transition-colors mb-10"
+            className="inline-flex items-center gap-1.5 text-[11.5px] font-mono uppercase tracking-[0.22em] text-muted hover:text-accent transition-colors mb-10"
           >
             <svg
               className="w-3 h-3"
@@ -164,7 +164,7 @@ export default async function PostPage({
                   key={tag}
                   className="inline-flex items-center gap-1.5 text-[11.5px] font-mono uppercase tracking-[0.16em] text-muted px-2.5 py-1 border border-border bg-surface"
                 >
-                  <span className="w-0.5 h-0.5 rounded-full bg-green" />
+                  <span className="w-0.5 h-0.5 rounded-full bg-accent" />
                   {tag}
                 </span>
               ))}
@@ -189,7 +189,7 @@ export default async function PostPage({
               className="group inline-flex items-center gap-4 -mx-2 px-2 py-2 rounded transition-colors duration-300 hover:bg-surface"
               aria-label="About Will McCants, founder of WildTech Development"
             >
-              <span className="relative block w-12 h-12 rounded-full overflow-hidden border border-border transition-all duration-500 group-hover:border-green/60 group-hover:shadow-[0_0_18px_rgba(34,197,94,0.25)]">
+              <span className="relative block w-12 h-12 rounded-full overflow-hidden border border-border transition-all duration-500 group-hover:border-accent/60 group-hover:shadow-[0_0_18px_color-mix(in_srgb,var(--color-accent)_25%,transparent)]">
                 <Image
                   src="/headshot.jpg"
                   alt="Will McCants, founder of WildTech Development"
@@ -201,7 +201,7 @@ export default async function PostPage({
                 />
               </span>
               <span className="block">
-                <span className="block text-sm text-heading font-medium group-hover:text-green transition-colors duration-300">
+                <span className="block text-sm text-heading font-medium group-hover:text-accent transition-colors duration-300">
                   Will McCants
                 </span>
                 <span className="block text-xs text-muted">
@@ -228,7 +228,7 @@ export default async function PostPage({
                     <p className="text-[11.5px] font-mono uppercase tracking-[0.22em] text-muted mb-2">
                       &larr; Older
                     </p>
-                    <p className="text-base font-[family-name:var(--font-serif)] italic text-heading group-hover:text-green transition-colors">
+                    <p className="text-base font-[family-name:var(--font-serif)] italic text-heading group-hover:text-accent transition-colors">
                       {older.title}
                     </p>
                   </Link>
@@ -240,7 +240,7 @@ export default async function PostPage({
                     <p className="text-[11.5px] font-mono uppercase tracking-[0.22em] text-muted mb-2">
                       Newer &rarr;
                     </p>
-                    <p className="text-base font-[family-name:var(--font-serif)] italic text-heading group-hover:text-green transition-colors">
+                    <p className="text-base font-[family-name:var(--font-serif)] italic text-heading group-hover:text-accent transition-colors">
                       {newer.title}
                     </p>
                   </Link>
@@ -265,7 +265,7 @@ export default async function PostPage({
                       <p className="text-[11.5px] font-mono uppercase tracking-[0.22em] text-muted mb-1">
                         {formatDate(p.date)}
                       </p>
-                      <h3 className="text-xl font-[family-name:var(--font-serif)] italic text-heading group-hover:text-green transition-colors">
+                      <h3 className="text-xl font-[family-name:var(--font-serif)] italic text-heading group-hover:text-accent transition-colors">
                         {p.title}
                       </h3>
                     </Link>

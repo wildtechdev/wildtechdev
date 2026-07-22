@@ -115,7 +115,7 @@ export default function AboutPage() {
           className="absolute -top-40 left-1/2 -translate-x-1/2 w-[700px] h-[400px] rounded-full pointer-events-none section-glow"
           style={{
             background:
-              "radial-gradient(ellipse at center, rgba(34,197,94,0.12) 0%, transparent 70%)",
+              "radial-gradient(ellipse at center, color-mix(in srgb, var(--color-accent) 12%, transparent) 0%, transparent 70%)",
             filter: "blur(60px)",
           }}
           aria-hidden="true"
@@ -192,7 +192,7 @@ export default function AboutPage() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-12 gap-y-10">
                   <div>
                     <div className="flex items-baseline gap-3 mb-3">
-                      <span className="text-2xl font-[family-name:var(--font-serif)] italic text-green/80">
+                      <span className="text-2xl font-[family-name:var(--font-serif)] italic text-accent/80">
                         01
                       </span>
                       <span className="flex-1 h-px bg-border" />
@@ -212,7 +212,7 @@ export default function AboutPage() {
 
                   <div>
                     <div className="flex items-baseline gap-3 mb-3">
-                      <span className="text-2xl font-[family-name:var(--font-serif)] italic text-green/80">
+                      <span className="text-2xl font-[family-name:var(--font-serif)] italic text-accent/80">
                         02
                       </span>
                       <span className="flex-1 h-px bg-border" />
@@ -231,7 +231,7 @@ export default function AboutPage() {
 
                   <div>
                     <div className="flex items-baseline gap-3 mb-3">
-                      <span className="text-2xl font-[family-name:var(--font-serif)] italic text-green/80">
+                      <span className="text-2xl font-[family-name:var(--font-serif)] italic text-accent/80">
                         03
                       </span>
                       <span className="flex-1 h-px bg-border" />
@@ -251,7 +251,7 @@ export default function AboutPage() {
 
                   <div>
                     <div className="flex items-baseline gap-3 mb-3">
-                      <span className="text-2xl font-[family-name:var(--font-serif)] italic text-green/80">
+                      <span className="text-2xl font-[family-name:var(--font-serif)] italic text-accent/80">
                         04
                       </span>
                       <span className="flex-1 h-px bg-border" />
@@ -275,7 +275,7 @@ export default function AboutPage() {
           {/* Ecosystem */}
           <ScrollReveal>
             <div className="mb-24 relative bg-surface border border-border -mx-6 px-6 lg:-mx-10 lg:px-10 py-12 lg:py-14">
-              <div className="absolute top-0 left-0 w-12 h-px bg-green" />
+              <div className="absolute top-0 left-0 w-12 h-px bg-accent" />
               <p className="section-label text-xs uppercase tracking-[0.18em] text-muted mb-3 font-[family-name:var(--font-sans)]">
                 The ecosystem
               </p>
@@ -299,20 +299,20 @@ export default function AboutPage() {
                         className="group relative flex flex-col sm:flex-row sm:items-baseline gap-2 sm:gap-6 border-b border-border py-6 overflow-hidden"
                       >
                         <span
-                          className="absolute inset-0 bg-gradient-to-r from-green/[0.04] to-transparent translate-x-[-100%] group-hover:translate-x-0 transition-transform duration-700 ease-out"
+                          className="absolute inset-0 bg-gradient-to-r from-accent/[0.04] to-transparent translate-x-[-100%] group-hover:translate-x-0 transition-transform duration-700 ease-out"
                           aria-hidden="true"
                         />
-                        <span className="relative text-[11.5px] font-mono uppercase tracking-[0.2em] text-faint group-hover:text-green transition-colors duration-500 shrink-0 w-20">
+                        <span className="relative text-[11.5px] font-mono uppercase tracking-[0.2em] text-faint group-hover:text-accent transition-colors duration-500 shrink-0 w-20">
                           {brand.note}
                         </span>
-                        <h3 className="relative flex-1 text-xl sm:text-2xl font-[family-name:var(--font-serif)] italic text-heading transition-all duration-500 group-hover:text-green group-hover:translate-x-1">
+                        <h3 className="relative flex-1 text-xl sm:text-2xl font-[family-name:var(--font-serif)] italic text-heading transition-all duration-500 group-hover:text-accent group-hover:translate-x-1">
                           {brand.name}
                         </h3>
                         <p className="relative text-sm text-muted group-hover:text-body transition-colors duration-500 font-[family-name:var(--font-sans)]">
                           {brand.role}
                         </p>
                         <svg
-                          className="relative w-3.5 h-3.5 text-faint shrink-0 transition-all duration-500 group-hover:text-green group-hover:rotate-45"
+                          className="relative w-3.5 h-3.5 text-faint shrink-0 transition-all duration-500 group-hover:text-accent group-hover:rotate-45"
                           fill="none"
                           stroke="currentColor"
                           viewBox="0 0 24 24"

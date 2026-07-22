@@ -98,12 +98,12 @@ function buildWelcomeHtml(firstName: string) {
         <td align="center">
           <table role="presentation" width="560" cellpadding="0" cellspacing="0" border="0" style="max-width:560px; width:100%; background:#ffffff; border:1px solid #e5e5e3;">
             <tr>
-              <td style="background:#06070a; padding:28px 36px; border-bottom:3px solid #22c55e;">
+              <td style="background:#06070a; padding:28px 36px; border-bottom:3px solid #c9515c;">
                 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
                   <tr>
                     <td style="font-family:Georgia, 'Times New Roman', serif; font-style:italic; font-size:22px; color:#f5f6f8; letter-spacing:0.3px;">
                       WildTech
-                      <span style="display:inline-block; width:6px; height:6px; background:#22c55e; border-radius:50%; margin-left:6px; vertical-align:middle;"></span>
+                      <span style="display:inline-block; width:6px; height:6px; background:#c9515c; border-radius:50%; margin-left:6px; vertical-align:middle;"></span>
                     </td>
                     <td align="right" style="font-family:-apple-system, BlinkMacSystemFont, sans-serif; font-size:10px; letter-spacing:0.22em; text-transform:uppercase; color:#6b7180;">
                       Charleston, SC
@@ -130,7 +130,7 @@ function buildWelcomeHtml(firstName: string) {
                   If you ever want to stop receiving these, reply with "unsubscribe" and you are off the list permanently. No friction.
                 </p>
                 <p style="margin:0 0 32px 0; font-size:16px; line-height:1.65; color:#3a3a3a;">
-                  In the meantime, the existing journal is at <a href="https://www.wildtechdev.com/journal" style="color:#16a34a; text-decoration:none;">wildtechdev.com/journal</a>. Recent posts cover Resend on Namecheap, the real cost of an iOS app, naked-domain DNS fixes, and how to keep small-business email out of spam.
+                  In the meantime, the existing journal is at <a href="https://www.wildtechdev.com/journal" style="color:#7d2730; text-decoration:none;">wildtechdev.com/journal</a>. Recent posts cover Resend on Namecheap, the real cost of an iOS app, naked-domain DNS fixes, and how to keep small-business email out of spam.
                 </p>
               </td>
             </tr>
@@ -157,9 +157,9 @@ function buildWelcomeHtml(firstName: string) {
                 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
                   <tr>
                     <td style="font-size:12px; color:#6b7180;">
-                      <a href="https://www.wildtechdev.com" style="color:#16a34a; text-decoration:none; font-weight:500;">wildtechdev.com</a>
+                      <a href="https://www.wildtechdev.com" style="color:#7d2730; text-decoration:none; font-weight:500;">wildtechdev.com</a>
                       <span style="color:#cccccc; margin:0 8px;">|</span>
-                      <a href="mailto:info@wildtechdev.com" style="color:#16a34a; text-decoration:none;">info@wildtechdev.com</a>
+                      <a href="mailto:info@wildtechdev.com" style="color:#7d2730; text-decoration:none;">info@wildtechdev.com</a>
                     </td>
                     <td align="right" style="font-size:11px; color:#9ca3af; letter-spacing:0.1em;">
                       Custom software, hardware, and integration
@@ -311,7 +311,7 @@ export async function POST(request: Request) {
     `Source: wildtechdev.com newsletter signup\n`;
   const notifyHtml = `
     <div style="font-family: -apple-system, sans-serif; max-width: 520px;">
-      <h2 style="color: #16a34a; font-weight: 600; margin: 0 0 12px 0;">New newsletter subscriber</h2>
+      <h2 style="color: #7d2730; font-weight: 600; margin: 0 0 12px 0;">New newsletter subscriber</h2>
       <p style="margin: 6px 0;"><strong>Email:</strong> <a href="mailto:${escapeHtml(
         email
       )}">${escapeHtml(email)}</a></p>

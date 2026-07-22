@@ -145,13 +145,13 @@ export default function Cursor() {
     <>
       <div
         ref={dotRef}
-        className="cursor-dot pointer-events-none fixed top-0 left-0 z-[10000] w-2 h-2 rounded-full bg-green opacity-0 transition-[opacity] duration-200"
-        style={{ boxShadow: "0 0 12px rgba(34,197,94,0.7)" }}
+        className="cursor-dot pointer-events-none fixed top-0 left-0 z-[10000] w-2 h-2 rounded-full bg-accent opacity-0 transition-[opacity] duration-200"
+        style={{ boxShadow: "0 0 12px color-mix(in srgb, var(--color-accent) 70%, transparent)" }}
         aria-hidden="true"
       />
       <div
         ref={ringRef}
-        className="cursor-ring pointer-events-none fixed top-0 left-0 z-[10000] w-9 h-9 rounded-full border border-green/70 opacity-0 transition-[opacity,width,height,border-color,background-color,border-radius,padding] duration-300 ease-out flex items-center justify-center"
+        className="cursor-ring pointer-events-none fixed top-0 left-0 z-[10000] w-9 h-9 rounded-full border border-accent/70 opacity-0 transition-[opacity,width,height,border-color,background-color,border-radius,padding] duration-300 ease-out flex items-center justify-center"
         aria-hidden="true"
       >
         <span

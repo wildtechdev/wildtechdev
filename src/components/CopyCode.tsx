@@ -19,12 +19,12 @@ export default function CopyCode({ text }: { text: string }) {
         setCopied(true);
         setTimeout(() => setCopied(false), 2000);
       }}
-      className="absolute top-2 right-2 inline-flex items-center gap-1.5 px-2 py-1 text-[11.5px] font-mono uppercase tracking-[0.12em] text-muted bg-card border border-border rounded opacity-0 group-hover:opacity-100 focus-visible:opacity-100 transition-all duration-200 hover:text-green hover:border-green/40"
+      className="absolute top-2 right-2 inline-flex items-center gap-1.5 px-2 py-1 text-[11.5px] font-mono uppercase tracking-[0.12em] text-muted bg-card border border-border rounded opacity-0 group-hover:opacity-100 focus-visible:opacity-100 transition-all duration-200 hover:text-accent hover:border-accent/40"
     >
       {copied ? (
         <>
           <svg
-            className="w-3 h-3 text-green"
+            className="w-3 h-3 text-accent"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"

@@ -14,7 +14,7 @@ export default function Image() {
         style={{
           background: "#06070a",
           backgroundImage:
-            "radial-gradient(ellipse 60% 50% at 30% 50%, rgba(34,197,94,0.18), transparent 70%)",
+            "radial-gradient(ellipse 60% 50% at 30% 50%, rgba(201, 81, 92,0.18), transparent 70%)",
           width: "100%",
           height: "100%",
           display: "flex",
@@ -30,12 +30,12 @@ export default function Image() {
             alignItems: "center",
             gap: 12,
             fontSize: 16,
-            color: "#22c55e",
+            color: "#c9515c",
             letterSpacing: "0.25em",
             textTransform: "uppercase",
           }}
         >
-          <div style={{ width: 24, height: 1, background: "#22c55e" }} />
+          <div style={{ width: 24, height: 1, background: "#c9515c" }} />
           Founder
         </div>
 
@@ -88,7 +88,7 @@ export default function Image() {
               width: 8,
               height: 8,
               borderRadius: "50%",
-              background: "#22c55e",
+              background: "#c9515c",
             }}
           />
           wildtechdev.com/will-mccants

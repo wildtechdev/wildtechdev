@@ -86,7 +86,7 @@ function JournalListInner({ posts }: { posts: JournalListPost[] }) {
           {filtered.length}{" "}
           {filtered.length === 1 ? "post matches" : "posts match"} &ldquo;
           {query}&rdquo;{" "}
-          <Link href="/journal" className="text-green hover:underline">
+          <Link href="/journal" className="text-accent hover:underline">
             Clear
           </Link>
         </p>
@@ -95,7 +95,7 @@ function JournalListInner({ posts }: { posts: JournalListPost[] }) {
       {filtered.length === 0 && (
         <p className="py-16 text-body">
           Nothing matches that search. Try a broader term, or{" "}
-          <Link href="/journal" className="text-green link-underline">
+          <Link href="/journal" className="text-accent link-underline">
             browse all posts
           </Link>
           .
@@ -115,7 +115,7 @@ function JournalListInner({ posts }: { posts: JournalListPost[] }) {
                   <span className="w-4 h-px bg-faint" />
                   <span>{post.readMinutes} min read</span>
                 </div>
-                <h2 className="text-2xl sm:text-3xl font-[family-name:var(--font-serif)] italic text-heading mb-3 group-hover:text-green transition-colors duration-300">
+                <h2 className="text-2xl sm:text-3xl font-[family-name:var(--font-serif)] italic text-heading mb-3 group-hover:text-accent transition-colors duration-300">
                   {post.title}
                 </h2>
                 <p className="text-body leading-relaxed mb-4">{post.summary}</p>
@@ -125,15 +125,15 @@ function JournalListInner({ posts }: { posts: JournalListPost[] }) {
                   <Link
                     key={tag}
                     href={`/journal?q=${encodeURIComponent(tag)}`}
-                    className="inline-flex items-center gap-1.5 text-[11.5px] font-mono uppercase tracking-[0.16em] text-muted px-2.5 py-1 border border-border bg-surface transition-colors duration-300 hover:border-green/40 hover:text-body"
+                    className="inline-flex items-center gap-1.5 text-[11.5px] font-mono uppercase tracking-[0.16em] text-muted px-2.5 py-1 border border-border bg-surface transition-colors duration-300 hover:border-accent/40 hover:text-body"
                   >
-                    <span className="w-0.5 h-0.5 rounded-full bg-green" />
+                    <span className="w-0.5 h-0.5 rounded-full bg-accent" />
                     {tag}
                   </Link>
                 ))}
                 <Link
                   href={`/journal/${post.slug}`}
-                  className="ml-auto text-xs text-muted hover:text-green transition-colors duration-300 inline-flex items-center gap-1"
+                  className="ml-auto text-xs text-muted hover:text-accent transition-colors duration-300 inline-flex items-center gap-1"
                 >
                   Read
                   <svg

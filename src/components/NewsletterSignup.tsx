@@ -56,8 +56,8 @@ export default function NewsletterSignup({
 
   if (state === "ok") {
     return (
-      <div role="status" className="bg-surface border border-green/30 rounded p-6">
-        <p className="text-sm text-green font-mono uppercase tracking-[0.18em] mb-1">
+      <div role="status" className="bg-surface border border-accent/30 rounded p-6">
+        <p className="text-sm text-accent font-mono uppercase tracking-[0.18em] mb-1">
           Subscribed
         </p>
         <p className="text-body text-sm leading-relaxed">
@@ -116,7 +116,7 @@ export default function NewsletterSignup({
             autoComplete="given-name"
             value={name}
             onChange={(e) => setName(e.target.value)}
-            className="w-full bg-transparent border border-border px-4 py-3 text-sm text-heading placeholder:text-muted focus:outline-none focus:border-green transition-colors"
+            className="w-full bg-transparent border border-border px-4 py-3 text-sm text-heading placeholder:text-muted focus:outline-none focus:border-accent transition-colors"
             disabled={state === "loading"}
           />
         )}
@@ -129,7 +129,7 @@ export default function NewsletterSignup({
             autoComplete="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className="flex-1 bg-transparent border border-border px-4 py-3 text-sm text-heading placeholder:text-muted focus:outline-none focus:border-green transition-colors"
+            className="flex-1 bg-transparent border border-border px-4 py-3 text-sm text-heading placeholder:text-muted focus:outline-none focus:border-accent transition-colors"
             disabled={state === "loading"}
           />
           <button

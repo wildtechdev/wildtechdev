@@ -115,7 +115,7 @@ export async function POST(request: Request) {
       const inquiryText = `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}\n`;
       const inquiryHtml = `
         <div style="font-family: -apple-system, sans-serif; max-width: 560px;">
-          <h2 style="color: #22c55e; font-weight: 600;">New inquiry from ${escapeHtml(name)}</h2>
+          <h2 style="color: #c9515c; font-weight: 600;">New inquiry from ${escapeHtml(name)}</h2>
           <p><strong>Email:</strong> <a href="mailto:${escapeHtml(email)}">${escapeHtml(email)}</a></p>
           <hr style="border: none; border-top: 1px solid #eee; margin: 24px 0;" />
           <p style="white-space: pre-wrap; line-height: 1.6;">${escapeHtml(message)}</p>
@@ -238,7 +238,7 @@ function escapeHtml(s: string) {
 function buildConfirmationHtml(firstName: string) {
   const safeName = escapeHtml(firstName);
   // Email-safe HTML. Light background, system + Georgia fonts (universally
-  // available), inline styles, no images. WildTech green accent at top.
+  // available), inline styles, no images. WildTech burgundy accent at top.
   return `<!doctype html>
 <html lang="en">
   <head>
@@ -252,12 +252,12 @@ function buildConfirmationHtml(firstName: string) {
         <td align="center">
           <table role="presentation" width="560" cellpadding="0" cellspacing="0" border="0" style="max-width:560px; width:100%; background:#ffffff; border:1px solid #e5e5e3;">
             <tr>
-              <td style="background:#06070a; padding:28px 36px; border-bottom:3px solid #22c55e;">
+              <td style="background:#06070a; padding:28px 36px; border-bottom:3px solid #c9515c;">
                 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
                   <tr>
                     <td style="font-family:Georgia, 'Times New Roman', serif; font-style:italic; font-size:22px; color:#f5f6f8; letter-spacing:0.3px;">
                       WildTech
-                      <span style="display:inline-block; width:6px; height:6px; background:#22c55e; border-radius:50%; margin-left:6px; vertical-align:middle;"></span>
+                      <span style="display:inline-block; width:6px; height:6px; background:#c9515c; border-radius:50%; margin-left:6px; vertical-align:middle;"></span>
                     </td>
                     <td align="right" style="font-family:-apple-system, BlinkMacSystemFont, sans-serif; font-size:10px; letter-spacing:0.22em; text-transform:uppercase; color:#6b7180;">
                       Charleston, SC
@@ -308,9 +308,9 @@ function buildConfirmationHtml(firstName: string) {
                 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
                   <tr>
                     <td style="font-size:12px; color:#6b7180;">
-                      <a href="https://www.wildtechdev.com" style="color:#16a34a; text-decoration:none; font-weight:500;">wildtechdev.com</a>
+                      <a href="https://www.wildtechdev.com" style="color:#7d2730; text-decoration:none; font-weight:500;">wildtechdev.com</a>
                       <span style="color:#cccccc; margin:0 8px;">|</span>
-                      <a href="mailto:info@wildtechdev.com" style="color:#16a34a; text-decoration:none;">info@wildtechdev.com</a>
+                      <a href="mailto:info@wildtechdev.com" style="color:#7d2730; text-decoration:none;">info@wildtechdev.com</a>
                     </td>
                     <td align="right" style="font-size:11px; color:#9ca3af; letter-spacing:0.1em;">
                       Custom software, hardware, and integration

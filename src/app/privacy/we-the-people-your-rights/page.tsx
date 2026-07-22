@@ -25,7 +25,7 @@ export default function WeThePeoplePrivacyPolicyPage() {
             Legal
           </p>
           <h1 className="relative text-4xl sm:text-5xl lg:text-6xl font-[family-name:var(--font-serif)] italic text-heading mb-6">
-            <span className="absolute top-1/2 left-1/3 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[200px] rounded-full bg-green opacity-[0.05] blur-3xl pointer-events-none" />
+            <span className="absolute top-1/2 left-1/3 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[200px] rounded-full bg-accent opacity-[0.05] blur-3xl pointer-events-none" />
             <span className="relative">Privacy Policy</span>
           </h1>
           <p className="text-body text-lg leading-relaxed">
@@ -74,7 +74,7 @@ export default function WeThePeoplePrivacyPolicyPage() {
                 None. The app collects no personal data whatsoever.
                 Specifically, the app does not:
               </p>
-              <ul className="space-y-2 text-body text-base leading-relaxed pl-5 list-disc marker:text-green">
+              <ul className="space-y-2 text-body text-base leading-relaxed pl-5 list-disc marker:text-accent">
                 <li>Create user accounts or require sign-in.</li>
                 <li>Collect names, email addresses, phone numbers, or any other identifiers.</li>
                 <li>Access your contacts, photos, microphone, camera, location, calendar, or health data.</li>

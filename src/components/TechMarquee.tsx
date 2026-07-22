@@ -29,8 +29,8 @@ function MarqueeGroup() {
     <div className="flex items-center gap-12 shrink-0 pr-12">
       {tech.map((label) => (
         <div key={label} className="flex items-center gap-3 shrink-0">
-          <span className="w-1 h-1 rounded-full bg-green/60" />
-          <span className="text-sm font-mono uppercase tracking-[0.18em] text-muted hover:text-green transition-colors duration-300">
+          <span className="w-1 h-1 rounded-full bg-accent/60" />
+          <span className="text-sm font-mono uppercase tracking-[0.18em] text-muted hover:text-accent transition-colors duration-300">
             {label}
           </span>
         </div>

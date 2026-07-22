@@ -25,18 +25,18 @@ export default function ErrorPage({
         className="section-glow absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full pointer-events-none"
         style={{
           background:
-            "radial-gradient(circle, rgba(34,197,94,0.14) 0%, transparent 70%)",
+            "radial-gradient(circle, color-mix(in srgb, var(--color-accent) 14.000000000000002%, transparent) 0%, transparent 70%)",
           filter: "blur(60px)",
         }}
         aria-hidden="true"
       />
       <div className="relative text-center px-6 max-w-md mx-auto">
         <div className="flex items-center justify-center gap-3">
-          <span className="w-8 h-px bg-green" />
-          <p className="text-[11.5px] uppercase tracking-[0.3em] font-mono text-green">
+          <span className="w-8 h-px bg-accent" />
+          <p className="text-[11.5px] uppercase tracking-[0.3em] font-mono text-accent">
             Error
           </p>
-          <span className="w-8 h-px bg-green" />
+          <span className="w-8 h-px bg-accent" />
         </div>
 
         <h1 className="mt-6 text-3xl font-[family-name:var(--font-serif)] italic text-heading">

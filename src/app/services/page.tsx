@@ -122,7 +122,7 @@ export default function ServicesPage() {
         className="absolute -top-40 left-0 w-[700px] h-[400px] rounded-full pointer-events-none section-glow"
         style={{
           background:
-            "radial-gradient(ellipse at center, rgba(34,197,94,0.08) 0%, transparent 70%)",
+            "radial-gradient(ellipse at center, color-mix(in srgb, var(--color-accent) 8%, transparent) 0%, transparent 70%)",
           filter: "blur(60px)",
         }}
         aria-hidden="true"
@@ -147,7 +147,7 @@ export default function ServicesPage() {
               <article className="group relative bg-black hover:bg-surface transition-colors duration-500 py-12 lg:py-14 px-6 lg:px-10 overflow-hidden">
                 {/* Hover sweep */}
                 <div
-                  className="absolute inset-0 bg-gradient-to-r from-green/[0.03] via-transparent to-transparent translate-x-[-100%] group-hover:translate-x-0 transition-transform duration-1000 ease-out pointer-events-none"
+                  className="absolute inset-0 bg-gradient-to-r from-accent/[0.03] via-transparent to-transparent translate-x-[-100%] group-hover:translate-x-0 transition-transform duration-1000 ease-out pointer-events-none"
                   aria-hidden="true"
                 />
 
@@ -155,12 +155,12 @@ export default function ServicesPage() {
                   {/* Number + heading */}
                   <div className="lg:w-[280px] shrink-0">
                     <div className="flex items-baseline gap-3 mb-2">
-                      <span className="text-[12px] font-mono tracking-[0.2em] text-green">
+                      <span className="text-[12px] font-mono tracking-[0.2em] text-accent">
                         {String(i + 1).padStart(2, "0")}
                       </span>
-                      <span className="w-6 h-px bg-faint group-hover:bg-green transition-colors duration-500" />
+                      <span className="w-6 h-px bg-faint group-hover:bg-accent transition-colors duration-500" />
                     </div>
-                    <h2 className="text-2xl sm:text-3xl font-[family-name:var(--font-sans)] font-semibold text-heading group-hover:text-green transition-colors duration-500">
+                    <h2 className="text-2xl sm:text-3xl font-[family-name:var(--font-sans)] font-semibold text-heading group-hover:text-accent transition-colors duration-500">
                       {service.title}
                     </h2>
                   </div>
@@ -174,9 +174,9 @@ export default function ServicesPage() {
                       {service.tags.map((tag) => (
                         <span
                           key={tag}
-                          className="inline-flex items-center gap-1.5 text-[11.5px] font-mono uppercase tracking-[0.16em] text-muted px-3 py-1.5 border border-border bg-surface transition-all duration-300 hover:border-green/40 hover:text-body"
+                          className="inline-flex items-center gap-1.5 text-[11.5px] font-mono uppercase tracking-[0.16em] text-muted px-3 py-1.5 border border-border bg-surface transition-all duration-300 hover:border-accent/40 hover:text-body"
                         >
-                          <span className="w-0.5 h-0.5 rounded-full bg-green" />
+                          <span className="w-0.5 h-0.5 rounded-full bg-accent" />
                           {tag}
                         </span>
                       ))}
@@ -184,7 +184,7 @@ export default function ServicesPage() {
                     {service.proof && (
                       <Link
                         href={service.proof.href}
-                        className="mt-5 inline-flex items-center gap-2 text-sm text-green link-underline"
+                        className="mt-5 inline-flex items-center gap-2 text-sm text-accent link-underline"
                       >
                         {service.proof.label}
                         <svg
@@ -213,12 +213,12 @@ export default function ServicesPage() {
         {/* Why WildTech */}
         <ScrollReveal>
           <div className="mt-24 relative bg-surface border border-border -mx-6 px-6 lg:-mx-10 lg:px-10 py-14 lg:py-16 overflow-hidden">
-            <div className="absolute top-0 left-0 w-12 h-px bg-green" />
+            <div className="absolute top-0 left-0 w-12 h-px bg-accent" />
             <div
               className="absolute -top-20 right-0 w-[400px] h-[300px] rounded-full pointer-events-none section-glow"
               style={{
                 background:
-                  "radial-gradient(ellipse at center, rgba(34,197,94,0.08) 0%, transparent 70%)",
+                  "radial-gradient(ellipse at center, color-mix(in srgb, var(--color-accent) 8%, transparent) 0%, transparent 70%)",
                 filter: "blur(40px)",
               }}
               aria-hidden="true"
@@ -235,10 +235,10 @@ export default function ServicesPage() {
                 <ScrollReveal key={item.title} delay={i * 120}>
                   <div className="group">
                     <div className="flex items-baseline gap-3 mb-4">
-                      <span className="text-2xl font-[family-name:var(--font-serif)] italic text-green/70 group-hover:text-green transition-colors duration-500">
+                      <span className="text-2xl font-[family-name:var(--font-serif)] italic text-accent/70 group-hover:text-accent transition-colors duration-500">
                         {String(i + 1).padStart(2, "0")}
                       </span>
-                      <span className="flex-1 h-px bg-border group-hover:bg-green/40 transition-colors duration-500" />
+                      <span className="flex-1 h-px bg-border group-hover:bg-accent/40 transition-colors duration-500" />
                     </div>
                     <h3 className="text-lg font-[family-name:var(--font-sans)] font-semibold text-heading mb-2">
                       {item.title}

@@ -141,7 +141,7 @@ export default function PressPage() {
           className="absolute -top-40 right-0 w-[700px] h-[400px] rounded-full pointer-events-none section-glow"
           style={{
             background:
-              "radial-gradient(ellipse at center, rgba(34,197,94,0.08) 0%, transparent 70%)",
+              "radial-gradient(ellipse at center, color-mix(in srgb, var(--color-accent) 8%, transparent) 0%, transparent 70%)",
             filter: "blur(60px)",
           }}
           aria-hidden="true"
@@ -218,11 +218,11 @@ export default function PressPage() {
                 <div>
                   <figure className="relative">
                     <span
-                      className="absolute -top-1 -left-1 w-3 h-3 border-t border-l border-green opacity-50"
+                      className="absolute -top-1 -left-1 w-3 h-3 border-t border-l border-accent opacity-50"
                       aria-hidden="true"
                     />
                     <span
-                      className="absolute -bottom-1 -right-1 w-3 h-3 border-b border-r border-green opacity-50"
+                      className="absolute -bottom-1 -right-1 w-3 h-3 border-b border-r border-accent opacity-50"
                       aria-hidden="true"
                     />
                     <div className="overflow-hidden border border-border aspect-[3/4]">
@@ -291,7 +291,7 @@ export default function PressPage() {
               <ol className="border-l-2 border-border pl-6 space-y-4">
                 {milestones.map((m) => (
                   <li key={m.text} className="flex items-baseline gap-4">
-                    <span className="text-xs font-mono tracking-[0.18em] text-green w-12 shrink-0">
+                    <span className="text-xs font-mono tracking-[0.18em] text-accent w-12 shrink-0">
                       {m.date}
                     </span>
                     <span className="text-sm text-body leading-relaxed">

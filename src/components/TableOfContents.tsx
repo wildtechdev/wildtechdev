@@ -32,14 +32,14 @@ export default function TableOfContents({
         {sections.map((title, i) => (
           <li key={title} className="flex items-baseline gap-3">
             <span
-              className="text-[11.5px] font-mono text-green tracking-wider shrink-0"
+              className="text-[11.5px] font-mono text-accent tracking-wider shrink-0"
               aria-hidden="true"
             >
               {String(i + 1).padStart(2, "0")}
             </span>
             <a
               href={`#${slugify(title)}`}
-              className="text-sm text-body hover:text-green transition-colors duration-300"
+              className="text-sm text-body hover:text-accent transition-colors duration-300"
             >
               {title}
             </a>

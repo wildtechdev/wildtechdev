@@ -40,7 +40,7 @@ export default function ThemeToggle({
       aria-label={label}
       aria-pressed={isLight}
       title={label}
-      className={`group relative inline-flex h-9 w-9 items-center justify-center border border-border bg-surface text-body transition-colors duration-300 hover:border-green/50 hover:text-green ${className}`}
+      className={`group relative inline-flex h-9 w-9 items-center justify-center border border-border bg-surface text-body transition-colors duration-300 hover:border-accent/50 hover:text-accent ${className}`}
     >
       {/* Sun icon (shown when in light mode, click to go dark) */}
       <svg

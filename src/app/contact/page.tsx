@@ -31,7 +31,7 @@ export default function ContactPage() {
         className="absolute -top-40 right-1/4 w-[600px] h-[400px] rounded-full pointer-events-none section-glow"
         style={{
           background:
-            "radial-gradient(ellipse at center, rgba(34,197,94,0.12) 0%, transparent 70%)",
+            "radial-gradient(ellipse at center, color-mix(in srgb, var(--color-accent) 12%, transparent) 0%, transparent 70%)",
           filter: "blur(60px)",
         }}
         aria-hidden="true"
@@ -52,7 +52,7 @@ export default function ContactPage() {
             what you are trying to solve.
           </p>
           <p className="mt-5 text-sm text-muted flex items-center gap-2.5">
-            <span className="w-1 h-1 bg-green rounded-full shrink-0" aria-hidden="true" />
+            <span className="w-1 h-1 bg-accent rounded-full shrink-0" aria-hidden="true" />
             We reply to every inquiry within one business day.
           </p>
         </div>
@@ -79,7 +79,7 @@ export default function ContactPage() {
                 </p>
                 <a
                   href="mailto:info@wildtechdev.com"
-                  className="text-base text-heading link-underline inline-flex items-center gap-2 group-hover:text-green transition-colors"
+                  className="text-base text-heading link-underline inline-flex items-center gap-2 group-hover:text-accent transition-colors"
                 >
                   info@wildtechdev.com
                 </a>
@@ -90,8 +90,8 @@ export default function ContactPage() {
                 </p>
                 <p className="text-base text-heading flex items-center gap-2">
                   <span className="relative flex h-2 w-2">
-                    <span className="absolute inline-flex h-full w-full rounded-full bg-green opacity-60 animate-ping" />
-                    <span className="relative inline-flex rounded-full h-2 w-2 bg-green" />
+                    <span className="absolute inline-flex h-full w-full rounded-full bg-accent opacity-60 animate-ping" />
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-accent" />
                   </span>
                   Charleston, SC
                 </p>
