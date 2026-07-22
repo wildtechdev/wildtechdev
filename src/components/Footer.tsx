@@ -1,6 +1,7 @@
 import Link from "next/link";
 import NewsletterSignup from "@/components/NewsletterSignup";
 import OpenPaletteButton from "@/components/OpenPaletteButton";
+import LogoMark from "@/components/LogoMark";
 
 const workLinks = [
   { href: "/work", label: "All case studies" },
@@ -69,11 +70,14 @@ export default function Footer() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
           {/* Wordmark + tagline + newsletter */}
           <div className="lg:col-span-5">
-            <Link href="/" className="inline-flex items-baseline gap-1.5 group">
-              <span className="text-[34px] font-[family-name:var(--font-serif)] italic text-heading tracking-tight transition-all duration-500 group-hover:[text-shadow:0_0_24px_rgba(34,197,94,0.4)]">
-                WildTech
+            <Link href="/" className="inline-flex items-center gap-3 group">
+              <LogoMark className="h-12 w-auto shrink-0 text-logomark" />
+              <span className="inline-flex items-baseline gap-1.5">
+                <span className="text-[34px] font-[family-name:var(--font-serif)] italic text-heading tracking-tight transition-all duration-500 group-hover:[text-shadow:0_0_24px_rgba(34,197,94,0.4)]">
+                  WildTech
+                </span>
+                <span className="w-1.5 h-1.5 rounded-full bg-green opacity-70 group-hover:opacity-100 transition-opacity" />
               </span>
-              <span className="w-1.5 h-1.5 rounded-full bg-green opacity-70 group-hover:opacity-100 transition-opacity" />
             </Link>
             <p className="text-sm text-body mt-3 max-w-sm leading-relaxed">
               Software, hardware, and services from Charleston, SC. Built with

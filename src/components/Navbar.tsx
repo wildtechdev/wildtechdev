@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 import ThemeToggle from "@/components/ThemeToggle";
+import LogoMark from "@/components/LogoMark";
 
 const navLinks = [
   { href: "/", label: "Home" },
@@ -74,6 +75,7 @@ export default function Navbar() {
               className="absolute -left-1 -right-1 -top-1 -bottom-1 rounded-full bg-green/0 group-hover:bg-green/10 blur-md transition-all duration-500"
               aria-hidden="true"
             />
+            <LogoMark className="relative h-7 w-auto shrink-0 text-logomark" />
             <span className="relative text-lg font-[family-name:var(--font-serif)] italic text-heading tracking-tight transition-all duration-500 group-hover:[text-shadow:0_0_20px_rgba(34,197,94,0.4)]">
               WildTech
             </span>
