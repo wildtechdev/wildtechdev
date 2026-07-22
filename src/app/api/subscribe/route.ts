@@ -11,10 +11,68 @@ import { NextResponse } from "next/server";
 //
 // The "newsletter itself" is sent manually via Resend's Broadcasts UI when
 // there is something to say. There is no scheduled trigger.
+//
+// Abuse defenses (added July 2026 after a live subscription-bombing attack
+// that used dotted-Gmail variants to flood both the victim's inbox and ours):
+// per-IP rate limit, Gmail dot/plus normalization with per-instance dedupe,
+// a suppression list for weaponized addresses, and an origin check. All are
+// best-effort per serverless instance, same trade-off as the contact API.
 
 function isValidEmail(email: string) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 }
+
+// Best-effort in-memory rate limit, same pattern as the contact API: max
+// signups per IP per window. Serverless instances each keep their own map,
+// so this is a speed bump rather than a guarantee, but it strangles bursts.
+const RATE_LIMIT = 3;
+const RATE_WINDOW_MS = 10 * 60 * 1000;
+const submissions = new Map<string, number[]>();
+
+function isRateLimited(ip: string): boolean {
+  const now = Date.now();
+  const recent = (submissions.get(ip) ?? []).filter(
+    (t) => now - t < RATE_WINDOW_MS
+  );
+  if (recent.length >= RATE_LIMIT) {
+    submissions.set(ip, recent);
+    return true;
+  }
+  recent.push(now);
+  submissions.set(ip, recent);
+  if (submissions.size > 500) {
+    for (const [key, times] of submissions) {
+      if (times.every((t) => now - t >= RATE_WINDOW_MS)) {
+        submissions.delete(key);
+      }
+    }
+  }
+  return false;
+}
+
+// Gmail delivers a.b.c+tag@gmail.com to abc@gmail.com: dots and plus tags in
+// the local part are ignored. Bots exploit that to mint endless "unique"
+// addresses that all land in one inbox. Normalizing collapses the variants to
+// a single key. The normalized form is only ever a lookup key; real sends
+// always go to the address as typed.
+function normalizeEmail(email: string): string {
+  const [rawLocal, rawDomain] = email.toLowerCase().split("@");
+  const domain = rawDomain === "googlemail.com" ? "gmail.com" : rawDomain;
+  let local = rawLocal.split("+")[0];
+  if (domain === "gmail.com") {
+    local = local.replace(/\./g, "");
+  }
+  return `${local}@${domain}`;
+}
+
+// Addresses that have been weaponized against this form in subscription
+// bombing attacks. Never send anything to these again (compared normalized).
+const SUPPRESSED = new Set(["annehenderson611@gmail.com"]);
+
+// Normalized addresses this instance has already processed. Repeat signups
+// are answered with success and no email, which also makes double-clicks
+// polite. Best-effort per instance, like the rate limit.
+const seen = new Set<string>();
 
 function escapeHtml(s: string) {
   return s
@@ -122,6 +180,31 @@ function buildWelcomeHtml(firstName: string) {
 }
 
 export async function POST(request: Request) {
+  const ip =
+    request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ??
+    "unknown";
+  if (isRateLimited(ip)) {
+    return NextResponse.json(
+      {
+        ok: false,
+        error: "Too many signups in a short time. Please try again later.",
+      },
+      { status: 429 }
+    );
+  }
+
+  // Browsers include an Origin header on fetch POSTs; a cross-site origin
+  // means the request did not come from our own form. Answer success and do
+  // nothing, honeypot-style.
+  const origin = request.headers.get("origin");
+  if (
+    origin &&
+    !/^https:\/\/(www\.)?wildtechdev\.com$/.test(origin) &&
+    !origin.startsWith("http://localhost")
+  ) {
+    return NextResponse.json({ ok: true });
+  }
+
   let body: Record<string, unknown>;
   try {
     body = await request.json();
@@ -152,6 +235,18 @@ export async function POST(request: Request) {
       { ok: false, error: "Input too long." },
       { status: 400 }
     );
+  }
+
+  // Suppressed or already-processed (normalized) addresses get a friendly
+  // success and no email of any kind.
+  const normalized = normalizeEmail(email);
+  if (SUPPRESSED.has(normalized) || seen.has(normalized)) {
+    return NextResponse.json({ ok: true });
+  }
+  seen.add(normalized);
+  if (seen.size > 2000) {
+    seen.clear();
+    seen.add(normalized);
   }
 
   const resendKey = process.env.RESEND_API_KEY;
@@ -294,6 +389,9 @@ export async function POST(request: Request) {
     }
   } catch (err) {
     console.error("[subscribe] threw:", err);
+    // Let the subscriber retry: a failed attempt should not burn their slot
+    // in the dedupe set.
+    seen.delete(normalized);
     return NextResponse.json(
       { ok: false, error: "Could not subscribe. Please try again." },
       { status: 500 }
