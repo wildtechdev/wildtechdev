@@ -107,7 +107,7 @@ export default async function CaseStudyPage({
           className="absolute -top-40 left-0 w-[700px] h-[400px] rounded-full pointer-events-none section-glow"
           style={{
             background:
-              "radial-gradient(ellipse at center, color-mix(in srgb, var(--color-accent) 7.000000000000001%, transparent) 0%, transparent 70%)",
+              "radial-gradient(ellipse at center, color-mix(in srgb, var(--color-accent) 7%, transparent) 0%, transparent 70%)",
             filter: "blur(60px)",
           }}
           aria-hidden="true"

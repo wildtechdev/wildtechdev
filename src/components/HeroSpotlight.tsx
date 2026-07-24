@@ -28,7 +28,7 @@ export default function HeroSpotlight() {
       className="absolute inset-0 pointer-events-none section-glow"
       style={{
         background:
-          "radial-gradient(600px circle at var(--hx, 50%) var(--hy, 50%), color-mix(in srgb, var(--color-accent) 14.000000000000002%, transparent), transparent 50%)",
+          "radial-gradient(600px circle at var(--hx, 50%) var(--hy, 50%), color-mix(in srgb, var(--color-accent) 14%, transparent), transparent 50%)",
       }}
       aria-hidden="true"
     />

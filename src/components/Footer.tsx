@@ -61,36 +61,36 @@ export default function Footer() {
         className="absolute -bottom-32 left-1/2 -translate-x-1/2 w-[600px] h-[200px] rounded-full pointer-events-none section-glow"
         style={{
           background:
-            "radial-gradient(ellipse at center, color-mix(in srgb, var(--color-accent) 7.000000000000001%, transparent) 0%, transparent 70%)",
+            "radial-gradient(ellipse at center, color-mix(in srgb, var(--color-accent) 7%, transparent) 0%, transparent 70%)",
         }}
         aria-hidden="true"
       />
 
-      <div className="relative max-w-7xl mx-auto px-6 lg:px-10 py-20">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
+      <div className="relative max-w-7xl mx-auto px-6 lg:px-10 py-12">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12">
           {/* Wordmark + tagline + newsletter */}
           <div className="lg:col-span-5">
-            <Link href="/" className="inline-flex items-center gap-3 group">
-              <LogoMark className="h-12 w-auto shrink-0 text-logomark" />
+            <Link href="/" className="inline-flex items-center gap-2.5 group">
+              <LogoMark className="h-9 w-auto shrink-0 text-logomark" />
               <span className="inline-flex items-baseline gap-1.5">
-                <span className="text-[34px] font-[family-name:var(--font-serif)] italic text-heading tracking-tight transition-all duration-500 group-hover:[text-shadow:0_0_24px_color-mix(in_srgb,var(--color-accent)_40%,transparent)]">
+                <span className="text-[26px] font-[family-name:var(--font-serif)] italic text-heading tracking-tight transition-all duration-500 group-hover:[text-shadow:0_0_24px_color-mix(in_srgb,var(--color-accent)_40%,transparent)]">
                   WildTech
                 </span>
                 <span className="w-1.5 h-1.5 rounded-full bg-accent opacity-70 group-hover:opacity-100 transition-opacity" />
               </span>
             </Link>
-            <p className="text-sm text-body mt-3 max-w-sm leading-relaxed">
+            <p className="text-sm text-body mt-2 max-w-sm leading-relaxed">
               Software, hardware, and services from Charleston, SC. Built with
               care by Will McCants and the WildTech team.
             </p>
-            <div className="mt-6 flex items-center gap-2 text-xs font-mono tracking-widest text-muted">
+            <div className="mt-4 flex items-center gap-2 text-xs font-mono tracking-widest text-muted">
               <span className="relative flex h-2 w-2">
                 <span className="absolute inline-flex h-full w-full rounded-full bg-accent opacity-60 animate-ping" />
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-accent" />
               </span>
               CHARLESTON, SC
             </div>
-            <div className="mt-5 flex items-center gap-2 mb-10">
+            <div className="mt-4 flex items-center gap-2 mb-6">
               {socialLinks.map((s) => {
                 const isExternal = s.href.startsWith("http");
                 return (
@@ -117,12 +117,12 @@ export default function Footer() {
           </div>
 
           {/* Link columns */}
-          <div className="lg:col-span-7 grid grid-cols-2 sm:grid-cols-3 gap-10">
+          <div className="lg:col-span-7 grid grid-cols-2 sm:grid-cols-3 gap-8">
             <div>
-              <p className="text-xs uppercase tracking-[0.18em] text-muted mb-5 font-[family-name:var(--font-sans)]">
+              <p className="text-xs uppercase tracking-[0.18em] text-muted mb-3 font-[family-name:var(--font-sans)]">
                 Work
               </p>
-              <ul className="space-y-3">
+              <ul className="space-y-2">
                 {workLinks.map((link) => (
                   <li key={link.href}>
                     <Link
@@ -143,10 +143,10 @@ export default function Footer() {
             </div>
 
             <div>
-              <p className="text-xs uppercase tracking-[0.18em] text-muted mb-5 font-[family-name:var(--font-sans)]">
+              <p className="text-xs uppercase tracking-[0.18em] text-muted mb-3 font-[family-name:var(--font-sans)]">
                 Company
               </p>
-              <ul className="space-y-3">
+              <ul className="space-y-2">
                 {companyLinks.map((link) => (
                   <li key={link.href}>
                     <Link
@@ -167,10 +167,10 @@ export default function Footer() {
             </div>
 
             <div>
-              <p className="text-xs uppercase tracking-[0.18em] text-muted mb-5 font-[family-name:var(--font-sans)]">
+              <p className="text-xs uppercase tracking-[0.18em] text-muted mb-3 font-[family-name:var(--font-sans)]">
                 Resources
               </p>
-              <ul className="space-y-3">
+              <ul className="space-y-2">
                 {resourceLinks.map((link) => (
                   <li key={link.href}>
                     <Link
@@ -192,7 +192,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-20 pt-8 border-t border-border flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
+        <div className="mt-10 pt-6 border-t border-border flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
           <div>
             <p className="text-xs text-muted">
               &copy; {new Date().getFullYear()} WildTech Ventures, LLC. All
@@ -212,7 +212,7 @@ export default function Footer() {
                 RSS
               </a>
             </div>
-            <p className="text-sm text-body mt-4 italic font-[family-name:var(--font-serif)]">
+            <p className="text-sm text-body mt-3 italic font-[family-name:var(--font-serif)]">
               &ldquo;Unless the Lord builds the house, those who build it labor
               in vain.&rdquo; Psalm 127:1
             </p>
