@@ -1,5 +1,4 @@
 import Link from "next/link";
-import NewsletterSignup from "@/components/NewsletterSignup";
 import OpenPaletteButton from "@/components/OpenPaletteButton";
 import LogoMark from "@/components/LogoMark";
 
@@ -109,11 +108,6 @@ export default function Footer() {
                 );
               })}
             </div>
-            <NewsletterSignup
-              compact
-              title="Stay in the loop"
-              description="A short note when something new ships."
-            />
           </div>
 
           {/* Link columns */}

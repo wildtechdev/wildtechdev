@@ -3,7 +3,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
-import NewsletterSignup from "@/components/NewsletterSignup";
 import Prose from "@/components/Prose";
 import ScrollReveal from "@/components/ScrollReveal";
 import ShareRow from "@/components/ShareRow";
@@ -277,10 +276,13 @@ export default async function PostPage({
 
           <ScrollReveal>
             <div className="mt-16 pt-10 border-t border-border">
-              <NewsletterSignup
-                title="Want the next post in your inbox?"
-                description="Short notes when something new ships. No spam."
-              />
+              <p className="text-sm text-body">
+                Want the next post as it ships?{" "}
+                <a href="/feed.xml" className="text-accent link-underline">
+                  Subscribe to the RSS feed
+                </a>
+                .
+              </p>
             </div>
           </ScrollReveal>
         </div>

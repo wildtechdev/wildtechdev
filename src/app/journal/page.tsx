@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
-import NewsletterSignup from "@/components/NewsletterSignup";
 import ScrollReveal from "@/components/ScrollReveal";
 import JournalList from "@/components/JournalList";
 import { posts } from "@/lib/posts";
@@ -104,10 +103,16 @@ export default function JournalPage() {
 
           <ScrollReveal>
             <div className="mt-16 pt-12 border-t border-border">
-              <NewsletterSignup
-                title="Get new posts in your inbox."
-                description="A short note when something new ships. No spam, no tracking, easy to unsubscribe."
-              />
+              <p className="text-sm text-body">
+                Want new posts as they ship?{" "}
+                <a
+                  href="/feed.xml"
+                  className="text-accent link-underline"
+                >
+                  Subscribe to the RSS feed
+                </a>
+                . No forms, no inbox, works in any reader.
+              </p>
             </div>
           </ScrollReveal>
         </div>
