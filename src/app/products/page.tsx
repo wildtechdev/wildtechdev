@@ -218,6 +218,9 @@ const products = [
     appStoreUrl: null,
     externalUrl: "/dragin1",
     externalLabel: "About DragIn1",
+    extraUrl:
+      "https://chromewebstore.google.com/detail/dragin1/dfjodholanpnddcmbcledbbmbkdcibal",
+    extraLabel: "Chrome extension",
     review: null,
     statusNote:
       "Free and open source. Also available as a Chrome extension for the same problem inside the browser.",
@@ -245,6 +248,8 @@ const products = [
       "https://apps.apple.com/us/app/spirits-of-charleston/id6476931671",
     externalUrl: null,
     externalLabel: null,
+    extraUrl: null,
+    extraLabel: null,
     review: {
       quote:
         "Even my ghost-averse daughter stayed highly engaged as we used the app to fill gaps in our vacation itinerary. It is easy to navigate, cheaper than the in-person ghost tours, and certainly more convenient.",
@@ -275,6 +280,8 @@ const products = [
       "https://apps.apple.com/us/app/spirits-of-savannah/id6740187114",
     externalUrl: null,
     externalLabel: null,
+    extraUrl: null,
+    extraLabel: null,
     review: {
       quote:
         "This app turned out to be the best tour we took on our girl’s weekend to Savannah!",
@@ -304,6 +311,8 @@ const products = [
     appStoreUrl: "https://apps.apple.com/us/app/ez-fuse-tester/id6737378228",
     externalUrl: null,
     externalLabel: null,
+    extraUrl: null,
+    extraLabel: null,
     review: {
       quote:
         "This is great. I was getting ready to throw out a bunch of Halloween lights and I tested and replaced a couple of the fuses and now the lights work.",
@@ -334,6 +343,8 @@ const products = [
       "https://apps.apple.com/us/app/we-the-people-your-rights/id6770393978",
     externalUrl: null,
     externalLabel: null,
+    extraUrl: null,
+    extraLabel: null,
     review: null,
     statusNote:
       "Recently released on the App Store. Built to be the go-to civic literacy reference on your phone.",
@@ -366,6 +377,8 @@ const products = [
     appStoreUrl: null,
     externalUrl: "https://churchd.com",
     externalLabel: "Visit churchd.com",
+    extraUrl: null,
+    extraLabel: null,
     review: null,
     statusNote:
       "Currently in active development. Profile tabs, post feeds, and community features already designed and prototyped.",
@@ -392,6 +405,8 @@ const products = [
     appStoreUrl: null,
     externalUrl: "https://vikingsensors.com",
     externalLabel: "Visit vikingsensors.com",
+    extraUrl: null,
+    extraLabel: null,
     review: null,
     statusNote:
       "Precision hardware with exclusive MSI-Viking Gage distribution. Production units shipping.",
@@ -617,6 +632,16 @@ export default function ProductsPage() {
                                 d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
                               />
                             </svg>
+                          </a>
+                        )}
+                        {product.extraUrl && (
+                          <a
+                            href={product.extraUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-2 text-sm text-body hover:text-heading transition-colors duration-300 link-underline py-2"
+                          >
+                            {product.extraLabel}
                           </a>
                         )}
                         <Link

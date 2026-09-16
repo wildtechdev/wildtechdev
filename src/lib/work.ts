@@ -19,6 +19,8 @@ export type CaseStudy = {
   appStoreUrl?: string;
   /** Direct download, for products distributed outside an app store. */
   downloadUrl?: string;
+  /** Extra CTAs beside the main ones, e.g. a companion browser extension. */
+  extraLinks?: { href: string; label: string }[];
   productAnchor: string; // Anchor on /products to link back to
   mockup: MockupId; // Product artwork id (phone frame, or a desktop window)
   content: string;
@@ -50,9 +52,15 @@ export const caseStudies: CaseStudy[] = [
     downloadUrl: "https://github.com/wildtechdev/DragIn1/releases/latest",
     externalUrl: "https://github.com/wildtechdev/DragIn1",
     externalLabel: "View source",
+    extraLinks: [
+      {
+        href: "https://chromewebstore.google.com/detail/dragin1/dfjodholanpnddcmbcledbbmbkdcibal",
+        label: "Chrome extension",
+      },
+    ],
     productAnchor: "dragin1",
     mockup: "dragin1",
-    content: `DragIn1 is a small Windows app that fixes drag and drop from New Outlook. It is free, MIT licensed, open source, and it runs entirely on the user's PC with no account, no network calls and no telemetry. There is also a DragIn1 Chrome extension covering the same problem from inside the browser.
+    content: `DragIn1 is a small Windows app that fixes drag and drop from New Outlook. It is free, MIT licensed, open source, and it runs entirely on the user's PC with no account, no network calls and no telemetry. There is also a [DragIn1 Chrome extension](https://chromewebstore.google.com/detail/dragin1/dfjodholanpnddcmbcledbbmbkdcibal) covering the same problem from inside the browser.
 
 This case study is mostly about the diagnosis, because that was the hard part. The code that fixes the problem is about thirty lines. Finding out what the problem actually was took considerably longer.
 

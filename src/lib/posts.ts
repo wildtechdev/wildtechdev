@@ -166,7 +166,7 @@ Three things that are easy to get wrong:
 
 The full technical write-up, including the complete probe output and the reference links, is in [docs/how-it-works.md](https://github.com/wildtechdev/DragIn1/blob/main/docs/how-it-works.md) in the repo. The implementation is in \`DragIn1.cs\`, in the \`Grab\` and \`ShelfTarget\` classes. It is plain C# against the Win32 interfaces, with no dependencies.
 
-If you just want the tool, it is on the [DragIn1 product page](/dragin1), and the longer story of building it is in the [case study](/work/dragin1).`,
+If you just want the tool, it is on the [DragIn1 product page](/dragin1), and the longer story of building it is in the [case study](/work/dragin1). There is also a [DragIn1 Chrome extension](https://chromewebstore.google.com/detail/dragin1/dfjodholanpnddcmbcledbbmbkdcibal) that covers the same problem from inside the browser.`,
   },
   {
     slug: "windows-protected-your-pc",

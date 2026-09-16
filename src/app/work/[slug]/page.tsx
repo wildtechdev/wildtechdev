@@ -158,7 +158,10 @@ export default async function CaseStudyPage({
                     site buttons from the bottom CTA block so visitors who
                     don't scroll the whole case study can still follow through
                     to the product directly from the header. */}
-                {(cs.appStoreUrl || cs.externalUrl || cs.downloadUrl) && (
+                {(cs.appStoreUrl ||
+                  cs.externalUrl ||
+                  cs.downloadUrl ||
+                  cs.extraLinks?.length) && (
                   <div className="mt-7 flex flex-wrap gap-3">
                     {cs.downloadUrl && (
                       <a
@@ -232,6 +235,31 @@ export default async function CaseStudyPage({
                         </svg>
                       </a>
                     )}
+                    {cs.extraLinks?.map((l) => (
+                      <a
+                        key={l.href}
+                        href={l.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="btn-ghost"
+                      >
+                        {l.label}
+                        <svg
+                          className="w-3.5 h-3.5"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                          strokeWidth={2}
+                          aria-hidden="true"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
+                          />
+                        </svg>
+                      </a>
+                    ))}
                   </div>
                 )}
               </div>
@@ -326,6 +354,17 @@ export default async function CaseStudyPage({
                     {cs.externalLabel ?? "Visit site"}
                   </a>
                 )}
+                {cs.extraLinks?.map((l) => (
+                  <a
+                    key={l.href}
+                    href={l.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn-ghost"
+                  >
+                    {l.label}
+                  </a>
+                ))}
                 <Link
                   href={`/products#${cs.productAnchor}`}
                   className="inline-flex items-center gap-2 text-sm text-body hover:text-heading transition-colors duration-300 link-underline py-2"
