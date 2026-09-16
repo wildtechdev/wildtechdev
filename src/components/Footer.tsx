@@ -5,6 +5,7 @@ import LogoMark from "@/components/LogoMark";
 const workLinks = [
   { href: "/work", label: "All case studies" },
   { href: "/products", label: "Products" },
+  { href: "/dragin1", label: "DragIn1" },
   { href: "/services", label: "Services" },
   { href: "/process", label: "Process" },
 ];

@@ -1,14 +1,14 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
-import PhoneMockup from "@/components/PhoneMockup";
+import ProductMockup from "@/components/ProductMockup";
 import AppStoreBadge from "@/components/AppStoreBadge";
 import ScrollReveal from "@/components/ScrollReveal";
 
 export const metadata: Metadata = {
   title: "Products",
   description:
-    "Explore WildTech Development products: Spirits of Charleston, Spirits of Savannah, EZ Fuse Tester, Churchd, and Viking Sensors.",
+    "Explore WildTech Development products: DragIn1, Spirits of Charleston, Spirits of Savannah, EZ Fuse Tester, Churchd, and Viking Sensors.",
   alternates: {
     canonical: "https://www.wildtechdev.com/products",
   },
@@ -34,6 +34,30 @@ const productsJsonLd = {
     {
       "@type": "SoftwareApplication",
       position: 1,
+      name: "DragIn1",
+      applicationCategory: "UtilitiesApplication",
+      operatingSystem: "Windows 10, Windows 11",
+      description:
+        "Free, open source Windows tool that fixes drag and drop from New Outlook, Teams, Gmail, SharePoint and OneDrive.",
+      url: "https://www.wildtechdev.com/dragin1",
+      downloadUrl: "https://github.com/wildtechdev/DragIn1/releases/latest",
+      license: "https://github.com/wildtechdev/DragIn1/blob/main/LICENSE",
+      isAccessibleForFree: true,
+      offers: {
+        "@type": "Offer",
+        price: "0",
+        priceCurrency: "USD",
+        availability: "https://schema.org/InStock",
+        url: "https://github.com/wildtechdev/DragIn1/releases/latest",
+      },
+      publisher: {
+        "@type": "Organization",
+        name: "WildTech Ventures, LLC",
+      },
+    },
+    {
+      "@type": "SoftwareApplication",
+      position: 2,
       name: "Spirits of Charleston",
       applicationCategory: "TravelApplication",
       operatingSystem: "iOS",
@@ -57,7 +81,7 @@ const productsJsonLd = {
     },
     {
       "@type": "SoftwareApplication",
-      position: 2,
+      position: 3,
       name: "Spirits of Savannah",
       applicationCategory: "TravelApplication",
       operatingSystem: "iOS",
@@ -83,7 +107,7 @@ const productsJsonLd = {
     },
     {
       "@type": "SoftwareApplication",
-      position: 3,
+      position: 4,
       name: "EZ Fuse Tester",
       applicationCategory: "UtilitiesApplication",
       operatingSystem: "iOS",
@@ -102,7 +126,7 @@ const productsJsonLd = {
     },
     {
       "@type": "SoftwareApplication",
-      position: 4,
+      position: 5,
       name: "We The People: Your Rights",
       applicationCategory: "ReferenceApplication",
       operatingSystem: "iOS",
@@ -121,7 +145,7 @@ const productsJsonLd = {
     },
     {
       "@type": "SoftwareApplication",
-      position: 5,
+      position: 6,
       name: "Churchd",
       applicationCategory: "BusinessApplication",
       operatingSystem: "Web, iOS",
@@ -140,7 +164,7 @@ const productsJsonLd = {
     },
     {
       "@type": "Product",
-      position: 6,
+      position: 7,
       name: "Viking Sensors",
       description:
         "Precision climate monitoring hardware for calibration labs, server rooms, and cleanrooms.",
@@ -172,6 +196,32 @@ const productsJsonLd = {
 };
 
 const products = [
+  {
+    name: "DragIn1",
+    slug: "dragin1",
+    mockup: "dragin1" as const,
+    status: "Live" as const,
+    price: "Free",
+    rating: null,
+    accentColor: "border-l-emerald-600/40",
+    glowColor: "rgba(45, 169, 113, 0.08)",
+    description:
+      "DragIn1 fixes a problem that looks like a broken email client. Drag an attachment out of New Outlook onto a folder or an upload box and nothing happens: no error, no file. The same thing happens from Teams, Gmail, SharePoint and OneDrive, because all of them are Chromium underneath, and Chromium offers a dragged file rather than handing it over. It waits to be asked in a specific way that almost no Windows application implements. DragIn1 is a small always on top window that knows how to ask. Drop the attachment on it and it saves the real file to your disk. Drag it out of DragIn1 and it is an ordinary Windows file that every destination accepts. Free, MIT licensed, and it makes no network connections of any kind.",
+    features: [
+      "Works from New Outlook, Teams, Gmail, SharePoint, OneDrive",
+      "Drops onto anything that accepts a file",
+      "Ctrl+C puts files on the clipboard",
+      "No network connections, no telemetry",
+      "Windows 10 and 11, no admin rights",
+      "MIT licensed, source on GitHub",
+    ],
+    appStoreUrl: null,
+    externalUrl: "/dragin1",
+    externalLabel: "About DragIn1",
+    review: null,
+    statusNote:
+      "Free and open source. Also available as a Chrome extension for the same problem inside the browser.",
+  },
   {
     name: "Spirits of Charleston",
     slug: "spirits-of-charleston",
@@ -465,7 +515,7 @@ export default function ProductsPage() {
                   >
                     {/* Mockup */}
                     <div className="flex justify-center lg:flex-shrink-0 lg:self-start transition-transform duration-700 group-hover:-translate-y-1">
-                      <PhoneMockup product={product.mockup} priority={index === 0} />
+                      <ProductMockup product={product.mockup} priority={index === 0} />
                     </div>
 
                     {/* Content */}
@@ -541,8 +591,15 @@ export default function ProductsPage() {
                         {product.externalUrl && (
                           <a
                             href={product.externalUrl}
-                            target="_blank"
-                            rel="noopener noreferrer"
+                            /* Most products link out to their own site; DragIn1
+                               links to its page here, which must not open a
+                               new tab. */
+                            {...(product.externalUrl.startsWith("/")
+                              ? {}
+                              : {
+                                  target: "_blank",
+                                  rel: "noopener noreferrer",
+                                })}
                             className="btn-ghost"
                           >
                             {product.externalLabel}

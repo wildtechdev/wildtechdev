@@ -24,6 +24,243 @@ export type Post = {
 
 const allPosts: Post[] = [
   {
+    slug: "new-outlook-drag-and-drop",
+    title: "Why dragging attachments out of New Outlook does nothing",
+    summary:
+      "New Outlook advertises the file, then refuses to hand it over. We wrote a probe to find out why, and the answer is a documented Windows handshake that almost nothing implements.",
+    date: "2026-09-16",
+    readMinutes: 8,
+    tags: ["Build Log", "Windows", "Drag and Drop"],
+    content: `Drag an attachment out of New Outlook onto a folder and nothing happens. No error, no file, nothing to search for. Here is what is actually going on, how we proved it, and the roughly thirty lines that fix it.
+
+## The annoyance
+
+You drag a PDF out of New Outlook onto your desktop. The cursor shows the "no drop" symbol, or the drop is accepted and no file ever arrives. No error dialog. No entry in any log. Nothing you can paste into a search box.
+
+That last part is what makes it maddening. A normal bug hands you a message to search for. This one hands you silence, so everybody assumes it is their machine, their profile, or their IT department.
+
+It is none of those. It fails the same way from Microsoft Teams, Gmail in a browser tab, SharePoint and OneDrive. And Classic Outlook works fine.
+
+That pattern is the whole clue, and it is worth sitting with for a second before reaching for a fix.
+
+## What the working case has in common
+
+Classic Outlook is a native Windows application. When you drag an attachment out of it, it puts a real file on the drag, in the format Windows has used since the nineties: \`CF_HDROP\`, a list of paths on disk. The receiving application reads the paths. Done.
+
+New Outlook is Chromium in a window. So are Teams, Gmail, SharePoint and OneDrive. Every source that fails is Chromium. Every source that works is native.
+
+Chromium cannot put a file on the drag, because at the moment you press the mouse button there is no file. The attachment is still on a server. Writing it to disk takes time, and a drag and drop operation is not allowed to block while that happens.
+
+So Chromium uses **delayed rendering**. It advertises the formats it could produce, then waits to be asked properly before producing anything. "Properly" turns out to be extremely specific.
+
+## The investigation
+
+Rather than guess, we wrote a probe: a small program that registers a real Windows drop target with \`RegisterDragDrop\`, logs every clipboard format a drag carries, and then tries to pull the file two different ways against that same drag.
+
+Then we dragged one attachment out of New Outlook onto it. Here is what the drag advertised:
+
+\`\`\`
+--- RAW FORMATETC ENUMERATION ---
+    1. id=49327  tymed=TYMED_ISTREAM   DragContext
+    2. id=49917  tymed=TYMED_HGLOBAL   DragImageBits
+    3. id=50088  tymed=TYMED_HGLOBAL   chromium/x-renderer-taint
+    4. id=15     tymed=TYMED_HGLOBAL   CF_HDROP
+    5. id=49856  tymed=TYMED_HGLOBAL   Chromium Web Custom MIME Data Format
+
+IDataObjectAsyncCapability: PRESENT  GetAsyncMode hr=0x00000000 asyncMode=True
+\`\`\`
+
+Two lines in that output matter.
+
+\`CF_HDROP\` is right there on the list, format id 15. The source is openly saying it can produce an ordinary Windows file. And \`IDataObjectAsyncCapability\` is present, reporting \`asyncMode=True\`. The source is openly saying it works asynchronously.
+
+So we asked the ordinary way, which is how essentially every Windows application asks:
+
+\`\`\`
+  [A] CF_HDROP GetData threw: DV_E_FORMATETC (0x80040064)
+  [A] FileGroupDescriptorW threw: DV_E_FORMATETC (0x80040064)
+\`\`\`
+
+\`DV_E_FORMATETC\` means "that format is not available." Except it plainly is available. It was on the list three lines earlier.
+
+This is exactly what every failing application sees. The file is advertised, then refused.
+
+## The handshake nobody implements
+
+The refusal is not a bug, and it is not Chromium being difficult. It is documented behaviour. [\`IDataObjectAsyncCapability\`](https://learn.microsoft.com/en-us/windows/win32/api/shobjidl_core/nn-shobjidl_core-idataobjectasynccapability) is a Windows interface for precisely this situation: a source that can produce data but needs time to do it.
+
+The sequence a drop target is supposed to follow:
+
+\`\`\`
+target: GetAsyncMode()        -> source says "yes, I work asynchronously"
+target: StartOperation()      -> "I am going to fetch on a background thread"
+target: GetData(CF_HDROP)     -> now the source produces the file
+target: EndOperation()        -> "done"
+\`\`\`
+
+A drop target that skips this and simply calls \`GetData(CF_HDROP)\` on the UI thread gets \`DV_E_FORMATETC\` and nothing else.
+
+**Almost nothing implements that sequence.** Not File Explorer, for these sources. Not the upload box on most websites. Not the average desktop application.
+
+This is why the failure looks so total. It is not in Outlook and it is not in the destination. Two pieces of software are using different halves of the same documented protocol, and neither one raises an error when they fail to line up.
+
+## The finding
+
+So we completed the handshake: call \`GetAsyncMode\`, call \`StartOperation\`, marshal the data object to a background MTA thread, extract there, then call \`EndOperation\`.
+
+\`\`\`
+  StartOperation hr=0x00000000
+  [B/try1] CF_HDROP SUCCESS, 1 path(s):
+        C:\\Users\\...\\AppData\\Local\\Temp\\chrome_drag19360_810947597\\DOC081826.pdf
+        (413387 bytes on disk)
+\`\`\`
+
+A real 413 KB PDF. First attempt, no retries, no polling loop that eventually got lucky.
+
+Then look at the path. \`chrome_drag19360_\` is **Chromium's own** temp directory, and 19360 is the process ID of the WebView2 host running Outlook. Chromium wrote that file itself, the instant it was asked correctly.
+
+Nothing was fetched from Microsoft. No API was called. No credentials were involved. The bytes were always there and always local. The file just needed the right question.
+
+That is the part worth writing down. This is not a scrape or a workaround bolted onto someone else's product. The file was sitting on disk the whole time, behind a handshake that is published, stable, and almost universally ignored.
+
+## The fix
+
+The insight above is maybe thirty lines of code. In full, the capture path does this:
+
+1. Register a real \`IDropTarget\` with \`RegisterDragDrop\`, rather than relying on a UI framework's simplified drop handling.
+2. On drop, query the data object for \`IDataObjectAsyncCapability\`.
+3. If async mode is on, call \`StartOperation\`, marshal the data object to a background MTA thread with \`CoMarshalInterThreadInterfaceInStream\`, and poll there while Chromium writes the file.
+4. Copy the result out of Chromium's temp directory immediately, because that directory is deleted the moment the drag operation ends.
+5. Call \`EndOperation\`.
+6. Serve the saved file back out as a plain \`CF_HDROP\` drag.
+
+Step six is the one that makes it useful rather than merely interesting. Once the file is on disk and an ordinary Windows application is offering it, every destination in Windows accepts it, because there is nothing unusual left to accept. File Explorer, browser upload boxes, CRMs, ERPs, chat apps. Nothing on the receiving end has to cooperate, or even know the tool exists.
+
+There are fallbacks for other source types too: plain synchronous \`CF_HDROP\` for ordinary Explorer drags, and \`FileGroupDescriptorW\` with \`FileContents\` over \`TYMED_ISTREAM\` for classic virtual-file sources such as attachments in Classic Outlook.
+
+The rest of the work was not the clever part. It was making it pleasant: a small always on top shelf window to drop things onto, a Ctrl+C shortcut for upload dialogs that take a paste, an installer that needs no admin rights, and an icon.
+
+## Why it is two gestures, not one
+
+Worth stating plainly rather than hiding in a FAQ: using [DragIn1](/dragin1) is two gestures. Drop the attachment on the shelf, then drag it out where you actually wanted it.
+
+One gesture is possible. It means fixing the problem at the source: getting inside the Chromium process, intercepting \`DoDragDrop\`, and performing the handshake on the application's behalf before the drag ever reaches a destination.
+
+That approach works. It also means injecting unsigned code into Outlook, Teams and Chrome. That trips antivirus, requires a conversation with IT on a managed machine, and breaks whenever any of those applications update, which for Outlook is roughly constantly.
+
+DragIn1 never enters another process. The cost is one extra gesture. The benefit is that it cannot break your email client, and it will still work after the next Outlook update. For something people install once and then forget about, that trade felt like the right one.
+
+## Why it is free
+
+The hard part here was understanding the problem, not writing the code. Once you know the handshake exists and know that Chromium is waiting to be asked, the implementation is short, unexciting, and sitting in front of you.
+
+Charging a subscription for thirty lines of protocol compliance, aimed at people who are already frustrated and just want their attachment, did not sit right. So DragIn1 is MIT licensed and the source is on GitHub. It makes no network connections of any kind: no accounts, no licence checks, no update pings, no telemetry. You can read the whole thing, or build it yourself in about two seconds with a compiler that already ships inside Windows.
+
+### If you are implementing this yourself
+
+Three things that are easy to get wrong:
+
+- **Do the extraction off the UI thread.** The entire point of async mode is that the source may need time. Marshal the data object across apartments with \`CoMarshalInterThreadInterfaceInStream\` and \`CoGetInterfaceAndReleaseStream\`. Do not call from the drop thread and hope.
+- **Copy the file immediately.** The path you get back points inside Chromium's temp directory, which is deleted when the drag ends. A path you stored and read later will be gone.
+- **Call \`EndOperation\`, even on failure.** Skipping it leaves the source believing an operation is still in flight.
+
+The full technical write-up, including the complete probe output and the reference links, is in [docs/how-it-works.md](https://github.com/wildtechdev/DragIn1/blob/main/docs/how-it-works.md) in the repo. The implementation is in \`DragIn1.cs\`, in the \`Grab\` and \`ShelfTarget\` classes. It is plain C# against the Win32 interfaces, with no dependencies.
+
+If you just want the tool, it is on the [DragIn1 product page](/dragin1), and the longer story of building it is in the [case study](/work/dragin1).`,
+  },
+  {
+    slug: "windows-protected-your-pc",
+    title: "\u201CWindows protected your PC\u201D is not what most people think",
+    summary:
+      "SmartScreen warns on unsigned software because nothing vouched for it, not because something was detected. What the warning actually checks, why it returns on every release, and what we do instead of buying our way out of it.",
+    date: "2026-09-15",
+    readMinutes: 6,
+    tags: ["Windows", "Open Source", "Security"],
+    content: `Ship a small free Windows tool and you will meet a blue dialog that says "Windows protected your PC." Most people read that as "this file is dangerous." It does not mean that, and the difference is worth understanding whether you are installing software or publishing it.
+
+## What the warning actually says
+
+SmartScreen is a reputation service, not a scanner. When you run a downloaded executable, Windows asks a simple question: has this exact file been seen enough times, from a publisher we recognise, to be considered established?
+
+If the answer is no, you get the blue screen. That is the entire mechanism. It is not reporting that something was found in the file. It is reporting that nothing has vouched for it yet.
+
+Windows Defender, which is a scanner, runs separately and would tell you something quite different if it objected. SmartScreen going quiet is a statement about popularity and paperwork. Defender going quiet is a statement about content.
+
+There are two ways to make the warning go away. Be downloaded by a very large number of people, or buy a code signing certificate so the reputation attaches to your publisher identity instead of the individual file.
+
+## Why it comes back on every single release
+
+This one surprises people, including developers. SmartScreen ties unsigned reputation to a **specific file hash**.
+
+Change one byte and it is a new file with no history. So a project that ships a bugfix a week never accumulates anything. Version 1.0.1 starts from zero reputation even if 1.0.0 was downloaded ten thousand times without incident. The warning is not sticky in your favour, only against you.
+
+The practical result is that active maintenance is penalised. A tool that is updated regularly looks permanently suspicious, while an abandoned binary that happened to go viral looks trustworthy.
+
+## What the certificate actually costs
+
+A few hundred dollars a year, renewed forever, and since the industry moved to hardware-backed keys it also means a physical token or an HSM-backed cloud signing service, which adds cost and setup on top of the certificate itself.
+
+For commercial software that is a rounding error. For a free tool that solves one annoying problem, it is a recurring bill with no revenue behind it. That is the whole reason so much small, genuinely useful Windows software throws this warning.
+
+It is worth being precise about what you would be buying. A signature attests to provenance: this binary came from this publisher and was not altered in transit. It is not a security audit and it is not a warranty. Signed malware exists. Unsigned software that is completely fine is the overwhelming majority case. The signature answers "who made this," not "is this safe."
+
+## What we do instead
+
+We could not justify the certificate for a free tool, so the goal became making the trust question answerable without one. Four things, all of which you can check yourself.
+
+### 1. The source is public and small
+
+[DragIn1](/dragin1) is MIT licensed and it is two C# files. Not a framework, not a dependency tree, not a minified bundle. You can read the entire data flow in an afternoon, and the part that matters, that it opens no sockets, is verifiable by searching the source for the networking namespaces and finding nothing.
+
+### 2. Releases are built in public, not on a laptop
+
+Every released binary is produced by [a GitHub Actions workflow](https://github.com/wildtechdev/DragIn1/blob/main/.github/workflows/release.yml) from the public source, on a GitHub-hosted runner, triggered by a version tag. The run is publicly visible. It compiles with the C# compiler already included in Windows, with no third-party dependencies, no package restore, and no network access during compilation.
+
+No binary is ever built on a developer workstation and uploaded by hand. That removes the most common way a clean repository still produces a dirty download.
+
+### 3. Every release publishes a SHA256
+
+Computed by that same workflow, so you can confirm the file you downloaded is the file the public build produced:
+
+\`\`\`
+Get-FileHash DragIn1-Setup.exe -Algorithm SHA256
+\`\`\`
+
+Compare it with \`SHA256.txt\` on the release. If it does not match, do not run it, and please open an issue so we can look into it.
+
+### 4. You can build it yourself in about two seconds
+
+No Visual Studio, no .NET SDK, no internet connection. The C# compiler has shipped inside Windows since .NET Framework 4, which is already on every Windows 10 and 11 machine.
+
+\`\`\`
+git clone https://github.com/wildtechdev/DragIn1.git
+cd DragIn1
+Build-Installer.cmd
+\`\`\`
+
+That produces \`DragIn1.exe\` and \`DragIn1-Setup.exe\`. If you would rather trust your own machine than our release page, that option is a clone away, and it is the strongest answer to the trust question that exists.
+
+## The disclosure that should come with it
+
+A signature is worth less without knowing what the software actually does, so that is written down too. DragIn1 makes no network connections of any kind: no accounts, no licence checks, no update pings, no analytics. Files you drop on it are copied to \`%LOCALAPPDATA%\\DragIn1\\\` on your own machine and cleaned up after seven days.
+
+Everything the installer changes is per-user and needs no admin rights:
+
+- Files in the install folder you choose.
+- An uninstall entry under \`HKCU\`, removed when you uninstall.
+- Start Menu, desktop, and start-with-Windows entries, each a checkbox during setup and each reversible afterwards.
+
+No services, no drivers, no shell extensions, no scheduled tasks, no browser components, and no code loaded into any other process. The full breakdown is in the [code signing policy](https://github.com/wildtechdev/DragIn1/blob/main/CODE_SIGNING_POLICY.md).
+
+## So what should you actually do?
+
+When you hit the warning on DragIn1, click **More info**, then **Run anyway**. That is the intended path for software that has not bought reputation. There is a walkthrough on the [support page](/dragin1/support) if you want it alongside the other install steps.
+
+But the more useful habit is the general one: treat the dialog as a prompt to ask where the file came from, not as a verdict. Did you get it from the project's own release page? Can you read the source? Does the hash match? Those questions are answerable, and they tell you far more than the presence or absence of a blue screen.
+
+If DragIn1 releases are ever signed through the [SignPath Foundation](https://signpath.org), which provides free certificates to open source projects, that will be noted on the releases page and in the policy. Until then the warning is the honest cost of shipping something free, and we would rather explain it than have you wonder.`,
+  },
+  {
     slug: "rebuilding-my-home-church-website",
     title:
       "Rebuilding my home church's website: from $47 a month to almost free",

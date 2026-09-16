@@ -1,20 +1,12 @@
 "use client";
 
 import Link from "next/link";
-import PhoneMockup from "@/components/PhoneMockup";
+import ProductMockup, { type MockupId } from "@/components/ProductMockup";
 import TiltCard from "@/components/TiltCard";
-
-type Mockup =
-  | "spirits-charleston"
-  | "spirits-savannah"
-  | "ez-fuse"
-  | "churchd"
-  | "vikingsense"
-  | "we-the-people";
 
 export type HomeProduct = {
   name: string;
-  mockup: Mockup;
+  mockup: MockupId;
   type: string;
   description: string;
   price?: string;
@@ -90,7 +82,7 @@ export default function HomeProductCard({
         className="relative flex justify-center mt-14 mb-6 z-[1]"
         style={{ transform: "translateZ(20px)" }}
       >
-        <PhoneMockup product={product.mockup} size="small" />
+        <ProductMockup product={product.mockup} size="small" />
       </div>
 
       <div className="relative z-[1] flex-1 flex flex-col">

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
-import PhoneMockup from "@/components/PhoneMockup";
+import ProductMockup from "@/components/ProductMockup";
 import ScrollReveal from "@/components/ScrollReveal";
 import { caseStudies } from "@/lib/work";
 
@@ -120,7 +120,7 @@ export default function WorkPage() {
                   </div>
                   {/* Product thumbnail for quick visual recognition (desktop) */}
                   <div className="hidden lg:block shrink-0 transition-transform duration-500 group-hover:-translate-y-1">
-                    <PhoneMockup product={cs.mockup} size="small" />
+                    <ProductMockup product={cs.mockup} size="small" />
                   </div>
                 </Link>
               </ScrollReveal>

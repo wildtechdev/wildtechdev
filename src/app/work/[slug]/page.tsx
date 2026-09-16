@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
-import PhoneMockup from "@/components/PhoneMockup";
+import ProductMockup from "@/components/ProductMockup";
 import Prose from "@/components/Prose";
 import ScrollReveal from "@/components/ScrollReveal";
 import {
@@ -158,8 +158,32 @@ export default async function CaseStudyPage({
                     site buttons from the bottom CTA block so visitors who
                     don't scroll the whole case study can still follow through
                     to the product directly from the header. */}
-                {(cs.appStoreUrl || cs.externalUrl) && (
+                {(cs.appStoreUrl || cs.externalUrl || cs.downloadUrl) && (
                   <div className="mt-7 flex flex-wrap gap-3">
+                    {cs.downloadUrl && (
+                      <a
+                        href={cs.downloadUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="btn-solid"
+                      >
+                        Download
+                        <svg
+                          className="w-3.5 h-3.5"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                          strokeWidth={2}
+                          aria-hidden="true"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
+                          />
+                        </svg>
+                      </a>
+                    )}
                     {cs.appStoreUrl && (
                       <a
                         href={cs.appStoreUrl}
@@ -189,9 +213,9 @@ export default async function CaseStudyPage({
                         href={cs.externalUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="btn-solid"
+                        className={cs.downloadUrl ? "btn-ghost" : "btn-solid"}
                       >
-                        Visit site
+                        {cs.externalLabel ?? "Visit site"}
                         <svg
                           className="w-3.5 h-3.5"
                           fill="none"
@@ -215,7 +239,7 @@ export default async function CaseStudyPage({
                 className="shrink-0 self-center lg:self-start"
                 style={{ transform: "translateZ(0)" }}
               >
-                <PhoneMockup product={cs.mockup} priority />
+                <ProductMockup product={cs.mockup} priority />
               </div>
             </div>
 
@@ -272,6 +296,16 @@ export default async function CaseStudyPage({
           <ScrollReveal>
             <div className="mt-16 pt-10 border-t border-border flex flex-col sm:flex-row gap-4 items-start sm:items-center justify-between max-w-3xl mx-auto">
               <div className="flex flex-wrap gap-3">
+                {cs.downloadUrl && (
+                  <a
+                    href={cs.downloadUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn-ghost"
+                  >
+                    Download
+                  </a>
+                )}
                 {cs.appStoreUrl && (
                   <a
                     href={cs.appStoreUrl}
@@ -289,7 +323,7 @@ export default async function CaseStudyPage({
                     rel="noopener noreferrer"
                     className="btn-ghost"
                   >
-                    Visit site
+                    {cs.externalLabel ?? "Visit site"}
                   </a>
                 )}
                 <Link

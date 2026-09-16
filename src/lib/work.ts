@@ -1,6 +1,8 @@
 // Deep case studies for /work/[slug]. One per product.
 // Same lightweight markdown-ish format as posts.ts.
 
+import type { MockupId } from "@/components/ProductMockup";
+
 export type CaseStudy = {
   slug: string;
   product: string; // The product name as it appears on /products
@@ -12,19 +14,141 @@ export type CaseStudy = {
   stack: string[];
   metrics?: { label: string; value: string }[];
   externalUrl?: string;
+  /** Overrides the default "Visit site" label on the external link. */
+  externalLabel?: string;
   appStoreUrl?: string;
+  /** Direct download, for products distributed outside an app store. */
+  downloadUrl?: string;
   productAnchor: string; // Anchor on /products to link back to
-  mockup:
-    | "spirits-charleston"
-    | "spirits-savannah"
-    | "ez-fuse"
-    | "churchd"
-    | "vikingsense"
-    | "we-the-people"; // PhoneMockup product id for the header screenshot
+  mockup: MockupId; // Product artwork id (phone frame, or a desktop window)
   content: string;
 };
 
 export const caseStudies: CaseStudy[] = [
+  {
+    slug: "dragin1",
+    product: "DragIn1",
+    title:
+      "Diagnosing a silent Windows failure that makes New Outlook look broken, and shipping the fix free",
+    summary:
+      "Dragging an attachment out of New Outlook does nothing, with no error to search for. We wrote a probe to find out why, found a documented Windows handshake that almost nothing implements, and released the fix as a free open source tool.",
+    client: "WildTech Ventures, LLC",
+    role: "Diagnosis, Windows development, installer, branding, open source release",
+    year: "2026",
+    stack: [
+      "C# / .NET Framework",
+      "Win32 COM interop",
+      "IDataObjectAsyncCapability",
+      "OLE drag and drop",
+      "GitHub Actions",
+    ],
+    metrics: [
+      { label: "Cost to user", value: "Free, MIT" },
+      { label: "Network connections", value: "Zero" },
+      { label: "Code that fixes it", value: "About 30 lines" },
+    ],
+    downloadUrl: "https://github.com/wildtechdev/DragIn1/releases/latest",
+    externalUrl: "https://github.com/wildtechdev/DragIn1",
+    externalLabel: "View source",
+    productAnchor: "dragin1",
+    mockup: "dragin1",
+    content: `DragIn1 is a small Windows app that fixes drag and drop from New Outlook. It is free, MIT licensed, open source, and it runs entirely on the user's PC with no account, no network calls and no telemetry. There is also a DragIn1 Chrome extension covering the same problem from inside the browser.
+
+This case study is mostly about the diagnosis, because that was the hard part. The code that fixes the problem is about thirty lines. Finding out what the problem actually was took considerably longer.
+
+## The problem
+
+Drag an attachment out of New Outlook onto a folder, an upload box, or another application. Nothing happens. No error, no file, just a cursor that refuses.
+
+The same thing happens from Microsoft Teams, Gmail in a browser tab, SharePoint and OneDrive. Classic Outlook works fine.
+
+What makes this particular failure so frustrating is the silence. A normal bug gives you a message you can search for. This one gives you nothing at all, so people assume it is their machine, their profile, or their IT department. It is none of those, and no setting will change it.
+
+For anyone whose job involves moving attachments into a CRM, an ERP, a document management system or a ticketing queue, this is not a minor annoyance. It is a dozen interruptions a day, worked around by saving every attachment to Downloads first.
+
+## Why it happens
+
+Classic Outlook is a native Windows application. When you drag an attachment it puts a real file on the drag, in the format Windows has used since the nineties: \`CF_HDROP\`, a list of paths on disk. The receiving application reads the paths and the drop works.
+
+New Outlook is Chromium in a window. So are Teams, Gmail, SharePoint and OneDrive. Every source that fails is Chromium, and every source that works is native. That pattern was the clue worth chasing.
+
+Chromium cannot put a file on the drag, because at the moment you press the mouse button there is no file. The attachment is still on a server. Writing it to disk takes time, and a drag and drop operation is not allowed to block while that happens. So Chromium advertises the formats it could produce and waits to be asked properly before producing anything.
+
+"Properly" turns out to be very specific.
+
+## The investigation
+
+Rather than guess, we built a probe: a small program that registers a real Windows drop target with \`RegisterDragDrop\`, logs every clipboard format a drag carries, and then tries to pull the file two different ways against that same drag.
+
+Dragging a single attachment out of New Outlook onto it produced this:
+
+\`\`\`
+--- RAW FORMATETC ENUMERATION ---
+    1. id=49327  tymed=TYMED_ISTREAM   DragContext
+    2. id=49917  tymed=TYMED_HGLOBAL   DragImageBits
+    3. id=50088  tymed=TYMED_HGLOBAL   chromium/x-renderer-taint
+    4. id=15     tymed=TYMED_HGLOBAL   CF_HDROP
+    5. id=49856  tymed=TYMED_HGLOBAL   Chromium Web Custom MIME Data Format
+
+IDataObjectAsyncCapability: PRESENT  GetAsyncMode hr=0x00000000 asyncMode=True
+\`\`\`
+
+Two lines matter. \`CF_HDROP\` is right there on the list at format id 15, so the source is openly saying it can produce an ordinary Windows file. And \`IDataObjectAsyncCapability\` is present reporting \`asyncMode=True\`, so the source is openly saying it works asynchronously.
+
+Asking the ordinary way, which is how essentially every Windows application asks, produced this:
+
+\`\`\`
+  [A] CF_HDROP GetData threw: DV_E_FORMATETC (0x80040064)
+  [A] FileGroupDescriptorW threw: DV_E_FORMATETC (0x80040064)
+\`\`\`
+
+\`DV_E_FORMATETC\` means "that format is not available." Except it plainly is available. It was on the list three lines earlier. That refusal is exactly what every failing application sees.
+
+## The finding
+
+The refusal is documented behaviour, not a bug. \`IDataObjectAsyncCapability\` is a Windows interface for precisely this situation: a source that can produce data but needs time to do it. The drop target is expected to call \`GetAsyncMode\`, then \`StartOperation\`, then extract on a background thread, then call \`EndOperation\`. A target that skips this and calls \`GetData(CF_HDROP)\` on the UI thread gets \`DV_E_FORMATETC\` and nothing else.
+
+Almost nothing implements that sequence. Not File Explorer for these sources, not the upload box on most websites, not the average desktop application. That is why the failure looks total and simultaneous: it is not in Outlook and it is not in the destination, it is two pieces of software using different halves of the same documented protocol while neither reports an error.
+
+Completing the handshake produced a real file on the first attempt:
+
+\`\`\`
+  StartOperation hr=0x00000000
+  [B/try1] CF_HDROP SUCCESS, 1 path(s):
+        C:\\Users\\...\\AppData\\Local\\Temp\\chrome_drag19360_810947597\\DOC081826.pdf
+        (413387 bytes on disk)
+\`\`\`
+
+The path is the interesting part. \`chrome_drag19360_\` is Chromium's own temp directory, and 19360 is the process ID of the WebView2 host running Outlook. Chromium wrote that file itself the instant it was asked correctly. Nothing was fetched from Microsoft, no API was called, no credentials were involved. The bytes were always there and always local. The file just needed the right question.
+
+## What we shipped
+
+DragIn1 is a small always on top window. You drop the attachment on it, DragIn1 completes the handshake and saves the real file to disk, and then you drag it out of DragIn1 into anything at all.
+
+The capture path registers a real \`IDropTarget\`, queries the data object for \`IDataObjectAsyncCapability\`, and when async mode is on it calls \`StartOperation\`, marshals the data object to a background MTA thread with \`CoMarshalInterThreadInterfaceInStream\`, and polls there while Chromium writes the file. It copies the result out of Chromium's temp directory immediately, because that directory is deleted the moment the drag ends, and then calls \`EndOperation\`. There are fallbacks for ordinary Explorer drags and for classic virtual-file sources.
+
+The step that makes it broadly useful is the last one: DragIn1 re-serves the saved file as a plain \`CF_HDROP\` drag. Once the file is on disk and an ordinary Windows application is offering it, every destination in Windows accepts it, because there is nothing unusual left to accept. Nothing on the receiving end has to cooperate or even know DragIn1 exists. There is also a Ctrl+C shortcut for upload dialogs that take a paste instead of a drag.
+
+## The tradeoff we chose on purpose
+
+Using DragIn1 is two gestures rather than one, and we say so plainly on the product page rather than hiding it.
+
+One gesture is achievable. It means getting inside the Chromium process, intercepting \`DoDragDrop\`, and performing the handshake on the application's behalf before the drag reaches any destination. It also means injecting unsigned code into Outlook, Teams and Chrome, which trips antivirus, requires a conversation with IT on a managed machine, and breaks whenever any of those applications update.
+
+DragIn1 never enters another process. The cost is one extra gesture. The benefit is that it cannot break your email client and it will still work after the next Outlook update. For something people install once and then forget about, that was the right trade.
+
+## Why it is free
+
+The hard part was understanding the problem, not writing the code. Once you know the handshake exists and that Chromium is waiting to be asked, the implementation is short and unexciting. Charging a subscription for thirty lines of protocol compliance, aimed at people who are already frustrated and just want their attachment, did not sit right.
+
+So it is MIT licensed with the full source public, it makes no network connections of any kind, and every release is built by a public GitHub Actions workflow that publishes a SHA256 you can verify. You can also build it yourself in about two seconds with a compiler that already ships inside Windows.
+
+## What this demonstrates
+
+Most software problems that look mysterious are not mysterious, they are just unobserved. The useful move here was not cleverness, it was instrumentation: building a probe that could see what the drag was actually carrying, instead of theorising about it.
+
+That is the same approach we bring to client work. If something in your stack fails silently and everyone has learned to work around it, there is usually a specific, findable reason, and the workaround is usually costing more than the fix would. We are happy to go and find it.`,
+  },
   {
     slug: "viking-sensors",
     product: "Viking Sensors",

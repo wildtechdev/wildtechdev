@@ -7,7 +7,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Stable release stamp for static routes. Bump this when page content
   // meaningfully changes. (The old `new Date()` stamped every route as
   // modified on every request, which tells Google nothing.)
-  const now = new Date("2026-07-07");
+  const now = new Date("2026-09-16");
 
   const staticRoutes: MetadataRoute.Sitemap = [
     {
@@ -27,6 +27,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: now,
       changeFrequency: "monthly",
       priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/dragin1`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/dragin1/support`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.6,
     },
     {
       url: `${baseUrl}/services`,

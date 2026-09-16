@@ -136,6 +136,18 @@ const orgJsonLd = {
 
 const products: HomeProduct[] = [
   {
+    name: "DragIn1",
+    mockup: "dragin1",
+    type: "Windows App",
+    description:
+      "Fixes drag and drop from New Outlook, Teams, Gmail and SharePoint. Free, open source, runs entirely on your PC.",
+    price: "Free",
+    link: "https://github.com/wildtechdev/DragIn1/releases/latest",
+    linkLabel: "Download",
+    accent: "green",
+    caseStudySlug: "dragin1",
+  },
+  {
     name: "Spirits of Charleston",
     mockup: "spirits-charleston",
     type: "iOS App",
@@ -496,7 +508,8 @@ export default function HomePage() {
             <span className="hidden sm:block mx-6 w-px h-3 bg-border-strong" />
             <span className="flex items-center gap-2.5">
               <span className="w-1.5 h-1.5 bg-accent rounded-full" />
-              <Counter to={6} className="text-heading text-base" />
+              {/* Derived from the grid below so the two cannot drift apart. */}
+              <Counter to={products.length} className="text-heading text-base" />
               <span className="text-muted text-xs uppercase tracking-widest">
                 Products
               </span>
