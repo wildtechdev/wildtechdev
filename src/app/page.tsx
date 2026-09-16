@@ -9,6 +9,7 @@ import HeroSpotlight from "@/components/HeroSpotlight";
 import HomeProductCard, { type HomeProduct } from "@/components/HomeProductCard";
 import LogoMark from "@/components/LogoMark";
 import { posts } from "@/lib/posts";
+import { caseStudies } from "@/lib/work";
 import { formatDate } from "@/lib/format";
 
 export const metadata: Metadata = {
@@ -134,7 +135,7 @@ const orgJsonLd = {
   },
 };
 
-const products: HomeProduct[] = [
+const homeProducts: HomeProduct[] = [
   {
     name: "DragIn1",
     mockup: "dragin1",
@@ -220,6 +221,17 @@ const products: HomeProduct[] = [
     caseStudySlug: "viking-sensors",
   },
 ];
+
+/* The home grid runs in the same order as /work, newest first, so the two
+   pages tell the same story. Deriving it from caseStudies means adding a
+   product in one place cannot leave the other stale. Anything without a
+   case study sorts to the end. */
+const caseStudyOrder = new Map(caseStudies.map((cs, i) => [cs.slug, i]));
+const products: HomeProduct[] = [...homeProducts].sort(
+  (a, b) =>
+    (caseStudyOrder.get(a.caseStudySlug) ?? Number.MAX_SAFE_INTEGER) -
+    (caseStudyOrder.get(b.caseStudySlug) ?? Number.MAX_SAFE_INTEGER)
+);
 
 const services = [
   {
