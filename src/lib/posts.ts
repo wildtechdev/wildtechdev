@@ -29,7 +29,7 @@ const allPosts: Post[] = [
     summary:
       "New Outlook advertises the file, then refuses to hand it over. We wrote a probe to find out why, and the answer is a documented Windows handshake that almost nothing implements.",
     date: "2026-09-16",
-    readMinutes: 8,
+    readMinutes: 9,
     tags: ["Build Log", "Windows", "Drag and Drop"],
     content: `Drag an attachment out of New Outlook onto a folder and nothing happens. No error, no file, nothing to search for. Here is what is actually going on, how we proved it, and the roughly thirty lines that fix it.
 
@@ -156,6 +156,16 @@ The hard part here was understanding the problem, not writing the code. Once you
 
 Charging a subscription for thirty lines of protocol compliance, aimed at people who are already frustrated and just want their attachment, did not sit right. So DragIn1 is MIT licensed and the source is on GitHub. It makes no network connections of any kind: no accounts, no licence checks, no update pings, no telemetry. You can read the whole thing, or build it yourself in about two seconds with a compiler that already ships inside Windows.
 
+## One thing to expect when you install it
+
+Windows will stop you with a blue **"Windows protected your PC"** dialog the first time you run the installer. Click **More info**, then **Run anyway**.
+
+That dialog is SmartScreen, and it is worth being precise about what it means, because it is not what most people assume. It is not reporting that something was found in the file. It is reporting that the file has no reputation yet, which is the normal state for any free tool that has not bought a code signing certificate. It will also come back on every new release, because SmartScreen ties reputation to a specific file hash and every release is a new file.
+
+If you would rather not take that on faith, you do not have to: every release publishes a SHA256 you can check, the source is two C# files you can read, and you can build it yourself instead of running our binary.
+
+The full explanation of what SmartScreen actually checks, what a certificate would and would not buy, and how to verify a download is its own post: [“Windows protected your PC” is not what most people think](/journal/windows-protected-your-pc). The reasoning applies to every small free Windows tool you will ever download, not just this one.
+
 ### If you are implementing this yourself
 
 Three things that are easy to get wrong:
@@ -166,7 +176,7 @@ Three things that are easy to get wrong:
 
 The full technical write-up, including the complete probe output and the reference links, is in [docs/how-it-works.md](https://github.com/wildtechdev/DragIn1/blob/main/docs/how-it-works.md) in the repo. The implementation is in \`DragIn1.cs\`, in the \`Grab\` and \`ShelfTarget\` classes. It is plain C# against the Win32 interfaces, with no dependencies.
 
-If you just want the tool, it is on the [DragIn1 product page](/dragin1), and the longer story of building it is in the [case study](/work/dragin1). There is also a [DragIn1 Chrome extension](https://chromewebstore.google.com/detail/dragin1/dfjodholanpnddcmbcledbbmbkdcibal) that covers the same problem from inside the browser.`,
+If you just want the tool, it is on the [DragIn1 product page](/dragin1), and the longer story of building it is in the [case study](/work/dragin1). There is also a [DragIn1 Chrome extension](https://chromewebstore.google.com/detail/dragin1/dfjodholanpnddcmbcledbbmbkdcibal) that covers the same problem from inside the browser. If Windows blocks the installer, [here is what that warning actually means](/journal/windows-protected-your-pc), and the [support page](/dragin1/support) has the rest of the install and troubleshooting steps.`,
   },
   {
     slug: "windows-protected-your-pc",
@@ -258,7 +268,9 @@ When you hit the warning on DragIn1, click **More info**, then **Run anyway**. T
 
 But the more useful habit is the general one: treat the dialog as a prompt to ask where the file came from, not as a verdict. Did you get it from the project's own release page? Can you read the source? Does the hash match? Those questions are answerable, and they tell you far more than the presence or absence of a blue screen.
 
-If DragIn1 releases are ever signed through the [SignPath Foundation](https://signpath.org), which provides free certificates to open source projects, that will be noted on the releases page and in the policy. Until then the warning is the honest cost of shipping something free, and we would rather explain it than have you wonder.`,
+If DragIn1 releases are ever signed through the [SignPath Foundation](https://signpath.org), which provides free certificates to open source projects, that will be noted on the releases page and in the policy. Until then the warning is the honest cost of shipping something free, and we would rather explain it than have you wonder.
+
+If you arrived here from the warning itself and want to know what the tool underneath it actually does, that is the other half of the story: [why dragging attachments out of New Outlook does nothing](/journal/new-outlook-drag-and-drop), including the probe output that found the cause.`,
   },
   {
     slug: "rebuilding-my-home-church-website",
