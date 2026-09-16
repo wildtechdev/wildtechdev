@@ -311,14 +311,35 @@ export default function DragIn1Page() {
 
           <ScrollReveal>
             <div className="mt-10 border-l-2 border-accent/40 pl-5 py-1">
-              <p className="text-sm text-body leading-relaxed">
+              <p className="text-sm text-body leading-relaxed mb-3">
                 <strong className="text-heading">
                   Yes, that is two gestures instead of one.
                 </strong>{" "}
-                Making it a single drag would mean injecting code inside Outlook
-                and Chrome, which trips antivirus and breaks on every Outlook
-                update. DragIn1 stays outside every other process. One extra
-                gesture, and it cannot break your email client.
+                Making the desktop app a single drag would mean injecting code
+                inside Outlook and Chrome, which trips antivirus and breaks on
+                every Outlook update. DragIn1 stays outside every other process.
+                One extra gesture, and it cannot break your email client.
+              </p>
+              <p className="text-sm text-body leading-relaxed">
+                One exception worth knowing: if the place you are dropping onto
+                is an{" "}
+                <strong className="text-heading">
+                  upload box on a web page
+                </strong>
+                , the{" "}
+                <a
+                  href={dragin1.chromeExtension}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-accent link-underline"
+                >
+                  Chrome extension
+                </a>{" "}
+                does make it a single motion. It receives the captured file
+                from the helper and hands it straight to the page&apos;s
+                uploader, so you drag from Outlook to the upload box and
+                nothing else. The two-step shelf is what covers everywhere
+                else: folders, desktop apps, anything that takes a file.
               </p>
             </div>
           </ScrollReveal>
@@ -395,6 +416,18 @@ export default function DragIn1Page() {
                   on your machine and cleaned up automatically after seven days.
                   The installer adds no services, drivers, shell extensions or
                   scheduled tasks, and requires no administrator rights.
+                </p>
+
+                <p className="text-sm text-muted leading-relaxed mt-5">
+                  The full policy, covering both the desktop helper and the
+                  Chrome extension:{" "}
+                  <Link
+                    href="/privacy/dragin1"
+                    className="text-accent link-underline"
+                  >
+                    DragIn1 privacy policy
+                  </Link>
+                  .
                 </p>
               </div>
             </div>
@@ -611,10 +644,19 @@ export default function DragIn1Page() {
               <h2 className="text-2xl sm:text-3xl font-[family-name:var(--font-serif)] italic text-heading mb-5">
                 There is a Chrome extension too
               </h2>
-              <p className="text-body leading-relaxed mb-8 max-w-2xl">
+              <p className="text-body leading-relaxed mb-5 max-w-2xl">
                 The DragIn1 extension covers the same problem from inside the
-                browser. The desktop app and the extension are built to read as
-                one product, so use whichever fits where you work, or both.
+                browser, and it is what turns a web upload into a single
+                motion. With the helper running, the extension receives the
+                captured file and hands it straight to the page&rsquo;s
+                uploader, so you drag an attachment from New Outlook onto an
+                upload box and it just uploads.
+              </p>
+              <p className="text-body leading-relaxed mb-8 max-w-2xl">
+                The two work together: the extension handles upload boxes on
+                web pages, and the desktop shelf handles everywhere else. The
+                extension needs the helper installed, since on its own it has
+                nothing to receive.
               </p>
               <div className="flex flex-wrap items-center gap-x-6 gap-y-4">
                 <a

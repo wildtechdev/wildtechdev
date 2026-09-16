@@ -106,11 +106,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "yearly",
       priority: 0.3,
     },
-    // NOTE: /privacy/we-the-people-your-rights is intentionally NOT in the
-    // sitemap. That page has robots: { index: false, follow: false } in its
-    // metadata because it exists only for App Store compliance and isn't
-    // meant to compete in search. Listing a noindex page in the sitemap
-    // sends contradictory signals to Google and wastes crawl budget.
+    // NOTE: the per-product policies under /privacy/* are intentionally NOT
+    // in the sitemap: we-the-people-your-rights, ez-fuse-tester, spirits and
+    // dragin1. Each has robots: { index: false, follow: false } in its
+    // metadata because it exists for app store and Chrome Web Store
+    // compliance rather than to compete in search. Listing a noindex page in
+    // the sitemap sends contradictory signals to Google and wastes crawl
+    // budget. They stay reachable by direct link, which is all a store
+    // listing needs.
   ];
 
   const caseStudyRoutes: MetadataRoute.Sitemap = caseStudies.map((cs) => ({
