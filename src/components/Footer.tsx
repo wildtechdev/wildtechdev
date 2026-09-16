@@ -4,6 +4,7 @@ const navLinks = [
   { href: "/", label: "Home" },
   { href: "/products", label: "Products" },
   { href: "/services", label: "Services" },
+  { href: "/journal", label: "Journal" },
   { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
 ];
@@ -11,6 +12,7 @@ const navLinks = [
 const productLinks = [
   { href: "/products#spirits-of-charleston", label: "Spirits of Charleston" },
   { href: "/products#spirits-of-savannah", label: "Spirits of Savannah" },
+  { href: "/dragin1", label: "DragIn1" },
   { href: "/products#ez-fuse-tester", label: "EZ Fuse Tester" },
   { href: "/products#churchd", label: "Churchd" },
   { href: "/products#vikingsense", label: "VikingSense" },

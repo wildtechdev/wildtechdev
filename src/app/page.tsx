@@ -1,5 +1,6 @@
 import Link from "next/link";
 import PhoneMockup from "@/components/PhoneMockup";
+import DragIn1Mockup from "@/components/DragIn1Mockup";
 import ScrollReveal from "@/components/ScrollReveal";
 
 const products = [
@@ -24,6 +25,16 @@ const products = [
     link: "https://apps.apple.com/us/app/spirits-of-savannah/id6740187114",
     linkLabel: "App Store",
     hoverTint: "hover:bg-teal-950/[0.03]",
+  },
+  {
+    name: "DragIn1",
+    mockup: null,
+    type: "TOOL",
+    description: "Fixes drag and drop from New Outlook, Teams, Gmail and SharePoint. Free, open source, runs entirely on your PC.",
+    price: "Free",
+    link: "/dragin1",
+    linkLabel: "Learn more",
+    hoverTint: "hover:bg-emerald-950/[0.03]",
   },
   {
     name: "EZ Fuse Tester",
@@ -113,6 +124,76 @@ const services = [
 ];
 
 
+type Product = (typeof products)[number];
+
+/**
+ * One product tile. `mockup: null` means the product is not an iOS app and
+ * gets the DragIn1 shelf window instead; an internal `link` routes through
+ * <Link> rather than opening a new tab.
+ */
+function ProductCard({ product, index }: { product: Product; index: number }) {
+  const isInternal = product.link.startsWith("/");
+
+  return (
+    <div
+      className={`group relative bg-black p-7 sm:p-8 h-full border border-transparent hover:border-green hover:-translate-y-1 transition-all duration-300 ${product.hoverTint}`}
+    >
+      <span className="text-3xl sm:text-[48px] leading-none font-[family-name:var(--font-serif)] text-border group-hover:text-[#333] transition-colors duration-300 absolute top-5 left-7">
+        {String(index + 1).padStart(2, "0")}
+      </span>
+      <span className="absolute top-7 right-7 text-[10px] font-mono tracking-[0.2em] text-green">
+        {product.type}
+      </span>
+
+      <div className="flex justify-center mt-14 mb-6">
+        {product.mockup ? (
+          <PhoneMockup product={product.mockup} size="small" />
+        ) : (
+          <DragIn1Mockup size="small" id={`home-${index}`} />
+        )}
+      </div>
+
+      <h3 className="text-xl font-[family-name:var(--font-serif)] italic text-heading mb-3">
+        {product.name}
+      </h3>
+      <p className="text-body text-sm leading-relaxed mb-5">
+        {product.description}
+      </p>
+
+      <div className="flex items-center gap-3 mb-4">
+        {product.price && (
+          <span className="text-heading text-sm font-[family-name:var(--font-sans)]">
+            {product.price}
+          </span>
+        )}
+        {product.rating && (
+          <span className="text-[10px] text-muted font-mono">
+            {product.rating} &#9733;
+          </span>
+        )}
+      </div>
+
+      {isInternal ? (
+        <Link
+          href={product.link}
+          className="text-green text-sm link-underline font-[family-name:var(--font-sans)]"
+        >
+          {product.linkLabel} &rarr;
+        </Link>
+      ) : (
+        <a
+          href={product.link}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-green text-sm link-underline font-[family-name:var(--font-sans)]"
+        >
+          {product.linkLabel} &rarr;
+        </a>
+      )}
+    </div>
+  );
+}
+
 export default function HomePage() {
   return (
     <>
@@ -195,96 +276,16 @@ export default function HomePage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-border">
             {products.slice(0, 3).map((product, i) => (
               <ScrollReveal key={product.name} delay={i * 100}>
-                <div
-                  className={`group relative bg-black p-7 sm:p-8 border border-transparent hover:border-green hover:-translate-y-1 transition-all duration-300 ${product.hoverTint}`}
-                >
-                  <span className="text-3xl sm:text-[48px] leading-none font-[family-name:var(--font-serif)] text-border group-hover:text-[#333] transition-colors duration-300 absolute top-5 left-7">
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                  <span className="absolute top-7 right-7 text-[10px] font-mono tracking-[0.2em] text-green">
-                    {product.type}
-                  </span>
-                  <div className="flex justify-center mt-14 mb-6">
-                    <PhoneMockup product={product.mockup} size="small" />
-                  </div>
-                  <h3 className="text-xl font-[family-name:var(--font-serif)] italic text-heading mb-3">
-                    {product.name}
-                  </h3>
-                  <p className="text-body text-sm leading-relaxed mb-5">
-                    {product.description}
-                  </p>
-                  <div className="flex items-center gap-3 mb-4">
-                    {product.price && (
-                      <span className="text-heading text-sm font-[family-name:var(--font-sans)]">
-                        {product.price}
-                      </span>
-                    )}
-                    {product.rating && (
-                      <span className="text-[10px] text-muted font-mono">
-                        {product.rating} ★
-                      </span>
-                    )}
-                  </div>
-                  {product.link && (
-                    <a
-                      href={product.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-green text-sm link-underline font-[family-name:var(--font-sans)]"
-                    >
-                      {product.linkLabel} &rarr;
-                    </a>
-                  )}
-                </div>
+                <ProductCard product={product} index={i} />
               </ScrollReveal>
             ))}
           </div>
 
-          {/* Bottom row: 2 cards - stack on mobile */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-px bg-border mt-px">
+          {/* Bottom row: 3 cards - stack on mobile */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-border mt-px">
             {products.slice(3).map((product, i) => (
               <ScrollReveal key={product.name} delay={i * 100}>
-                <div
-                  className={`group relative bg-black p-7 sm:p-8 border border-transparent hover:border-green hover:-translate-y-1 transition-all duration-300 ${product.hoverTint}`}
-                >
-                  <span className="text-3xl sm:text-[48px] leading-none font-[family-name:var(--font-serif)] text-border group-hover:text-[#333] transition-colors duration-300 absolute top-5 left-7">
-                    {String(i + 4).padStart(2, "0")}
-                  </span>
-                  <span className="absolute top-7 right-7 text-[10px] font-mono tracking-[0.2em] text-green">
-                    {product.type}
-                  </span>
-                  <div className="flex justify-center mt-14 mb-6">
-                    <PhoneMockup product={product.mockup} size="small" />
-                  </div>
-                  <h3 className="text-xl font-[family-name:var(--font-serif)] italic text-heading mb-3">
-                    {product.name}
-                  </h3>
-                  <p className="text-body text-sm leading-relaxed mb-5">
-                    {product.description}
-                  </p>
-                  <div className="flex items-center gap-3 mb-4">
-                    {product.price && (
-                      <span className="text-heading text-sm font-[family-name:var(--font-sans)]">
-                        {product.price}
-                      </span>
-                    )}
-                    {product.rating && (
-                      <span className="text-[10px] text-muted font-mono">
-                        {product.rating} ★
-                      </span>
-                    )}
-                  </div>
-                  {product.link && (
-                    <a
-                      href={product.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-green text-sm link-underline font-[family-name:var(--font-sans)]"
-                    >
-                      {product.linkLabel} &rarr;
-                    </a>
-                  )}
-                </div>
+                <ProductCard product={product} index={i + 3} />
               </ScrollReveal>
             ))}
           </div>

@@ -1,12 +1,14 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import PhoneMockup from "@/components/PhoneMockup";
+import DragIn1Mockup from "@/components/DragIn1Mockup";
 import AppStoreBadge from "@/components/AppStoreBadge";
 import ScrollReveal from "@/components/ScrollReveal";
 
 export const metadata: Metadata = {
   title: "Products",
   description:
-    "Explore WildTech Development products: Spirits of Charleston, Spirits of Savannah, EZ Fuse Tester, Churchd, and VikingSense.",
+    "Explore WildTech Development products: Spirits of Charleston, Spirits of Savannah, DragIn1, EZ Fuse Tester, Churchd, and VikingSense.",
   openGraph: {
     title: "Products | WildTech Development",
     description:
@@ -35,6 +37,8 @@ const products = [
     appStoreUrl: "https://apps.apple.com/us/app/spirits-of-charleston/id6476931671",
     externalUrl: null,
     externalLabel: null,
+    internalUrl: null,
+    internalLabel: null,
     review: {
       quote: "Even my ghost-averse daughter stayed highly engaged as we used the app to fill gaps in our vacation itinerary. It is easy to navigate, cheaper than the in-person ghost tours, and certainly more convenient.",
       author: "App Store Review",
@@ -61,11 +65,39 @@ const products = [
     appStoreUrl: "https://apps.apple.com/us/app/spirits-of-savannah/id6740187114",
     externalUrl: null,
     externalLabel: null,
+    internalUrl: null,
+    internalLabel: null,
     review: {
       quote: "This app turned out to be the best tour we took on our girl\u2019s weekend to Savannah!",
       author: "Ghostnay",
     },
     statusNote: null,
+  },
+  {
+    name: "DragIn1",
+    mockup: null,
+    status: "Live" as const,
+    price: "Free",
+    rating: null,
+    accentColor: "border-l-emerald-500/30",
+    description:
+      "DragIn1 fixes a problem that looks like a broken email client. Drag an attachment out of New Outlook onto a folder or an upload box and nothing happens — no error, no file. The same thing happens from Teams, Gmail, SharePoint and OneDrive, because all of them are Chromium underneath, and Chromium offers a dragged file rather than handing it over. It waits to be asked in a specific way that almost no Windows application implements. DragIn1 is a small always-on-top window that knows how to ask. Drop the attachment on it, and it saves the real file to your disk; drag it out of DragIn1 and it is an ordinary Windows file that every destination accepts. It is free, MIT licensed, and makes no network connections of any kind.",
+    features: [
+      "Works from New Outlook, Teams, Gmail, SharePoint, OneDrive",
+      "Drops onto anything that accepts a file",
+      "Ctrl+C puts files on the clipboard",
+      "No network connections, no telemetry",
+      "Windows 10 and 11, no admin rights",
+      "MIT licensed, source on GitHub",
+    ],
+    appStoreUrl: null,
+    externalUrl: null,
+    externalLabel: null,
+    internalUrl: "/dragin1",
+    internalLabel: "About DragIn1",
+    review: null,
+    statusNote:
+      "Free and open source. Also available as a Chrome extension for the same problem inside the browser.",
   },
   {
     name: "EZ Fuse Tester",
@@ -87,6 +119,8 @@ const products = [
     appStoreUrl: "https://apps.apple.com/us/app/ez-fuse-tester/id6737378228",
     externalUrl: null,
     externalLabel: null,
+    internalUrl: null,
+    internalLabel: null,
     review: {
       quote: "This is great. I was getting ready to throw out a bunch of Halloween lights and I tested and replaced a couple of the fuses and now the lights work.",
       author: "App Store Review",
@@ -113,6 +147,8 @@ const products = [
     appStoreUrl: null,
     externalUrl: "https://churchd.com",
     externalLabel: "Visit churchd.com",
+    internalUrl: null,
+    internalLabel: null,
     review: null,
     statusNote: "Currently in active development. Profile tabs, post feeds, and community features already designed and prototyped.",
   },
@@ -136,6 +172,8 @@ const products = [
     appStoreUrl: null,
     externalUrl: "https://vikingsense.com",
     externalLabel: "Visit vikingsense.com",
+    internalUrl: null,
+    internalLabel: null,
     review: null,
     statusNote: "Precision hardware with exclusive MSI-Viking Gage distribution. Production units shipping.",
   },
@@ -182,7 +220,11 @@ export default function ProductsPage() {
                   <div className={`flex flex-col lg:flex-row gap-10 lg:gap-16 ${isEven ? "lg:flex-row-reverse" : ""}`}>
                     {/* Mockup */}
                     <div className="flex justify-center lg:flex-shrink-0 lg:self-start">
-                      <PhoneMockup product={product.mockup} />
+                      {product.mockup ? (
+                        <PhoneMockup product={product.mockup} />
+                      ) : (
+                        <DragIn1Mockup id={`products-${product.name}`} />
+                      )}
                     </div>
 
                     {/* Content */}
@@ -261,6 +303,11 @@ export default function ProductsPage() {
                           >
                             {product.externalLabel} &rarr;
                           </a>
+                        )}
+                        {product.internalUrl && (
+                          <Link href={product.internalUrl} className="btn-ghost">
+                            {product.internalLabel} &rarr;
+                          </Link>
                         )}
                       </div>
                     </div>

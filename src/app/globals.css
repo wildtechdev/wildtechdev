@@ -171,6 +171,72 @@ h1, h2, h3, h4, h5, h6 {
   animation: hero-reveal 0.8s ease-out both;
 }
 
+/* DragIn1 flow diagram
+   Each travelling chip is absolutely positioned inside its connector and
+   animates `left`, so the track scales with the container at any width.
+   Every track shares one 6s clock, which keeps the two rows in step. */
+@keyframes drag-refused {
+  0%, 6%    { left: 0%; opacity: 0; }
+  12%       { left: 0%; opacity: 1; }
+  38%       { left: 52%; opacity: 1; }
+  44%       { left: 56%; opacity: 1; }
+  50%       { left: 52%; opacity: 1; }
+  64%       { left: 0%; opacity: 0.3; }
+  70%, 100% { left: 0%; opacity: 0; }
+}
+
+@keyframes drag-refused-mark {
+  0%, 40%   { opacity: 0; transform: translate(-50%, -50%) scale(0.6); }
+  48%, 62%  { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+  70%, 100% { opacity: 0; transform: translate(-50%, -50%) scale(0.6); }
+}
+
+/* First hop: source -> shelf. */
+@keyframes drag-hop-in {
+  0%, 6%    { left: 0%; opacity: 0; }
+  12%       { left: 0%; opacity: 1; }
+  32%       { left: 100%; opacity: 1; }
+  36%, 100% { left: 100%; opacity: 0; }
+}
+
+/* Second hop: shelf -> destination, after the shelf has held it a beat. */
+@keyframes drag-hop-out {
+  0%, 52%   { left: 0%; opacity: 0; }
+  56%       { left: 0%; opacity: 1; }
+  80%       { left: 100%; opacity: 1; }
+  88%, 100% { left: 100%; opacity: 0; }
+}
+
+/* The shelf lights up while it is holding the file. */
+@keyframes shelf-hold {
+  0%, 28%   { border-color: #222222; box-shadow: none; }
+  36%, 56%  { border-color: #22c55e; box-shadow: 0 0 22px rgba(34, 197, 94, 0.18); }
+  66%, 100% { border-color: #222222; box-shadow: none; }
+}
+
+.animate-drag-refused { animation: drag-refused 6s ease-in-out infinite; }
+.animate-drag-refused-mark { animation: drag-refused-mark 6s ease-in-out infinite; }
+.animate-drag-hop-in { animation: drag-hop-in 6s ease-in-out infinite; }
+.animate-drag-hop-out { animation: drag-hop-out 6s ease-in-out infinite; }
+.animate-shelf-hold { animation: shelf-hold 6s ease-in-out infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  /* Without motion the chips would sit at opacity 0, so pin each one to a
+     resting position that still reads as a diagram. */
+  .animate-drag-refused,
+  .animate-drag-refused-mark,
+  .animate-drag-hop-in,
+  .animate-drag-hop-out,
+  .animate-shelf-hold {
+    animation: none !important;
+    opacity: 1 !important;
+  }
+  .animate-drag-refused { left: 52%; }
+  .animate-drag-hop-in { left: 100%; }
+  .animate-drag-hop-out { left: 100%; }
+  .animate-shelf-hold { border-color: #22c55e; }
+}
+
 /* Ghost button: outlined green, fills on hover */
 .btn-ghost {
   display: inline-flex;
