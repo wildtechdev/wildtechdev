@@ -43,6 +43,7 @@ export default function CommandPalette({
       { id: "work", label: "Work / Case studies", group: "Pages", keywords: "portfolio projects", action: () => router.push("/work") },
       { id: "products", label: "Products", group: "Pages", keywords: "apps", action: () => router.push("/products") },
       { id: "services", label: "Services", group: "Pages", keywords: "ios web hardware", action: () => router.push("/services") },
+      { id: "netsuite", label: "NetSuite Consulting", group: "Pages", keywords: "erp suitescript suiteql integrations automation", action: () => router.push("/services/netsuite") },
       { id: "process", label: "Process", group: "Pages", keywords: "how we work", action: () => router.push("/process") },
       { id: "journal", label: "Journal", group: "Pages", keywords: "blog posts writing", action: () => router.push("/journal") },
       { id: "faq", label: "FAQ", group: "Pages", keywords: "questions pricing cost", action: () => router.push("/faq") },

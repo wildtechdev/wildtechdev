@@ -36,6 +36,7 @@ const servicesJsonLd = {
       { "@type": "Offer", itemOffered: { "@type": "Service", name: "Web Development" } },
       { "@type": "Offer", itemOffered: { "@type": "Service", name: "App Store Optimization" } },
       { "@type": "Offer", itemOffered: { "@type": "Service", name: "Systems Integration" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "NetSuite Consulting & SuiteScript Development" } },
       { "@type": "Offer", itemOffered: { "@type": "Service", name: "Hardware Solutions" } },
     ],
   },
@@ -76,6 +77,13 @@ const services = [
       "Most businesses run on a patchwork of software, hardware, and third-party services that were never designed to talk to each other. We connect those pieces into unified systems with clean data pipelines and reliable automation. Whether it is linking an ERP system to an e-commerce storefront or bridging legacy equipment with modern dashboards, we build the connective tissue that makes everything work together.",
     tags: ["API Integration", "Data Pipelines", "Legacy Modernization", "Cloud Services"],
     proof: { label: "See it shipped: Viking Sensors", href: "/work/viking-sensors" },
+  },
+  {
+    title: "NetSuite Consulting",
+    description:
+      "SuiteScript development, SuiteQL reporting, integrations, workflow automation, and AI assisted operations for teams that run their business on NetSuite. The difference in our practice: we are not just consultants who configure the system, we are operators who run NetSuite every business day inside a national industrial distributor. The scripts we write are scripts we have to live with on Monday morning, and it shows.",
+    tags: ["SuiteScript 2.1", "SuiteQL & Saved Searches", "Integrations", "AI Assisted Operations"],
+    proof: { label: "Go deeper: our NetSuite practice", href: "/services/netsuite" },
   },
   {
     title: "Hardware Solutions",
