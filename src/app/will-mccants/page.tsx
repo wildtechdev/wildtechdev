@@ -738,16 +738,8 @@ export default function WillMcCantsPage() {
                     Optotechnik 3D scanning systems. Within a year he
                     transitioned from student to instructor, traveling to
                     customer sites to perform demos, write proposals, and
-                    teach those same systems to engineers nationwide.
-                  </p>
-                  <p>
-                    In March of 2020, Will performed a reverse-engineering
-                    demo at a manufacturer whose engineering team had just
-                    returned from overseas. One engineer was under the weather
-                    and could not attend. Within days, Will and many of his
-                    Charleston coworkers were sick too. He continued working
-                    through the pandemic and finally retired from the road in
-                    November 2020.
+                    teach those same systems to engineers nationwide. He
+                    finally retired from the road in November 2020.
                   </p>
                 </div>
               </div>
