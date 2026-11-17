@@ -21,17 +21,6 @@ export type CaseStudy = {
   downloadUrl?: string;
   /** Extra CTAs beside the main ones, e.g. a companion browser extension. */
   extraLinks?: { href: string; label: string }[];
-  /**
-   * Answer-first summary card rendered prominently under the title, for case
-   * studies that rank on problem searches: visitors arriving from Google want
-   * the solution, not the story. When present it REPLACES the header CTA
-   * button row (its actions carry the calls to action instead). Internal
-   * hrefs (starting with /) render as client-side links.
-   */
-  tldr?: {
-    text: string;
-    actions: { href: string; label: string; primary?: boolean }[];
-  };
   productAnchor: string; // Anchor on /products to link back to
   mockup: MockupId; // Product artwork id (phone frame, or a desktop window)
   content: string;
@@ -69,16 +58,6 @@ export const caseStudies: CaseStudy[] = [
         label: "Chrome extension",
       },
     ],
-    tldr: {
-      text: "Dragging attachments out of New Outlook, Teams, Gmail, SharePoint or OneDrive does nothing? That is the bug this page is about, and DragIn1 is our free fix: a tiny Windows app plus a Chrome extension. No account, no network calls, no telemetry, MIT licensed. The story of how we found it is below, if you are curious.",
-      actions: [
-        { href: "/dragin1", label: "Get DragIn1 free", primary: true },
-        {
-          href: "https://chromewebstore.google.com/detail/dragin1/dfjodholanpnddcmbcledbbmbkdcibal",
-          label: "Add the Chrome extension",
-        },
-      ],
-    },
     productAnchor: "dragin1",
     mockup: "dragin1",
     content: `DragIn1 is a small Windows app that fixes drag and drop from New Outlook. It is free, MIT licensed, open source, and it runs entirely on the user's PC with no account, no network calls and no telemetry. There is also a [DragIn1 Chrome extension](https://chromewebstore.google.com/detail/dragin1/dfjodholanpnddcmbcledbbmbkdcibal) covering the same problem from inside the browser.

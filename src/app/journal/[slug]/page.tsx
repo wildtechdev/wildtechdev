@@ -7,6 +7,7 @@ import Prose from "@/components/Prose";
 import ScrollReveal from "@/components/ScrollReveal";
 import ShareRow from "@/components/ShareRow";
 import TableOfContents from "@/components/TableOfContents";
+import TldrCard from "@/components/TldrCard";
 import { getAllSlugs, getPostBySlug, posts } from "@/lib/posts";
 import { formatDate } from "@/lib/format";
 
@@ -169,6 +170,16 @@ export default async function PostPage({
               ))}
             </div>
           </header>
+
+          {/* Answer-first card for search visitors: the fix and where to get
+              it, before any of the story. See Post.tldr. */}
+          {post.tldr && (
+            <TldrCard
+              text={post.tldr.text}
+              actions={post.tldr.actions}
+              className="mb-10"
+            />
+          )}
 
           <div className="border-t border-border pt-10">
             <TableOfContents content={post.content} />

@@ -20,6 +20,16 @@ export type Post = {
   readMinutes: number;
   tags: string[];
   content: string;
+  /**
+   * Answer-first summary card rendered prominently between the post header
+   * and the body, for posts that rank on problem searches: visitors arriving
+   * from Google want the solution before the story. Rendered by TldrCard;
+   * internal hrefs (starting with /) become client-side links.
+   */
+  tldr?: {
+    text: string;
+    actions: { href: string; label: string; primary?: boolean }[];
+  };
 };
 
 const allPosts: Post[] = [
@@ -31,6 +41,16 @@ const allPosts: Post[] = [
     date: "2026-09-16",
     readMinutes: 9,
     tags: ["Build Log", "Windows", "Drag and Drop"],
+    tldr: {
+      text: "Dragging attachments out of New Outlook, Teams, Gmail, SharePoint or OneDrive does nothing? That is the bug this post explains, and DragIn1 is our free fix: a tiny Windows app plus a Chrome extension. No account, no network calls, no telemetry, MIT licensed. The full diagnosis is below, if you are curious.",
+      actions: [
+        { href: "/dragin1", label: "Get DragIn1 free", primary: true },
+        {
+          href: "https://chromewebstore.google.com/detail/dragin1/dfjodholanpnddcmbcledbbmbkdcibal",
+          label: "Add the Chrome extension",
+        },
+      ],
+    },
     content: `Drag an attachment out of New Outlook onto a folder and nothing happens. No error, no file, nothing to search for. Here is what is actually going on, how we proved it, and the roughly thirty lines that fix it.
 
 ## The annoyance
