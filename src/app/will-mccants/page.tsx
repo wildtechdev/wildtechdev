@@ -819,8 +819,8 @@ export default function WillMcCantsPage() {
                   </p>
                   <p>
                     Today he oversees multi-channel operations across
-                    msi-viking.com, Amazon, eBay, and Shopify, serves as the
-                    company&apos;s NetSuite administrator, manages a
+                    msi-viking.com, Amazon, eBay, and Shopify, serves as one
+                    of the company&apos;s NetSuite administrators, manages a
                     multimillion-dollar product inventory, and produces all
                     product photography and video content in-house. Under his
                     leadership, the team cut freight costs by over 40 percent
