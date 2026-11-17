@@ -1045,12 +1045,6 @@ export default function WillMcCantsPage() {
                     Island, South Carolina, where they are active members of
                     Harbor View Presbyterian Church.
                   </p>
-                  <p>
-                    At Harbor View, Will volunteers on the handicap ramp
-                    building committee, hosts quarterly men&apos;s dinners,
-                    and plays guitar in the weekly worship service alongside
-                    Brittany, who sings in the choir.
-                  </p>
                 </div>
               </div>
 
