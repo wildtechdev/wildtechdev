@@ -1045,6 +1045,18 @@ export default function WillMcCantsPage() {
                     Island, South Carolina, where they are active members of
                     Harbor View Presbyterian Church.
                   </p>
+                  <p>
+                    At Harbor View, Will volunteers on the handicap ramp
+                    building committee, hosts quarterly men&apos;s dinners,
+                    photographs members for the church directory, and{" "}
+                    <Link
+                      href="/journal/rebuilding-my-home-church-website"
+                      className="text-accent link-underline"
+                    >
+                      built the church&apos;s website
+                    </Link>
+                    , which he still maintains today.
+                  </p>
                 </div>
               </div>
 
