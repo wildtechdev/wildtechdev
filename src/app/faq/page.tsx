@@ -60,7 +60,7 @@ const faqs = [
   },
   {
     q: "What technology stack do you use?",
-    a: "For iOS we use Swift and SwiftUI. For Windows we use C# and the .NET stack. For web we use Next.js, React, and Tailwind CSS, with TypeScript end to end. For hardware we use the appropriate microcontrollers and embedded toolchains for the project. Our full current stack is on the /uses page. We do not lock projects into proprietary frameworks. The code we deliver runs on standard tooling that any competent developer can pick up later.",
+    a: "For iOS we use Swift and SwiftUI. For Windows we use C# and the .NET stack. For web we use Next.js, React, and Tailwind CSS, with TypeScript end to end. For hardware we use the appropriate microcontrollers and embedded toolchains for the project. We do not lock projects into proprietary frameworks. The code we deliver runs on standard tooling that any competent developer can pick up later.",
   },
   {
     q: "Do you handle App Store submission?",

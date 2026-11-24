@@ -40,6 +40,9 @@ const nextConfig: NextConfig = {
       { source: "/william-mccants", destination: "/will-mccants", permanent: true },
       { source: "/williammccants", destination: "/will-mccants", permanent: true },
       { source: "/mccants", destination: "/will-mccants", permanent: true },
+      // The retired /uses page was indexed and in the sitemap; send old
+      // links somewhere useful instead of a 404
+      { source: "/uses", destination: "/services", permanent: true },
       // Press kit aliases
       { source: "/media", destination: "/press", permanent: true },
       { source: "/media-kit", destination: "/press", permanent: true },

@@ -14,7 +14,6 @@ const companyLinks = [
   { href: "/about", label: "About" },
   { href: "/will-mccants", label: "Founder" },
   { href: "/now", label: "Now" },
-  { href: "/uses", label: "Uses" },
 ];
 
 const resourceLinks = [

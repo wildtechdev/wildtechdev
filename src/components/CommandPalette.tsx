@@ -51,7 +51,6 @@ export default function CommandPalette({
       { id: "founder", label: "Founder / Will McCants", group: "Pages", keywords: "bio", action: () => router.push("/will-mccants") },
       { id: "press", label: "Press & Media Kit", group: "Pages", keywords: "media journalists", action: () => router.push("/press") },
       { id: "now", label: "Now", group: "Pages", action: () => router.push("/now") },
-      { id: "uses", label: "Uses", group: "Pages", keywords: "gear stack tools", action: () => router.push("/uses") },
       { id: "contact", label: "Contact", group: "Pages", keywords: "hire email reach", action: () => router.push("/contact") },
       {
         id: "theme",
