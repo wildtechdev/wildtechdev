@@ -41,6 +41,10 @@ const instrumentSerif = Instrument_Serif({
 
 export const viewport: Viewport = {
   themeColor: "#06070a",
+  // Declares native dark support so Chrome's Auto Dark Mode (force-dark)
+  // lets the site use its own dark theme instead of machine-inverting the
+  // light one, which mangled the logo's colors.
+  colorScheme: "dark light",
 };
 
 export const metadata: Metadata = {

@@ -70,7 +70,7 @@ export default function Footer() {
           {/* Wordmark + tagline + newsletter */}
           <div className="lg:col-span-5">
             <Link href="/" className="inline-flex items-center gap-2.5 group">
-              <LogoMark className="h-9 w-auto shrink-0 text-logomark" />
+              <LogoMark knockoutId="wtd-lm-footer" className="h-9 w-auto shrink-0 text-logomark" />
               <span className="inline-flex items-baseline gap-1.5">
                 <span className="text-[26px] font-[family-name:var(--font-serif)] italic text-heading tracking-tight transition-all duration-500 group-hover:[text-shadow:0_0_24px_color-mix(in_srgb,var(--color-accent)_40%,transparent)]">
                   WildTech

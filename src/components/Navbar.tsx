@@ -75,7 +75,7 @@ export default function Navbar() {
               className="absolute -left-1 -right-1 -top-1 -bottom-1 rounded-full bg-accent/0 group-hover:bg-accent/10 blur-md transition-all duration-500"
               aria-hidden="true"
             />
-            <LogoMark className="relative h-7 w-auto shrink-0 text-logomark" />
+            <LogoMark knockoutId="wtd-lm-nav" className="relative h-7 w-auto shrink-0 text-logomark" />
             <span className="relative text-lg font-[family-name:var(--font-serif)] italic text-heading tracking-tight transition-all duration-500 group-hover:[text-shadow:0_0_20px_color-mix(in_srgb,var(--color-accent)_40%,transparent)]">
               WildTech
             </span>
